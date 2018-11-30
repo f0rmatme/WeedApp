@@ -1,0 +1,22 @@
+{
+  "name": "weedapp",
+  "version": "1.0.0",
+  "description": "Untappd but weed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricKulchycki/WeedApp.git"
+  },
+  "author": "Eric Kulchycki, Gershon Reydmon, Anton Sawka, Tyler Loewen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricKulchycki/WeedApp/issues"
+  },
+  "homepage": "https://github.com/EricKulchycki/WeedApp#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}
