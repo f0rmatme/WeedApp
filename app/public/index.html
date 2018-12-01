@@ -78,8 +78,9 @@
                     <!-- Or let Bootstrap automatically handle the layout -->
                     <div class="row">
                         <div class="col">Name: ${post.name}</div>
-                        <div class="col">Strain: </div>
-                        <div class="col">THC: </div>
+						<div class="col">Weed: ${post.weed.name}</div>
+                        <div class="col">Strain: ${post.weed.strain}</div>
+                        <div class="col">THC: ${post.weed.thc}%</div>
                         <div class="col">CBD: </div>
                         <div class="col">Company: </div>
                     </div>
@@ -111,23 +112,17 @@
                     document.getElementById("post").innerHTML = domString;
                     body.appendChild(section);
                   };
-                  const fetchAndRender = async () => {
-                    const promisePosts = await fetch("/posts");
-                    const posts = await promisePosts.json();
-                    const authors = await Promise.all(
-                      posts.map(async (post) => {
-                        const promiseAuthor = await fetch(`/author/${post.authorId}`);
-                        return promiseAuthor.json();
-                      })
-                    );
-                    const body = document.body;
-                    authors.map((author, index) => {
-                      if (posts[index]) {
-                        const aggregatedPost = {...posts[index], author};
-                        renderPost(body, aggregatedPost);
-                      }
-                    });
-                  };
+				  const fetchAndRender = async () => {
+					const promisePosts = await fetch("/posts");
+					const posts = await promisePosts.json();
+					console.log(posts);
+					const body = document.body;
+					posts.map((post, index) => {
+						if (posts[index]) {
+							renderPost(body, post);
+						}
+					});
+				  };
                   fetchAndRender();
                 });
               </script>
@@ -181,7 +176,6 @@
           </div>
 		  
 		    <h2>Posts and their author</h2>
-  
 
         </div>
 
