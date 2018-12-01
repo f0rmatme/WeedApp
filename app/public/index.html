@@ -150,6 +150,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const renderPost = (body, post) => {
+		console.log(post);
         const section = document.createElement('section');
         const domString = `
           <p>
@@ -158,6 +159,9 @@
           <p>
             <strong>Author: </strong>${post.author.firstName}
           </p>
+		  <p>
+            <strong>Weed: </strong>${post.weed.name}
+          </p>
         `;
         section.innerHTML = domString;
         body.appendChild(section);
@@ -165,17 +169,11 @@
       const fetchAndRender = async () => {
         const promisePosts = await fetch("/posts");
         const posts = await promisePosts.json();
-        const authors = await Promise.all(
-          posts.map(async (post) => {
-            const promiseAuthor = await fetch(`/author/${post.authorId}`);
-            return promiseAuthor.json();
-          })
-        );
-        const body = document.body;
-        authors.map((author, index) => {
+		console.log(posts);
+		const body = document.body;
+        posts.map((post, index) => {
           if (posts[index]) {
-            const aggregatedPost = {...posts[index], author};
-            renderPost(body, aggregatedPost);
+			renderPost(body, post);
           }
         });
       };

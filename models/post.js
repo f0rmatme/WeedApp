@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
 
   Post.associate = (models) => {
     Post.belongsTo(models.author);
+	Post.belongsTo(models.weed, {
+		foreignKey: 'weedId',
+		constraints: false
+	});
   };
 
   return Post;
