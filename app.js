@@ -10,10 +10,21 @@ const apiPost = require("./app/api/post");
 const apiAuthor = require("./app/api/author");
 
 app.use(bodyParser.json());  
-app.use(express.static("app/public"));
+//app.use(express.static("app/public"));
 
 apiPost(app, db);
 apiAuthor(app, db);
+
+app.use(express.static(__dirname + '/app/public/'));
+
+router.use(function (req,res,next) {
+    console.log("/" + req.method);
+    next();
+  });
+  
+  router.get("/",function(req,res){
+    res.sendFile(path + "index.html");
+  });
 
 
 db.sequelize.sync().then( () => {
