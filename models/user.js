@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       email: DataTypes.STRING,
-      bio: DataTypes.STRING
+      bio: DataTypes.STRING,
+      profilepic: DataTypes.STRING
     },
     {
       freezeTableName: true,
