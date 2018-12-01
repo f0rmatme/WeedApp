@@ -10,7 +10,7 @@ const apiPost = require("./app/api/post");
 const apiAuthor = require("./app/api/author");
 
 app.use(bodyParser.json());  
-app.use(express.static("app/public"));
+app.use(express.static(__dirname + "/app/public"));
 
 apiPost(app, db);
 apiAuthor(app, db);
