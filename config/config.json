@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "weeduser",
+      "password": "smokeweed420",
+      "database": "weedstore",
+      "host": "162.243.33.6",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "weeduser",
+      "password": "smokeweed420",
+      "database": "weedstore",
+      "host": "162.243.33.6",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "weeduser",
+      "password": "smokeweed420",
+      "database": "weedstore",
+      "host": "162.243.33.6",
+      "dialect": "mysql"
+    }
+  }
