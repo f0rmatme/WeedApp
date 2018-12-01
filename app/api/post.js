@@ -6,7 +6,12 @@ module.exports = (app, db) => {
   );
 
   app.get( "/post/:id", (req, res) =>
-    db.post.findById(req.params.id).then( (result) => res.json(result))
+    db.post.findOne({
+		where: {
+			id: req.params.id
+		},
+		include: [db.author, db.weed]
+	}).then( (result) => res.json(result))
   );
 
   app.post("/post", (req, res) => 
