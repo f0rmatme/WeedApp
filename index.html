@@ -14,7 +14,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/public/vendor/bootstrap/css/blog-post.css" rel="stylesheet">
+    <link href="css/blog-post.css" rel="stylesheet">
 
   </head>
 
@@ -23,36 +23,28 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">TokeTalk</a>
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Feed
+              <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Settings</a>
+              <a class="nav-link" href="#">Services</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
         </div>
-        <div>
-            <form class="navbar-form" role="search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </form>
-          </div>
       </div>
     </nav>
 </br>
@@ -63,74 +55,72 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8" id="post" style="padding-top: 20px;">
+        <div class="col-lg-8">
 
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  const renderPost = (body, post) => {
-                    const section = document.createElement('section');
-                    const domString = `
-                    <!-- Title -->
-                    <h4 class="mt-4" style="padding-top: 10px">
-                      <img class="img-fluid rounded-circle" src="http://placehold.it/64x64" alt="">
-                      Username
-                    </h4>
+          <!-- Title -->
+          <h1 class="mt-4">Post Title</h1>
 
-                    <hr>
+          <!-- Author -->
+          <p class="lead">
+            by
+            <a href="#">Start Bootstrap</a>
+          </p>
 
-                    <!-- Or let Bootstrap automatically handle the layout -->
-                    <div class="row">
-                        <div class="col">Name: ${post.name}</div>
-						<div class="col">Weed: ${post.weed.name}</div>
-                        <div class="col">Strain: ${post.weed.strain}</div>
-                        <div class="col">THC: ${post.weed.thc}%</div>
-                        <div class="col">CBD: </div>
-                        <div class="col">Company: </div>
-                    </div>
-                  
-                    <div class="row">
-                      <div class="col">Tags:</div>
-                      <div class="col">PostID:</div>
-                      <div class="col">User:</div>
-                      <div class="col">Date:</div>
-                      
-                    </div>
+          <!-- <hr>
 
-                    <hr>
+          Date/Time
+          <p>Posted on January 1, 2018 at 12:00 PM</p>
 
-                    <!-- Preview Image -->
-                    <div>
-                    <img class="img-fluid rounded" src="${post.weed.pictureUrl}" alt="" style="padding: 5px">
-                    // <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="" style="padding: 5px">
-                    // <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="" style="padding: 5px">
-                    </div>
+          <hr> -->
 
-                    <hr>
+          <hr>
 
-                    <!-- Post Content -->
-                    <div> 
-                      ${post.content}
-                    </div>
 
-                    <hr>
-                    `;
-                    document.getElementById("post").innerHTML = domString;
-                    body.appendChild(section);
-                  };
-				  const fetchAndRender = async () => {
-					const promisePosts = await fetch("/posts");
-					const posts = await promisePosts.json();
-					console.log(posts);
-					const body = document.body;
-					posts.map((post, index) => {
-						if (posts[index]) {
-							renderPost(body, post);
-						}
-					});
-				  };
-                  fetchAndRender();
-                });
-              </script>
+          <!-- Or let Bootstrap automatically handle the layout -->
+          <div class="row">
+            <div class="row">
+                <div class="col">Name:</div>
+                <div class="col">Strain:</div>
+                <div class="col">THC:</div>
+                <div class="col">CBD:</div>
+                <div class="col">Company:</div>
+            </div>
+            <div class="row">
+                <div class="col">Rating:</div>
+                <div class="col">Tags:</div>
+                <div class="col">PostID:</div>
+                <div class="col">Authour:</div>
+                <div class="col">Date:</div>
+            </div>
+            
+          </div>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in
+              <cite title="Source Title">Source Title</cite>
+            </footer>
+          </blockquote>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+
+          <hr>
 
           <!-- Comments Form -->
           <div class="card my-4">
@@ -176,27 +166,25 @@
                   Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                 </div>
               </div>
+
             </div>
           </div>
-		  
-		    <h2>Posts and their author</h2>
 
         </div>
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-4" style="padding-top: 20px">
+        <div class="col-md-4">
 
-          <!-- Side Widget -->
+          <!-- Search Widget -->
           <div class="card my-4">
-            <h4 class="card-header">
-              <img class="img-fluid rounded-circle" src="http://placehold.it/64x64" alt="">
-              Name
-            </h4>
+            <h5 class="card-header">Search</h5>
             <div class="card-body">
-              <div class="row">"username"</div>
-              <div class="row">"email"</div>
-              <div class="row">"description"</div>
-              <div class="row">"Date Joined</div>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
             </div>
           </div>
 
@@ -208,26 +196,26 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Strain</a>
+                      <a href="#">Web Design</a>
                     </li>
                     <li>
-                      <a href="#">Company</a>
+                      <a href="#">HTML</a>
                     </li>
                     <li>
-                      <a href="#">Tags</a>
+                      <a href="#">Freebies</a>
                     </li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">b</a>
+                      <a href="#">JavaScript</a>
                     </li>
                     <li>
-                      <a href="#">c</a>
+                      <a href="#">CSS</a>
                     </li>
                     <li>
-                      <a href="#">d</a>
+                      <a href="#">Tutorials</a>
                     </li>
                   </ul>
                 </div>
@@ -235,6 +223,13 @@
             </div>
           </div>
 
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
 
         </div>
 
@@ -247,7 +242,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; TokeTalk 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
       </div>
       <!-- /.container -->
     </footer>

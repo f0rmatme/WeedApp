@@ -19,6 +19,17 @@ apiAuthor(app, db);
 apiWeed(app, db);
 apiUser(app, db);
 
+app.use(express.static(__dirname + '/app/public/'));
+
+router.use(function (req,res,next) {
+    console.log("/" + req.method);
+    next();
+  });
+  
+  router.get("/",function(req,res){
+    res.sendFile(path + "index.html");
+  });
+
 
 db.sequelize.sync().then( () => {
   app.listen(3000, () => 

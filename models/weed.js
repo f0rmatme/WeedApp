@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 	  thc: DataTypes.DOUBLE,
 	  cbd: DataTypes.DOUBLE,
 	  company: DataTypes.STRING,
+	  pictureUrl: DataTypes.STRING,
     },
     {
       freezeTableName: true,
