@@ -65,19 +65,19 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8" id="post" style="padding-top: 20px;">
+        <div class="col-lg-8" id="weed" style="padding-top: 20px;">
           
           <script>
             document.addEventListener('DOMContentLoaded', function () {
               const renderWeed = (body, weed) => {
                 const section = document.createElement('section');
                 const domString = `
-                
-                
+                <p>test</p>
+                <p>${weed.name}</p>
                 
                 
                 `;
-                document.getElementById("post").innerHTML = domString;
+                document.getElementById("weed").innerHTML = domString;
                 body.appendChild(section);
               };
               const fetchAndRender = async () => {
