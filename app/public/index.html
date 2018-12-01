@@ -64,72 +64,72 @@
 
         <!-- Post Content Column -->
         <div class="col-lg-8" id="post" style="padding-top: 20px;">
+          
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const renderPost = (body, post) => {
+                const section = document.createElement('section');
+                const domString = `
+                <!-- Title -->
+                <h4 class="mt-4" style="padding-top: 10px">
+                  <img class="img-fluid rounded-circle" src="http://placehold.it/64x64" alt="">
+                  Username
+                </h4>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  const renderPost = (body, post) => {
-                    const section = document.createElement('section');
-                    const domString = `
-                    <!-- Title -->
-                    <h4 class="mt-4" style="padding-top: 10px">
-                      <img class="img-fluid rounded-circle" src="http://placehold.it/64x64" alt="">
-                      Username
-                    </h4>
+                <hr>
 
-                    <hr>
-
-                    <div class="row">
-                      <div class="col-sm-4">
-                          <img class="img-fluid rounded" src="${post.weed.pictureUrl}" alt="" style="padding: 5px;">
-                      </div>
-                      <div class="col-sm-8" style="padding-top: 10px;">
-                        <div class="col">Name: ${post.name}</div>
-						            <div class="col">Weed: ${post.weed.name}</div>
-                        <div class="col">Strain: ${post.weed.strain}</div>
-                        <div class="col">THC: ${post.weed.thc}%</div>
-                        <div class="col">CBD: </div>
-                        <div class="col">Company: </div>
-                      </div>
-                    </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                      <img class="img-fluid rounded" src="${post.weed.pictureUrl}" alt="" style="padding: 5px;">
+                  </div>
+                  <div class="col-sm-8" style="padding-top: 10px;">
+                    <div class="col">Name: ${post.name}</div>
+                    <div class="col">Weed: ${post.weed.name}</div>
+                    <div class="col">Strain: ${post.weed.strain}</div>
+                    <div class="col">THC: ${post.weed.thc}%</div>
+                    <div class="col">CBD: </div>
+                    <div class="col">Company: </div>
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="col">Tags:</div>
+                  <div class="col">PostID:</div>
+                  <div class="col">User:</div>
+                  <div class="col">Date:</div>
                   
-                    <div class="row">
-                      <div class="col">Tags:</div>
-                      <div class="col">PostID:</div>
-                      <div class="col">User:</div>
-                      <div class="col">Date:</div>
-                      
-                    </div>
+                </div>
 
-                    <hr>
+                <hr>
 
-                    
+                
 
-                    <hr>
+                <hr>
 
-                    <!-- Post Content -->
-                    <div> 
-                      ${post.content}
-                    </div>
+                <!-- Post Content -->
+                <div> 
+                  ${post.content}
+                </div>
 
-                    <hr>
-                    `;
-                    document.getElementById("post").innerHTML = domString;
-                    body.appendChild(section);
-                  };
-				  const fetchAndRender = async () => {
-					const promisePosts = await fetch("/posts");
-					const posts = await promisePosts.json();
-					console.log(posts);
-					const body = document.body;
-					posts.map((post, index) => {
-						if (posts[index]) {
-							renderPost(body, post);
-						}
-					});
-				  };
-                  fetchAndRender();
+                <hr>
+                `;
+                document.getElementById("post").innerHTML = domString;
+                body.appendChild(section);
+              };
+              const fetchAndRender = async () => {
+                const promisePosts = await fetch("/posts");
+                const posts = await promisePosts.json();
+                console.log(posts);
+                const body = document.body;
+                posts.map((post, index) => {
+                  if (posts[index]) {
+                    renderPost(body, post);
+                  }
                 });
-              </script>
+              };
+              fetchAndRender();
+            });
+          </script>
 
           <!-- Comments Form -->
           <div class="card my-4">
@@ -228,10 +228,7 @@
               </div>
             </div>
           </div>
-
-
         </div>
-
       </div>
       <!-- /.row -->
 
