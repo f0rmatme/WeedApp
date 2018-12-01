@@ -43,6 +43,16 @@
             </li>
           </ul>
         </div>
+        <div>
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </form>
+          </div>
       </div>
     </nav>
 </br>
@@ -53,7 +63,7 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8" id="post">
+        <div class="col-lg-8">
 
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -69,10 +79,10 @@
                     <!-- Or let Bootstrap automatically handle the layout -->
                     <div class="row">
                         <div class="col">Name: ${post.name}</div>
-                        <div class="col">Strain: </div>
-                        <div class="col">THC: </div>
-                        <div class="col">CBD: </div>
-                        <div class="col">Company: </div>
+                        <div class="col">Strain: ${post.weed.strain}</div>
+                        <div class="col">THC: ${post.weed.thc}</div>
+                        <div class="col">CBD: ${post.weed.strain}</div>
+                        <div class="col">Company: ${post.weed}</div>
                     </div>
                   
                     <div class="row">
@@ -99,7 +109,7 @@
 
                     <hr>
                     `;
-                    document.getElementById("post").innerHTML = domString;
+                    section.innerHTML = domString;
                     body.appendChild(section);
                   };
                   const fetchAndRender = async () => {
@@ -181,16 +191,13 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
 
-          <!-- Search Widget -->
+          <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Search</h5>
+            <h5 class="card-header">User Profile</h5>
             <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
+              <div class="row">"username"</div>
+              <div class="row">"description"</div>
+              <div class="row">"Date Joined</div>
             </div>
           </div>
 
@@ -202,26 +209,26 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="#">Strain</a>
                     </li>
                     <li>
-                      <a href="#">HTML</a>
+                      <a href="#">Company</a>
                     </li>
                     <li>
-                      <a href="#">Freebies</a>
+                      <a href="#">a</a>
                     </li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">JavaScript</a>
+                      <a href="#">b</a>
                     </li>
                     <li>
-                      <a href="#">CSS</a>
+                      <a href="#">c</a>
                     </li>
                     <li>
-                      <a href="#">Tutorials</a>
+                      <a href="#">d</a>
                     </li>
                   </ul>
                 </div>
@@ -229,13 +236,6 @@
             </div>
           </div>
 
-          <!-- Side Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-            </div>
-          </div>
 
         </div>
 
