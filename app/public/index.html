@@ -63,7 +63,7 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-8" id="post">
 
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -79,10 +79,10 @@
                     <!-- Or let Bootstrap automatically handle the layout -->
                     <div class="row">
                         <div class="col">Name: ${post.name}</div>
-                        <div class="col">Strain: ${post.weed.strain}</div>
-                        <div class="col">THC: ${post.weed.thc}</div>
-                        <div class="col">CBD: ${post.weed.strain}</div>
-                        <div class="col">Company: ${post.weed}</div>
+                        <div class="col">Strain: </div>
+                        <div class="col">THC: </div>
+                        <div class="col">CBD: </div>
+                        <div class="col">Company: </div>
                     </div>
                   
                     <div class="row">
@@ -109,7 +109,7 @@
 
                     <hr>
                     `;
-                    section.innerHTML = domString;
+                    document.getElementById("post").innerHTML = domString;
                     body.appendChild(section);
                   };
                   const fetchAndRender = async () => {
