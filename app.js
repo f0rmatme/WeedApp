@@ -12,14 +12,9 @@ const apiAuthor = require("./app/api/author");
 app.use(bodyParser.json());  
 app.use(express.static("app/public"));
 
-
 apiPost(app, db);
 apiAuthor(app, db);
 
-router.use(function (req,res,next) {
-  console.log("/" + req.method);
-  next();
-});
 
 db.sequelize.sync().then( () => {
   app.listen(3000, () => 
