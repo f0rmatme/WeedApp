@@ -7,8 +7,31 @@ router.post('/v1', function(req, res) {
 });
 
 app.use('/api', router);
+app.use(express.static(__dirname + '/'));
 
+router.use(function (req,res,next) {
+  console.log("/" + req.method);
+  next();
+});
 
-app.listen(3000, () => {
- console.log("Server running on port 3000");
+router.get("/",function(req,res){
+  res.sendFile(path + "index.html");
+});
+
+router.get("/about",function(req,res){
+  res.sendFile(path + "about.html");
+});
+
+router.get("/contact",function(req,res){
+  res.sendFile(path + "contact.html");
+});
+
+app.use("/",router);
+
+app.use("*",function(req,res){
+  res.sendFile(path + "404.html");
+});
+
+app.listen(3000,function(){
+  console.log("Live at Port 3000");
 });
