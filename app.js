@@ -1,7 +1,12 @@
 var express = require("express");
 var app = express();
+var router = express.Router();
 
-app.get('/', (req, res) => res.send('Hello World!'))
+router.post('/v1', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
+});
+
+app.use('/api', router);
 
 
 app.listen(3000, () => {
