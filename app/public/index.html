@@ -55,6 +55,42 @@
         <!-- Post Content Column -->
         <div class="col-lg-8">
 
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                  const renderPost = (body, post) => {
+                    const section = document.createElement('section');
+                    const domString = `
+                      <p>
+                        <strong>Post: </strong>${post.name}
+                      </p>
+                      <p>
+                        <strong>Author: </strong>${post.author.firstName}
+                      </p>
+                    `;
+                    section.innerHTML = domString;
+                    body.appendChild(section);
+                  };
+                  const fetchAndRender = async () => {
+                    const promisePosts = await fetch("/posts");
+                    const posts = await promisePosts.json();
+                    const authors = await Promise.all(
+                      posts.map(async (post) => {
+                        const promiseAuthor = await fetch(`/author/${post.authorId}`);
+                        return promiseAuthor.json();
+                      })
+                    );
+                    const body = document.body;
+                    authors.map((author, index) => {
+                      if (posts[index]) {
+                        const aggregatedPost = {...posts[index], author};
+                        renderPost(body, aggregatedPost);
+                      }
+                    });
+                  };
+                  fetchAndRender();
+                });
+              </script>
+
           <!-- Title -->
           <h1 class="mt-4">Post Title</h1>
 
@@ -164,41 +200,7 @@
           </div>
 		  
 		    <h2>Posts and their author</h2>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const renderPost = (body, post) => {
-        const section = document.createElement('section');
-        const domString = `
-          <p>
-            <strong>Post: </strong>${post.name}
-          </p>
-          <p>
-            <strong>Author: </strong>${post.author.firstName}
-          </p>
-        `;
-        section.innerHTML = domString;
-        body.appendChild(section);
-      };
-      const fetchAndRender = async () => {
-        const promisePosts = await fetch("/posts");
-        const posts = await promisePosts.json();
-        const authors = await Promise.all(
-          posts.map(async (post) => {
-            const promiseAuthor = await fetch(`/author/${post.authorId}`);
-            return promiseAuthor.json();
-          })
-        );
-        const body = document.body;
-        authors.map((author, index) => {
-          if (posts[index]) {
-            const aggregatedPost = {...posts[index], author};
-            renderPost(body, aggregatedPost);
-          }
-        });
-      };
-      fetchAndRender();
-    });
-  </script>
+  
 
         </div>
 
