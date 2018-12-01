@@ -1,6 +1,8 @@
 module.exports = (app, db) => {
   app.get( "/posts", (req, res) =>
-    db.post.findAll().then( (result) => res.json(result) )
+    db.post.findAll({
+		include: [db.author, db.weed]
+	}).then( (result) => res.json(result) )
   );
 
   app.get( "/post/:id", (req, res) =>
