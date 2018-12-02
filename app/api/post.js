@@ -16,8 +16,13 @@ module.exports = (app, db) => {
 
   app.post("/post", (req, res) => 
     db.post.create({
-      title: req.body.title,
-      content: req.body.content
+      name: req.body.name,
+      createdAt: "2012-04-23T18:25:43.511Z",
+      updatedAt: "2012-04-23T18:25:43.511Z",
+	  userId: req.body.userId,
+	  weedId: req.body.weedId,
+	  content: req.body.content,
+	  tags: req.body.tags,
     }).then( (result) => res.json(result) )
   );
 
