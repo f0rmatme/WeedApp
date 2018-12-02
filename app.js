@@ -14,6 +14,7 @@ const apiPost = require("./app/api/post");
 const apiWeed = require("./app/api/weed");
 const apiUser = require("./app/api/user");
 const apiComment = require("./app/api/comment");
+const userClass = require("./modules/users/user");
 
 // Add session support
 app.use(session({  
@@ -53,7 +54,7 @@ passport.use(new GoogleStrategy(
     scope: [google.scope],
   },
   (accessToken, refreshToken, profile, cb) => {
-    console.log('Our user authenticated with Google, and Google sent us back this profile info identifying the authenticated user:', profile);
+    console.log('Our user authenticated with Google, and Google sent us back this profile info identifying the authenticated user:', profile.displayName);
     return cb(null, profile);
   },
 ));
@@ -65,8 +66,7 @@ passport.use(new GoogleStrategy(
 app.get('/auth/google/callback',  
   passport.authenticate('google', { failureRedirect: '/', session: true }),
   (req, res) => {
-    console.log('wooo we authenticated, here is our user object:', req.user);
-    // res.json(req.user);
+	userClass.checkUser(app, db, req.user);
     res.redirect('/');
   }
 );
