@@ -81,19 +81,23 @@
                             <input id="indica" type="radio" name="strain" value="indica" />
                             <label class="drinkcard-cc indica"for="indica"></label>
                         </div>
-                    <input  class="form-control" name="name" id="name" aria-describedby="Name" placeholder="Please enter something">
+                    <input  type="hidden" class="form-control" name="name" id="name" aria-describedby="Name" placeholder="ummm" value="">
                     </div>
                 <div class="form-group">
                     <label for="userid">UserID</label>
-                    <input class="form-control" name="userId" id="userid" placeholder="Please enter userid">
+                    <input class="form-control" name="userId" id="userid" placeholder="WILL BE AUTOFILLED AT LATER DATE">
                     </div>
                 <div class="form-group">
                     <label for="weedId">Type of Weed</label>
-                    <input class="form-control" name="weedId" id="weedId" placeholder="Please enter the type of weed">
+                    <input class="form-control" name="weedId" id="weedId" placeholder="WE NEED TO BE ABLE TO ENTER WEED NAME NOT ID">
                     </div>
                 <div class="form-group">
-                    <label for="content">Additional Thoghts</label>
-                    <input class="form-control" name="content" id="content" placeholder="Please enter the something">
+                    <label for="rating">Rating out of 5</label>
+                    <input class="form-control" name="rating" id="rating" placeholder="I'LL CHANGE THE INPUT TYPE AT A LATER DATE TO IMAGES">
+                    </div>
+                <div class="form-group">
+                    <label for="content">Additional Description</label>
+                    <input class="form-control" name="content" id="content" placeholder="Additional Description">
                     </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -191,7 +195,7 @@
   <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark fixed-bottom">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; TokeTalk 2018</p>
       </div>
