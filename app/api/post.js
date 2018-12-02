@@ -1,7 +1,7 @@
 module.exports = (app, db) => {
   app.get( "/posts", (req, res) =>
     db.post.findAll({
-		include: [db.author, db.weed]
+		include: [db.user, db.weed]
 	}).then( (result) => res.json(result) )
   );
 
@@ -10,7 +10,7 @@ module.exports = (app, db) => {
 		where: {
 			id: req.params.id
 		},
-		include: [db.author, db.weed]
+		include: [db.user, db.weed]
 	}).then( (result) => res.json(result))
   );
 
