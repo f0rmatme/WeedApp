@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+#submit-post-form {
+    padding-top: 40px;
+}
+
 #sub-btn {
     display: inline-block;
     text-align: center;
