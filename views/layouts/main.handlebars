@@ -1,0 +1,101 @@
+<!-- views/layouts/main.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="User Authentication">
+  <meta name="author" content="">
+
+  <title>User Authentication</title>
+
+  <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/submit.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+  </head>
+
+  <body>
+
+    <div class="container">
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/" >TokeTalk</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+			{{#if user}}
+            <li class="nav-item active">
+              <a class="nav-link" style="font-size: 125%" href="/">Feed
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" style="font-size: 125%" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" style="font-size: 125%" href="#">Settings</a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" style="font-size: 125%" href="/logout">Log Out</a>
+            </li>
+              {{else}}
+				<li class="nav-item">
+					<a class="nav-link" style="font-size: 125%" href="/signin">Sign In</a>
+				</li>
+              {{/if}}
+          </ul>
+        </div>
+        <div>
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </form>
+          </div>
+      </div>
+    </nav>
+	<br>
+
+    {{#if error}}
+      <p class="alert alert-warning">{{error}}</p>
+    {{/if}}
+
+    {{#if success}}
+      <p class="alert alert-success">{{success}}</p>
+    {{/if}}
+
+    {{#if notice}}
+      <p class="alert alert-info">{{notice}}</p>
+    {{/if}}
+
+    <!--where our other templates will insert-->
+    {{{body}}}
+
+    </div> <!-- /container -->
+	
+	<!-- Footer -->
+    <footer class="py-5 bg-dark" id="footer">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; TokeTalk 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

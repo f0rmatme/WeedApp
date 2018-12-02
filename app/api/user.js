@@ -13,6 +13,11 @@ module.exports = (app, db) => {
   		include: [db.weed]
   	}).then( (result) => res.json(result) )
   );
+  
+  app.get("/user/current", (req, res) => {
+		console.log(res);
+	}
+  );
 
   app.get("/user/fav/:weedId", (req, res) => 
   	db.user.findAll({

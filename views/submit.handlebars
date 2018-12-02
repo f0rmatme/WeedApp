@@ -1,0 +1,119 @@
+<!-- views/home.handlebars -->
+{{#if user}}
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8" id="submit-post-form" style="padding-top: 70px; padding-bottom: 40px">
+
+            <h2 id="post-header"><img src="css/images/post.png" alt="post" width="30" height="30"/> New Post</h2>
+            
+        
+            <form method="POST" action="/post">
+                <div class="form-group">
+                    <div class="cc-selector">
+                            <input id="sativa" type="radio" name="strain" value="sativa" checked="checked"/>
+                            <label class="drinkcard-cc sativa" for="sativa"></label>
+                            <input id="hybrid" type="radio" name="strain" value="hybrid" />
+                            <label class="drinkcard-cc hybrid"for="hybrid"></label>
+                            <input id="indica" type="radio" name="strain" value="indica" />
+                            <label class="drinkcard-cc indica"for="indica"></label>
+                        </div>
+                    <input  class="form-control" name="name" id="name" aria-describedby="Name" placeholder="Please enter something">
+                    </div>
+                <div class="form-group">
+                    <label for="weedId">Type of Weed</label>
+                    <input class="form-control" name="weedId" id="weedId" placeholder="Please enter the type of weed">
+                    </div>
+                <div class="form-group">
+                    <label for="content">Additional Thoghts</label>
+                    <input class="form-control" name="content" id="content" placeholder="Please enter the something">
+                    </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
+
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4" style="padding-top: 20px">
+
+          <!-- Submit Post Widget -->
+          <div id="submit" class="btn-block" role="group" aria-label="Basic example">
+            <button class="btn btn-secondary btn-block" id="sub-btn" onclick="location.href='/submit'">Submit Post</button> 
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h4 class="card-header">
+              <img class="img-fluid rounded-circle" src="{{user.profilepic}}" style="width:64px;height:64px;" alt="">
+			  {{user.username}}
+            </h4>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">Email:</div>
+                    <div class="col-9">{{user.email}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Bio:</div>
+                    <div class="col-9">{{user.bio}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-3">Join Date:</div>
+                    <div class="col-9">{{user.createdAt}}</div>
+                </div>
+            </div>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="category.html">Weed</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Company</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg">
+                    <ul class="list-unstyled mb-0">
+                      <li>
+                        <a href="#">Tags</a>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+{{else}}
+  <div class="jumbotron">
+    <h1>MongoDB User Authentication</h1>
+    <p>Sign in and view your profile!</p>
+    <p>
+      <a href="/signin" class="btn btn-primary btn-lg" role="button">
+        <span class="glyphicon glyphicon-user"></span>
+        Sign in!
+      </a>
+    </p>
+  </div>
+
+{{/if}}

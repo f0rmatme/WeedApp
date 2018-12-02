@@ -14,16 +14,17 @@ module.exports = (app, db) => {
 	}).then( (result) => res.json(result))
   );
 
-  app.post("/post", (req, res) => 
+  app.post("/post", (req, res) => {
     db.post.create({
       name: req.body.name,
-      createdAt: "2012-04-23T18:25:43.511Z",
-      updatedAt: "2012-04-23T18:25:43.511Z",
-	  userId: req.body.userId,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+	  userId: req.user.id,
 	  weedId: req.body.weedId,
 	  content: req.body.content,
 	  tags: req.body.tags,
-    }).then( (result) => res.json(result) )
+    }).then( res.redirect('/') );
+  }
   );
 
   app.put( "/post/:id", (req, res) =>

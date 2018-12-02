@@ -1,63 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Blog Post - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="submit.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
-
-
-  </head>
-
-  <body>  
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html" >TokeTalk</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" style="font-size: 125%" href="index.html">Feed
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-size: 125%" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-size: 125%" href="#">Settings</a>
-            </li>
-            </li>
-          </ul>
-        </div>
-        <div>
-            <form class="navbar-form" role="search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </form>
-          </div>
-      </div>
-    </nav>
-</br>
-
+<!-- views/home.handlebars -->
+{{#if user}}
     <!-- Page Content -->
     <div class="container">
 
@@ -127,9 +69,6 @@
               fetchAndRender();
             });
           </script>
-
-          
-
         </div>
 
 
@@ -138,41 +77,28 @@
 
           <!-- Submit Post Widget -->
           <div id="submit" class="btn-block" role="group" aria-label="Basic example">
-            <button class="btn btn-secondary btn-block" id="sub-btn" onclick="loadPage()">Submit Post</button> 
+            <button class="btn btn-secondary btn-block" id="sub-btn" onclick="location.href='/submit'">Submit Post</button> 
           </div>
-
-          
-<!-- Create User Widget -->
-          <div id="submit2" class="btn-block" role="group" aria-label="Basic example">
-            <button class="btn btn-secondary btn-block" id="sub-btn" onclick="location.href = '/create_user.html';">Create User</button> 
-          </div>
-
-          <script>
-              function loadPage()
-              {
-                   location.href = "submit_post.html";
-              } 
-          </script>
 
           <!-- Side Widget -->
           <div class="card my-4">
             <h4 class="card-header">
-              <img class="img-fluid rounded-circle" src="https://avatars0.githubusercontent.com/u/23488590?s=460&v=4/" style="width:64px;height:64px;" alt="">
-				<input type="text" id="logged-in-username" value="">
+              <img class="img-fluid rounded-circle" src="{{user.profilepic}}" style="width:64px;height:64px;" alt="">
+			  {{user.username}}
             </h4>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-5">Email:</div>
-                    <div class="col-5">eric@eric.com</div>
+                    <div class="col-3">Email:</div>
+                    <div class="col-9">{{user.email}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-5">Bio:</div>
-                    <div class="col-5">Programming!</div>
+                    <div class="col-3">Bio:</div>
+                    <div class="col-9">{{user.bio}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-5">Join Date:</div>
-                    <div class="col-5">Dec 1, 2018</div>
+                    <div class="col-3">Join Date:</div>
+                    <div class="col-9">{{user.createdAt}}</div>
                 </div>
             </div>
           </div>
@@ -213,19 +139,15 @@
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark" id="footer">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; TokeTalk 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+{{else}}
+  <div class="jumbotron">
+    <h1>Sign in and view your profile!</h1>
+    <p>
+      <a href="/signin" class="btn btn-primary btn-lg" role="button">
+        <span class="glyphicon glyphicon-user"></span>
+        Sign in!
+      </a>
+    </p>
+  </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="js/user.js"></script>
-
-  </body>
-
-</html>
+{{/if}}

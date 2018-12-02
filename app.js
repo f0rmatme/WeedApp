@@ -1,4 +1,5 @@
 var express = require("express");
+var exphbs = require("express-handlebars");
 var app = express();
 var router = express.Router();
 var bodyParser = require("body-parser"); 
@@ -30,8 +31,20 @@ passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser((userDataFromCookie, done) => {  
-  done(null, userDataFromCookie);
+passport.deserializeUser((userDataFromCookie, done) => {
+  if(userDataFromCookie) {
+	userClass.getUser(app, db, userDataFromCookie.emails[0].value).then((foundUser) => {
+		if(foundUser) { 
+			done(null, foundUser);
+		} else {
+			userClass.createUser(app, db, userDataFromCookie).then((createdUser) => {
+				done(null, createdUser);
+			});
+		}
+	});
+  } else {
+	  done(null, null);
+  }
 });
 
 // Checks if a user is logged in
@@ -39,9 +52,8 @@ const accessProtectionMiddleware = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
   } else {
-    res.status(403).json({
-      message: 'must be logged in to continue',
-    });
+	req.session.error = 'Please sign in!';
+	res.redirect('/');
   }
 };
 
@@ -66,10 +78,15 @@ passport.use(new GoogleStrategy(
 app.get('/auth/google/callback',  
   passport.authenticate('google', { failureRedirect: '/', session: true }),
   (req, res) => {
-	userClass.checkUser(app, db, req.user);
-    res.redirect('/');
+	res.redirect('/');
   }
 );
+
+app.get('/logout', function (req, res) {
+    delete app.locals.user;
+    req.session.destroy();
+    res.redirect('/');
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -80,9 +97,53 @@ apiUser(app, db);
 apiComment(app, db);
 
 
-app.use(express.static(__dirname + '/app/public/'));
-app.use('/app/protected/', accessProtectionMiddleware);
-app.use('/app/protected/', express.static(__dirname + '/app/protected/'));
+// Configure express to use handlebars templates
+var hbs = exphbs.create({
+    defaultLayout: 'main', //we will be creating this layout shortly
+});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
+app.use(express.static(__dirname + '/views'));
+//app.use('/app/protected/', accessProtectionMiddleware);
+//app.use('/app/protected/', express.static(__dirname + '/app/protected/'));
+
+//===============ROUTES=================
+//displays our homepage
+app.get('/', function(req, res){
+  res.render('home', {user: req.user});
+});
+
+//displays our homepage
+app.get('/submit', function(req, res){
+  res.render('submit', {user: req.user});
+});
+
+//displays our signup page
+app.get('/signin', function(req, res){
+  res.render('signin');
+});
+
+//sends the request through our local login/signin strategy, and if successful takes user to homepage, otherwise returns then to signin page
+app.post('/login', passport.authenticate('local-signin', {
+  successRedirect: '/',
+  failureRedirect: '/signin'
+  })
+);
+
+//logs user out of site, deleting them from the session, and returns to homepage
+app.get('/logout', function(req, res){
+  var name = req.user.username;
+  console.log("LOGGIN OUT " + req.user.username)
+  req.logout();
+  res.redirect('/');
+  req.session.notice = "You have successfully been logged out " + name + "!";
+});
 
 db.sequelize.sync().then( () => {
   app.listen(3000, () => 
