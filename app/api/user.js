@@ -28,8 +28,8 @@ module.exports = (app, db) => {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email,
-      createdAt: 0000-00-00 00:00:00,
-      updatedAt: 0000-00-00 00:00:00,
+      createdAt: "2012-04-23T18:25:43.511Z",
+      updatedAt: "2012-04-23T18:25:43.511Z",
       weedId: req.body.weedId,
       bio: req.body.bio,
       profilepic: req.body.profilepic
