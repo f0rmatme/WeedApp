@@ -11,7 +11,8 @@ const apiWeed = require("./app/api/weed");
 const apiUser = require("./app/api/user");
 const apiComment = require("./app/api/comment");
 
-app.use(bodyParser.json());  
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/app/public"));
 
 apiPost(app, db);
