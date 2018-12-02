@@ -23,6 +23,19 @@ module.exports = (app, db) => {
   	}).then( (result) => res.json(result) )
   );
 
+  app.post("/user/create", (req, res) =>
+    db.user.create({
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      createdAt: 0000-00-00 00:00:00,
+      updatedAt: 0000-00-00 00:00:00,
+      weedId: req.body.weedId,
+      bio: req.body.bio,
+      profilepic: req.body.profilepic
+    }).then( (result) => res.json(result) )
+  );
+
   app.put("/user/username/:id", (req, res) => 
     db.user.update({
     	username: req.body.username
