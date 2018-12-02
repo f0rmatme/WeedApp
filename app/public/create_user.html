@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Feed
+              <a class="nav-link" href="index.html">Feed
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -65,7 +65,7 @@
         <div class="row">
   
           <!-- Post Content Column -->
-          <div class="col-lg-8" id="submit-post-form" style="padding-top: 20px;">
+          <div class="col-lg-8" id="submit-post-form" style="padding-top: 40px;">
             
           <form method="POST" action="/user/create">
             <h2>Create Account</h2>
@@ -92,13 +92,17 @@
 
         <!-- Submit Post Widget -->
         <div id="submit" class="btn-block" role="group" aria-label="Basic example">
-                <button class="btn btn-secondary" id="sub-btn" onclick="loadPage()">Create User</button> 
-        </div>
+            <button class="btn btn-secondary btn-block" id="sub-btn" onclick="loadPage()">Submit Post</button> 
+          </div>
+
+        <div id="submit2" class="btn-block" role="group" aria-label="Basic example">
+                <button class="btn btn-secondary btn-block" id="sub-btn" onclick="location.href = '/create_user.html';">Create User</button> 
+            </div>
 
         <script>
             function loadPage()
             {
-                 location.href = "submit_post.html";
+                location.href = "submit_post.html";
             } 
             </script>
 
