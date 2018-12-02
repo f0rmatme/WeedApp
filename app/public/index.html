@@ -65,12 +65,13 @@
 
         <!-- Post Content Column -->
         <div class="col-lg-8" id="post" style="padding-top: 20px;">
-          
+
           <script>
+            var bodyText = "";
             document.addEventListener('DOMContentLoaded', function () {
               const renderPost = (body, post) => {
                 const section = document.createElement('section');
-                const domString = `
+                var domString = `
                 <!-- Title -->
                 <h4 class="mt-4" style="padding-top: 10px">
                   <img class="img-fluid rounded-circle" src="http://placehold.it/64x64" alt="">
@@ -103,10 +104,6 @@
 
                 <hr>
 
-                
-
-                <hr>
-
                 <!-- Post Content -->
                 <div> 
                   ${post.content}
@@ -114,7 +111,9 @@
 
                 <hr>
                 `;
-                document.getElementById("post").innerHTML = domString;
+                //document.getElementById("post").innerHTML += domString;
+                //$(".col-lg-8").append( domString );
+                $('#post').append(domString);
                 body.appendChild(section);
               };
               const fetchAndRender = async () => {
@@ -132,54 +131,7 @@
             });
           </script>
 
-          <!-- Comments Form -->
-          <div class="card my-4">
-            <h5 class="card-header">Leave a Comment:</h5>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
-
-          <!-- Single Comment -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
-          <!-- Comment with nested comments -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-              <div class="media mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                  <h5 class="mt-0">Commenter Name</h5>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-              </div>
-
-              <div class="media mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                  <h5 class="mt-0">Commenter Name</h5>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-              </div>
-            </div>
-          </div>
-		  
-		    <h2>Posts and their author</h2>
+          
 
         </div>
 
@@ -188,7 +140,7 @@
         <div class="col-md-4" style="padding-top: 20px">
 
           <!-- Submit Post Widget -->
-          <div id="submit" class="btn-group" role="group" aria-label="Basic example">
+          <div id="submit" class="btn-block" role="group" aria-label="Basic example">
             <button class="btn btn-secondary" id="sub-btn" onclick="loadPage()">Submit Post</button> 
           </div>
 
@@ -197,7 +149,7 @@
               {
                    location.href = "submit_post.html";
               } 
-              </script>
+          </script>
 
           <!-- Side Widget -->
           <div class="card my-4">

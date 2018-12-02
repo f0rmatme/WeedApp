@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/public/vendor/bootstrap/css/blog-post.css" rel="stylesheet">
-    <link href="/public/vendor/bootstrap/css/submit.css" rel="stylesheet">
+    <link href="/submit.css" rel="stylesheet">
 
 
   </head>
@@ -101,9 +101,9 @@
         <div class="col-md-4" style="padding-top: 20px">
 
           <!-- Submit Post Widget -->
-          <div class="card my-4" id="submit" style="text-align: center; background-color: lightgray">
-            <b>Submit Post</b>
-          </div>
+          <div id="submit" class="btn-block" role="group" aria-label="Basic example">
+              <button class="btn btn-secondary" id="sub-btn" onclick="loadPage()">Submit Post</button> 
+            </div>
 
           <!-- Side Widget -->
           <div class="card my-4">
