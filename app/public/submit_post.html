@@ -66,35 +66,37 @@
 
         <!-- Post Content Column -->
         <div class="col-lg-8" id="submit-post-form" style="padding-top: 70px; padding-bottom: 40px">
+
+            <h2 id="post-header"><img src="images/post.png" alt="post" width="30" height="30"/> New Post</h2>
+            
         
             <form method="POST" action="/post">
-                    <div class="form-group">
-                        <input type="radio" name="emotion" id="sativa" class="strain-selector" />
-                        <label for="sativa"><img src="/images/sun.png" alt="I'm sad" width="50" height="50"/></label>
-                    
-                        <input type="radio" name="emotion" id="hybrid" class="strain-selector"/>
-                        <label for="hybrid"><img src="images/hybrid.png" alt="I'm happy" width="50" height="50"/></label>
+                <div class="form-group">
+                    <div class="cc-selector">
+                            <input id="sativa" type="radio" name="strain" value="sativa" />
+                            <label class="drinkcard-cc sativa" for="sativa"></label>
+                            <input id="hybrid" type="radio" name="strain" value="hybrid" />
+                            <label class="drinkcard-cc hybrid"for="hybrid"></label>
+                            <input id="indica" type="radio" name="strain" value="indica" />
+                            <label class="drinkcard-cc indica"for="indica"></label>
+                        </div>
+                    <input  class="form-control" name="name" id="name" aria-describedby="Name" placeholder="Please enter something">
+                    </div>
+                <div class="form-group">
+                    <label for="userid">UserID</label>
+                    <input class="form-control" name="userId" id="userid" placeholder="Please enter userid">
+                    </div>
+                <div class="form-group">
+                    <label for="weedId">Type of Weed</label>
+                    <input class="form-control" name="weedId" id="weedId" placeholder="Please enter the type of weed">
+                    </div>
+                <div class="form-group">
+                    <label for="content">Additional Thoghts</label>
+                    <input class="form-control" name="content" id="content" placeholder="Please enter the something">
+                    </div>
 
-                        <input type="radio" name="emotion" id="indica" class="strain-selector"/>
-                        <label for="indica"><img src="images/moon2.png" alt="I'm sad" width="50" height="50" /></label>
-                    
-                        <input  class="form-control" name="name" id="name" aria-describedby="Name" placeholder="Please enter something">
-                        </div>
-                    <div class="form-group">
-                        <label for="userid">UserID</label>
-                        <input class="form-control" name="userId" id="userid" placeholder="Please enter userid">
-                        </div>
-                    <div class="form-group">
-                            <label for="weedId">Type of Weed</label>
-                            <input class="form-control" name="weedId" id="weedId" placeholder="Please enter the type of weed">
-                        </div>
-                    <div class="form-group">
-                            <label for="content">Additional Thoghts</label>
-                            <input class="form-control" name="content" id="content" placeholder="Please enter the something">
-                        </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
 
         
 
