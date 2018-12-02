@@ -8,6 +8,11 @@
     padding-bottom: 40px;
 }
 
+.navbar-brand {
+    font-family: Lobster;
+    font-size: 220%;
+}
+
 #submit-post-form {
     padding-top: 40px;
 }
