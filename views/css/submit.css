@@ -1,5 +1,5 @@
 #submit {
-    padding-top: 40px;
+    padding-top: 60px;
     text-align: center;
 }
 
@@ -40,7 +40,7 @@ body {
 }
 
 .col-lg-8 {
-    background-color: #efefef
+    background-color: rgb(239, 239, 239, .5);
 }
 .strain-selector input{
     margin:0;padding:0;
