@@ -20,7 +20,17 @@
 #sub-btn {
     display: inline-block;
     text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
+#user-widget {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#categories {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 #submit2{
 	text-align: center;
 }
@@ -35,9 +45,7 @@ body {
 
 }
 
-#sub-btn {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
+
 
 .col-lg-8 {
     background-color: rgb(239, 239, 239, .5);
