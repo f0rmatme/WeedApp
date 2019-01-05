@@ -13,6 +13,10 @@
     font-size: 220%;
 }
 
+#post {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 #submit-post-form {
     padding-top: 40px;
 }
@@ -36,13 +40,17 @@
 }
 
 body {
-    background: url(images/fabric.png), url(images/cream.png) repeat 0 0;
+    background: url(images/brushed-alum.png), url(images/cream.png) repeat 0 0;
 }
 
 .py5 {
     position: absolute;
     bottom: 0;
 
+}
+
+.signin {
+    padding: 25px;
 }
 
 
