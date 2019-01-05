@@ -1,57 +1,77 @@
 <!-- views/signin.handlebars --->
-<div class="jumbotron" id="maingroup">
-  <h1>Sign in</h1>
-  <p>Please sign-in with your Local, Twitter, Google, or Facebook account to view your profile.</p>
-  <p>
-    <a id="first" data-toggle="collapse" href="#local" data-parent="#maingroup" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in</a>
-    <a href="/auth/twitter" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Twitter</a>
-    <a href="/auth/google/callback" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a>
-    <a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a>
-  </p>
-
-  <div id="local" class="collapse">
-    <a data-toggle="collapse" href="#local2" class="btn btn-default btn-md" role="button">I already have an account</a>
-    <a data-toggle="collapse" href="#reg" class="btn btn-default btn-md" role="button">I need to make an account</a>
-  
-
-
-    <div id="local2" data-parent="#local" class="panel-collapse collapse">
-        <form class="signin" id="local-sign-in" action="/login" method="post">
-            <div>
-                <p></p>
-                <label>Username:</label>
-                <input type="text" name="username"/>
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" name="password"/>
-            </div>
-            <div>
-                <input type="submit" class="btn btn-primary btn-sm" value="Log In"/>
-            </div>
-        </form>
+<div class="row">
+    <div class="col-lg-4" style="padding-top: 80px;">
+        <h1 id="signHeader">Sign in</h1>
     </div>
-  
-    <div id="reg" data-parent="#local" class="panel-collapse collapse">
-        <form class="signin" id="local-reg" action="/local-reg" method="post">
-            <div>
-                <p></p>
-                <label>New Username:</label>
-                <input type="text" name="username"/>
-            </div>
-            <div>
-                <label>New Password:</label>
-                <input type="password" name="password"/>
-            </div>
-            <div>
-                <input type="submit" class="btn btn-primary btn-sm" value="Register"/>
-            </div>
-        </form>
-    </div>
+    <div class="col-lg-8" style="padding-top: 0px;">
+        <div class="container" id="maingroup">
+        
+        <p>Please sign-in with your Local, Twitter, Google, or Facebook account to view your profile.</p>
+        <p>
+            <div class="btn-align"><a id="first" data-toggle="collapse" href="#local" data-parent="#maingroup" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in</a></div>
+            <br>
+            <div class="btn-align"><a href="/auth/twitter" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Twitter</a></div>
+            <div class="btn-align"><a href="/auth/google/callback" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a></div>
+            <div class="btn-align"><a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a></div>
+        </p>
 
-    </div>
+        <div id="local" class="collapse">
+            <a data-toggle="collapse" href="#local2" class="btn btn-default btn-md" role="button">I already have an account</a>
+            <a data-toggle="collapse" href="#reg" class="btn btn-default btn-md" role="button">I need to make an account</a>
+        
 
+
+            <div id="local2" data-parent="#local" class="panel-collapse collapse">
+                <form class="signin form-3" id="local-sign-in" action="/login" method="post">
+                    <div>
+                        <p></p>
+                        <label>Username:</label>
+                        <input type="text" name="username" placeholder="Username"/>
+                    </div>
+                    <div>
+                        <label>Password:</label>
+                        <input type="password" name="password" placeholder="Password"/>
+                    </div>
+                    <div>
+                        <p class="clearfix">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Remember me</label>
+                        </p>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Log In"/>
+                    </div>
+                </form>
+            </div>
+        
+            <div id="reg" data-parent="#local" class="panel-collapse collapse">
+                <form class="signin form-3" id="local-reg" action="/local-reg" method="post">
+                    <div>
+                        <p></p>
+                        <label>New Username:</label>
+                        <input type="text" name="username" placeholder="Username"/>
+                    </div>
+                    <div>
+                        <label>New Password:</label>
+                        <input type="password" name="password" placeholder="Password"/>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Register"/>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
 
 
 
