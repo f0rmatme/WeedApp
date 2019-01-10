@@ -140,14 +140,22 @@
     <!-- /.container -->
 
 {{else}}
-  <div class="jumbotron">
-    <h1>Sign in and view your profile!</h1>
-    <p>
-      <a href="/signin" class="btn btn-primary btn-lg" role="button">
-        <span class="glyphicon glyphicon-user"></span>
-        Sign in!
-      </a>
-    </p>
+<div class='container2'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Log In</div>
+      <div class='subtitle'></div>
+      <div class='input-fields'>
+        <input type='email' placeholder='Email' class='input-line full-width'></input>
+        <input type='password' placeholder='Password' class='input-line full-width'></input>
+
+      </div>
+      <div class='spacing'>or log in with <span class='highlight'><br><a class="no-colour" href="/auth/google/callback">Google</a></span></div>
+      <div><button class='ghost-round full-width'>Log In</button></div>
+      <div style="text-align: center;"><a href="/signin">Sign Up?</a></div>
+    </div>
   </div>
+</div>
 
 {{/if}}

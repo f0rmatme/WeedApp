@@ -22,6 +22,7 @@
 }
 
 .btn-align {
+    padding-top: 10px;
     margin-bottom: 10px;
     width: 50%;
     margin: auto;
@@ -59,7 +60,7 @@
 }
 
 body {
-    background: url(images/brushed-alum.png), url(images/cream.png) repeat 0 0;
+    background: linear-gradient(to bottom right, #3a6186, #531726); repeat 0 0;
 }
 
 .py5 {
@@ -129,7 +130,7 @@ body {
     font-family: 'Ubuntu', 'Lato', sans-serif;
     font-weight: 400;
     /* Size and position */
-    width: 300px;
+    width: 50%;
     position: relative;
     margin: 60px auto 30px;
     padding: 10px;
@@ -300,4 +301,10 @@ body {
     transform: rotate(75deg);
     background: linear-gradient(50deg, rgba(255,255,255,0.15), rgba(0,0,0,0));
     pointer-events: none;
+}
+
+#have, #new {
+    width: 50%;
+    float: left;
+    padding: 15px;
 }
