@@ -61,6 +61,9 @@
 
 body {
     background: linear-gradient(to bottom right, #3a6186, #531726); repeat 0 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .py5 {
