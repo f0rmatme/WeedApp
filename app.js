@@ -2,39 +2,39 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var app = express();
 var router = express.Router();
-var bodyParser = require("body-parser"); 
+var bodyParser = require("body-parser");
 var faker = require("faker");
 var lodash = require("lodash");
 var google = require(__dirname + '/config/google.json')['api'];
-const passport = require('passport');  
-const GoogleStrategy = require('passport-google-oauth20').Strategy;  
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 
 const db = require("./models");
-const apiPost = require("./app/api/post");
-const apiWeed = require("./app/api/weed");
-const apiUser = require("./app/api/user");
-const apiComment = require("./app/api/comment");
+const apiPost = require("./routes/api/post");
+const apiWeed = require("./routes/api/weed");
+const apiUser = require("./routes/api/user");
+const apiComment = require("./routes/api/comment");
 const userClass = require("./modules/users/user");
 
 // Add session support
-app.use(session({  
+app.use(session({
   secret: google.sessionSecret,
   resave: false,
   saveUninitialized: false,
 }));
 
-app.use(passport.initialize());  
+app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser((user, done) => {  
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 
 passport.deserializeUser((userDataFromCookie, done) => {
   if(userDataFromCookie) {
 	userClass.getUser(app, db, userDataFromCookie.emails[0].value).then((foundUser) => {
-		if(foundUser) { 
+		if(foundUser) {
 			done(null, foundUser);
 		} else {
 			userClass.createUser(app, db, userDataFromCookie).then((createdUser) => {
@@ -48,7 +48,7 @@ passport.deserializeUser((userDataFromCookie, done) => {
 });
 
 // Checks if a user is logged in
-const accessProtectionMiddleware = (req, res, next) => {  
+const accessProtectionMiddleware = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
   } else {
@@ -58,7 +58,7 @@ const accessProtectionMiddleware = (req, res, next) => {
 };
 
 // Set up passport strategy
-passport.use(new GoogleStrategy(  
+passport.use(new GoogleStrategy(
   {
     clientID: google.clientID,
     clientSecret: google.clientSecret,
@@ -75,7 +75,7 @@ passport.use(new GoogleStrategy(
 
 // This is where users point their browsers in order to get logged in
 // This is also where Google sends back information to our app once a user authenticates with Google
-app.get('/auth/google/callback',  
+app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/', session: true }),
   (req, res) => {
 	res.redirect('/');
@@ -146,7 +146,7 @@ app.get('/logout', function(req, res){
 });
 
 db.sequelize.sync().then( () => {
-  app.listen(3000, () => 
+  app.listen(3000, () =>
     console.log("App listening on port 3000!")
   );
 });
