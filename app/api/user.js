@@ -1,31 +1,28 @@
 module.exports = (app, db) => {
-  app.get("/user", (req, res) => 
-  	db.user.findAll({
-  		include: [db.weed]
-  	}).then( (result) => res.json(result) )
+  app.get("/user", (req, res) =>
+    db.user.findAll().then((result) => res.json(result))
   );
 
-  app.get("/user/:id", (req, res) => 
-  	db.user.findOne({
-  		where: {
-  			id: req.params.id
-  		},
-  		include: [db.weed]
-  	}).then( (result) => res.json(result) )
+  app.get("/user/:id", (req, res) =>
+    db.user.findOne({
+      where: {
+        id: req.params.id
+      },
+    }).then((result) => res.json(result))
   );
-  
+
   app.get("/user/current", (req, res) => {
-		console.log(res);
-	}
-  );
+    console.log(res);
+  });
 
-  app.get("/user/fav/:weedId", (req, res) => 
-  	db.user.findAll({
-  		where: {
-  			weedId: req.params.weedId
-  		},
-  		include: [db.weed]
-  	}).then( (result) => res.json(result) )
+  //Unused Route, don't have favourites as of yet
+  app.get("/user/fav/:weedId", (req, res) =>
+    db.user.findAll({
+      where: {
+        weedId: req.params.weedId
+      },
+      include: [db.weed]
+    }).then((result) => res.json(result))
   );
 
   app.post("/user/create", (req, res) =>
@@ -38,39 +35,36 @@ module.exports = (app, db) => {
       weedId: req.body.weedId,
       bio: req.body.bio,
       profilepic: req.body.profilepic
-    }).then( (result) => res.json(result) )
+    }).then((result) => res.json(result))
   );
 
-  app.put("/user/username/:id", (req, res) => 
+  app.put("/user/username/:id", (req, res) =>
     db.user.update({
-    	username: req.body.username
-  	},
-  	{
-  		where: {
-  			id: req.params.id
-  		}
-    }).then( (result) => res.json(result) )
+      username: req.body.username
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then((result) => res.json(result))
   );
 
-  app.put("/user/password/:id", (req, res) => 
+  app.put("/user/password/:id", (req, res) =>
     db.user.update({
-    	password: req.body.password
-  	},
-  	{
-  		where: {
-  			id: req.params.id
-  		}
-    }).then( (result) => res.json(result) )
+      password: req.body.password
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then((result) => res.json(result))
   );
 
-  app.put("/user/email/:id", (req, res) => 
+  app.put("/user/email/:id", (req, res) =>
     db.user.update({
-    	email: req.body.email
-  	},
-  	{
-  		where: {
-  			id: req.params.id
-  		}
-    }).then( (result) => res.json(result) )
+      email: req.body.email
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then((result) => res.json(result))
   );
 }

@@ -7,4 +7,9 @@ module.exports = (app, db) => {
     db.weed.findById(req.params.id).then((result) => res.json(result))
   );
 
+  app.post("/weed", (req, res) => {
+    console.log(req.body);
+    db.weed.create(req.body).then((result) => res.json(result));
+  });
+
 }
