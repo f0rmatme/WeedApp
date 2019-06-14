@@ -16,5 +16,9 @@ module.exports = (sequelize, DataTypes) => {
 
   //Might use Bcrypt later if we really wanna use actual passwords and not google oauth
 
+  User.associate = (models) => {
+    User.hasMany(models.post);
+  };
+
   return User;
 }
