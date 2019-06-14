@@ -5,10 +5,15 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      {/*OUR APP GOES HERE
+        Will probably need react router for routes
+        Not sure what else
+
+        */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          ASHTON & ANTON EDIT HERE TO SEE CHANGES
         </p>
         <a
           className="App-link"
