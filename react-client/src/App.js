@@ -1,31 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Switch } from "react-router";
+import MainPage from './componants/MainPage';
+import Nav from './componants/Nav';
 
-function App() {
-  return (
-    <div className="App">
-      {/*OUR APP GOES HERE
-        Will probably need react router for routes
-        Not sure what else
+class App extends React.Component {
 
-        */}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ASHTON & ANTON EDIT HERE TO SEE CHANGES
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <React.Fragment>
+
+        <Nav/>
+
+        <Switch>
+
+          <Route path={'/'} component={MainPage}/>
+
+        </Switch>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
