@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Card from '@material-ui/core/Card';
 
 class MainPage extends React.Component {
 
@@ -34,7 +35,11 @@ class MainPage extends React.Component {
               'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
             }}>
               {this.state.posts.map((post) => (
-                <p>{post.content}</p>
+                <div>
+                  <Card  raised={true}>
+                  <p>{post.content}</p>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
