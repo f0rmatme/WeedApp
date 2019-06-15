@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 const list_style = {
   'width': '400px',
@@ -12,6 +13,12 @@ class MainPage extends React.Component {
 
   };
 
+  componentDidMount() {
+    axios.get('/posts').then(res => {
+      console.log(res.data);
+    });
+  }
+
   render() {
 
     return (
@@ -19,9 +26,9 @@ class MainPage extends React.Component {
         <div style={{
           'width': '40%',
           'height': '100vh',
-          'margin-right': '25%',
-          'margin-top': '25px',
-          'margin-bottom': '25px',
+          'marginRight': '25%',
+          'marginTop': '25px',
+          'marginBottom': '25px',
           'display': 'inline-block',
           'border': '1px solid #000'
         }}>
