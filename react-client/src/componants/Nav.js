@@ -1,7 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import {Toolbar, Typography, Button, IconButton, AppBar} from '@material-ui/core';
+import { makeStyles, Toolbar, Typography, Button, IconButton, AppBar} from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +19,6 @@ export default function Nav(){
 
     const classes = useStyles();
 
-
     return (
       <div className={classes.root}>
       <AppBar position="static">
@@ -31,6 +29,9 @@ export default function Nav(){
           <Typography variant="h6" className={classes.title}>
             TokeTalk
           </Typography>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/">Home</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/posts/">Posts</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/theboys/">The Boys</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import Card from '@material-ui/core/Card';
 
 class MainPage extends React.Component {
@@ -9,18 +9,19 @@ class MainPage extends React.Component {
     loading: true,
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
     axios.get('/posts').then(res => {
       this.setState({
         posts: res.data,
         loading: false,
       })
     });
-  }
+  }*/
 
   render() {
     return (
-      <div>
+      <div style={{'backgroundColor': 'white', 'minHeight': '75vh', 'position': 'relative'}}>
+        <p style={{'textAlign': 'center'}}><h1>Welcome to WeedApp</h1></p>
         {!this.state.loading &&
           <div style={{'textAlign': 'center'}}>
             <div style={{
@@ -34,7 +35,7 @@ class MainPage extends React.Component {
               'borderRadius': '3px',
               'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
             }}>
-              {this.state.posts.map((post) => (
+              {this.state.posts.length > 0 && this.state.posts.map((post) => (
                 <div>
                   <Card  raised={true}>
                   <p>{post.content}</p>
