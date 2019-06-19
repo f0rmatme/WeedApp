@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Nav(){
+const Nav = (props) => {
 
     const classes = useStyles();
 
@@ -29,9 +29,9 @@ export default function Nav(){
           <Typography variant="h6" className={classes.title}>
             TokeTalk
           </Typography>
-          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/">Home</Button>
-          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/posts/">Posts</Button>
-          <Button className={classes.menuButton} color="inherit" aria-label="Menu" href="/theboys/">The Boys</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.home}>Home</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.posts}>Posts</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.theboys}>The Boys</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
@@ -39,3 +39,5 @@ export default function Nav(){
     );
 
 }
+
+export default Nav;

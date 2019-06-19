@@ -49,20 +49,20 @@ class Posts extends React.Component {
           'flexWrap': 'wrap',
           'justifyContent': 'space-around'
         }}>
-          <Card raised={true} style={{
+          <Card raised={false} style={{
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
             <img src={Eric} alt="eric is gay" style={{'margin': 'auto'}}/>
           </Card>
-          <Card raised={true} style={{
+          <Card raised={false} style={{
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>hot dog stand</p>
           </Card>
@@ -70,7 +70,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>makeup models</p>
           </Card>
@@ -78,7 +78,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>chocolate rain</p>
           </Card>
@@ -86,7 +86,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
           </Card>
@@ -94,7 +94,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
           </Card>
@@ -102,7 +102,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
           </Card>
@@ -110,7 +110,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
           </Card>
@@ -118,7 +118,7 @@ class Posts extends React.Component {
             'width': '21vw',
             'height': '30vh',
             'textAlign': 'center',
-            'margin': '25px'
+            'margin': '5px'
           }}>
             <p>big beaner</p>
           </Card>
