@@ -19,7 +19,7 @@ class WeedFooter extends React.Component {
           <div style={{'textAlign': 'center'}}>
             <CopyrightIcon style={{'marginRight': '15px'}}/>
             <Typography color="inherit" variant="overline" style={{'fontSize': '35px'}}>
-              WeedApp 2019
+              WeedApp {new Date().getFullYear()}
             </Typography>
           </div>
         </footer>

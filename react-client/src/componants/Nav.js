@@ -31,6 +31,7 @@ const Nav = (props) => {
           </Typography>
           <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.home}>Home</Button>
           <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.posts}>Posts</Button>
+          <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.newpost}>New Post</Button>
           <Button className={classes.menuButton} color="inherit" aria-label="Menu" onClick={props.theboys}>The Boys</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>

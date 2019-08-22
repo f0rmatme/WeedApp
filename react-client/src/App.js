@@ -8,6 +8,7 @@ import Posts from './componants/Posts';
 import WeedFooter from './componants/WeedFooter';
 import TheBoys from './componants/TheBoys';
 import NewCharacter from './componants/NewCharacter';
+import CreatePost from './componants/CreatePost';
 
 class App extends React.Component {
 
@@ -34,7 +35,7 @@ class App extends React.Component {
 
       <Switch>
 
-        <Route path="/" exact="exact" component={MainPage}/>
+        <Route exact path="/" component={MainPage}/>
         <Route path="/posts/" component={Posts}/>
         <Route path="/theboys/" component={TheBoys}/>
         <Route path="/newcharacter/" component={NewCharacter}/>
