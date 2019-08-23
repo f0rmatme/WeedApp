@@ -7,13 +7,20 @@ import Nav from './componants/Nav';
 import Posts from './componants/Posts';
 import WeedFooter from './componants/WeedFooter';
 import TheBoys from './componants/TheBoys';
+import axios from 'axios';
 import NewCharacter from './componants/NewCharacter';
-import CreatePost from './componants/CreatePost';
+//import CreatePost from './componants/CreatePost';
 
 class App extends React.Component {
 
   handleHome = () => {
     this.props.history.push('/');
+  }
+
+  componentDidMount(){
+    axios.get('http://localhost:3000/posts').then((res) => {
+      console.log(res);
+    })
   }
 
   handlePosts = () => {
@@ -29,7 +36,8 @@ class App extends React.Component {
   }
 
   render() {
-    return (<React.Fragment>
+    return (
+      <React.Fragment>
 
       <Nav home={this.handleHome} posts={this.handlePosts} theboys={this.handleTheBoys} newchar={this.handleNewCharacter}/>
 

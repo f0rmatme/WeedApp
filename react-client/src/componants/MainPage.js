@@ -21,7 +21,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div style={{'backgroundColor': 'white', 'minHeight': '75vh', 'position': 'relative'}}>
-        <p style={{'textAlign': 'center'}}><h1>Welcome to WeedApp</h1></p>
+        <p style={{'textAlign': 'center', 'fontSize':'bold'}}>Welcome to WeedApp</p>
         {!this.state.loading &&
           <div style={{'textAlign': 'center'}}>
             <div style={{
