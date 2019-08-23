@@ -2,25 +2,19 @@ import React from 'react';
 import './App.css';
 import {Route, Switch} from "react-router";
 import {withRouter} from 'react-router-dom';
-import MainPage from './componants/MainPage';
-import Nav from './componants/Nav';
-import Posts from './componants/Posts';
-import WeedFooter from './componants/WeedFooter';
-import TheBoys from './componants/TheBoys';
+import MainPage from './components/MainPage';
+import Nav from './components/Nav';
+import Posts from './components/Posts';
+import WeedFooter from './components/WeedFooter';
+import TheBoys from './components/TheBoys';
 import axios from 'axios';
-import NewCharacter from './componants/NewCharacter';
+import NewCharacter from './components/NewCharacter';
 //import CreatePost from './componants/CreatePost';
 
 class App extends React.Component {
 
   handleHome = () => {
     this.props.history.push('/');
-  }
-
-  componentDidMount(){
-    axios.get('http://localhost:3000/posts').then((res) => {
-      console.log(res);
-    })
   }
 
   handlePosts = () => {
