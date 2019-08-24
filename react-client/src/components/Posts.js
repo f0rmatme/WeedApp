@@ -122,12 +122,14 @@ class Posts extends React.Component {
                     title={
                       <Flex>
                         <img
+                          alt="profile"
                           style={{
                             borderRadius: "50%",
                             height: "25px",
                             width: "25px",
                             margin: "5px"
                           }}
+                          src={post.user.profilepic}
                         />
                         <Box
                           style={{
@@ -153,8 +155,12 @@ class Posts extends React.Component {
                       {post.content}
                     </Box>
                     <Flex>
-                      {this.processTags(post.tags).map(tag => {
-                        return <Tag color={this.getRandomColour()}>{tag}</Tag>;
+                      {this.processTags(post.tags).map((tag, key) => {
+                        return (
+                          <Tag key={key} color={this.getRandomColour()}>
+                            {tag}
+                          </Tag>
+                        );
                       })}
                     </Flex>
                   </Card>
