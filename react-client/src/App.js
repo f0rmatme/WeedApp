@@ -1,31 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router";
+import { withRouter } from "react-router-dom";
+import MainPage from "./components/MainPage";
+import Nav from "./components/Nav";
+import Posts from "./components/Posts";
+import WeedFooter from "./components/WeedFooter";
+import TheBoys from "./components/TheBoys";
+import NewCharacter from "./components/NewCharacter";
+//import CreatePost from './componants/CreatePost';
 
-function App() {
-  return (
-    <div className="App">
-      {/*OUR APP GOES HERE
-        Will probably need react router for routes
-        Not sure what else
+class App extends React.Component {
+  handleHome = () => {
+    this.props.history.push("/");
+  };
 
-        */}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ASHTON & ANTON EDIT HERE TO SEE CHANGES
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  handlePosts = () => {
+    this.props.history.push("/posts/");
+  };
+
+  handleTheBoys = () => {
+    this.props.history.push("/theboys/");
+  };
+
+  handleNewCharacter = () => {
+    this.props.history.push("/newcharacter");
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Nav
+          home={this.handleHome}
+          posts={this.handlePosts}
+          theboys={this.handleTheBoys}
+          newchar={this.handleNewCharacter}
+        />
+
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/posts/" component={Posts} />
+          <Route path="/theboys/" component={TheBoys} />
+          <Route path="/newcharacter/" component={NewCharacter} />
+        </Switch>
+
+        <WeedFooter />
+      </React.Fragment>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

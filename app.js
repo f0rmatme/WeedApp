@@ -17,6 +17,11 @@ const apiUser = require("./routes/api/user");
 const apiComment = require("./routes/api/comment");
 const userClass = require("./modules/users/user");
 
+const cors = require("cors");
+
+app.use(cors());
+
+
 // Add session support
 app.use(session({
   secret: google.sessionSecret,
