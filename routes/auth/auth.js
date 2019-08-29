@@ -23,10 +23,12 @@ module.exports = (app, db) => {
               "XxSmonkWeedErrday420xX",
               { expiresIn: 129600 }
             ); // Signing the token
+            console.log(user);
             res.json({
               sucess: true,
               err: null,
-              token
+              token,
+              user: user
             });
           } else {
             console.log("Entered Password and Hash do not match!");
