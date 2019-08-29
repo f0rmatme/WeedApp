@@ -33,7 +33,7 @@ class Posts extends React.Component {
         this.setState({ posts: res.data, loading: false });
       })
       .catch(err => {
-        console.log("YOU GOT AN ERROR NIGGA");
+        console.log("YOU GOT AN ERROR NEIGHBOUR");
       });
   }
 
@@ -168,7 +168,7 @@ class Posts extends React.Component {
               );
             })
           ) : (
-            <Box>LOADING WHORE </Box>
+            <Box> LOADING FRIEND </Box>
           )}
         </Box>
       </Box>

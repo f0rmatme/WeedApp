@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Col, Row} from 'antd';
 
@@ -6,19 +6,18 @@ const Weeds = () => {
 
     //axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
     const [weed, setWeed] = useState([]);
-    const [_error, setError] = useState([]);
+    const [fromError, setError] = useState([]);
     const { Meta } = Card;
 
     useEffect(() => {
         axios.get('http://localhost:3000/weed')
         .then(function (response) {
-            
             console.log(response.data);
             setWeed(response.data);
         })
         .catch(function (error) {
+            console.log(error.data);
             setError(error.data);
-            console.log(error);
         });
     }, []);
 
