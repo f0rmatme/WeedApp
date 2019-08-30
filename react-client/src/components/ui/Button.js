@@ -4,20 +4,22 @@ import {
   space,
   color,
   layout,
-  flexbox,
-  border
+  border,
+  background,
+  position
 } from "styled-system";
 
-const Flex = styled("div")(
+const Button = styled("button")(
   {
-    display: "flex"
+    outline: "none"
   },
   typography,
   space,
   color,
   layout,
-  flexbox,
-  border
+  border,
+  background,
+  position
 );
 
-export default Flex;
+export default Button;

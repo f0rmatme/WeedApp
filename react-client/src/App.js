@@ -11,7 +11,7 @@ import axios from "axios";
 import NewCharacter from "./components/NewCharacter";
 import { UserContext } from "./context/userContext";
 import Login from "./components/login";
-//import CreatePost from './componants/CreatePost';
+import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 
 const App = props => {
@@ -35,27 +35,27 @@ const App = props => {
 
   return (
     <React.Fragment>
-      <Nav
-        home={handleHome}
-        posts={handlePosts}
-        theboys={handleTheBoys}
-        newchar={handleNewCharacter}
-      />
-
       {userCtx.username === "" || userCtx.email === "" ? (
         <Switch>
           <Route exact path="/" component={Login} />
         </Switch>
       ) : (
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/posts/" component={Posts} />
-          <Route path="/theboys/" component={TheBoys} />
-          <Route path="/newcharacter/" component={NewCharacter} />
-        </Switch>
+        <Box>
+          <Nav
+            home={handleHome}
+            posts={handlePosts}
+            theboys={handleTheBoys}
+            newchar={handleNewCharacter}
+          />
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route path="/posts/" component={Posts} />
+            <Route path="/theboys/" component={TheBoys} />
+            <Route path="/newcharacter/" component={NewCharacter} />
+          </Switch>
+          <WeedFooter />
+        </Box>
       )}
-
-      <WeedFooter />
     </React.Fragment>
   );
 };

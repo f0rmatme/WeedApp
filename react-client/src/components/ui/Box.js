@@ -1,11 +1,22 @@
-import React from 'react';
+import styled from "@emotion/styled";
+import {
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position
+} from "styled-system";
 
-const Box = (props) => {
-  return (
-    <div {...props} >
-      {props.children}
-    </div>
-  )
-}
+const Box = styled("div")(
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position
+);
 
 export default Box;
