@@ -1,0 +1,17 @@
+@keyframes ChangeColor {
+    0% {background-color: black;}
+    10% {background-color: red;}
+    20% {background-color: orange;}
+    30% {background-color: yellow;}
+    40% {background-color: green;}
+    50% {background-color: cyan;}
+    60% {background-color: blue;}
+    70% {background-color: purple;}
+    80% {background-color: violet;}
+    90% {background-color: pink;}
+    100% {background-color: black;}
+}
+
+.Nick {
+    animation: ChangeColor infinite 5s linear;
+}
