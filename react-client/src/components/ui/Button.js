@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import {
   typography,
   space,
@@ -19,7 +20,10 @@ const Button = styled("button")(
   layout,
   border,
   background,
-  position
+  position,
+  css({
+    ":hover": css({ cursor: "pointer", backgroundColor: "rgba(0,180,0,0.1)" })
+  })
 );
 
 export default Button;

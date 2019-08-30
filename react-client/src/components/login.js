@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import Input from "./ui/Input";
 import Button from "./ui/Button";
 import bgImage from "./images/plant.jpg";
+import { css } from "@emotion/core";
+import { UserContext } from "../context/userContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const userCtx = useContext(UserContext);
+
   const submitLogin = () => {
-    console.log("logging in");
+    axios
+      .post("http://localhost:3000/login", { username, password })
+      .then(res => {
+        userCtx.setToken(res.data.token);
+        userCtx.setUsername(res.data.user.username);
+        userCtx.setEmail(res.data.user.email);
+        window.localStorage.accessToken = res.data.token;
+      });
   };
 
   return (
@@ -101,6 +113,11 @@ const Login = () => {
               borderRadius="5px"
               background="transparent"
               onClick={() => submitLogin()}
+              css={css`
+                $:hover {
+                  cursor: pointer;
+                }
+              `}
             >
               Submit
             </Button>

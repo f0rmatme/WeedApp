@@ -35,10 +35,10 @@ const App = props => {
 
   return (
     <React.Fragment>
-      {userCtx.username === "" || userCtx.email === "" ? (
-        <Switch>
-          <Route exact path="/" component={Login} />
-        </Switch>
+      {userCtx.username === "" ||
+      userCtx.email === "" ||
+      userCtx.token === "" ? (
+        <Login />
       ) : (
         <Box>
           <Nav
