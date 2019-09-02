@@ -1,24 +1,30 @@
-import React from 'react';
-import CopyrightIcon from '@material-ui/icons/Copyright';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import CopyrightIcon from "@material-ui/icons/Copyright";
+import Typography from "@material-ui/core/Typography";
 
 class WeedFooter extends React.Component {
   render() {
-    return ( 
+    return (
       <div>
-        <footer style={{
-          'position': 'relative',
-          'marginLeft': 'auto',
-          'marginRight': 'auto',
-          'marginTop': '10px',
-          'height': '40px',
-          'width': '60vw',
-          'backgroundColor': 'white'
-        }}>
-          <hr/>
-          <div style={{'textAlign': 'center'}}>
-            <CopyrightIcon style={{'marginRight': '15px'}}/>
-            <Typography color="inherit" variant="overline" style={{'fontSize': '35px'}}>
+        <footer
+          style={{
+            position: "relative",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: "10px",
+            height: "15px",
+            width: "60vw",
+            backgroundColor: "white"
+          }}
+        >
+          <hr />
+          <div style={{ textAlign: "center" }}>
+            <CopyrightIcon style={{ marginRight: "15px" }} />
+            <Typography
+              color="inherit"
+              variant="overline"
+              style={{ fontSize: "14px" }}
+            >
               WeedApp {new Date().getFullYear()}
             </Typography>
           </div>

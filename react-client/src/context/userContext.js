@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const UserContext = React.createContext({
   username: "",
   email: "",
-  token: "",
+  token: window.localStorage.accessToken,
   setUsername: () => {},
   setEmail: () => {},
   setToken: () => {}
@@ -12,7 +12,7 @@ export const UserContext = React.createContext({
 const UserProvider = props => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [token, setToken] = useState(window.localStorage.accessToken | "");
+  const [token, setToken] = useState(window.localStorage.accessToken);
   return (
     <UserContext.Provider
       value={{ username, email, token, setUsername, setEmail, setToken }}

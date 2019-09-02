@@ -27,8 +27,11 @@ class Posts extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props.at);
     axios
-      .get("http://localhost:3000/posts")
+      .get("http://localhost:3000/posts", {
+        headers: { Authorization: `Bearer ${this.props.at}` }
+      })
       .then(res => {
         this.setState({ posts: res.data, loading: false });
       })
@@ -89,7 +92,7 @@ class Posts extends React.Component {
           }}
         >
           <Button type="primary" onClick={this.showModalForm}>
-            Post!
+            New Post
           </Button>
           <PostForm
             wrappedComponentRef={this.saveFormRef}

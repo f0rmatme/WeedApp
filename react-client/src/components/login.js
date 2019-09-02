@@ -8,7 +8,7 @@ import bgImage from "./images/plant.jpg";
 import { css } from "@emotion/core";
 import { UserContext } from "../context/userContext";
 
-const Login = () => {
+const Login = ({ setAt }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +22,7 @@ const Login = () => {
         userCtx.setUsername(res.data.user.username);
         userCtx.setEmail(res.data.user.email);
         window.localStorage.accessToken = res.data.token;
+        setAt(res.data.token);
       });
   };
 
