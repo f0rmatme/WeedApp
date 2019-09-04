@@ -39,7 +39,7 @@ apiPost(app, db, jwtMW);
 apiWeed(app, db, jwtMW);
 apiUser(app, db, jwtMW);
 apiComment(app, db, jwtMW);
-authClass(app, db);
+authClass(app, db, jwtMW);
 
 db.sequelize.sync().then(() => {
   app.listen(3000, () => console.log("App listening on port 3000!"));

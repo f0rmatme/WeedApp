@@ -36,10 +36,15 @@ const Login = ({ setAt }) => {
         .post("http://localhost:3000/login", { username, password })
         .then(res => {
           userCtx.setToken(res.data.token);
-          userCtx.setUsername(res.data.user.username);
-          userCtx.setEmail(res.data.user.email);
           userCtx.setUser(res.data.user);
           window.localStorage.accessToken = res.data.token;
+          window.localStorage.user = JSON.stringify({
+            id: res.data.user.id,
+            username: res.data.user.username,
+            email: res.data.user.email,
+            bio: res.data.user.bio,
+            picture: res.data.user.profilepic
+          });
           setAt(res.data.token);
         })
         .catch(error => {

@@ -51,7 +51,7 @@ const Nav = props => {
             aria-label="Menu"
             onClick={props.weed}
           >
-            Weed
+            Strains
           </Button>
           <Button
             className={classes.menuButton}

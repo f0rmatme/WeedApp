@@ -78,7 +78,7 @@ const Weeds = () => {
             }
           >
             <Meta
-              title={UserContext.username}
+              title={userCtx.user.username}
               description="I like men"
               style={{
                 marginBottom: "10px"

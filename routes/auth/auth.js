@@ -1,7 +1,7 @@
 var bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-module.exports = (app, db) => {
+module.exports = (app, db, jwtMW) => {
   app.post("/login", (req, res) => {
     const { username, password } = req.body;
     console.log("User submitted: ", username, password);
@@ -58,4 +58,14 @@ module.exports = (app, db) => {
         });
     });
   });
+
+  app.get("/me/:id", jwtMW, (req, res) =>
+    db.user
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(result => res.json(result))
+  );
 };
