@@ -40,7 +40,7 @@ const App = props => {
 
   return (
     <React.Fragment>
-      {window.localStorage.accessToken === undefined ? (
+      {!window.localStorage.accessToken ? (
         <Login setAt={setAt} />
       ) : (
         <Box>
