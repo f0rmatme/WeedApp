@@ -38,6 +38,7 @@ const Login = ({ setAt }) => {
           userCtx.setToken(res.data.token);
           userCtx.setUsername(res.data.user.username);
           userCtx.setEmail(res.data.user.email);
+          userCtx.setUser(res.data.user);
           window.localStorage.accessToken = res.data.token;
           setAt(res.data.token);
         })
