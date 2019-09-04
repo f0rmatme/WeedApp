@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Col, Row } from "antd";
 import { UserContext } from "../context/userContext";
+import Box from "./ui/Box";
 
 const Weeds = () => {
   //axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
@@ -27,11 +28,11 @@ const Weeds = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <Box bg="#f5f2e8">
       <Row
         gutter={16}
         style={{
-          marginTop: "25px",
+          paddingTop: "25px",
           marginLeft: "12.5px",
           marginRight: "12.5px"
         }}
@@ -58,7 +59,7 @@ const Weeds = () => {
           );
         })}
       </Row>
-    </React.Fragment>
+    </Box>
   );
 };
 
