@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Col, Row, Tag } from "antd";
+import { Card, Tag } from "antd";
 import { UserContext } from "../context/userContext";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
@@ -9,7 +9,6 @@ import Ad_1 from "./images/ads/bowlingsim.png";
 import Ad_2 from "./images/ads/dopewatcher.png";
 
 const Weeds = () => {
-  //axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
   const [weed, setWeed] = useState([]);
   const [fromError, setError] = useState([]);
   const { Meta } = Card;
@@ -79,7 +78,7 @@ const Weeds = () => {
             }
           >
             <Meta 
-              title="Your Profile"
+              title={UserContext.username}
               description="I like men"
               style={{
                 marginBottom: "10px"
@@ -90,6 +89,9 @@ const Weeds = () => {
             </Box>
             <Box> 
               Updoots: 69
+            </Box>
+            <Box>
+              Email: {UserContext.email}
             </Box>
           </Card>
         </Box>
