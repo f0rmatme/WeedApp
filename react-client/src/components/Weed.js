@@ -32,7 +32,7 @@ const Weeds = () => {
 
   const getStrainColour = strain => {
     console.log(strain);
-    switch(strain){
+    switch (strain) {
       case "hybrid":
       case "Hybrid":
         return "lime";
@@ -49,26 +49,26 @@ const Weeds = () => {
   };
 
   return (
-    <React.Fragment>
+    <Box bg="#f5f2e8">
       <Flex>
-        <Box 
-          style={{ 
-            width : "20%",
-            marginTop : "25px",
-            marginLeft : "25px",
+        <Box
+          style={{
+            width: "20%",
+            marginTop: "25px",
+            marginLeft: "25px",
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-around"
           }}
         >
-          <Card 
+          <Card
             style={{
               height: "300px",
               width: "150px"
             }}
             cover={
-              <img 
-                src={Eric} 
+              <img
+                src={Eric}
                 alt="eric"
                 style={{
                   maxHeight: "150px",
@@ -77,103 +77,97 @@ const Weeds = () => {
               />
             }
           >
-            <Meta 
+            <Meta
               title={UserContext.username}
               description="I like men"
               style={{
                 marginBottom: "10px"
               }}
             />
-            <Box>
-              Posts: 0
-            </Box>
-            <Box> 
-              Updoots: 69
-            </Box>
+            <Box>Posts: 0</Box>
+            <Box>Updoots: 69</Box>
           </Card>
         </Box>
-        <Box 
+        <Box
           style={{
-            width : "60%",
+            width: "60%",
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
             marginTop: "15px"
           }}
         >
-          {
-            weed.map((weedItem,key) => {
-              return (
-                <Box key={key}>
-                  <Card 
-                    hoverable
-                    cover={
-                      <img 
-                        alt="weed"
-                        style={{
-                          maxHeight: "200px",
-                          maxWidth: "195px",
-                        }}
-                        src={weedItem.pictureUrl}
-                      />
-                    }
+          {weed.map((weedItem, key) => {
+            return (
+              <Box key={key}>
+                <Card
+                  hoverable
+                  cover={
+                    <img
+                      alt="weed"
+                      style={{
+                        maxHeight: "200px",
+                        maxWidth: "195px"
+                      }}
+                      src={weedItem.pictureUrl}
+                    />
+                  }
+                  style={{
+                    height: "350px",
+                    width: "200px",
+                    margin: "10px",
+                    justifyContent: "center"
+                  }}
+                >
+                  <Meta
+                    title={weedItem.weedName}
+                    description={weedItem.company}
+                  />
+                  <Tag
+                    color={getStrainColour(weedItem.strain)}
                     style={{
-                      height: "350px",
-                      width: "200px",
-                      margin: "10px",
-                      justifyContent: "center"
+                      marginTop: "5px",
+                      marginBottom: "5px"
                     }}
                   >
-                    <Meta 
-                      title={weedItem.weedName} 
-                      description={weedItem.company} 
-                    />
-                    <Tag
-                      color={getStrainColour(weedItem.strain)}
-                      style={{
-                        marginTop: "5px",
-                        marginBottom: "5px"
-                      }}
-                    >
-                      {weedItem.strain}
-                    </Tag>
-                    <Box 
-                      style={{
-                        wordWrap : "break-word"
-                      }}
-                    >
-                      <b>thc:</b> {weedItem.thc}
-                    </Box>
-                    <Box 
-                      style={{
-                        wordWrap : "break-word"
-                      }}
-                    >
-                      <b>cbd:</b> {weedItem.cbd}
-                    </Box>
-                  </Card>
-                </Box>
-              )
-            })
-          }
+                    {weedItem.strain}
+                  </Tag>
+                  <Box
+                    style={{
+                      wordWrap: "break-word"
+                    }}
+                  >
+                    <b>thc:</b> {weedItem.thc}
+                  </Box>
+                  <Box
+                    style={{
+                      wordWrap: "break-word"
+                    }}
+                  >
+                    <b>cbd:</b> {weedItem.cbd}
+                  </Box>
+                </Card>
+              </Box>
+            );
+          })}
         </Box>
-        <Box 
+        <Box
           style={{
-            width : "20%",
-            marginTop : "25px",
-            marginLeft : "25px",
+            width: "20%",
+            marginTop: "25px",
+            marginLeft: "25px",
             display: "column",
             justifyContent: "center"
           }}
         >
-          <Card 
+          {/*  <Card
             style={{
               height: "300px",
               width: "150px"
             }}
             bordered={false}
             cover={
-              <img 
+              <img
                 style={{
                   maxHeight: "200px",
                   maxWidth: "145px"
@@ -183,19 +177,17 @@ const Weeds = () => {
               />
             }
           >
-            <Meta 
-              title="Bowlingsim"
-            />
-            <Box 
+            <Meta title="Bowlingsim" />
+            <Box
               style={{
-                wordWrap : "break-word"
+                wordWrap: "break-word"
               }}
             >
               Bowl your heart out!
             </Box>
           </Card>
-          <br/>
-          <Card 
+          <br />
+          <Card
             style={{
               height: "300px",
               width: "175px",
@@ -203,7 +195,7 @@ const Weeds = () => {
             }}
             bordered={false}
             cover={
-              <img 
+              <img
                 style={{
                   maxHeight: "200px",
                   maxWidth: "145px"
@@ -213,20 +205,18 @@ const Weeds = () => {
               />
             }
           >
-            <Meta
-              title="Dope Watcher"
-            />
-            <Box 
+            <Meta title="Dope Watcher" />
+            <Box
               style={{
-                wordWrap : "break-word"
+                wordWrap: "break-word"
               }}
             >
               We watch the weed for you!
             </Box>
-          </Card>
+          </Card> */}
         </Box>
       </Flex>
-    </React.Fragment>
+    </Box>
   );
 };
 
