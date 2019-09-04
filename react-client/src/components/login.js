@@ -24,27 +24,42 @@ const Login = ({ setAt }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [signupVisible, setSignupVisible] = useState(false);
+  const [error, setError] = useState("");
 
   const userCtx = useContext(UserContext);
 
   const submitLogin = () => {
-    axios
-      .post("http://localhost:3000/login", { username, password })
-      .then(res => {
-        userCtx.setToken(res.data.token);
-        userCtx.setUsername(res.data.user.username);
-        userCtx.setEmail(res.data.user.email);
-        window.localStorage.accessToken = res.data.token;
-        setAt(res.data.token);
-      });
+    if (username === "" || password === "") {
+      setError("Please enter a username and password");
+    } else {
+      axios
+        .post("http://localhost:3000/login", { username, password })
+        .then(res => {
+          userCtx.setToken(res.data.token);
+          userCtx.setUsername(res.data.user.username);
+          userCtx.setEmail(res.data.user.email);
+          window.localStorage.accessToken = res.data.token;
+          setAt(res.data.token);
+        })
+        .catch(error => {
+          setError("There was an error logging in");
+        });
+    }
   };
 
   const submitSignin = () => {
-    axios
-      .post("http://localhost:3000/signup", { username, password, email })
-      .then(res => {
-        setSignupVisible(false);
-      });
+    if (username === "" || password === "" || email === "") {
+      setError("Please fill out all fields");
+    } else {
+      axios
+        .post("http://localhost:3000/signup", { username, password, email })
+        .then(res => {
+          setSignupVisible(false);
+        })
+        .catch(error => {
+          setError("There was an error with your registration");
+        });
+    }
   };
 
   return (
@@ -132,6 +147,9 @@ const Login = ({ setAt }) => {
                   }}
                 />
               </Flex>
+              <Flex justifyContent="center" mb="20px">
+                {error && <Box color="red">{error}</Box>}
+              </Flex>
               <Flex justifyContent="center" paddingBottom="50px">
                 <Button
                   p="10px"
@@ -182,7 +200,7 @@ const Login = ({ setAt }) => {
           <Flex justifyContent="center">
             <Box
               width="400px"
-              height="480px"
+              height="520px"
               backgroundColor="rgba(0,0,0,.85)"
               borderRadius="25px"
               padding="10px"
@@ -265,6 +283,9 @@ const Login = ({ setAt }) => {
                   }}
                 />
               </Flex>
+              <Flex justifyContent="center" mb="20px">
+                {error && <Box color="red">{error}</Box>}
+              </Flex>
               <Flex justifyContent="center" paddingBottom="50px">
                 <Button
                   p="10px"
@@ -272,11 +293,6 @@ const Login = ({ setAt }) => {
                   borderRadius="5px"
                   background="transparent"
                   onClick={() => submitSignin()}
-                  css={css`
-                    $:hover {
-                      cursor: pointer;
-                    }
-                  `}
                 >
                   Sign Up!
                 </Button>
