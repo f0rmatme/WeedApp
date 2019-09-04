@@ -90,9 +90,6 @@ const Weeds = () => {
             <Box> 
               Updoots: 69
             </Box>
-            <Box>
-              Email: {UserContext.email}
-            </Box>
           </Card>
         </Box>
         <Box 
