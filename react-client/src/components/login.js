@@ -18,6 +18,7 @@ const Login = ({ setAt }) => {
     axios
       .post("http://localhost:3000/login", { username, password })
       .then(res => {
+        console.log(res.data);
         userCtx.setToken(res.data.token);
         userCtx.setUsername(res.data.user.username);
         userCtx.setEmail(res.data.user.email);
