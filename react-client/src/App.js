@@ -1,26 +1,31 @@
 import React, { useContext } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 import { withRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import WeedFooter from "./components/WeedFooter";
 import TheBoys from "./components/TheBoys";
-import axios from "axios";
 import NewCharacter from "./components/NewCharacter";
 import { UserContext } from "./context/userContext";
 import Login from "./components/login";
-//import CreatePost from './componants/CreatePost';
+import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 
 const App = props => {
+  const [at, setAt] = React.useState("");
+
   const handleHome = () => {
     props.history.push("/");
   };
 
   const handlePosts = () => {
     props.history.push("/posts/");
+  };
+
+  const handleWeed = () => {
+    props.history.push("/weed/");
   };
 
   const handleTheBoys = () => {
@@ -35,27 +40,30 @@ const App = props => {
 
   return (
     <React.Fragment>
-      <Nav
-        home={handleHome}
-        posts={handlePosts}
-        theboys={handleTheBoys}
-        newchar={handleNewCharacter}
-      />
-
-      {userCtx.username === "" || userCtx.email === "" ? (
-        <Switch>
-          <Route exact path="/" component={Login} />
-        </Switch>
+      {window.localStorage.accessToken === undefined ? (
+        <Login setAt={setAt} />
       ) : (
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/posts/" component={Posts} />
-          <Route path="/theboys/" component={TheBoys} />
-          <Route path="/newcharacter/" component={NewCharacter} />
-        </Switch>
+        <Box>
+          <Nav
+            setAt={setAt}
+            home={handleHome}
+            posts={handlePosts}
+            theboys={handleTheBoys}
+            newchar={handleNewCharacter}
+            weed={handleWeed}
+          />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/posts" />} />
+            <Route
+              path="/posts/"
+              component={() => <Posts at={userCtx.token} />}
+            />
+            <Route exact path="/weed" component={Weed} />
+            <Route path="/theboys/" component={TheBoys} />
+            <Route path="/newcharacter/" component={NewCharacter} />
+          </Switch>
+        </Box>
       )}
-
-      <WeedFooter />
     </React.Fragment>
   );
 };
