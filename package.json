@@ -4,7 +4,8 @@
   "description": "Untappd but weed",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./seeds/seeder"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
+    "csv": "^0.3.7",
     "express": "^4.16.4",
     "express-generator": "^4.16.0",
     "express-handlebars": "^3.0.0",
