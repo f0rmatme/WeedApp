@@ -14,7 +14,7 @@ import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 
 const App = props => {
-  const [at, setAt] = React.useState("");
+  const [at, setAt] = React.useState(null);
 
   const handleHome = () => {
     props.history.push("/");
@@ -40,7 +40,7 @@ const App = props => {
 
   return (
     <React.Fragment>
-      {window.localStorage.accessToken === undefined ? (
+      {!window.localStorage.accessToken ? (
         <Login setAt={setAt} />
       ) : (
         <Box>

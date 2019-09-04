@@ -77,8 +77,8 @@ class Posts extends React.Component {
     return (
       <Box
         style={{
-          backgroundColor: "white",
-          minHeight: "75vh",
+          backgroundColor: "#f5f2e8",
+          minHeight: "100vh",
           position: "relative",
           padding: "1%",
           paddingRight: "110px"
