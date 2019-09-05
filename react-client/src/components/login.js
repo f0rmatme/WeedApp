@@ -124,6 +124,12 @@ const Login = ({ setAt }) => {
                   borderBottom="2px solid white"
                   placeholder="username"
                   value={username}
+                  onKeyDown={e => {
+                    if (e.keyCode === 13) {
+                      e.preventDefault();
+                      submitLogin();
+                    }
+                  }}
                   onChange={e => {
                     setUsername(e.target.value);
                   }}
@@ -148,6 +154,12 @@ const Login = ({ setAt }) => {
                   placeholder="password"
                   type="password"
                   value={password}
+                  onKeyDown={e => {
+                    if (e.keyCode === 13) {
+                      e.preventDefault();
+                      submitLogin();
+                    }
+                  }}
                   onChange={e => {
                     setPassword(e.target.value);
                   }}
