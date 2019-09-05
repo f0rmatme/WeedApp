@@ -53,7 +53,7 @@ const App = props => {
   }, [window.localStorage.user]);
 
   return (
-    <React.Fragment>
+    <Box fontFamily="Oxygen">
       {!window.localStorage.accessToken ? (
         <Login setAt={setAt} />
       ) : (
@@ -78,7 +78,7 @@ const App = props => {
           </Switch>
         </Box>
       )}
-    </React.Fragment>
+    </Box>
   );
 };
 
