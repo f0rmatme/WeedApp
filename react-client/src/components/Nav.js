@@ -32,7 +32,7 @@ const Nav = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "#8C5434" }}>
+      <AppBar position="static" style={{ backgroundColor: "rgb(110, 51, 95)" }}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             TokeTalk
