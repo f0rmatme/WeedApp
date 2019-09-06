@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import PostForm from "./PostForm";
-import { Button, Card, Tag } from "antd";
+import { Button, Card, Tag, Spin, Icon, Divider } from "antd";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 
@@ -18,6 +18,8 @@ const colours = [
   "geekblue",
   "purple"
 ];
+
+const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
 class Posts extends React.Component {
   state = {
@@ -87,7 +89,7 @@ class Posts extends React.Component {
         <Box
           style={{
             position: "fixed",
-            top: "100px",
+            top: "80px",
             right: "50px"
           }}
         >
@@ -110,6 +112,7 @@ class Posts extends React.Component {
         >
           Posts
         </Box>
+        <Divider />
         <Box
           style={{
             display: "flex",
@@ -150,6 +153,7 @@ class Posts extends React.Component {
                       width: "270px"
                     }}
                   >
+                    <Box fontWeight="bold">{post.weed.weedName}</Box>
                     <Box
                       style={{
                         paddingBottom: "10px"
@@ -171,7 +175,9 @@ class Posts extends React.Component {
               );
             })
           ) : (
-            <Box> LOADING FRIEND </Box>
+            <Flex width="100%" justifyContent="center" mt="20%">
+              <Spin indicator={antIcon} size="large" />
+            </Flex>
           )}
         </Box>
       </Box>
