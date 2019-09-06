@@ -6,6 +6,7 @@ import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { UserContext } from "../context/userContext";
 import { getStrainColour } from "../helpers/strainColour.js";
+import ProfileCard from "./ProfileCard";
 
 const colours = [
   "magenta",
@@ -30,7 +31,6 @@ const Posts = props => {
   });
 
   const userCtx = React.useContext(UserContext);
-  console.log(userCtx);
 
   React.useEffect(() => {
     axios
@@ -56,7 +56,7 @@ const Posts = props => {
   return (
     <Flex backgroundColor="#f5f2e8" minHeight="100vh">
       <Box width="22%"> </Box>
-      <Box width="52%" bg="white" mt="10px" borderRadius="3px">
+      <Box width="45%" bg="white" mt="10px" borderRadius="3px">
         <Box fontWeight="bold" fontSize="14px" p="5%" pt="20px" pb="0px">
           Newest Posts
         </Box>
@@ -148,47 +148,9 @@ const Posts = props => {
           </Flex>
         )}
       </Box>
-      <Box width="26%" padding="10px">
+      <Box width="33%" padding="20px">
         <Flex justifyContent="center" alignItems="center" position="relative">
-          <Box
-            width="80%"
-            height="300px"
-            backgroundColor="white"
-            borderRadius="3px"
-          >
-            <Flex>
-              <img
-                alt="profile"
-                style={{
-                  borderRadius: "50%",
-                  height: "50px",
-                  width: "50px",
-                  margin: "5px"
-                }}
-                src={userCtx.user.picture}
-              />
-              <Box m="5px" mt="15px" fontWeight="bold" fontSize="18px">
-                {userCtx.user.username}
-              </Box>
-            </Flex>
-            <Flex justifyContent="center" alignItems="center">
-              <Box width="90%">
-                <Divider />
-              </Box>
-            </Flex>
-            <Box px="15px" pb="5px" pr="5px">
-              email
-            </Box>
-            <Box px="15px" pb="5px" pr="5px" fontWeight="bold">
-              {userCtx.user.email}
-            </Box>
-            <Box px="15px" py="5px" pr="5px">
-              bio
-            </Box>
-            <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
-              {userCtx.user.bio}
-            </Box>
-          </Box>
+          <ProfileCard />
         </Flex>
       </Box>
     </Flex>

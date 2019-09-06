@@ -45,8 +45,9 @@ const Nav = props => {
         bg="transparent"
         border="none"
         px="20px"
+        color="#9DA077"
         borderBottom={`3px solid ${
-          active === "/posts" || active === "/posts/" ? "#90119c" : "white"
+          active === "/posts" || active === "/posts/" ? "#90119c" : "#9DA077"
         }`}
         fontSize="18px"
         fontWeight="bold"
@@ -62,8 +63,9 @@ const Nav = props => {
         bg="transparent"
         border="none"
         px="20px"
+        color="#9DA077"
         borderBottom={`3px solid ${
-          active === "/weed" || active === "/weed/" ? "#90119c" : "white"
+          active === "/weed" || active === "/weed/" ? "#90119c" : "#9DA077"
         }`}
         fontSize="18px"
         fontWeight="bold"
@@ -81,7 +83,8 @@ const Nav = props => {
         alignSelf="flex-end"
         pr="20px"
         ml="auto"
-        fontSize="18px"
+        color="#9DA077"
+        fontSize="16px"
         fontWeight="bold"
         onClick={handleLogout}
       >

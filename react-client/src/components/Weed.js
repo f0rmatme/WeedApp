@@ -24,7 +24,6 @@ const Weeds = () => {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(function(response) {
-        console.log(response.data);
         setWeed({ weed: response.data, loading: false });
       })
       .catch(function(error) {
