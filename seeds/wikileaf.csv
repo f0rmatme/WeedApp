@@ -1,0 +1,673 @@
+Name,Type,Image,Stats
+Green Crack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Green-Crack.jpg,THC 24%
+Hindu Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Hindu-Kush-Icon.png,THC 20%
+Blue Dream,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue-Dream-Icon.png,THC 27% / CBD 2%
+Sour Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Diesel.jpg,THC 25%
+Girl Scout Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Girl_Scout_Cookies.png,THC 28% / CBD 1%
+NYC Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/NYC_Diesel.png,THC 22%
+OG Kush,Sativa,https://assets.wikileaf.com/assets/strains/strain/OG_Kush_500x500.png,THC 27%
+Jack Herer,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jack_Herer.png,THC 24%
+Pineapple Express,Sativa,https://assets.wikileaf.com/assets/strains/strain/Pineapple_Express.png,THC 27%
+Northern Lights,Indica,https://assets.wikileaf.com/assets/strains/strain/Northern_Lights.jpg,THC 33%
+Trainwreck,Sativa,https://assets.wikileaf.com/assets/strains/strain/trainwreck-strain-icon.jpg,THC 18%
+Chemdawg,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Chemdawg.jpg,THC 22%
+Fruity Pebbles,Indica,https://assets.wikileaf.com/assets/strains/strain/Fruity_Pebbles.png,THC 23%
+Berry White,Indica,https://assets.wikileaf.com/assets/strains/strain/Berry-White-Icon.jpg,THC 22%
+White Widow,Sativa,https://assets.wikileaf.com/assets/strains/strain/White-Widow-Icon.png,THC 20%
+Lemon Skunk,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Skunk.png,THC 22%
+Skywalker,Hybrid,https://assets.wikileaf.com/assets/strains/strain/skywalker-strain-icon.jpg,THC 15%
+Strawberry Cough,Sativa,https://assets.wikileaf.com/assets/strains/strain/Strawberry-Cough-Icon.jpg,THC 23%
+Bubba Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Bubba_Kush.png,THC 23%
+Lemon Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Lemon_Kush.jpg,THC 26% / CBD 6%
+Jack the Ripper,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jack_the_Ripper.png,THC 17%
+Lamb's Bread,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lambs_Bread.jpg,THC 17%
+Purple Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Purple_Haze.png,THC 20%
+Tahoe OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Tahoe_OG.jpg,THC 21%
+Casey Jones,Sativa,https://assets.wikileaf.com/assets/strains/strain/Casey_Jones.jpg,THC 22%
+Violator Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Violator_Kush.png,THC 22%
+Grape Ape,Indica,https://assets.wikileaf.com/assets/strains/strain/Grape-Ape-Icon.jpg,THC 25%
+Cannatonic,Hybrid,https://assets.wikileaf.com/assets/strains/strain/str-cannaton_500x500.png,THC 6% / CBD 2%
+Harlequin,Sativa,https://assets.wikileaf.com/assets/strains/strain/Harlequin-Icon.png,THC 10% / CBD 13%
+Wonder Woman,Sativa,https://assets.wikileaf.com/assets/strains/strain/Wonder_Woman_500x500.png,THC 20%
+Blue Cheese,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue-Cheese-Icon.png,THC 20%
+Pennywise,Indica,https://assets.wikileaf.com/assets/strains/strain/Pennywise-icon.png,THC 15%
+Gorilla Glue #4,Sativa,https://assets.wikileaf.com/assets/strains/strain/Gorilla_Glue_4_500x500.png,THC 32%
+Skywalker OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Skywalker_OG.jpg,THC 26%
+Gorilla Glue,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Gorilla-Glue-Icon.jpg,THC 28%
+Durban Poison,Sativa,https://assets.wikileaf.com/assets/strains/strain/Durban_Poison.jpg,THC 26%
+Gelato,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Gelato-icon.png,THC 25%
+Granddaddy Purple,Indica,https://assets.wikileaf.com/assets/strains/strain/Grand_Daddy_Purple.png,THC 23%
+Cherry Pie,Indica,https://assets.wikileaf.com/assets/strains/strain/Str-CherryPie_500x500.png,THC 26%
+Wedding Cake,Indica,https://assets.wikileaf.com/assets/strains/strain/Wedding-Cake-icon.png,THC 25%
+Khalifa Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Khalifa_Kush.png,THC 29% / CBD 2%
+Death Star,Indica,https://assets.wikileaf.com/assets/strains/strain/Death_Star.jpg,THC 26%
+Lemon Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Haze.jpg,THC 25%
+Larry OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Larry-OG-icon.png,THC 24%
+Strawberry Banana,Indica,https://assets.wikileaf.com/assets/strains/strain/Strawberry_Banana.jpg,THC 33%
+Sour OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Sour_OG.png,THC 27%
+Shishkaberry,Indica,https://assets.wikileaf.com/assets/strains/strain/Shishkaberry.jpg,THC 26%
+Blue Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Cookies.png,THC 25%
+Tangie,Sativa,https://assets.wikileaf.com/assets/strains/strain/Tangie.jpg,THC 22%
+Orange Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Orange_Kush.jpg,THC 24%
+Lucky Charms,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Lucky-Charms-Icon.png,THC 22%
+Orange Creamsicle,Sativa,https://assets.wikileaf.com/assets/strains/strain/Orange-Creamsicle-Icon.png,THC 18%
+Chronic,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chronic.png,THC 20%
+Monster Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Monster-Cookies-Icon.png,THC 16%
+Purple Candy,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Purple_Candy.jpg,THC 19%
+Raspberry Cough,Sativa,https://assets.wikileaf.com/assets/strains/strain/Raspberry_Cough.jpg,THC 24%
+U.K. Cheese,Hybrid,https://assets.wikileaf.com/assets/strains/strain/U.K._Cheese.png,THC 18%
+Armageddon,Sativa,https://assets.wikileaf.com/assets/strains/strain/Armageddon.jpg,THC 20%
+Aspen OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Aspen_OG.png,THC 20%
+Charlotte's Web,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Charlottes-Web-Icon.jpg,THC 1% / CBD 12%
+Sour Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/str-sourk_500x500.png,THC 26%
+Sour Apple,Indica,https://assets.wikileaf.com/assets/strains/strain/str-sour_500x500.png,THC 27%
+Lemon Pie,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Pie.png,THC 22%
+Cookie Monster,Indica,https://assets.wikileaf.com/assets/strains/strain/str-cookmonster_500x500.png,THC 23%
+Orange Bud,Indica,https://assets.wikileaf.com/assets/strains/strain/Orange-Bud-Icon.png,THC 17%
+Zkittlez,Indica,https://assets.wikileaf.com/assets/strains/strain/Zkittlez.jpg,THC 23%
+Alaskan Ice,Sativa,https://assets.wikileaf.com/assets/strains/strain/Alaskan-Ice-icon.png,THC 22%
+Private Reserve,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Private_Reserve.png,THC 25%
+Hardcore OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Hardcore_OG.png,THC 28%
+Cookies Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Cookies_Kush.png,THC 18%
+OGKB,Indica,https://assets.wikileaf.com/assets/strains/strain/OGKB.png,THC 25%
+Cherry Diesel,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cherry_Diesel.png,THC 19%
+Mendo Breath,Indica,https://assets.wikileaf.com/assets/strains/strain/Mendo_Breath.png,THC 20%
+Tangerine,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Tangerine.jpg,THC 18%
+White Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/White_Cookies.jpg,THC 20%
+Sugar Cookie,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Sugar_Cookie.jpg,THC 25%
+White Walker OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/White_Walker_OG.jpg,THC 22%
+OG Skunk,Sativa,https://assets.wikileaf.com/assets/strains/strain/OG_Skunk.png,THC 26%
+Green Poison,Indica,https://assets.wikileaf.com/assets/strains/strain/Green_Poison.jpg,THC 20%
+Mango,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mango.png,THC 24%
+Godfather OG,Indica,https://assets.wikileaf.com/assets/strains/strain/godfather-og-strain-icon.jpg,THC 28%
+Super Jack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Super_Jack.png,THC 24%
+Strawberry Kush,Sativa,https://assets.wikileaf.com/assets/strains/strain/Strawberry_Kush.jpg,THC 23%
+Strawberry Cheesecake,Indica,https://assets.wikileaf.com/assets/strains/strain/Strawberry_Cheesecake.png,THC 22%
+Face Off OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Face_Off_OG.png,THC 20%
+Black Tuna,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Strain-BlackTuna.png,THC 20%
+Elmer's Glue,Indica,https://assets.wikileaf.com/assets/strains/strain/Elmers_Glue.jpg,THC 24%
+Trump OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Trump_OG_500x500.png,THC 20%
+French Toast,Hybrid,https://assets.wikileaf.com/assets/strains/strain/French_Toast.jpg,THC 0%
+Bakerstreet,Indica,https://assets.wikileaf.com/assets/strains/strain/Strain-BakerStreet.png,THC 28%
+Apple Jack,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Apple_Jack.png,THC 20%
+Strawberry Lemonade,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Strawberry_Lemonade.png,THC 28%
+Mother of Berries,Indica,https://assets.wikileaf.com/assets/strains/strain/Mother_of_Berries.jpg,THC 24%
+Silver Bubble,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Silver_Bubble.png,THC 20%
+Red Poison,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Red_Poison.jpg,THC 21%
+Chocolate Fondue,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Fondue.png,THC 17%
+LSD,Indica,https://assets.wikileaf.com/assets/strains/strain/LSD.png,THC 24%
+Acapulco Gold,Sativa,https://assets.wikileaf.com/assets/strains/strain/Acapulco-Gold-Icon.png,THC 23%
+Maui Waui,Sativa,https://assets.wikileaf.com/assets/strains/strain/Maui-Waui-Icon.jpg,THC 19%
+Headband,Indica,https://assets.wikileaf.com/assets/strains/strain/Headband_500x500.png,THC 27%
+Jillybean,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jillybean-Icon.jpg,THC 18%
+Black Widow,Sativa,https://assets.wikileaf.com/assets/strains/strain/Black-Widow-Icon.jpg,THC 28%
+Moby Dick,Sativa,https://assets.wikileaf.com/assets/strains/strain/Moby_Dick_500x500.png,THC 21%
+Jack Frost,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jack-Frost-Icon.png,THC 21%
+Apollo 13,Sativa,https://assets.wikileaf.com/assets/strains/strain/Apollo-13-Icon.png,THC 18%
+Cat Piss,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cat-Piss-Icon.png,THC 20%
+Ice Cream,Indica,https://assets.wikileaf.com/assets/strains/strain/Ice_Cream_500x500.png,THC 22%
+Lavender Haze,Indica,https://assets.wikileaf.com/assets/strains/strain/Lavender_Haze.jpg,THC 20%
+Hawaiian Snow,Sativa,https://assets.wikileaf.com/assets/strains/strain/Hawaiian-Snow-Icon.png,THC 24%
+Grapefruit,Sativa,https://assets.wikileaf.com/assets/strains/strain/Grapefruit.png,THC 20%
+Mako Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Mako-Haze-Icon.jpg,THC 21%
+El Nino,Indica,https://assets.wikileaf.com/assets/strains/strain/El-Nino-Icon.jpg,THC 15%
+Peyton Manning,Sativa,https://assets.wikileaf.com/assets/strains/strain/Peyton-Manning-Icon.png,THC 22%
+Nebula,Indica,https://assets.wikileaf.com/assets/strains/strain/Strain-Nebula.png,THC 18%
+Permafrost,Sativa,https://assets.wikileaf.com/assets/strains/strain/Permafrost-icon.jpg,THC 18%
+Sage N Sour,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sage_N_Sour_500x500.png,THC 19%
+Cinderella 99,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cinderella-99-Icon.png,THC 22%
+Kali Mist,Sativa,https://assets.wikileaf.com/assets/strains/strain/Kali_Mist_500x500.png,THC 15%
+Dutch Dragon,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dutch_Dragon.jpg,THC 20%
+Ice,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Ice_500x500.png,THC 20%
+Neville's Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Nevilles_Haze.jpg,THC 21%
+Clockwork Orange,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Clockwork-Orange-icon.jpg,THC 21%
+OGiesel,Hybrid,https://assets.wikileaf.com/assets/strains/strain/OGiesel-icon.jpg,THC 19%
+Kaboom,Sativa,https://assets.wikileaf.com/assets/strains/strain/Kaboom-icon.jpg,THC 16%
+Thai Tanic,Sativa,https://assets.wikileaf.com/assets/strains/strain/Thai-Tanic-icon.jpg,THC 15%
+Willie Nelson,Sativa,https://assets.wikileaf.com/assets/strains/strain/Willie-Nelson-Icon.jpg,THC 22%
+Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Haze-Icon.jpg,THC 27%
+Jamaican Pearl,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jamaican-Pearl-icon.jpg,THC 22%
+Sensi Star,Indica,https://assets.wikileaf.com/assets/strains/strain/Sensi_Star-Icon.jpg,THC 20%
+AK-47,Sativa,https://assets.wikileaf.com/assets/strains/strain/AK-47.png,THC 20%
+Amnesia Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Amnesia_Haze_500x500.png,THC 25%
+Mango Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Mango_Kush_500x500.png,THC 21%
+Mendocino Purps,Indica,https://assets.wikileaf.com/assets/strains/strain/Mendocino-Purps-icon.png,THC 20%
+Master Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Master-Kush-Icon.jpg,THC 20%
+Blue Mystic,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue-Mystic-Icon.jpg,THC 21%
+Lavender,Indica,https://assets.wikileaf.com/assets/strains/strain/Strain-Lavender.png,THC 20%
+Agent Orange,Sativa,https://assets.wikileaf.com/assets/strains/strain/Agent-Orange-icon.jpg,THC 15%
+Champagne Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Champagne_Kush.jpg,THC 15%
+Dutch Treat,Indica,https://assets.wikileaf.com/assets/strains/strain/Dutch-Treat-Icon.jpg,THC 30%
+Ogre Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Ogre_Kush.png,THC 27%
+Lemon Diesel,Indica,https://assets.wikileaf.com/assets/strains/strain/Lemon-Diesel-Icon.png,THC 18%
+Orange Crush,Sativa,https://assets.wikileaf.com/assets/strains/strain/Orange-Crush-icon.png,THC 29%
+Kandy Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Kandy-Kush-Icon.jpg,THC 20%
+Alien Dawg,Indica,https://assets.wikileaf.com/assets/strains/strain/Alien-Dawg-icon.jpg,THC 20%
+Medicine Man,Indica,https://assets.wikileaf.com/assets/strains/strain/Medicine-Man-icon.jpg,THC 23%
+Amnesia,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Amnesia_500x500.png,THC 20%
+Pandora's Box,Sativa,https://assets.wikileaf.com/assets/strains/strain/Pandoras-Box-icon.jpg,THC 19%
+Space Queen,Sativa,https://assets.wikileaf.com/assets/strains/strain/Space-Queen-Icon.jpg,THC 16%
+Blue Crack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blue-Crack-icon.jpg,THC 22%
+Dream Queen,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dream-Queen-Icon.jpg,THC 19%
+Jack Flash,Indica,https://assets.wikileaf.com/assets/strains/strain/Jack_Flash.png,THC 20%
+Skunk #1,Indica,https://assets.wikileaf.com/assets/strains/strain/Skunk1-icon.jpg,THC 22%
+Millennium,Indica,https://assets.wikileaf.com/assets/strains/strain/Millennium-icon.jpg,THC 20%
+Silver Haze,Hybrid,https://assets.wikileaf.com/assets/strains/strain/SIlver-Haze-icon.jpg,THC 14%
+Chiesel,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Chiesel_500x500.png,THC 18%
+Lavender Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Lavender-Kush-icon.jpg,THC 18%
+The Void,Hybrid,https://assets.wikileaf.com/assets/strains/strain/The-Void-icon.jpg,THC 16%
+Ed Rosenthal Super Bud,Indica,https://assets.wikileaf.com/assets/strains/strain/Ed_Rosenthal_Super_Bud.jpg,THC 19%
+A-Train,Hybrid,https://assets.wikileaf.com/assets/strains/strain/A-Train-icon.jpg,THC 20%
+Hashberry,Indica,https://assets.wikileaf.com/assets/strains/strain/Hashberry.png,THC 18%
+Purple Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Kush_500x500.png,THC 27%
+Fire OG Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Fire_OG_Kush.jpg,THC 20%
+Afghan Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Afghan-Kush-Icon.jpg,THC 17%
+LA Confidential,Indica,https://assets.wikileaf.com/assets/strains/strain/LA_Confidential_500x500.png,THC 26%
+Querkle,Indica,https://assets.wikileaf.com/assets/strains/strain/Querkle-icon.jpg,THC 35%
+Banana Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Banana-Kush-Icon.jpg,THC 18%
+Blackberry Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Blackberry-Kush-Icon.jpg,THC 20%
+Kosher Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Kosher_Kush.png,THC 20%
+Blueberry Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Blueberry-Kush-Icon.jpg,THC 24%
+Bubblegum,Indica,https://assets.wikileaf.com/assets/strains/strain/Bubblegum-icon.jpg,THC 19%
+Pre-98 Bubba Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Pre-98-Bubba-Kush-icon.jpg,THC 28%
+White Rhino,Indica,https://assets.wikileaf.com/assets/strains/strain/White_Rhino-Icon.jpg,THC 22%
+Critical Mass,Indica,https://assets.wikileaf.com/assets/strains/strain/Critical-Mass-icon.jpg,THC 22%
+Afgooey,Indica,https://assets.wikileaf.com/assets/strains/strain/Afgooey.jpg,THC 20%
+Big Bud,Indica,https://assets.wikileaf.com/assets/strains/strain/Big-bud-icon.jpg,THC 20%
+Cheese,Indica,https://assets.wikileaf.com/assets/strains/strain/Cheese-Icon.jpg,THC 20%
+Cherry Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Cherry-Kush-icon.jpg,THC 18%
+Hollands Hope,Indica,https://assets.wikileaf.com/assets/strains/strain/Hollands-Hope-icon.jpg,THC 18%
+Mr. Nice,Indica,https://assets.wikileaf.com/assets/strains/strain/Mr-Nice-icon.jpg,THC 20%
+Maple Leaf Indica,Indica,https://assets.wikileaf.com/assets/strains/strain/Maple-Leaf-Indica-icon.jpg,THC 18%
+Power Plant,Sativa,https://assets.wikileaf.com/assets/strains/strain/Power-Plant-icon.png,THC 20%
+Pot of Gold,Indica,https://assets.wikileaf.com/assets/strains/strain/Pot-of-Gold-icon.jpg,THC 21%
+Romulan,Indica,https://assets.wikileaf.com/assets/strains/strain/Romulan.jpg,THC 20%
+Black Domina,Indica,https://assets.wikileaf.com/assets/strains/strain/Black-Domina-icon.jpg,THC 20%
+Hogs Breath,Indica,https://assets.wikileaf.com/assets/strains/strain/Hogs_Breath.jpg,THC 13%
+Kryptonite,Indica,https://assets.wikileaf.com/assets/strains/strain/Kryptonite.jpg,THC 27%
+Rocklock,Indica,https://assets.wikileaf.com/assets/strains/strain/Rocklock.jpg,THC 16%
+Superman OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Superman-OG-icon.png,THC 18%
+Blue Rhino,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue-Rhino-icon.jpg,THC 18%
+Fucking Incredible,Indica,https://assets.wikileaf.com/assets/strains/strain/Fucking-Incredible-icon.jpg,THC 18%
+Burmese Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Burmese_Kush.jpg,THC 18%
+Kings Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Kings_Kush.jpg,THC 20%
+Panama Red,Sativa,https://assets.wikileaf.com/assets/strains/strain/Panama_Red.jpg,THC 16%
+Rosetta Stone,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Strain-RosettaStone-1.png,THC 20%
+Diablo OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Diablo_OG.jpg,THC 20%
+Red Dragon,Sativa,https://assets.wikileaf.com/assets/strains/strain/Red-Dragon-icon.jpg,THC 22%
+707 Headband,Indica,https://assets.wikileaf.com/assets/strains/strain/707_Headband.jpg,THC 24%
+Shark Shock,Indica,https://assets.wikileaf.com/assets/strains/strain/Shark_Shock.jpg,THC 20%
+Pineapple Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Pineapple_Kush.jpg,THC 17%
+Zero Gravity,Indica,https://assets.wikileaf.com/assets/strains/strain/Zero_Gravity.jpg,THC 18%
+White Russian,Hybrid,https://assets.wikileaf.com/assets/strains/strain/White_Russian.jpg,THC 22%
+Green Queen,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Green_Queen500x500.png,THC 20%
+American Dream,Indica,https://assets.wikileaf.com/assets/strains/strain/American_Dream.jpg,THC 18%
+UBC Chemo,Indica,https://assets.wikileaf.com/assets/strains/strain/UBC_Chemo.jpg,THC 29%
+Super Critical,Indica,https://assets.wikileaf.com/assets/strains/strain/Super_Critical.jpg,THC 18%
+Papaya,Indica,https://assets.wikileaf.com/assets/strains/strain/Papaya.jpg,THC 25%
+Quasar,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Quasar.jpg,THC 15%
+Purple Suicide,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Suicide.jpg,THC 19%
+Purple Lightning,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Lightning.jpg,THC 15%
+Beyond the Brain,Sativa,https://assets.wikileaf.com/assets/strains/strain/Beyond_the_Brain.jpg,THC 25%
+Avalon,Indica,https://assets.wikileaf.com/assets/strains/strain/Avalon-icon.png,THC 19%
+Yumboldt,Indica,https://assets.wikileaf.com/assets/strains/strain/Yumboldt.jpg,THC 20%
+Ace of Spades,Indica,https://assets.wikileaf.com/assets/strains/strain/Ace_of_Spades_500x500.png,THC 20%
+8 Miles High,Sativa,https://assets.wikileaf.com/assets/strains/strain/8-miles-high-Icon.png,THC 23%
+Venomberry,Sativa,https://assets.wikileaf.com/assets/strains/strain/Venomberry.jpg,THC 16%
+Timewreck,Sativa,https://assets.wikileaf.com/assets/strains/strain/Timewreck.jpg,THC 24%
+Think Different,Sativa,https://assets.wikileaf.com/assets/strains/strain/Think_Different.jpg,THC 18%
+Taiga,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Taiga.jpg,THC 15%
+Sugar Klingon,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Sugar_Klingon.jpg,THC 17%
+StarRyder,Indica,https://assets.wikileaf.com/assets/strains/strain/starryder-icon.png,THC 19%
+Shooting Star,Indica,https://assets.wikileaf.com/assets/strains/strain/Shooting_Star.jpg,THC 19%
+Royal Cheese,Indica,https://assets.wikileaf.com/assets/strains/strain/Royal_Cheese.jpg,THC 16%
+Quick One,Indica,https://assets.wikileaf.com/assets/strains/strain/Quick_One.jpg,THC 13%
+Qleaner,Sativa,https://assets.wikileaf.com/assets/strains/strain/Qleaner.jpg,THC 20%
+Timewarp,Sativa,https://assets.wikileaf.com/assets/strains/strain/Timewarp.jpg,THC 14%
+Ghost OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Ghost-OG-Icon.jpg,THC 24%
+God's Gift,Indica,https://assets.wikileaf.com/assets/strains/strain/Gods_Gift.jpg,THC 25%
+XJ-13,Hybrid,https://assets.wikileaf.com/assets/strains/strain/XJ-13-strain-icon.jpg,THC 24%
+Black Jack,Indica,https://assets.wikileaf.com/assets/strains/strain/Black_Jack_500x500.png,THC 25%
+White Castle,Indica,https://assets.wikileaf.com/assets/strains/strain/White_Castle.jpg,THC 19%
+U Pink Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/U_Pink_Kush.jpg,THC 18%
+Painkiller,Indica,https://assets.wikileaf.com/assets/strains/strain/Painkiller.jpg,THC 18%
+G-13,Indica,https://assets.wikileaf.com/assets/strains/strain/G-13-Icon.jpg,THC 27%
+Queso,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Queso.jpg,THC 16%
+Outlaw,Sativa,https://assets.wikileaf.com/assets/strains/strain/Outlaw.jpg,THC 17%
+Custard Cream,Indica,https://assets.wikileaf.com/assets/strains/strain/Custard_Cream.jpg,THC 20%
+Ambrosia,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Ambrosia.jpg,THC 16%
+Happy Nightmare,Indica,https://assets.wikileaf.com/assets/strains/strain/happy-nightmare-icon.png,THC 19%
+Galactic Jack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Galactic_Jack.jpg,THC 26%
+Fallen Angel,Indica,https://assets.wikileaf.com/assets/strains/strain/Fallen_Angel.jpg,THC 18%
+Elderberry,Indica,https://assets.wikileaf.com/assets/strains/strain/Elderberry.jpg,THC 20%
+Vaniluna,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Vaniluna.jpg,THC 17%
+Satori,Sativa,https://assets.wikileaf.com/assets/strains/strain/Satori.jpg,THC 28%
+Rock Bud,Indica,https://assets.wikileaf.com/assets/strains/strain/Rock_Bud.jpg,THC 16%
+Nepalese Dragon,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Nepalese_Dragon.jpg,THC 17%
+Michigan Skunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Michigan_Skunk.jpg,THC 17%
+Little Angel,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Little_Angel.jpg,THC 15%
+Krystalica,Sativa,https://assets.wikileaf.com/assets/strains/strain/Krystalica.jpg,THC 20%
+Jock Horror,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jock_Horror.jpg,THC 24%
+Inferno Haze,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Inferno_Haze.jpg,THC 23%
+Duke Nukem,Sativa,https://assets.wikileaf.com/assets/strains/strain/Duke_Nukem.jpg,THC 20%
+Bonkers,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Bonkers.jpg,THC 18%
+Flash Back,Sativa,https://assets.wikileaf.com/assets/strains/strain/Flash_Back.jpg,THC 18%
+Exile,Indica,https://assets.wikileaf.com/assets/strains/strain/Exile.jpg,THC 18%
+Dynamite,Indica,https://assets.wikileaf.com/assets/strains/strain/Dynamite.jpg,THC 24%
+Cyclops,Indica,https://assets.wikileaf.com/assets/strains/strain/Cyclops.jpg,THC 20%
+Vanilla Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Vanilla_Kush.jpg,THC 22%
+Platinum OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Platinum_OG.jpg,THC 24%
+Purple Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/Purple_Diesel.jpg,THC 21%
+Juicy Fruit,Sativa,https://assets.wikileaf.com/assets/strains/strain/Juicy_Fruit.jpg,THC 20%
+Nirvana Special,Sativa,https://assets.wikileaf.com/assets/strains/strain/Nirvana_Special.png,THC 20%
+Kilimanjaro,Sativa,https://assets.wikileaf.com/assets/strains/strain/Kilimanjaro.jpg,THC 18%
+Elvis,Sativa,https://assets.wikileaf.com/assets/strains/strain/Elvis.png,THC 22%
+DarkStar,Indica,https://assets.wikileaf.com/assets/strains/strain/DarkStar.jpg,THC 16%
+Chocolope,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chocolope.jpg,THC 22%
+Carnival,Sativa,https://assets.wikileaf.com/assets/strains/strain/Carnival.jpg,THC 23%
+Alien Fire,Indica,https://assets.wikileaf.com/assets/strains/strain/Alien_Fire.jpg,THC 18%
+Vortex,Sativa,https://assets.wikileaf.com/assets/strains/strain/Vortex.jpg,THC 20%
+Warlock,Indica,https://assets.wikileaf.com/assets/strains/strain/Warlock.jpg,THC 19%
+Qush,Indica,https://assets.wikileaf.com/assets/strains/strain/Qush.png,THC 18%
+Optimus Prime,Indica,https://assets.wikileaf.com/assets/strains/strain/Optimus_Prime.jpg,THC 18%
+Nerds,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Nerds.png,THC 17%
+Johnny Blaze,Indica,https://assets.wikileaf.com/assets/strains/strain/Johnny_Blaze.png,THC 19%
+William's Wonder,Indica,https://assets.wikileaf.com/assets/strains/strain/Williams_Wonder.jpg,THC 21%
+Snowcap,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Snowcap.jpg,THC 24% / CBD 4%
+Jack Skellington,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jack_Skellington.jpg,THC 17%
+iPot,Sativa,https://assets.wikileaf.com/assets/strains/strain/iPot.jpg,THC 22%
+Betty Boo,Indica,https://assets.wikileaf.com/assets/strains/strain/Betty_Boo.jpg,THC 16%
+60 Day Wonder,Indica,https://assets.wikileaf.com/assets/strains/strain/60_Day_Wonder.jpg,THC 14%
+White Dwarf,Indica,https://assets.wikileaf.com/assets/strains/strain/White_Dwarf.jpg,THC 15%
+Ultraviolet,Sativa,https://assets.wikileaf.com/assets/strains/strain/Ultraviolet.jpg,THC 21%
+Tundra,Indica,https://assets.wikileaf.com/assets/strains/strain/Tundra.jpg,THC 15%
+Trojan,Indica,https://assets.wikileaf.com/assets/strains/strain/Trojan.jpg,THC 19%
+Sand Storm,Indica,https://assets.wikileaf.com/assets/strains/strain/Sand_Storm.jpg,THC 16%
+Rx,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Rx.jpg,THC 10%
+Mace Windu,Indica,https://assets.wikileaf.com/assets/strains/strain/Mace_Windu.jpg,THC 16%
+Lightstorm,Indica,https://assets.wikileaf.com/assets/strains/strain/Lightstorm.jpg,THC 16%
+Karamelo,Indica,https://assets.wikileaf.com/assets/strains/strain/Karamelo.jpg,THC 20%
+Chernobyl,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chernobyl-Icon.jpg,THC 22%
+Super Silver Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Super_Silver_Haze_500x500.png,THC 23%
+Chocolate Thai,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Thai.jpg,THC 15%
+SFV OG Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/SFV_OG_Kush.png,THC 19%
+Enemy of the State,Indica,https://assets.wikileaf.com/assets/strains/strain/Enemy_of_the_State.jpg,THC 14%
+Dominator,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dominator.jpg,THC 16%
+F.O.G.,Sativa,https://assets.wikileaf.com/assets/strains/strain/F.O.G..jpg,THC 21%
+Chocolate Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Haze.jpg,THC 17%
+Selene,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Selene.jpg,THC 22%
+RockStar,Hybrid,https://assets.wikileaf.com/assets/strains/strain/RockStar-Icon.jpg,THC 17%
+Kolossus,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Kolossus-Icon.png,THC 22%
+Herijuana,Indica,https://assets.wikileaf.com/assets/strains/strain/Herijuana.jpg,THC 32%
+Golden Tiger,Sativa,https://assets.wikileaf.com/assets/strains/strain/Golden_Tiger.jpg,THC 24%
+Flying Dragon,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Flying_Dragon.jpg,THC 18%
+Destroyer,Sativa,https://assets.wikileaf.com/assets/strains/strain/Destroyer.png,THC 23%
+Cole Train,Indica,https://assets.wikileaf.com/assets/strains/strain/str-cole-train_500x500.png,THC 19%
+Cannalope Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cannalope_Haze.jpg,THC 20%
+Anunnaki,Sativa,https://assets.wikileaf.com/assets/strains/strain/Anunnaki.jpg,THC 19%
+Albert Walker,Indica,https://assets.wikileaf.com/assets/strains/strain/Albert_Walker.jpg,THC 15%
+X-Kush #1,Indica,https://assets.wikileaf.com/assets/strains/strain/X-Kush_1.jpg,THC 21%
+Top 44,Indica,https://assets.wikileaf.com/assets/strains/strain/Top_44.jpg,THC 20%
+Titanium,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Titanium.jpg,THC 22%
+Starbud,Indica,https://assets.wikileaf.com/assets/strains/strain/Starbud.jpg,THC 20%
+Sour Alien,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Alien.jpg,THC 16%
+Rogue Thunder,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Rogue_Thunder.jpg,THC 15%
+Ewok,Indica,https://assets.wikileaf.com/assets/strains/strain/Ewok.jpg,THC 19%
+Delahaze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Delahaze.png,THC 18%
+Blue Dynamite,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Dynamite.jpg,THC 18%
+Big Bang,Indica,https://assets.wikileaf.com/assets/strains/strain/Big_Bang.jpg,THC 19%
+B. Lee,Sativa,https://assets.wikileaf.com/assets/strains/strain/B._Lee.jpg,THC 20%
+Y Griega,Sativa,https://assets.wikileaf.com/assets/strains/strain/Y_Griega.jpg,THC 27%
+Xanadu,Sativa,https://assets.wikileaf.com/assets/strains/strain/Xanadu.jpg,THC 18%
+Trinity,Sativa,https://assets.wikileaf.com/assets/strains/strain/Trinity.png,THC 20%
+Ghost Train Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Ghost_Train_Haze_500x500.png,THC 25%
+Bruce Banner,Sativa,https://assets.wikileaf.com/assets/strains/strain/Bruce-Banner-Icon.jpg,THC 30%
+Island Sweet Skunk,Sativa,https://assets.wikileaf.com/assets/strains/strain/Island_Sweet_Skunk.jpg,THC 19%
+Super Lemon Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/str-sup-lem-haz_500x500.png,THC 25%
+Flo,Sativa,https://assets.wikileaf.com/assets/strains/strain/Flo.png,THC 14%
+Holy Grail Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Holy_Grail_Kush_500x500.png,THC 24%
+Obama Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Obama-Kush-icon.png,THC 21%
+Tangerine Dream,Sativa,https://assets.wikileaf.com/assets/strains/strain/Tangerine-Dream-Icon.jpg,THC 25%
+Jean Guy,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jean_Guy.png,THC 25%
+Sonoma Coma,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sonoma_Coma.jpg,THC 25%
+Gigabud,Indica,https://assets.wikileaf.com/assets/strains/strain/Gigabud.png,THC 19%
+Cannalope Kush,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cannalope_Kush.jpg,THC 22%
+Mars OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Mars_OG.png,THC 20%
+Sweet Tooth,Indica,https://assets.wikileaf.com/assets/strains/strain/Sweet_Tooth.png,THC 19%
+Deadhead OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Deadhead_OG.png,THC 25%
+Mazar,Indica,https://assets.wikileaf.com/assets/strains/strain/Mazar.jpg,THC 20%
+Jorge's Diamonds #1,Indica,https://assets.wikileaf.com/assets/strains/strain/Jorges_Diamonds_1.jpg,THC 18%
+Crimea Blue,Indica,https://assets.wikileaf.com/assets/strains/strain/Crimea_Blue.jpg,THC 18%
+The Black,Indica,https://assets.wikileaf.com/assets/strains/strain/The_Black.png,THC 18%
+Purple Jolly Rancher,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Jolly_Rancher.png,THC 17%
+Obsession,Indica,https://assets.wikileaf.com/assets/strains/strain/Obsession.jpg,THC 19%
+La Blanca,Indica,https://assets.wikileaf.com/assets/strains/strain/la-blanca-Icon.png,THC 15%
+Jack's Cleaner,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jacks-Cleaner-Icon.png,THC 17%
+Pineapple Punch,Sativa,https://assets.wikileaf.com/assets/strains/strain/Pineapple_Punch.jpg,THC 15%
+Motavation,Indica,https://assets.wikileaf.com/assets/strains/strain/Motavation-Icon.png,THC 18%
+Madness,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Madness.jpg,THC 18%
+M-39,Hybrid,https://assets.wikileaf.com/assets/strains/strain/M-39.jpg,THC 14%
+Flowerbomb Kush,Sativa,https://assets.wikileaf.com/assets/strains/strain/Flowerbomb_Kush.jpg,THC 19%
+Arjan's Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Arjans_Haze.jpg,THC 22%
+Rug Burn OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Rug_Burn_OG.jpg,THC 26%
+Lowryder,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lowryder.jpg,THC 14%
+Candyland,Sativa,https://assets.wikileaf.com/assets/strains/strain/Candyland-Icon.jpg,THC 19%
+Purple Urkle,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple-Urkle-Icon.jpg,THC 26%
+Animal Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Animal-Cookies-Icon.jpg,THC 27%
+Thin Mint Cookies,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Thin-Mint-Cookies-Icon.jpg,THC 24%
+Golden Goat,Sativa,https://assets.wikileaf.com/assets/strains/strain/Golden_Goat.png,THC 23%
+Super Sour Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/Super_Sour_Diesel.png,THC 26%
+God Bud,Indica,https://assets.wikileaf.com/assets/strains/strain/God_Bud_500x500.png,THC 27% / CBD 7%
+Yoda OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Yoda_OG.png,THC 22%
+Great White Shark,Indica,https://assets.wikileaf.com/assets/strains/strain/Great_White_Shark.png,THC 24%
+Platinum Girl Scout Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Platinum-Girl-Scout_Cookies-Icon.jpg,THC 24%
+Blue Diesel,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Diesel.png,THC 23%
+Lemon OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Lemon_OG.png,THC 24%
+Super Skunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Super_Skunk_500x500.png,THC 28%
+Strawberry Diesel,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Strawberry_Diesel.png,THC 27%
+King Louis XIII,Indica,https://assets.wikileaf.com/assets/strains/strain/King_Louis_XIII_500x500.png,THC 28%
+Chemdawg 4,Indica,https://assets.wikileaf.com/assets/strains/strain/Chemdawg_4.png,THC 28%
+Hash Plant,Indica,https://assets.wikileaf.com/assets/strains/strain/Hash_Plant.png,THC 13%
+Candy Jack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Candy_Jack.png,THC 27%
+Purple Widow,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Widow.png,THC 22%
+Cinex,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cinex.jpg,THC 26%
+$100 OG Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/100_OG_Kush.png,THC 25%
+Purple Headband,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Headband.png,THC 28%
+Purple Trainwreck,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Purple_Trainwreck.png,THC 26%
+Snow Ryder,Indica,https://assets.wikileaf.com/assets/strains/strain/Snow_Ryder.png,THC 23%
+Hurricane,Sativa,https://assets.wikileaf.com/assets/strains/strain/Hurricane.png,THC 18%
+Raspberry Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Raspberry_Kush.png,THC 17%
+Raspberry Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Raspberry_Cookies.png,THC 26%
+Tangerine Man,Sativa,https://assets.wikileaf.com/assets/strains/strain/Tangerine-Man-icon.png,THC 18%
+J1,Sativa,https://assets.wikileaf.com/assets/strains/strain/J1.png,THC 23%
+Blue Dragon,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Dragon.png,THC 24%
+Afwreck,Sativa,https://assets.wikileaf.com/assets/strains/strain/Afwreck.png,THC 26%
+A-10,Indica,https://assets.wikileaf.com/assets/strains/strain/A-10.png,THC 24%
+Stardawg,Sativa,https://assets.wikileaf.com/assets/strains/strain/Stardawg-Icon.jpg,THC 22%
+Blueberry,Indica,https://assets.wikileaf.com/assets/strains/strain/Blueberry-Icon.jpg,THC 24%
+ACDC,Hybrid,https://assets.wikileaf.com/assets/strains/strain/ACDC.png,THC 6% / CBD 16%
+White Fire OG,Indica,https://assets.wikileaf.com/assets/strains/strain/White-Fire-OG-Icon.jpg,THC 25%
+Snow White,Indica,https://assets.wikileaf.com/assets/strains/strain/Snow_White.png,THC 22%
+Triangle Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Triangle-Kush-icon.jpg,THC 26%
+Sour Jack,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Sour_Jack.png,THC 22%
+Pineapple Chunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Pineapple_Chunk.png,THC 26%
+Critical Jack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Critical_Jack.png,THC 20%
+Tahoe Alien,Indica,https://assets.wikileaf.com/assets/strains/strain/Tahoe_Alien.png,THC 29%
+Afghani,Indica,https://assets.wikileaf.com/assets/strains/strain/Afghani.png,THC 21%
+Blue Widow,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Widow.png,THC 17%
+Goji OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Goji_OG.png,THC 22%
+Grape Stomper,Sativa,https://assets.wikileaf.com/assets/strains/strain/Grape_Stomper.jpg,THC 22%
+Alien Technology,Indica,https://assets.wikileaf.com/assets/strains/strain/Strain-AlientTechnology.png,THC 19%
+Purple Elephant,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Purple_Elephant.png,THC 25%
+Green Ribbon,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Green_Ribbon.png,THC 28%
+Cherry AK-47,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cherry_AK-47.png,THC 21%
+Sour Tsunami,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Tsunami.png,THC 10% / CBD 14%
+Tres Dawg,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Tres_Dawg.png,THC 25%
+Zombie OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Zombie-OG-icon.jpg,THC 21%
+Green Goblin,Sativa,https://assets.wikileaf.com/assets/strains/strain/Green_Goblin.png,THC 24%
+Purple Jems,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Purple_Jems.png,THC 19%
+Alien Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Alien_Kush.png,THC 19%
+Chemdawg Sour Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chemdawg_Sour_Diesel.png,THC 26%
+Blue Champagne,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blue_Champagne.png,THC 25%
+Plushberry,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Plushberry.png,THC 20%
+Rainbow Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Rainbow_Kush.png,THC 17%
+Purple Rhino,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Rhino.png,THC 20%
+Golden Pineapple,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Golden_Pineapple.png,THC 29%
+Purple Arrow,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple_Arrow.png,THC 24%
+Bubba's Gift,Indica,https://assets.wikileaf.com/assets/strains/strain/Bubbas-Gift-Icon.jpg,THC 20%
+The White,Indica,https://assets.wikileaf.com/assets/strains/strain/The-White-Icon.jpg,THC 30%
+Black Cherry Soda,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Black_Cherry_Soda.jpg,THC 30%
+White Nightmare,Sativa,https://assets.wikileaf.com/assets/strains/strain/White_Nightmare.png,THC 22%
+MK Ultra,Indica,https://assets.wikileaf.com/assets/strains/strain/MK-Ultra-Icon.png,THC 22%
+Arcata Trainwreck,Sativa,https://assets.wikileaf.com/assets/strains/strain/Arcata_Trainwreck.jpg,THC 26%
+SAGE,Sativa,https://assets.wikileaf.com/assets/strains/strain/SAGE.png,THC 25%
+Jamaican,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jamaican.png,THC 21%
+Blackwater,Indica,https://assets.wikileaf.com/assets/strains/strain/Blackwater.jpg,THC 20%
+Blue God,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_God.png,THC 20%
+Thai,Sativa,https://assets.wikileaf.com/assets/strains/strain/Thai.png,THC 22%
+Chocolate Hashberry,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Hashberry.png,THC 25%
+Nepali OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Nepali_OG.png,THC 21%
+Chemdawg 91,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Chemdawg_91.png,THC 24%
+Las Vegas Purple Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Las_Vegas_Purple_Kush.png,THC 23%
+Purple Princess,Indica,https://assets.wikileaf.com/assets/strains/strain/Purple-Princess-icon.jpg,THC 17%
+Purple Power,Sativa,https://assets.wikileaf.com/assets/strains/strain/Purple_Power.png,THC 20%
+West Coast Diesel,Sativa,https://assets.wikileaf.com/assets/strains/strain/West_Coast_Diesel.png,THC 26%
+Hawaiian,Sativa,https://assets.wikileaf.com/assets/strains/strain/Hawaiian-Icon.jpg,THC 25%
+Hawaiian Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Hawaiian_Haze.png,THC 26%
+Lost Coast OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Lost_Coast_OG.png,THC 15%
+California Orange,Hybrid,https://assets.wikileaf.com/assets/strains/strain/California_Orange.png,THC 15%
+Chem's Sister,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chems_Sister.png,THC 28%
+Snow Lotus,Indica,https://assets.wikileaf.com/assets/strains/strain/Snow_Lotus.png,THC 25%
+Critical Plus,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Critical_Plus.png,THC 20%
+Oriental Express,Sativa,https://assets.wikileaf.com/assets/strains/strain/Strain-OrientalExpress.png,THC 16%
+Ice Queen,Sativa,https://assets.wikileaf.com/assets/strains/strain/Ice_Queen.png,THC 23%
+Big Skunk Korean,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Big_Skunk_Korean.png,THC 19%
+Blue Moonshine,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Moonshine.png,THC 16%
+Happy Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Happy_Kush.png,THC 19%
+Khufu,Indica,https://assets.wikileaf.com/assets/strains/strain/Khufu.png,THC 27%
+Twilight,Indica,https://assets.wikileaf.com/assets/strains/strain/Twilight.png,THC 21%
+White Moonshine,Indica,https://assets.wikileaf.com/assets/strains/strain/White_Moonshine.png,THC 19%
+Alien OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Alien-OG-Icon.jpg,THC 28%
+Jet Fuel,Sativa,https://assets.wikileaf.com/assets/strains/strain/Jet-Fuel-icon.jpg,THC 20%
+Key Lime Pie,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Key_Lime_Pie.jpg,THC 25%
+Cornbread,Indica,https://assets.wikileaf.com/assets/strains/strain/Cornbread.jpg,THC 20%
+Blueberry Pie,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Pie.jpg,THC 20%
+Bordello,Indica,https://assets.wikileaf.com/assets/strains/strain/Bordello.jpg,THC 20%
+Double Dream,Sativa,https://assets.wikileaf.com/assets/strains/strain/Double_Dream.jpg,THC 26%
+Cookies and Cream,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cookies-and-Cream-Icon.jpg,THC 25%
+Dirty Girl,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dirty_Girl.jpg,THC 28%
+Royal Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Royal_Kush.jpg,THC 25%
+Conspiracy Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Conspiracy_Kush.jpg,THC 25%
+Jesus OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Jesus_OG.png,THC 28%
+Grape God,Indica,https://assets.wikileaf.com/assets/strains/strain/Grape_God.jpg,THC 25%
+Blue Hawaiian,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Hawaiian.jpg,THC 24%
+C4,Indica,https://assets.wikileaf.com/assets/strains/strain/C4.jpg,THC 22%
+Cali Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Cali_Kush.jpg,THC 15%
+Orange Cookies,Indica,https://assets.wikileaf.com/assets/strains/strain/Orange_Cookies.jpg,THC 20%
+Dr. Who,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Dr._Who.jpg,THC 30%
+Bay Dream,Sativa,https://assets.wikileaf.com/assets/strains/strain/Baydream-Icon.png,THC 26%
+Emerald Jack,Sativa,https://assets.wikileaf.com/assets/strains/strain/Emerald_Jack.jpg,THC 20%
+UW,Indica,https://assets.wikileaf.com/assets/strains/strain/UW.jpg,THC 20%
+Professor Chaos,Sativa,https://assets.wikileaf.com/assets/strains/strain/Professor-Chaos-Icon.jpg,THC 25%
+Kimbo Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Kimbo_Kush.jpg,THC 27%
+Grape Royale,Indica,https://assets.wikileaf.com/assets/strains/strain/Grape_Royale.jpg,THC 28%
+Moonwalker Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Moonwalker-Kush-Icon.jpg,THC 28%
+Candy Cane,Indica,https://assets.wikileaf.com/assets/strains/strain/Candy_Cane.jpg,THC 20%
+Apple Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Apple_Kush.jpg,THC 20%
+Alpha Blue,Sativa,https://assets.wikileaf.com/assets/strains/strain/Alpha_Blue.jpg,THC 20%
+Bubblicious,Indica,https://assets.wikileaf.com/assets/strains/strain/Bubblicious.jpg,THC 25%
+Mad Scientist,Indica,https://assets.wikileaf.com/assets/strains/strain/Mad_Scientist.jpg,THC 24%
+Mob Boss,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mob_Boss.jpg,THC 21%
+Glass Slipper,Sativa,https://assets.wikileaf.com/assets/strains/strain/Glass_Slipper.jpg,THC 25%
+Sunset Sherbet,Indica,https://assets.wikileaf.com/assets/strains/strain/Sunset_Sherbert_500x500.png,THC 24%
+Laughing Buddha,Sativa,https://assets.wikileaf.com/assets/strains/strain/Laughing_Buddha.jpg,THC 20%
+Lodi Dodi,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lodi_Dodi.png,THC 28%
+Snoop's Dream,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Snoops_Dream.jpg,THC 25%
+Sunshine Daydream,Indica,https://assets.wikileaf.com/assets/strains/strain/Sunshine_Daydream.jpg,THC 25%
+Cotton Candy Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Cotton_Candy_Kush.jpg,THC 20%
+Head Cheese,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Head_Cheese.jpg,THC 30%
+Blue Mango,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Mango.jpg,THC 18%
+Presidential OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Presidential_OG.jpg,THC 26%
+Sour Grape,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Sour_Grape.jpg,THC 24%
+White Buffalo,Sativa,https://assets.wikileaf.com/assets/strains/strain/White_Buffalo.jpg,THC 25%
+Oracle,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Oracle.jpg,THC 14%
+Boss Hogg,Indica,https://assets.wikileaf.com/assets/strains/strain/Boss_Hogg.jpg,THC 20%
+Blue Haze,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Haze.jpg,THC 26%
+Blue Ivy,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Ivy.jpg,THC 20%
+Malawi,Sativa,https://assets.wikileaf.com/assets/strains/strain/Malawi.jpg,THC 24%
+Tiger's Milk,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Tigers_Milk.jpg,THC 17%
+Dutch Hawaiian,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dutch_Hawaiian.jpg,THC 28%
+Middlefork,Sativa,https://assets.wikileaf.com/assets/strains/strain/Middlefork.jpg,THC 26%
+Panda OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Panda_OG.jpg,THC 25%
+Lemon Wreck,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Wreck.jpg,THC 20%
+Cherries Jubilee,Indica,https://assets.wikileaf.com/assets/strains/strain/Cherries_Jubilee.jpg,THC 22%
+Dutch Berry,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dutch_Berry.jpg,THC 27%
+Allen Wrench,Sativa,https://assets.wikileaf.com/assets/strains/strain/Allen_Wrench.jpg,THC 28%
+Golden Ticket,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Golden_Ticket.jpg,THC 26%
+P-91,Hybrid,https://assets.wikileaf.com/assets/strains/strain/P-91.jpg,THC 20%
+Purple Dragon,Sativa,https://assets.wikileaf.com/assets/strains/strain/Purple_Dragon.jpg,THC 20%
+Bay 11,Sativa,https://assets.wikileaf.com/assets/strains/strain/Bay_11.jpg,THC 25%
+Big Wreck,Indica,https://assets.wikileaf.com/assets/strains/strain/Big_Wreck.jpg,THC 27%
+Isla OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Isla_OG.jpg,THC 27%
+Blue Kush,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Kush.jpg,THC 18%
+Blueberry Cheesecake,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Cheesecake.jpg,THC 20%
+XXX OG,Indica,https://assets.wikileaf.com/assets/strains/strain/XXX_OG.jpg,THC 21%
+Alien Rift,Indica,https://assets.wikileaf.com/assets/strains/strain/Alien_Rift.jpg,THC 24%
+Liberty Haze,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Liberty_Haze.jpg,THC 29%
+Banana OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Banana_OG.jpg,THC 25%
+Clementine,Sativa,https://assets.wikileaf.com/assets/strains/strain/Clementine.jpg,THC 27%
+Headbanger,Sativa,https://assets.wikileaf.com/assets/strains/strain/Headbanger.jpg,THC 28%
+Mega Wellness OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mega_Wellness_OG.jpg,THC 33%
+Stephen Hawking Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Stephen_Hawking_Kush.jpg,THC 12% / CBD 14%
+Gucci OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Gucci_OG.jpg,THC 30%
+Blue Goo,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Goo.jpg,THC 22%
+Blue Dot,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blue_Dot.jpg,THC 20%
+Cheesequake,Indica,https://assets.wikileaf.com/assets/strains/strain/Cheesequake.jpg,THC 22%
+Peppermint Cookies,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Peppermint_Cookies.jpg,THC 24%
+Blue Magoo,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Magoo.jpg,THC 21%
+Rare Darkness,Indica,https://assets.wikileaf.com/assets/strains/strain/Rare_Darkness.jpg,THC 26%
+Hell's Angel OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Hells_Angel_OG.jpg,THC 20%
+Paris OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Paris_OG.jpg,THC 28%
+Boy Scout Cookies,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Boy_Scout_Cookies.jpg,THC 24%
+Presidential Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Presidential-Kush-icon.jpg,THC 30%
+Cannasutra,Indica,https://assets.wikileaf.com/assets/strains/strain/Cannasutra.jpg,THC 23%
+Blue Frost,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Frost.jpg,THC 22%
+Blue Diamond,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Diamond.jpg,THC 24%
+Blue Boy,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blue_Boy.jpg,THC 27%
+Sour Cream,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Cream.jpg,THC 17%
+Starfighter,Indica,https://assets.wikileaf.com/assets/strains/strain/Starfighter.jpg,THC 26%
+Cherry Cookies,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cherry_Cookies.jpg,THC 26%
+Deep Purple,Indica,https://assets.wikileaf.com/assets/strains/strain/Deep_Purple.jpg,THC 19%
+Fruit Loops,Indica,https://assets.wikileaf.com/assets/strains/strain/Fruit_Loops.jpg,THC 19%
+Crown Royale,Indica,https://assets.wikileaf.com/assets/strains/strain/Crown_Royale.png,THC 22%
+Cit·Rix,Sativa,https://assets.wikileaf.com/assets/strains/strain/Citrix-Icon.png,THC 23%
+Dream Star,Indica,https://assets.wikileaf.com/assets/strains/strain/Dream-Sta-Icon.png,THC 25%
+Frank's Gift,Sativa,https://assets.wikileaf.com/assets/strains/strain/franks-gift-icon.png,THC 9% / CBD 24%
+9 Pound Hammer,Indica,https://assets.wikileaf.com/assets/strains/strain/9-Pound-Hammer-Icon.jpg,THC 23%
+Grease Monkey,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Grease_Monkey_500x500.png,THC 30%
+Black Diamond,Indica,https://assets.wikileaf.com/assets/strains/strain/Black-Diamond-Icon.jpg,THC 24%
+Black Mamba,Indica,https://assets.wikileaf.com/assets/strains/strain/Black_Mamba.jpg,THC 25%
+Huckleberry,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Huckleberry.jpg,THC 26%
+Blue Knight,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Knight.jpg,THC 27%
+Blue Venom,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Venom.jpg,THC 23%
+Sour Patch Kiss,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Patch_Kiss.jpg,THC 31%
+Megalodon,Sativa,https://assets.wikileaf.com/assets/strains/strain/Megalodon-Icon.png,THC 23%
+Emerald OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Emerald_OG.jpg,THC 22%
+Pink Panties,Indica,https://assets.wikileaf.com/assets/strains/strain/Pink_Panties.jpg,THC 24%
+Black Ice,Indica,https://assets.wikileaf.com/assets/strains/strain/Black_Ice.jpg,THC 24%
+Berry Bomb,Indica,https://assets.wikileaf.com/assets/strains/strain/Berry_Bomb.jpg,THC 23%
+Bubba OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Bubba_OG.jpg,THC 27%
+Blue Sky,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Sky.jpg,THC 19%
+Blue Power,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_Power.jpg,THC 27%
+Blue Magic,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Magic.jpg,THC 23%
+Blue Jay Way,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Jay_Way.jpg,THC 8%
+Blue Nightmare,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue-Nightmare-Icon.png,THC 19%
+Blue OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Blue_OG.jpg,THC 19%
+Blue Thai,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blue_Thai.jpg,THC 21%
+Blueberry Blast,Indica,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Blast.jpg,THC 28%
+Godzilla,Indica,https://assets.wikileaf.com/assets/strains/strain/Godzilla.jpg,THC 18%
+Pink Death Star,Indica,https://assets.wikileaf.com/assets/strains/strain/Pink_Death_Star.jpg,THC 23%
+Appalachia,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Appalachia.jpg,THC 21%
+Pink Champagne,Indica,https://assets.wikileaf.com/assets/strains/strain/Pink_Champagne.jpg,THC 23%
+Narnia,Sativa,https://assets.wikileaf.com/assets/strains/strain/Narnia.jpg,THC 25%
+Alien Rock Candy,Indica,https://assets.wikileaf.com/assets/strains/strain/Alien_Rock_Candy.jpg,THC 18%
+Black Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Black_Haze.jpg,THC 22%
+Black Russian,Indica,https://assets.wikileaf.com/assets/strains/strain/Black_Russian.jpg,THC 26%
+Blackberry Pie,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blackberry_Pie.jpg,THC 19%
+Blowfish,Indica,https://assets.wikileaf.com/assets/strains/strain/Blowfish.jpg,THC 26%
+Alaskan Thunderfuck,Sativa,https://assets.wikileaf.com/assets/strains/strain/Alaskan_Thunderfuck_500x500.png,THC 27%
+Critical Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Critical-Kush-Icon.jpg,THC 29%
+Incredible Hulk,Sativa,https://assets.wikileaf.com/assets/strains/strain/Incredible_Hulk.jpg,THC 24%
+Diamond OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Diamond_OG-Icon.jpg,THC 22%
+Syrup OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Syrup_OG.jpg,THC 30%
+Hawaiian Punch,Sativa,https://assets.wikileaf.com/assets/strains/strain/Hawaiian_Punch.png,THC 25%
+King Kong,Indica,https://assets.wikileaf.com/assets/strains/strain/King_Kong.jpg,THC 21%
+Herojuana,Indica,https://assets.wikileaf.com/assets/strains/strain/Herojuana.jpg,THC 29%
+Fruit Punch,Sativa,https://assets.wikileaf.com/assets/strains/strain/Fruit_Punch.jpg,THC 25%
+Frankenstein,Indica,https://assets.wikileaf.com/assets/strains/strain/Frankenstein.jpg,THC 29%
+Cookie Dough,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cookie_Dough.jpg,THC 25%
+Chocolate Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Kush.jpg,THC 28%
+Cheese Candy,Sativa,https://assets.wikileaf.com/assets/strains/strain/Cheese_Candy.jpg,THC 20%
+Alpha Omega OG,Sativa,https://assets.wikileaf.com/assets/strains/strain/Alpha_Omega_OG.jpg,THC 0%
+Charlie Sheen,Sativa,https://assets.wikileaf.com/assets/strains/strain/Charlie_Sheen.jpg,THC 24%
+Cherry OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cherry_OG.jpg,THC 23%
+Abusive OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Abusive_OG.jpg,THC 32%
+Dr. Feelgood,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Dr._Feelgood.jpg,THC 20%
+Crown OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Crown_OG.jpg,THC 28%
+Tesla Tower,Sativa,https://assets.wikileaf.com/assets/strains/strain/Tesla_Tower.jpg,THC 22%
+Gobbstopper,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Gobbstopper.jpg,THC 21%
+Euforia,Sativa,https://assets.wikileaf.com/assets/strains/strain/Euforia.jpg,THC 23%
+Euphoria,Indica,https://assets.wikileaf.com/assets/strains/strain/Euphoria.jpg,THC 6%
+Harambe's Ghost,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Harambes_Ghost.jpg,THC 30%
+Sour Moonrocks,Sativa,https://assets.wikileaf.com/assets/strains/strain/Sour_Moonrocks.jpg,THC 59%
+Bubbleberry,Sativa,https://assets.wikileaf.com/assets/strains/strain/Bubbleberry.jpg,THC 21%
+3x Crazy,Hybrid,https://assets.wikileaf.com/assets/strains/strain/3x_Crazy.jpg,THC 23%
+24K Gold,Indica,https://assets.wikileaf.com/assets/strains/strain/24K_Gold.jpg,THC 24%
+Willy Wonka,Sativa,https://assets.wikileaf.com/assets/strains/strain/Willy_Wonka.jpg,THC 28%
+Tutti Frutti,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Tutti_Frutti.jpg,THC 23%
+Cherry Skunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Cherry_Skunk.jpg,THC 22%
+Blurple,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blurple.jpg,THC 19%
+Jager,Indica,https://assets.wikileaf.com/assets/strains/strain/Jager_500x500.png,THC 23%
+Colombian Gold,Sativa,https://assets.wikileaf.com/assets/strains/strain/Colombian_Gold.jpg,THC 20%
+Blueberry Headband,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Headband.jpg,THC 18%
+Lemon Cake,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Cake.jpg,THC 25%
+Somango,Indica,https://assets.wikileaf.com/assets/strains/strain/Somango.jpg,THC 23%
+THC Bomb,Hybrid,https://assets.wikileaf.com/assets/strains/strain/THC_Bomb.jpg,THC 26%
+K2,Indica,https://assets.wikileaf.com/assets/strains/strain/K2.jpg,THC 29%
+Deep Chunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Deep_Chunk.jpg,THC 20%
+Citrus Sap,Sativa,https://assets.wikileaf.com/assets/strains/strain/Citrus_Sap.jpg,THC 24%
+Jedi Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/Jedi_Kush.jpg,THC 30%
+Hippie Crippler,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Hippie_Crippler.jpg,THC 27%
+Chocolate Chunk,Indica,https://assets.wikileaf.com/assets/strains/strain/Chocolate_Chunk.jpg,THC 22%
+Irish Cream,Indica,https://assets.wikileaf.com/assets/strains/strain/Irish_Cream.jpg,THC 20%
+Dizzy OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Dizzy_OG.jpg,THC 22%
+Silver Surfer,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Silver_Surfer.jpg,THC 26%
+Kona Gold,Sativa,https://assets.wikileaf.com/assets/strains/strain/Kona_Gold.jpg,THC 15%
+Green Goddess,Indica,https://assets.wikileaf.com/assets/strains/strain/Green_Goddess.jpg,THC 20%
+Blueberry Haze,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Haze.jpg,THC 23%
+Blueberry Diesel,Indica,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Diesel.jpg,THC 23%
+Transformer,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Transformer.jpg,THC 22%
+Mountain Girl,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mountain_Girl.jpg,THC 20%
+LA Woman,Hybrid,https://assets.wikileaf.com/assets/strains/strain/LA_Woman.jpg,THC 28%
+Sexxpot,Indica,https://assets.wikileaf.com/assets/strains/strain/Sexxpot.jpg,THC 15%
+Haze Berry,Sativa,https://assets.wikileaf.com/assets/strains/strain/Haze_Berry.jpg,THC 22%
+Black Cherry Cheesecake,Indica,https://assets.wikileaf.com/assets/strains/strain/Black_Cherry_Cheesecake.jpg,THC 24%
+CBD Kush,Indica,https://assets.wikileaf.com/assets/strains/strain/CBD_Kush.jpg,THC 8%
+Pitbull,Indica,https://assets.wikileaf.com/assets/strains/strain/Pitbull.jpg,THC 21%
+Memory Loss,Sativa,https://assets.wikileaf.com/assets/strains/strain/Memory_Loss.jpg,THC 28%
+Lucid Dream,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lucid_Dream.jpg,THC 28%
+Pez,Indica,https://assets.wikileaf.com/assets/strains/strain/Pez.jpg,THC 27%
+Deep Sleep,Indica,https://assets.wikileaf.com/assets/strains/strain/Deep_Sleep.jpg,THC 20%
+Dairy Queen,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Dairy_Queen.jpg,THC 28%
+Ice Wreck,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Ice_Wreck.jpg,THC 28%
+Love Potion #1,Sativa,https://assets.wikileaf.com/assets/strains/strain/Love_Potion_1.jpg,THC 18%
+Exodus Cheese,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Exodus_Cheese.png,THC 18%
+LA OG,Hybrid,https://assets.wikileaf.com/assets/strains/strain/LA_OG.jpg,THC 24%
+Watermelon,Indica,https://assets.wikileaf.com/assets/strains/strain/Watermelon.jpg,THC 22%
+Lucy,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Lucy.jpg,THC 20%
+Grape Kush,Sativa,https://assets.wikileaf.com/assets/strains/strain/Grape_Kush.jpg,THC 30%
+Kong,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Kong.jpg,THC 20%
+Ingrid,Indica,https://assets.wikileaf.com/assets/strains/strain/Ingrid.jpg,THC 25%
+Game Changer,Indica,https://assets.wikileaf.com/assets/strains/strain/Game_Changer.jpg,THC 29%
+Chem Willie,Sativa,https://assets.wikileaf.com/assets/strains/strain/Chem_Willie.jpg,THC 31%
+White Girl,Sativa,https://assets.wikileaf.com/assets/strains/strain/White_Girl.jpg,THC 30%
+Mango Haze,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mango_Haze.jpg,THC 19%
+Green Lantern,Sativa,https://assets.wikileaf.com/assets/strains/strain/Green_Lantern.jpg,THC 28%
+Atomic Northern Lights,Indica,https://assets.wikileaf.com/assets/strains/strain/Atomic_Northern_Lights.jpg,THC 24%
+Lifesaver,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Lifesaver.jpg,THC 21%
+Killer Queen,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Killer_Queen.jpg,THC 21%
+Hog,Indica,https://assets.wikileaf.com/assets/strains/strain/Hog.jpg,THC 23%
+Haole,Indica,https://assets.wikileaf.com/assets/strains/strain/Haole.jpg,THC 17%
+Blueberry Yum Yum,Sativa,https://assets.wikileaf.com/assets/strains/strain/Blueberry_Yum_Yum.jpg,THC 25%
+Milky Way,Sativa,https://assets.wikileaf.com/assets/strains/strain/Milky_Way.jpg,THC 22%
+Mexican,Sativa,https://assets.wikileaf.com/assets/strains/strain/Mexican.jpg,THC 16%
+Mammoth,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Mammoth.jpg,THC 21%
+Locomotion,Indica,https://assets.wikileaf.com/assets/strains/strain/Locomotion.jpg,THC 23%
+Killing Fields,Sativa,https://assets.wikileaf.com/assets/strains/strain/Killing_Fields.jpg,THC 22%
+Goo,Indica,https://assets.wikileaf.com/assets/strains/strain/Goo.jpg,THC 24%
+Earth OG,Indica,https://assets.wikileaf.com/assets/strains/strain/Earth_OG.jpg,THC 22%
+Cabbage Patch,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Cabbage_Patch.jpg,THC 27%
+Lemon Drop,Sativa,https://assets.wikileaf.com/assets/strains/strain/Lemon_Drop.jpg,THC 23%
+Hong Kong,Hybrid,https://assets.wikileaf.com/assets/strains/strain/Hong_Kong.jpg,THC 25%
+Early Girl,Indica,https://assets.wikileaf.com/assets/strains/strain/Early_Girl.jpg,THC 20%
+Dog Shit,Sativa,https://assets.wikileaf.com/assets/strains/strain/Dog_Shit_500x500.png,THC 26%

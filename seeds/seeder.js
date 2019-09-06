@@ -40,4 +40,23 @@ const parseDelta9 = () => {
   });
 };
 
-parseDelta9();
+const parseWikileaf = () => {
+  obj.from.path("./seeds/wikileaf.csv").to.array(function(data) {
+    for (var index = 1; index < data.length; index++) {
+      //Start getting data
+      db.weed.create({
+        pictureUrl: data[index][2],
+        weedName: data[index][0],
+        thc: data[index][3].split(" / ")[0].split(" ")[1],
+        cbd:
+          data[index][3].split(" / ")[1] === undefined
+            ? "<1%"
+            : data[index][3].split(" / ")[1].split(" ")[1],
+        strain: data[index][1],
+        company: "No Vendor Listed"
+      });
+    }
+  });
+};
+
+parseWikileaf();
