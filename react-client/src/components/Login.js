@@ -95,7 +95,7 @@ const Login = ({ setAt }) => {
               borderRadius="25px"
               padding="10px"
               color="white"
-              boxShadow=" 5px -5px 18px #000000"
+              boxShadow=" -10px 10px 20px #0C1109"
             >
               <Flex
                 justifyContent="center"
