@@ -29,7 +29,6 @@ class Posts extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.at);
     axios
       .get("http://localhost:3000/posts", {
         headers: { Authorization: `Bearer ${this.props.at}` }

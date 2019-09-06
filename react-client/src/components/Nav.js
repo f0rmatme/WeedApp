@@ -1,73 +1,100 @@
 import React from "react";
-import MenuIcon from "@material-ui/icons/Menu";
-import {
-  makeStyles,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  AppBar
-} from "@material-ui/core";
+import Box from "./ui/Box";
+import Flex from "./ui/Flex";
+import { ButtonNav } from "./ui/Button";
+import { withRouter } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1,
-    color: "white"
-  }
-}));
+import BGNav from "./images/smoke1.jpg";
 
 const Nav = props => {
   const handleLogout = () => {
     localStorage.clear();
     props.setAt("");
   };
-
-  const classes = useStyles();
-
+  const [active, setActive] = React.useState(props.history.location.pathname);
   return (
-    <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "rgb(110, 51, 95)" }}>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            TokeTalk
-          </Typography>
-          <Button
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-            onClick={props.posts}
-          >
-            Posts
-          </Button>
-          <Button
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-            onClick={props.weed}
-          >
-            Strains
-          </Button>
-          <Button
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-            onClick={props.theboys}
-          >
-            The Boys
-          </Button>
-          <Button color="inherit" onClick={handleLogout}>
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <Flex
+      color="white"
+      height="60px"
+      bg="#0C1109"
+      flexDirection="row"
+      position="sticky"
+      top="0"
+      zIndex="100"
+    >
+      <Box
+        fontSize="25px"
+        fontFamily="Permanent Marker"
+        p="12px"
+        pl="25%"
+        pr="25%"
+        borderBottom="3px solid #0C1109"
+      >
+        TokeTalk
+      </Box>
+      <ButtonNav
+        height="100%"
+        bg="transparent"
+        border="none"
+        px="20px"
+        borderBottom={`3px solid ${
+          active === "/posts" || active === "/posts/"
+            ? "rgb(110, 51, 95)"
+            : "white"
+        }`}
+        fontSize="18px"
+        fontWeight="bold"
+        color={
+          active === "/posts" || active === "/posts/"
+            ? "rgb(110, 51, 95)"
+            : "white"
+        }
+        onClick={() => {
+          setActive("/posts");
+          props.posts();
+        }}
+      >
+        Posts
+      </ButtonNav>
+      <ButtonNav
+        height="100%"
+        bg="transparent"
+        border="none"
+        px="20px"
+        borderBottom={`3px solid ${
+          active === "/weed" || active === "/weed/"
+            ? "rgb(110, 51, 95)"
+            : "white"
+        }`}
+        fontSize="18px"
+        fontWeight="bold"
+        color={
+          active === "/weed" || active === "/weed/"
+            ? "rgb(110, 51, 95)"
+            : "white"
+        }
+        onClick={() => {
+          setActive("/weed");
+          props.weed();
+        }}
+      >
+        Strains
+      </ButtonNav>
+      <ButtonNav
+        height="100%"
+        bg="transparent"
+        border="none"
+        alignSelf="flex-end"
+        pr="20px"
+        ml="auto"
+        fontSize="18px"
+        fontWeight="bold"
+        onClick={handleLogout}
+      >
+        Logout
+      </ButtonNav>
+    </Flex>
   );
 };
 
-export default Nav;
+export default withRouter(Nav);
