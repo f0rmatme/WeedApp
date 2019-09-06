@@ -30,7 +30,15 @@ const Nav = props => {
         pr="25%"
         borderBottom="3px solid #0C1109"
       >
-        TokeTalk
+        <img
+          src={require("./images/TokeTalkLogo.png")}
+          style={{
+            width: "200px",
+            marginTop: "-75px",
+            marginLeft: "-70px",
+            marginRight: "30px"
+          }}
+        />
       </Box>
       <ButtonNav
         height="100%"
@@ -38,17 +46,10 @@ const Nav = props => {
         border="none"
         px="20px"
         borderBottom={`3px solid ${
-          active === "/posts" || active === "/posts/"
-            ? "rgb(110, 51, 95)"
-            : "white"
+          active === "/posts" || active === "/posts/" ? "#90119c" : "white"
         }`}
         fontSize="18px"
         fontWeight="bold"
-        color={
-          active === "/posts" || active === "/posts/"
-            ? "rgb(110, 51, 95)"
-            : "white"
-        }
         onClick={() => {
           setActive("/posts");
           props.posts();
@@ -62,17 +63,10 @@ const Nav = props => {
         border="none"
         px="20px"
         borderBottom={`3px solid ${
-          active === "/weed" || active === "/weed/"
-            ? "rgb(110, 51, 95)"
-            : "white"
+          active === "/weed" || active === "/weed/" ? "#90119c" : "white"
         }`}
         fontSize="18px"
         fontWeight="bold"
-        color={
-          active === "/weed" || active === "/weed/"
-            ? "rgb(110, 51, 95)"
-            : "white"
-        }
         onClick={() => {
           setActive("/weed");
           props.weed();

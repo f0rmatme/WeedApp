@@ -21,7 +21,7 @@ const colours = [
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
-class Posts extends React.Component {
+class PostsOld extends React.Component {
   state = {
     loading: true,
     visible: false,
@@ -183,5 +183,24 @@ class Posts extends React.Component {
     );
   }
 }
+
+const Posts = () => {
+  return (
+    <Flex backgroundColor="#f5f2e8" minHeight="100vh">
+      <Box width="22%"> </Box>
+      <Box width="52%" bg="white" mt="10px">
+        <Box fontWeight="bold" fontSize="14px" p="5%" pb="0px">
+          Newest Posts
+        </Box>
+        <Flex justifyContent="center" alignItems="center">
+          <Box width="90%">
+            <Divider />
+          </Box>
+        </Flex>
+      </Box>
+      <Box width="26%"></Box>
+    </Flex>
+  );
+};
 
 export default Posts;

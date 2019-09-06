@@ -77,14 +77,16 @@ const Login = ({ setAt }) => {
     >
       {!signupVisible ? (
         <HookedComponent>
-          <Flex
-            justifyContent="center"
-            fontFamily="Permanent Marker"
-            fontSize="90px"
-            color="white"
-            paddingTop="5%"
-          >
-            TokeTalk
+          <Flex justifyContent="center">
+            <img
+              src={require("./images/TokeTalkLogo.png")}
+              style={{
+                width: "600px",
+                marginTop: "-100px",
+                marginBottom: "-140px",
+                marginLeft: "-40px"
+              }}
+            />
           </Flex>
 
           <Flex justifyContent="center">
