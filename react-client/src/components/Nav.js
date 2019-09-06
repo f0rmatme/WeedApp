@@ -36,7 +36,7 @@ const Nav = props => {
             width: "200px",
             marginTop: "-75px",
             marginLeft: "-70px",
-            marginRight: "30px"
+            marginRight: "70px"
           }}
         />
       </Box>

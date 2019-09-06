@@ -7,6 +7,7 @@ import Flex from "./ui/Flex";
 import Eric from "./images/eric.png";
 import Ad_1 from "./images/ads/bowlingsim.png";
 import Ad_2 from "./images/ads/dopewatcher.png";
+import { getStrainColour } from "../helpers/strainColour.js";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -33,23 +34,6 @@ const Weeds = () => {
       });
   }, []);
 
-  const getStrainColour = strain => {
-    switch (strain) {
-      case "hybrid":
-      case "Hybrid":
-        return "lime";
-      case "indica":
-      case "Indica":
-        return "purple";
-      case "sativa":
-      case "Sativa":
-        return "gold";
-      case "terpenes":
-      case "Terpenes":
-        return "magenta";
-    }
-  };
-
   return (
     <Box
       bg="#f5f2e8"
@@ -66,38 +50,11 @@ const Weeds = () => {
             flexWrap: "wrap",
             justifyContent: "space-around"
           }}
-        >
-          <Card
-            style={{
-              height: "300px",
-              width: "220px"
-            }}
-            cover={
-              <img
-                src={Eric}
-                alt="eric"
-                style={{
-                  maxHeight: "150px",
-                  maxWidth: "145px"
-                }}
-              />
-            }
-          >
-            <Meta
-              title={userCtx.user.username}
-              description="I like men"
-              style={{
-                marginBottom: "10px"
-              }}
-            />
-            <Box>Posts: 0</Box>
-            <Box>Updoots: 69</Box>
-          </Card>
-        </Box>
+        ></Box>
         {!loading ? (
           <Box
             style={{
-              width: "60%",
+              width: "70%",
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "flex-start",
