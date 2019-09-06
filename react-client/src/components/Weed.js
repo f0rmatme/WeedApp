@@ -34,7 +34,6 @@ const Weeds = () => {
   }, []);
 
   const getStrainColour = strain => {
-    console.log(strain);
     switch (strain) {
       case "hybrid":
       case "Hybrid":
