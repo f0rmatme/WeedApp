@@ -59,6 +59,7 @@ const App = props => {
       ) : (
         <Box>
           <Nav
+            location={props.match}
             setAt={setAt}
             home={handleHome}
             posts={handlePosts}
