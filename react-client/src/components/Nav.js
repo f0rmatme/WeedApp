@@ -21,6 +21,7 @@ const Nav = props => {
       position="sticky"
       top="0"
       zIndex="100"
+      boxShadow="5px 0px 16px #0C1109"
     >
       <Box
         fontSize="25px"
