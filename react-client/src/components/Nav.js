@@ -21,6 +21,7 @@ const Nav = props => {
       position="sticky"
       top="0"
       zIndex="100"
+      boxShadow="5px 0px 16px #0C1109"
     >
       <Box
         fontSize="25px"
@@ -30,25 +31,27 @@ const Nav = props => {
         pr="25%"
         borderBottom="3px solid #0C1109"
       >
-        TokeTalk
+        <img
+          src={require("./images/TokeTalkLogo.png")}
+          style={{
+            width: "200px",
+            marginTop: "-75px",
+            marginLeft: "-70px",
+            marginRight: "70px"
+          }}
+        />
       </Box>
       <ButtonNav
         height="100%"
         bg="transparent"
         border="none"
         px="20px"
+        color="#9DA077"
         borderBottom={`3px solid ${
-          active === "/posts" || active === "/posts/"
-            ? "rgb(110, 51, 95)"
-            : "white"
+          active === "/posts" || active === "/posts/" ? "#90119c" : "#9DA077"
         }`}
         fontSize="18px"
         fontWeight="bold"
-        color={
-          active === "/posts" || active === "/posts/"
-            ? "rgb(110, 51, 95)"
-            : "white"
-        }
         onClick={() => {
           setActive("/posts");
           props.posts();
@@ -61,18 +64,12 @@ const Nav = props => {
         bg="transparent"
         border="none"
         px="20px"
+        color="#9DA077"
         borderBottom={`3px solid ${
-          active === "/weed" || active === "/weed/"
-            ? "rgb(110, 51, 95)"
-            : "white"
+          active === "/weed" || active === "/weed/" ? "#90119c" : "#9DA077"
         }`}
         fontSize="18px"
         fontWeight="bold"
-        color={
-          active === "/weed" || active === "/weed/"
-            ? "rgb(110, 51, 95)"
-            : "white"
-        }
         onClick={() => {
           setActive("/weed");
           props.weed();
@@ -87,7 +84,8 @@ const Nav = props => {
         alignSelf="flex-end"
         pr="20px"
         ml="auto"
-        fontSize="18px"
+        color="#9DA077"
+        fontSize="16px"
         fontWeight="bold"
         onClick={handleLogout}
       >

@@ -7,7 +7,8 @@ import {
   flexbox,
   border,
   background,
-  position
+  position,
+  shadow
 } from "styled-system";
 
 const Flex = styled("div")(
@@ -21,7 +22,8 @@ const Flex = styled("div")(
   flexbox,
   border,
   background,
-  position
+  position,
+  shadow
 );
 
 export default Flex;

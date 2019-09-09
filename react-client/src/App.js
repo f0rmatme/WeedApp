@@ -6,9 +6,6 @@ import { withRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
-import WeedFooter from "./components/WeedFooter";
-import TheBoys from "./components/TheBoys";
-import NewCharacter from "./components/NewCharacter";
 import { UserContext } from "./context/userContext";
 import Login from "./components/Login";
 import Box from "./components/ui/Box";
@@ -27,14 +24,6 @@ const App = props => {
 
   const handleWeed = () => {
     props.history.push("/weed/");
-  };
-
-  const handleTheBoys = () => {
-    props.history.push("/theboys/");
-  };
-
-  const handleNewCharacter = () => {
-    props.history.push("/newcharacter");
   };
 
   const userCtx = useContext(UserContext);
@@ -63,8 +52,6 @@ const App = props => {
             setAt={setAt}
             home={handleHome}
             posts={handlePosts}
-            theboys={handleTheBoys}
-            newchar={handleNewCharacter}
             weed={handleWeed}
           />
           <Switch>
@@ -74,8 +61,6 @@ const App = props => {
               component={() => <Posts at={userCtx.token} />}
             />
             <Route exact path="/weed" component={Weed} />
-            <Route path="/theboys/" component={TheBoys} />
-            <Route path="/newcharacter/" component={NewCharacter} />
           </Switch>
         </Box>
       )}
