@@ -123,7 +123,7 @@ const Posts = props => {
                       width: "90%"
                     }}
                   >
-                    <Flex>
+                    <Flex flexWrap="wrap">
                       {processTags(post.tags).map((tag, key) => {
                         return (
                           <Tag key={key} color={getRandomColour()}>
