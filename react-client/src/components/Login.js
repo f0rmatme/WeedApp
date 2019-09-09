@@ -78,6 +78,7 @@ const Login = ({ setAt }) => {
         <HookedComponent>
           <Flex justifyContent="center">
             <img
+              alt="Toke Talk"
               src={require("./images/TokeTalkLogo.png")}
               style={{
                 width: "600px",
