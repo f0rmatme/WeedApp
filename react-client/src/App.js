@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Switch, Redirect } from "react-router";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import MainPage from "./components/MainPage";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import { UserContext } from "./context/userContext";
