@@ -8,7 +8,6 @@ import bgImage from "./images/plant.jpg";
 import { css } from "@emotion/core";
 import { UserContext } from "../context/userContext";
 import { useSpring, animated } from "react-spring";
-import PersonIcon from "@material-ui/icons/Person";
 
 const HookedComponent = props => {
   const props1 = useSpring({
@@ -79,6 +78,7 @@ const Login = ({ setAt }) => {
         <HookedComponent>
           <Flex justifyContent="center">
             <img
+              alt="Toke Talk"
               src={require("./images/TokeTalkLogo.png")}
               style={{
                 width: "600px",
