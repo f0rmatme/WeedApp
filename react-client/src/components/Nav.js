@@ -6,8 +6,6 @@ import { withRouter } from "react-router-dom";
 import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
 
-import BGNav from "./images/smoke1.jpg";
-
 const Nav = props => {
   const [active, setActive] = React.useState(props.history.location.pathname);
   const [visible, setVisible] = React.useState(false);

@@ -12,5 +12,7 @@ export const getStrainColour = strain => {
     case "terpenes":
     case "Terpenes":
       return "magenta";
+    default:
+      return "orange";
   }
 };
