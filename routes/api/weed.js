@@ -9,7 +9,7 @@ module.exports = (app, db, jwtMW) => {
       let page = req.body.pagination.page;
 
       options.limit = perPage;
-      options.offset = page;
+      options.offset = page * perPage;
     }
     if (req.body.filter && req.body.filter.company) {
       options.where.company = req.body.filter.company;
