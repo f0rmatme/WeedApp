@@ -1,18 +1,26 @@
 module.exports = (app, db, jwtMW) => {
   app.get("/weed", jwtMW, (req, res) => {
+    let options = {
+      where: {},
+      limit: 0,
+      offset: 0
+    };
+
     if (req.body.pagination) {
       let perPage = req.body.pagination.perPage;
       let page = req.body.pagination.page;
 
-      db.weed
-        .findAll({
-          limit: perPage,
-          offset: perPage * page
-        })
-        .then(result => res.json(result));
-    } else {
-      db.weed.findAll().then(result => res.json(result));
+      options.limit = perPage;
+      options.offset = page;
     }
+    if (req.body.filter.company) {
+      options.where.company = req.body.filter.company;
+    }
+    if (req.body.filter.type) {
+      options.where.strain = req.body.filter.type;
+    }
+
+    db.weed.findAll(options).then(result => res.json(result));
   });
 
   app.get("/weed/:id", jwtMW, (req, res) =>
