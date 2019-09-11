@@ -147,6 +147,7 @@ const Nav = props => {
               >
                 <img
                   src={require("./images/TokeTalkLogo.png")}
+                  alt="logo"
                   style={{
                     width: "150px",
                     marginTop: "-50px",
@@ -158,7 +159,7 @@ const Nav = props => {
                 <Dropdown
                   overlay={menu}
                   visible={visible}
-                  onVisibleChange={setVisible}
+                  onVisibleChange={handleVisibleChange}
                 >
                   <Icon type="menu" />
                 </Dropdown>
