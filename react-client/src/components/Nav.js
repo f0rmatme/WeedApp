@@ -65,6 +65,7 @@ const Nav = props => {
               <Box p="12px" pl="25%" pr="20%" borderBottom="3px solid #0C1109">
                 <img
                   src={require("./images/TokeTalkLogo.png")}
+                  alt="logo"
                   style={{
                     width: "200px",
                     marginTop: "-75px",
