@@ -17,13 +17,18 @@ const Weeds = () => {
   const [{ weed, loading }, setWeed] = useState({ weed: [], loading: true });
   const [fromError, setError] = useState([]);
   const { Meta } = Card;
+  const [{strainOpt, structureOpt, companyOpt}, setOption] = useState({ strainOpt: "all", structureOpt: "all", companyOpt: "all"});
+  const [filter, setFilter] = useState({});
 
   const userCtx = React.useContext(UserContext);
 
   useEffect(() => {
     axios
       .get("http://localhost:3000/weed", {
-        headers: { Authorization: `Bearer ${userCtx.token}` }
+        headers: { Authorization: `Bearer ${userCtx.token}` },
+        //body: {
+        //  pagination
+        //}
       })
       .then(function(response) {
         setWeed({ weed: response.data, loading: false });
@@ -37,6 +42,17 @@ const Weeds = () => {
 
   const first8 = weed.slice(0,8);
 
+  const strainOption = e => {
+    setFilter({...filter, strain: e.target.value});
+  };
+
+  /*const structureOption = e => {
+    setFilter({...filter, stureture: e.target.value});
+  };*/
+
+  const companyOption = e => {
+    setFilter({...filter, company: e.target.value});
+  };
   
   return (
     <Box
@@ -47,34 +63,236 @@ const Weeds = () => {
       <Media query={{ minWidth: 605}}>
         { matches => 
           matches ? (
-            <Flex>
+            <Flex
+              style={{
+                justifyContent: "space-around",
+              }}
+            >
               <Flex
                 style={{
-                  width: "20%",
-                  marginTop: "25px",
+                  width: "15%",
                   height: "500px",
-                  marginLeft: "10px",
+                  marginTop: "25px",
+                  marginLeft: "2%",
+                  marginRight: "2%",
                   flexWrap: "wrap",
-                  justifyContent: "space-around",
-                  backgroundColor: "grey",
+                  //justifyContent: "center",
+                  backgroundColor: "silver",
+                  flexDirection: "column",
                 }}
               >
-                
+                <Flex
+                  style={{
+                    justifyContent: "center",
+                    margin: "5px",
+                    
+                  }}
+                >
+                  <h2>
+                    Filters
+                  </h2>
+                </Flex>
+                <Flex
+                  style={{
+                    flexDirection: "column",
+                    margin: "5px",
+                  }}
+                >
+                  <h3>
+                    Strain
+                  </h3>
+                  <Radio.Group
+                    onChange={strainOption}
+                    defaultValue={""}
+                    buttonStyle={"solid"}
+                  >
+                    <Radio.Button
+                      //style={}
+                      value={""}
+                    >
+                      All
+                    </Radio.Button>
+                    <Radio.Button
+                      //style={}
+                      value={"indica"}
+                    >
+                      Indica
+                    </Radio.Button>
+                    <Radio.Button
+                      //style={}
+                      value={"sativa"}
+                    >
+                      Sativa
+                    </Radio.Button>
+                    <Radio.Button
+                      //style={}
+                      value={"hybrid"}
+                    >
+                      Hybrid
+                    </Radio.Button>
+                  </Radio.Group>
+                  <h3>
+                    Structure
+                  </h3>
+                  <Radio.Group
+                    onChange={structureOption}
+                    value={structureOpt}
+                  >
+                    <Radio
+                      //style={}
+                      value={""}
+                    >
+                      All
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"cbd"}
+                    >
+                      CBD Dominant
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"thc"}
+                    >
+                      THC Dominant
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"terpenes"}
+                    >
+                      Terpenes
+                    </Radio>
+                  </Radio.Group>
+                  <h3>
+                    Company
+                  </h3>
+                  <Radio.Group
+                    onChange={companyOption}
+                    value={companyOpt}
+                  >
+                    <Radio
+                      //style={}
+                      value={""}
+                    >
+                      All
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Aurora"}
+                    >
+                      Aurora
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Canna Farms"}
+                    >
+                      THC Dominant
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Color Cannabis"}
+                    >
+                      Color Cannabis
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Delta 9 Cannabis"}
+                    >
+                      Delta 9 Cannabis
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Doja"}
+                    >
+                      Doja
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"DNA Genetics"}
+                    >
+                      DNA Genetics
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"High Tide"}
+                    >
+                      High Tide
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"LBS"}
+                    >
+                      LBS
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Namaste"}
+                    >
+                      Namaste
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Royal High"}
+                    >
+                      Royal High
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Tokyo Smoke"}
+                    >
+                      Tokyo Smoke
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Tweed Inc."}
+                    >
+                      Tweed
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Up Cannabis"}
+                    >
+                      Up Cannabis
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Vertical"}
+                    >
+                      Vertical
+                    </Radio>
+                    <Radio
+                      //style={}
+                      value={"Zenabis"}
+                    >
+                      Zenabis
+                    </Radio>
+                  </Radio.Group>
+
+                  
+
+                  
+                  
+                </Flex>
               </Flex>
               {!loading ? (
                 <Box
                   style={{
-                    width: "80%",
+                    width: "60%",
                     display: "flex",
                     flexWrap: "wrap",
-                    justifyContent: "flex-start",
+                    flexFlow: "row wrap",
+                    justifyContent: "space-around",
                     marginTop: "15px",
                   }}
                 >
-                  { first8.map((weedItem, key) => {//weed.map((weedItem, key) => {
+                  { weed.map((weedItem, key) => {//weed.map((weedItem, key) => {
+                    console.log(weedItem.company + "\n" );
                     return (
                       <Flex 
                         key={key}
+                        style={{
+                          //flexBasis: 
+                        }}
                       >
                         <Card
                           hoverable
@@ -129,19 +347,47 @@ const Weeds = () => {
                       </Flex>
                     );
                   })}
+                  { () => {
+                    return (
+                      <Card
+                        title="Hello weed"
+                        cover={
+                          <img
+                            alt="weed"
+                            style={{
+                              minHeight: "200px",
+                              minWidth: "195px",
+                              maxHeight: "200px",
+                              maxWidth: "195px",
+                            }}
+                          />
+                        }
+                        style={{
+                          height: "350px",
+                          width: "200px",
+                          margin: "10px",
+                          justifyContent: "center",
+                        }}
+                      >
+                      </Card>
+                    )
+                  }}
                 </Box>
               ) : (
                 <Flex width="60%" justifyContent="center" mt="20%">
                   <Spin indicator={antIcon} size="large" />
                 </Flex>
               )}
-              <Box
+              <Flex
                 style={{
-                  width: "0%",
+                  width: "15%",
+                  height: "500px",
                   marginTop: "25px",
-                  marginLeft: "25px",
-                  display: "column",
+                  marginLeft: "2%",
+                  marginRight: "2%",
+                  flexWrap: "wrap",
                   justifyContent: "center",
+                  backgroundColor: "silver",
                 }}
               >
                 {/*  <Card
@@ -198,7 +444,7 @@ const Weeds = () => {
                     We watch the weed for you!
                   </Box>
                 </Card> */}
-              </Box>
+              </Flex>
             </Flex>
           ) : (
             <Box>
