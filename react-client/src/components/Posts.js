@@ -63,7 +63,7 @@ const Posts = props => {
             <Box
               width={matches ? "45%" : "90%"}
               bg="white"
-              mt="10px"
+              mt="20px"
               borderRadius="3px"
               ml={matches ? "22%" : "5%"}
             >
@@ -165,11 +165,7 @@ const Posts = props => {
 
             {matches && (
               <Box width="33%" padding="20px">
-                <Flex
-                  justifyContent="center"
-                  alignItems="center"
-                  position="relative"
-                >
+                <Flex justifyContent="flex-start" position="relative">
                   <ProfileCard />
                 </Flex>
               </Box>

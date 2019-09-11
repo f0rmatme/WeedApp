@@ -123,7 +123,13 @@ const Nav = props => {
                 fontWeight="bold"
                 onClick={handleLogout}
               >
-                Logout
+                <Flex>
+                  <Box>Logout</Box>
+                  <Icon
+                    type="logout"
+                    style={{ paddingTop: "4px", paddingLeft: "5px" }}
+                  />
+                </Flex>
               </ButtonNav>
             </Flex>
           ) : (
