@@ -45,4 +45,54 @@ export const ButtonNav = styled("button")(
   })
 );
 
+export const ButtonPost = styled("button")(
+  {
+    position: "fixed",
+    bottom: "0",
+    right: "0",
+    margin: "25px",
+    padding: "10px 15px 10px 15px",
+    backgroundColor: " #0C1109",
+    color: "#9DA077",
+    border: "none",
+    borderRadius: "3px",
+    fontWeight: "bold"
+  },
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position,
+  flexbox,
+  css({
+    ":hover": css({ cursor: "pointer", color: "rgb(110, 51, 95)" })
+  })
+);
+
+export const ButtonSelector = styled("button")(
+  {
+    outline: "none",
+    margin: "10px",
+    padding: "10px 15px 10px 15px",
+    color: "#9DA077",
+    background: "transparent",
+    border: "1px solid",
+    borderRadius: "3px",
+    fontWeight: "bold"
+  },
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position,
+  flexbox,
+  css({
+    ":hover": css({ cursor: "pointer" })
+  })
+);
+
 export default Button;

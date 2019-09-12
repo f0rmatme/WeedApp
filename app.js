@@ -1,8 +1,5 @@
 var express = require("express");
-var exphbs = require("express-handlebars");
-var router = express.Router();
 var bodyParser = require("body-parser");
-var faker = require("faker");
 var lodash = require("lodash");
 const session = require("express-session");
 
@@ -11,10 +8,8 @@ const apiPost = require("./routes/api/post");
 const apiWeed = require("./routes/api/weed");
 const apiUser = require("./routes/api/user");
 const apiComment = require("./routes/api/comment");
-const userClass = require("./modules/users/user");
 const authClass = require("./routes/auth/auth");
 var bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const exjwt = require("express-jwt");
 
 const cors = require("cors");
