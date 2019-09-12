@@ -46,7 +46,7 @@ const Nav = props => {
   };
 
   return (
-    <Box>
+    <Box position="sticky" top="0" zIndex="100">
       <Media query={{ minWidth: 900 }}>
         {matches =>
           matches ? (
@@ -55,9 +55,6 @@ const Nav = props => {
               height="60px"
               bg="#0C1109"
               flexDirection="row"
-              position="sticky"
-              top="0"
-              zIndex="100"
               boxShadow="5px 0px 16px #0C1109"
             >
               <Box p="12px" pl="25%" pr="20%" borderBottom="3px solid #0C1109">
@@ -79,7 +76,7 @@ const Nav = props => {
                 color="#9DA077"
                 borderBottom={`3px solid ${
                   active === "/posts" || active === "/posts/"
-                    ? "#90119c"
+                    ? "rgb(110, 51, 95)"
                     : "#9DA077"
                 }`}
                 fontSize="18px"
@@ -99,7 +96,7 @@ const Nav = props => {
                 color="#9DA077"
                 borderBottom={`3px solid ${
                   active === "/weed" || active === "/weed/"
-                    ? "#90119c"
+                    ? "rgb(110, 51, 95)"
                     : "#9DA077"
                 }`}
                 fontSize="18px"

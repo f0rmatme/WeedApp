@@ -4,20 +4,23 @@ module.exports = (app, db, jwtMW) => {
       where: {}
     };
 
-    if (req.body.pagination) {
-      let perPage = req.body.pagination.perPage;
-      let page = req.body.pagination.page;
+    if (req.query.pagination) {
+      let perPage = req.query.perPage;
+      let page = req.query.page;
 
       options.limit = perPage;
       options.offset = page * perPage;
     }
-    if (req.body.filter && req.body.filter.company) {
-      options.where.company = req.body.filter.company;
+    if (req.query.search) {
+      options.where.weedName = { like: "%" + req.query.search + "%" };
     }
-    if (req.body.filter && req.body.filter.type) {
-      options.where.strain = req.body.filter.type;
+    if (req.query && req.query.company) {
+      options.where.company = req.query.company;
     }
-    if (req.body.filter && (req.body.filter.thc || req.body.filter.cbd)) {
+    if (req.query && req.query.type) {
+      options.where.strain = req.query.type;
+    }
+    if (req.query && (req.query.thc || req.query.cbd)) {
       let weedArr = [];
       db.weed.findAll().then(result => {
         let tempWeedArrTHC = [];
@@ -37,9 +40,9 @@ module.exports = (app, db, jwtMW) => {
             }
           }
         });
-        if (req.body.filter.thc === "dom") {
+        if (req.query.thc === "dom") {
           options.where.id = { in: tempWeedArrTHC };
-        } else if (req.body.filter.cbd === "dom") {
+        } else if (req.query.cbd === "dom") {
           options.where.id = { in: tempWeedArrCBD };
         }
         db.weed.findAll(options).then(result => res.json(result));
