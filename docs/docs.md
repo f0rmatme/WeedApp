@@ -2,17 +2,14 @@
 
 ## GET /weed
 
-OPTIONAL BODY: {
-pagination: {
+OPTIONAL PARAMS:
+{
 perPage: INTEGER,
-page: INTEGER
-},
-filter: {
+page: INTEGER,
 company: STRING,
 type: STRING [Sativa, Indica, Hybrid, Terpenes],
 thc: "dom",
 cbd: "dom"
-}
 }
 
 The thc and cbd specify if you want cbd or thc dominant results.
