@@ -7,7 +7,10 @@ import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
 
 const Nav = props => {
-  const [active, setActive] = React.useState(props.history.location.pathname);
+  console.log(props.history.location.pathname);
+  const [active, setActive] = React.useState(
+    props.history.location.pathname || "/posts/"
+  );
   const [visible, setVisible] = React.useState(false);
 
   const handleMenuClick = e => {
@@ -21,6 +24,10 @@ const Nav = props => {
       handleLogout();
     }
   };
+
+  React.useEffect(() => {
+    setActive(props.history.location.pathname);
+  }, [props.history.location.pathname]);
 
   const menu = (
     <Menu onClick={handleMenuClick}>
