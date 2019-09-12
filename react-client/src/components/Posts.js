@@ -20,6 +20,10 @@ const Posts = props => {
 
   const [visible, setVisible] = useState(false);
 
+  const [value, setValue] = useState([]);
+  const [tags, setTags] = useState("");
+  const [content, setContent] = useState("");
+
   const userCtx = useContext(UserContext);
 
   useEffect(() => {
@@ -41,6 +45,21 @@ const Posts = props => {
 
   const handleOk = () => {
     console.log("Submit the post");
+    console.log(tags);
+    axios
+      .post(
+        "http://localhost:3000/posts",
+        {
+          userId: userCtx.user.id,
+          weedId: parseInt(value.key),
+          content,
+          tags: tags.toString()
+        },
+        {
+          headers: { Authorization: `Bearer ${props.at}` }
+        }
+      )
+      .then(() => setVisible(false));
   };
 
   return (
@@ -106,7 +125,12 @@ const Posts = props => {
                 onCancel={handleCancel}
                 onOk={handleOk}
               >
-                <PostForm />
+                <PostForm
+                  setValue={setValue}
+                  value={value}
+                  setTags={setTags}
+                  setContent={setContent}
+                />
               </Modal>
             </Box>
 

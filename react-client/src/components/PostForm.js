@@ -5,17 +5,18 @@ import Flex from "./ui/Flex";
 import { ButtonSelector } from "./ui/Button";
 import debounce from "lodash/debounce";
 import { UserContext } from "../context/userContext";
-import { Select, Spin } from "antd";
+import { Select, Spin, Input } from "antd";
 
 const { Option } = Select;
+const { TextArea } = Input;
 
-const NewPostForm = () => {
+const NewPostForm = props => {
   let lastFetchId = 0;
 
   const userCtx = useContext(UserContext);
 
   const [selected, setSelected] = useState("sativa");
-  const [data, setData] = useState({ data: [], value: [], fetching: false });
+  const [data, setData] = useState({ data: [], fetching: false });
 
   const fetchWeed1 = value => {
     console.log("fetching weed", data.value);
@@ -40,13 +41,20 @@ const NewPostForm = () => {
       });
   };
 
+  const handleChangeTags = value => {
+    props.setTags(value);
+  };
+
   const handleChange = value => {
-    console.log(value);
     setData({
-      value,
       data: [],
       fetching: false
     });
+    props.setValue(value);
+  };
+
+  const handleContentChange = value => {
+    props.setContent(value.target.value);
   };
 
   let fetchWeed = debounce(fetchWeed1, 800);
@@ -87,10 +95,11 @@ const NewPostForm = () => {
           Terpenes
         </ButtonSelector>
       </Flex>
+      <Box mb="2px">Select Strain Name</Box>
       <Select
         showSearch
         labelInValue
-        value={data.value}
+        value={props.value}
         placeholder="Search Weed"
         notFoundContent={data.fetching ? <Spin size="small" /> : null}
         filterOption={false}
@@ -103,6 +112,23 @@ const NewPostForm = () => {
           <Option key={d.id}>{d.weedName}</Option>
         ))}
       </Select>
+      <Box mt="10px" mb="2px">
+        Review
+      </Box>
+      <TextArea
+        placeholder="Review"
+        autosize={{ minRows: 2, maxRows: 6 }}
+        onChange={handleContentChange}
+      />
+      <Box mt="10px" mb="2px">
+        Tags
+      </Box>
+      <Select
+        mode="tags"
+        style={{ width: "100%" }}
+        onChange={handleChangeTags}
+        tokenSeparators={[","]}
+      ></Select>
     </Box>
   );
 };
