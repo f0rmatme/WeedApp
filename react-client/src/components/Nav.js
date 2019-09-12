@@ -7,7 +7,6 @@ import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
 
 const Nav = props => {
-  console.log(props.history.location.pathname);
   const [active, setActive] = React.useState(
     props.history.location.pathname || "/posts/"
   );
