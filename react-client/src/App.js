@@ -54,7 +54,7 @@ const App = props => {
             weed={handleWeed}
           />
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/posts" />} />
+            <Route exact path="/" render={() => <Redirect to="/posts/" />} />
             <Route
               path="/posts/"
               component={() => <Posts at={userCtx.token} />}
