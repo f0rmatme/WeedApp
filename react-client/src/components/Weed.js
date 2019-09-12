@@ -18,7 +18,10 @@ const Weeds = () => {
   const [fromError, setError] = useState([]);
   const { Meta } = Card;
   const [{strainOpt, structureOpt, companyOpt}, setOption] = useState({ strainOpt: "all", structureOpt: "all", companyOpt: "all"});
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({ strain: "", type: "", company: ""});
+  //const [page, setPage] = useState({page: 0});
+  const page = 0;
+  const perPage = 30;
 
   const userCtx = React.useContext(UserContext);
 
@@ -26,32 +29,61 @@ const Weeds = () => {
     axios
       .get("http://localhost:3000/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
-        //body: {
-        //  pagination
-        //}
+        params: {
+          page: page,
+          perPage: perPage,
+        },
       })
-      .then(function(response) {
-        setWeed({ weed: response.data, loading: false });
+      .then(res => {
+        setWeed({ weed: res.data, loading: false });
       })
       .catch(function(error) {
-        console.log(error);
         setWeed({ weed: [], loading: false });
         setError(error.data);
       });
   }, []);
 
-  const first8 = weed.slice(0,8);
+  useEffect(() => {
+    fetchWeed();
+  }, [ filter.strain, filter.type, filter.company ]);
 
   const strainOption = e => {
-    setFilter({...filter, strain: e.target.value});
+    setFilter({strain: e.target.value});
   };
 
-  /*const structureOption = e => {
-    setFilter({...filter, stureture: e.target.value});
-  };*/
+  const typeOption = e => {
+    setFilter({...filter, type: e.target.value});
+  };
 
   const companyOption = e => {
     setFilter({...filter, company: e.target.value});
+  };
+
+  const fetchWeed = () => {
+    console.log(filter.strain);
+    axios
+      .get("http://localhost:3000/weed", {
+        headers: { Authorization: `Bearer ${userCtx.token}` },
+        params: {
+          strain: filter.strain,
+          type: filter.type,
+          company: filter.company,
+          page: page,
+          perPage: perPage,
+        }
+      })
+      .then(res => {
+        setWeed({ weed: res.data, loading: false });
+      })
+      .catch(error => {
+        setWeed({ weed: [], loading: false });
+        setError(error.data);
+      });
+  };
+
+  const radioStyle = {
+    marginTop: "2px",
+    wordBreak: "break-all",
   };
   
   return (
@@ -60,7 +92,7 @@ const Weeds = () => {
       backgroundSize="cover"
       height={loading ? "100vh" : "100%"}
     >
-      <Media query={{ minWidth: 605}}>
+      <Media query={{ minWidth: 800}}>
         { matches => 
           matches ? (
             <Flex
@@ -70,13 +102,14 @@ const Weeds = () => {
             >
               <Flex
                 style={{
-                  width: "15%",
-                  height: "500px",
+                  width: "19%",
+                  //height: "500px",
                   marginTop: "25px",
-                  marginLeft: "2%",
-                  marginRight: "2%",
+                  marginLeft: "0.5%",
+                  marginRight: "0.5%",
                   flexWrap: "wrap",
                   //justifyContent: "center",
+                  alignItems: "center",
                   backgroundColor: "silver",
                   flexDirection: "column",
                 }}
@@ -85,7 +118,6 @@ const Weeds = () => {
                   style={{
                     justifyContent: "center",
                     margin: "5px",
-                    
                   }}
                 >
                   <h2>
@@ -95,183 +127,198 @@ const Weeds = () => {
                 <Flex
                   style={{
                     flexDirection: "column",
-                    margin: "5px",
+                    justifyContent: "center",
                   }}
                 >
-                  <h3>
-                    Strain
-                  </h3>
                   <Radio.Group
                     onChange={strainOption}
-                    defaultValue={""}
+                    defaultValue={filter.strain}
                     buttonStyle={"solid"}
                   >
-                    <Radio.Button
-                      //style={}
-                      value={""}
+                    <Flex 
+                      style={{ 
+                        flexDirection: "column",
+                        justifyContent: "flex-start",
+                        marginTop: "5px",
+                      }}
                     >
-                      All
-                    </Radio.Button>
-                    <Radio.Button
-                      //style={}
-                      value={"indica"}
-                    >
-                      Indica
-                    </Radio.Button>
-                    <Radio.Button
-                      //style={}
-                      value={"sativa"}
-                    >
-                      Sativa
-                    </Radio.Button>
-                    <Radio.Button
-                      //style={}
-                      value={"hybrid"}
-                    >
-                      Hybrid
-                    </Radio.Button>
+                      <h3>
+                        Strain
+                      </h3>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={""}
+                      >
+                        All
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"indica"}
+                      >
+                        Indica
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"sativa"}
+                      >
+                        Sativa
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"hybrid"}
+                      >
+                        Hybrid
+                      </Radio.Button>
+                    </Flex>
                   </Radio.Group>
-                  <h3>
-                    Structure
-                  </h3>
                   <Radio.Group
-                    onChange={structureOption}
-                    value={structureOpt}
+                    onChange={typeOption}
+                    value={filter.type}
+                    buttonStyle={"solid"}
                   >
-                    <Radio
-                      //style={}
-                      value={""}
+                    <Flex 
+                      style={{ 
+                        flexDirection: "column",
+                        justifyContent: "flex-start",
+                        marginTop: "5px",
+                      }}
                     >
-                      All
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"cbd"}
-                    >
-                      CBD Dominant
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"thc"}
-                    >
-                      THC Dominant
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"terpenes"}
-                    >
-                      Terpenes
-                    </Radio>
+                      <h3>
+                        Type
+                      </h3>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={""}
+                      >
+                        All
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"cbd"}
+                      >
+                        CBD Dominant
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"thc"}
+                      >
+                        THC Dominant
+                      </Radio.Button>
+                    </Flex>
                   </Radio.Group>
-                  <h3>
-                    Company
-                  </h3>
                   <Radio.Group
                     onChange={companyOption}
-                    value={companyOpt}
+                    value={filter.company}
+                    buttonStyle={"solid"}
                   >
-                    <Radio
-                      //style={}
-                      value={""}
+                    <Flex 
+                      style={{ 
+                        flexDirection: "column",
+                        justifyContent: "flex-start",
+                        marginTop: "5px",
+                      }}
                     >
-                      All
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Aurora"}
-                    >
-                      Aurora
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Canna Farms"}
-                    >
-                      THC Dominant
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Color Cannabis"}
-                    >
-                      Color Cannabis
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Delta 9 Cannabis"}
-                    >
-                      Delta 9 Cannabis
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Doja"}
-                    >
-                      Doja
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"DNA Genetics"}
-                    >
-                      DNA Genetics
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"High Tide"}
-                    >
-                      High Tide
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"LBS"}
-                    >
-                      LBS
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Namaste"}
-                    >
-                      Namaste
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Royal High"}
-                    >
-                      Royal High
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Tokyo Smoke"}
-                    >
-                      Tokyo Smoke
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Tweed Inc."}
-                    >
-                      Tweed
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Up Cannabis"}
-                    >
-                      Up Cannabis
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Vertical"}
-                    >
-                      Vertical
-                    </Radio>
-                    <Radio
-                      //style={}
-                      value={"Zenabis"}
-                    >
-                      Zenabis
-                    </Radio>
+                      <h3>
+                        Company
+                      </h3>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={""}
+                      >
+                        All
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Aurora"}
+                      >
+                        Aurora
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Canna Farms"}
+                      >
+                        Canna Farms
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Color Cannabis"}
+                      >
+                        Color Cannabis
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Delta 9 Cannabis"}
+                      >
+                        Delta 9 Cannabis
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Doja"}
+                      >
+                        Doja
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"DNA Genetics"}
+                      >
+                        DNA Genetics
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"High Tide"}
+                      >
+                        High Tide
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"LBS"}
+                      >
+                        LBS
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Namaste"}
+                      >
+                        Namaste
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Royal High"}
+                      >
+                        Royal High
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Tokyo Smoke"}
+                      >
+                        Tokyo Smoke
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Tweed Inc."}
+                      >
+                        Tweed
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Up Cannabis"}
+                      >
+                        Up Cannabis
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Vertical"}
+                      >
+                        Vertical
+                      </Radio.Button>
+                      <Radio.Button
+                        style={radioStyle}
+                        value={"Zenabis"}
+                      >
+                        Zenabis
+                      </Radio.Button>
+                    </Flex>
                   </Radio.Group>
-
-                  
-
-                  
-                  
                 </Flex>
               </Flex>
               {!loading ? (
@@ -285,8 +332,7 @@ const Weeds = () => {
                     marginTop: "15px",
                   }}
                 >
-                  { weed.map((weedItem, key) => {//weed.map((weedItem, key) => {
-                    console.log(weedItem.company + "\n" );
+                  { weed.map((weedItem, key) => {
                     return (
                       <Flex 
                         key={key}
@@ -380,11 +426,11 @@ const Weeds = () => {
               )}
               <Flex
                 style={{
-                  width: "15%",
+                  width: "19%",
                   height: "500px",
                   marginTop: "25px",
-                  marginLeft: "2%",
-                  marginRight: "2%",
+                  marginLeft: "0.5%",
+                  marginRight: "0.5%",
                   flexWrap: "wrap",
                   justifyContent: "center",
                   backgroundColor: "silver",
@@ -449,74 +495,295 @@ const Weeds = () => {
           ) : (
             <Box>
               {!loading ? (
-                <Box
+                <Flex
                   style={{
-                    width: "100%",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    marginTop: "15px",
                     flexDirection: "column",
                   }}
                 >
-                  { first8.map((weedItem, key) => {//weed.map((weedItem, key) => {
-                    return (
-                      <Flex
-                        key={key}
-                        style={{
+                  <Flex
+                    style={{
+                      width: "100%",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                      marginTop: "15px",
+                      marginBottom: "15px",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <h2>
+                      Filter
+                    </h2>
+                    <Radio.Group
+                      onChange={strainOption}
+                      defaultValue={filter.strain}
+                     buttonStyle={"solid"}
+                    >
+                      <Flex 
+                        style={{ 
                           flexDirection: "row",
-                          margin: "10px",
+                          justifyContent: "flex-start",
+                          marginTop: "5px",
                         }}
                       >
-                        <Flex
+                        <h3
                           style={{
-                            flex: "1",
-                            justifyContent: "flex-start",
+                            margin: "6px",
                           }}
                         >
-                          <Card hoverable>
-                            <Flex
-                              style={{
-                                flexDirection: "row",
-                              }}
-                            >
-                              <Meta
-                                avatar={
-                                  <Avatar 
-                                    src={weedItem.pictureUrl} 
-                                  />
-                                }
-                                title={weedItem.weedName}
-                                description={weedItem.company}
-                                style={{
-                                  margin: "10px",
-                                }}
-                              />
-                              <Meta
-                                title={
-                                  <Tag
-                                    color={getStrainColour(weedItem.strain)}
-                                    style={{
-                                      marginTop: "5px",
-                                      marginBottom: "5px",
-                                    }}
-                                  >
-                                    {weedItem.strain}
-                                  </Tag>
-                                }
-                                description={"thc: " + weedItem.thc + " cbd:  " + weedItem.cbd}
-                                style={{
-                                  marginTop: "2px",
-                                  marginLeft: "5px",
-                                }}
-                              />
-                            </Flex>
-                          </Card>
-                        </Flex>
+                          Strain
+                        </h3>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={""}
+                        >
+                          All
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"indica"}
+                        >
+                          Indica
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"sativa"}
+                        >
+                          Sativa
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"hybrid"}
+                        >
+                          Hybrid
+                        </Radio.Button>
                       </Flex>
-                    );
-                  })}
-                </Box>
+                    </Radio.Group>
+                    <Radio.Group
+                      onChange={typeOption}
+                      value={filter.type}
+                      buttonStyle={"solid"}
+                    >
+                      <Flex 
+                        style={{ 
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          marginTop: "5px",
+                        }}
+                      >
+                        <h3
+                          style={{
+                            margin: "6px",
+                          }}
+                        >
+                          Type
+                        </h3>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={""}
+                        >
+                          All
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"cbd"}
+                        >
+                          CBD Dominant
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"thc"}
+                        >
+                          THC Dominant
+                        </Radio.Button>
+                      </Flex>
+                    </Radio.Group>
+                    <Radio.Group
+                      onChange={companyOption}
+                      value={filter.company}
+                      buttonStyle={"solid"}
+                    >
+                      <Flex 
+                        style={{ 
+                          flexDirection: "row",
+                          flexWrap: "wrap",
+                          justifyContent: "center",
+                          marginTop: "5px",
+                        }}
+                      >
+                        <h3
+                          style={{
+                            margin: "6px",
+                          }}
+                        >
+                          Company
+                        </h3>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={""}
+                        >
+                          All
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Aurora"}
+                        >
+                          Aurora
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Canna Farms"}
+                        >
+                          Canna Farms
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Color Cannabis"}
+                        >
+                          Color Cannabis
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Delta 9 Cannabis"}
+                        >
+                          Delta 9 Cannabis
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Doja"}
+                        >
+                          Doja
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"DNA Genetics"}
+                        >
+                          DNA Genetics
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"High Tide"}
+                        >
+                          High Tide
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"LBS"}
+                        >
+                          LBS
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Namaste"}
+                        >
+                          Namaste
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Royal High"}
+                        >
+                          Royal High
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Tokyo Smoke"}
+                        >
+                          Tokyo Smoke
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Tweed Inc."}
+                        >
+                          Tweed
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Up Cannabis"}
+                        >
+                          Up Cannabis
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Vertical"}
+                        >
+                          Vertical
+                        </Radio.Button>
+                        <Radio.Button
+                          style={radioStyle}
+                          value={"Zenabis"}
+                        >
+                          Zenabis
+                        </Radio.Button>
+                      </Flex>
+                    </Radio.Group>
+                  </Flex>
+                  <Flex
+                    style={{
+                      width: "100%",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                      marginTop: "15px",
+                      flexDirection: "column",
+                    }}
+                  >
+                    { weed.map((weedItem, key) => {
+                      return (
+                        <Flex
+                          key={key}
+                          style={{
+                            flexDirection: "row",
+                            margin: "10px",
+                          }}
+                        >
+                          <Flex
+                            style={{
+                              flex: "1",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <Card hoverable>
+                              <Flex
+                                style={{
+                                  flexDirection: "row",
+                                }}
+                              >
+                                <Meta
+                                  avatar={
+                                    <Avatar 
+                                      src={weedItem.pictureUrl} 
+                                    />
+                                  }
+                                  title={weedItem.weedName}
+                                  description={weedItem.company}
+                                  style={{
+                                    margin: "10px",
+                                  }}
+                                />
+                                <Meta
+                                  title={
+                                    <Tag
+                                      color={getStrainColour(weedItem.strain)}
+                                      style={{
+                                        marginTop: "5px",
+                                        marginBottom: "5px",
+                                      }}
+                                    >
+                                      {weedItem.strain}
+                                    </Tag>
+                                  }
+                                  description={"thc: " + weedItem.thc + " cbd:  " + weedItem.cbd}
+                                  style={{
+                                    marginTop: "2px",
+                                    marginLeft: "5px",
+                                  }}
+                                />
+                              </Flex>
+                            </Card>
+                          </Flex>
+                        </Flex>
+                      );
+                    })}
+                  </Flex>
+                </Flex>
               ) : (
                 <Flex width="60%" justifyContent="center" mt="20%">
                   <Spin indicator={antIcon} size="large" />
