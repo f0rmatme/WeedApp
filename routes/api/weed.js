@@ -4,9 +4,9 @@ module.exports = (app, db, jwtMW) => {
       where: {}
     };
 
-    if (req.query.pagination) {
-      let perPage = req.query.perPage;
-      let page = req.query.page;
+    if (req.query.page || req.query.perPagepage) {
+      let perPage = parseInt(req.query.perPage);
+      let page = parseInt(req.query.page);
 
       options.limit = perPage;
       options.offset = page * perPage;
@@ -17,10 +17,10 @@ module.exports = (app, db, jwtMW) => {
     if (req.query && req.query.company) {
       options.where.company = req.query.company;
     }
-    if (req.query && req.query.type) {
-      options.where.strain = req.query.type;
+    if (req.query && req.query.strain) {
+      options.where.strain = req.query.strain;
     }
-    if (req.query && (req.query.thc || req.query.cbd)) {
+    if (req.query && req.query.type) {
       let weedArr = [];
       db.weed.findAll().then(result => {
         let tempWeedArrTHC = [];
@@ -40,9 +40,9 @@ module.exports = (app, db, jwtMW) => {
             }
           }
         });
-        if (req.query.thc === "dom") {
+        if (req.query.type === "thc") {
           options.where.id = { in: tempWeedArrTHC };
-        } else if (req.query.cbd === "dom") {
+        } else if (req.query.type === "cbd") {
           options.where.id = { in: tempWeedArrCBD };
         }
         db.weed.findAll(options).then(result => res.json(result));
