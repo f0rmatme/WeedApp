@@ -21,10 +21,6 @@ const Weeds = () => {
 
   const userCtx = React.useContext(UserContext);
 
-  useEffect(() => {
-    fetchWeed();
-  }, [filter]);
-
   const strainOption = e => {
     setFilter({ strain: e.target.value });
   };
@@ -37,7 +33,7 @@ const Weeds = () => {
     setFilter({ ...filter, company: e.target.value });
   };
 
-  const fetchWeed = () => {
+  useEffect(() => {
     axios
       .get("http://localhost:3000/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
@@ -56,7 +52,7 @@ const Weeds = () => {
         setWeed({ weed: [], loading: false });
         setError(error.data);
       });
-  };
+  }, [filter, userCtx.token]);
 
   return (
     <Box
