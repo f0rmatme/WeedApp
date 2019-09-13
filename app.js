@@ -7,6 +7,7 @@ const db = require("./models");
 const apiPost = require("./routes/api/post");
 const apiWeed = require("./routes/api/weed");
 const apiUser = require("./routes/api/user");
+const apiLike = require("./routes/api/like");
 const apiComment = require("./routes/api/comment");
 const authClass = require("./routes/auth/auth");
 var bcrypt = require("bcrypt");
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 apiPost(app, db, jwtMW);
 apiWeed(app, db, jwtMW);
 apiUser(app, db, jwtMW);
+apiLike(app, db, jwtMW);
 apiComment(app, db, jwtMW);
 authClass(app, db, jwtMW);
 
