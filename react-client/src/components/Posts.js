@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Spin, Icon, Divider, Modal } from "antd";
-import { ButtonPost } from "./ui/Button";
+import { ButtonPost, ButtonSubmit, ButtonCancel } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { UserContext } from "../context/userContext";
@@ -23,6 +23,7 @@ const Posts = props => {
   const [value, setValue] = useState([]);
   const [tags, setTags] = useState("");
   const [content, setContent] = useState("");
+  const [postError, setPostError] = useState("");
 
   const userCtx = useContext(UserContext);
 
@@ -41,25 +42,30 @@ const Posts = props => {
 
   const handleCancel = () => {
     setVisible(false);
+    setPostError("");
   };
 
   const handleOk = () => {
     console.log("Submit the post");
     console.log(tags);
-    axios
-      .post(
-        "http://localhost:3000/posts",
-        {
-          userId: userCtx.user.id,
-          weedId: parseInt(value.key),
-          content,
-          tags: tags.toString()
-        },
-        {
-          headers: { Authorization: `Bearer ${props.at}` }
-        }
-      )
-      .then(() => setVisible(false));
+    if (!value.key && content !== "") {
+      axios
+        .post(
+          "http://localhost:3000/posts",
+          {
+            userId: userCtx.user.id,
+            weedId: parseInt(value.key),
+            content,
+            tags: tags.toString()
+          },
+          {
+            headers: { Authorization: `Bearer ${props.at}` }
+          }
+        )
+        .then(() => setVisible(false));
+    } else {
+      setPostError("Please Enter Values for Required Fields");
+    }
   };
 
   return (
@@ -123,13 +129,25 @@ const Posts = props => {
                 title="New Post"
                 visible={visible}
                 onCancel={handleCancel}
-                onOk={handleOk}
+                footer={[
+                  <ButtonCancel
+                    onClick={handleCancel}
+                    bg="transparent"
+                    color="#D7D8D7"
+                  >
+                    Cancel
+                  </ButtonCancel>,
+                  <ButtonSubmit onClick={handleOk} border="1px solid #9D9F9C">
+                    Post
+                  </ButtonSubmit>
+                ]}
               >
                 <PostForm
                   setValue={setValue}
                   value={value}
                   setTags={setTags}
                   setContent={setContent}
+                  postError={postError}
                 />
               </Modal>
             </Box>
