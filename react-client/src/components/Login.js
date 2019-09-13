@@ -211,25 +211,6 @@ const Login = ({ setAt }) => {
               </HookedComponent>
             ) : (
               <HookedComponent>
-                {/* <Flex
-                  justifyContent="center"
-                  fontFamily="Permanent Marker"
-                  fontSize="90px"
-                  color="white"
-                  paddingTop="5%"
-                >
-                  <img
-                    alt="Toke Talk"
-                    src={require("./images/TokeTalkLogo.png")}
-                    style={{
-                      width: `${matches ? "600px" : "400px"}`,
-                      marginTop: `${matches ? "-100px" : "-70"}`,
-                      marginBottom: `${matches ? "-140px" : "-100px"}`,
-                      marginLeft: `${matches ? "-40px" : "-20px"}`
-                    }}
-                  />
-                </Flex> */}
-
                 <Flex justifyContent="center">
                   <Box
                     width="400px"
@@ -238,7 +219,7 @@ const Login = ({ setAt }) => {
                     borderRadius="25px"
                     padding="10px"
                     color="white"
-                    boxShadow=" 5px -5px 18px #000000"
+                    boxShadow=" -10px 10px 20px #0C1109"
                   >
                     <Flex
                       justifyContent="center"
