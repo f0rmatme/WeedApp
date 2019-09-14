@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Tag } from "antd";
+import { Card, Tag, Icon } from "antd";
 import { getStrainColour } from "../helpers/strainColour.js";
+import { ButtonLike } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 
@@ -22,11 +23,20 @@ const SinglePost = props => {
   const post = props.post;
 
   const getRandomColour = () => {
-    return colours[Math.floor(Math.random() * Math.floor(11))];
+    //return colours[Math.floor(Math.random() * Math.floor(11))];
+    return "";
   };
 
   const processTags = tags => {
     return tags.split(",");
+  };
+
+  const handleLike = () => {
+    console.log("Liking Post");
+  };
+
+  const handleComment = () => {
+    console.log("Commenting on Post");
   };
 
   return (
@@ -63,14 +73,24 @@ const SinglePost = props => {
                   color={getStrainColour(post.weed.strain)}
                   style={{
                     marginLeft: "10px",
-                    fontSize: "12px",
+                    fontSize: "16px",
                     fontWeight: "normal"
                   }}
                 >
                   {post.weed.strain}
                 </Tag>
               </Box>
-              <Box>{post.content}</Box>
+              <Flex flexWrap="wrap" mb="20px">
+                <Icon type="tags" style={{ padding: "4px" }} />
+                {processTags(post.tags).map((tag, key) => {
+                  return (
+                    <Tag key={key} color={getRandomColour()}>
+                      {tag}
+                    </Tag>
+                  );
+                })}
+              </Flex>
+              <Box mb="20px">{post.content}</Box>
             </Box>
           </Flex>
         </Box>
@@ -79,14 +99,13 @@ const SinglePost = props => {
         width: "90%"
       }}
     >
-      <Flex flexWrap="wrap">
-        {processTags(post.tags).map((tag, key) => {
-          return (
-            <Tag key={key} color={getRandomColour()}>
-              {tag}
-            </Tag>
-          );
-        })}
+      <Flex justifyContent="center">
+        <ButtonLike bg="transparent" mr="10px" onClick={handleLike}>
+          Like
+        </ButtonLike>
+        <ButtonLike bg="transparent" ml="10px" onClick={handleComment}>
+          Comment
+        </ButtonLike>
       </Flex>
     </Card>
   );
