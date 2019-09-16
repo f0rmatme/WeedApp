@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true
       },
       userId: DataTypes.INTEGER,
+      name: DataTypes.TEXT,
       postId: DataTypes.INTEGER,
       comment: {
         type: DataTypes.TEXT,

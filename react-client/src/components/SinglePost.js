@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import axios from "axios";
 import { Card, Tag, Icon } from "antd";
 import { getStrainColour } from "../helpers/strainColour.js";
 import { ButtonLike } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import { InputComment } from "./ui/Input";
 import { UserContext } from "../context/userContext";
+import { css } from "emotion";
 
 const colours = [
   "magenta",
@@ -23,8 +25,11 @@ const colours = [
 
 const SinglePost = props => {
   const post = props.post;
+  const [commentsVisible, setCommentsVisible] = useState(false);
+  const [makeComment, setMakeComment] = useState(false);
+  const [comment, setComment] = useState("");
 
-  const userCtx = React.useContext(UserContext);
+  const userCtx = useContext(UserContext);
 
   const getRandomColour = () => {
     //return colours[Math.floor(Math.random() * Math.floor(11))];
@@ -33,6 +38,28 @@ const SinglePost = props => {
 
   const processTags = tags => {
     return tags.split(",");
+  };
+
+  const submitComment = postId => {
+    axios
+      .post(
+        "/comment",
+        {
+          postId: postId,
+          userId: userCtx.user.id,
+          name: userCtx.user.username,
+          comment: comment
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        }
+      )
+      .then(res => {
+        props.addComment(res.data);
+        setComment("");
+      });
   };
 
   const handleLike = postId => {
@@ -50,7 +77,7 @@ const SinglePost = props => {
         }
       )
       .then(res => {
-        if (res.data === "Comment has been unliked") {
+        if (res.data === "Post has been unliked") {
           props.addLike(res, post.id, "remove");
         } else {
           props.addLike(res.data, post.id, "add");
@@ -60,6 +87,13 @@ const SinglePost = props => {
 
   const handleComment = () => {
     console.log("Commenting on Post");
+    if (makeComment) {
+      setCommentsVisible(false);
+      setMakeComment(false);
+    } else {
+      setCommentsVisible(true);
+      setMakeComment(true);
+    }
   };
 
   return (
@@ -124,13 +158,52 @@ const SinglePost = props => {
     >
       <Flex justifyContent="flex-start" mb="10px" fontSize="12px">
         {post.likes.length === 1 ? (
-          <Box>
+          <Box mr="5px">
             Liked by <b>{post.likes.length} person</b>
           </Box>
         ) : (
-          <Box>
+          <Box mr="5px">
             Liked by <b>{post.likes.length} people</b>
           </Box>
+        )}
+        {post.comments.length > 0 && (
+          <Flex>
+            <span
+              style={{
+                height: "5px",
+                width: "5px",
+                backgroundColor: "#747474",
+                borderRadius: "50%",
+                display: "inline-block",
+                marginTop: "6px"
+              }}
+            />
+            {commentsVisible ? (
+              <Box
+                className={css`
+                  &:hover {
+                    cursor: pointer;
+                  }
+                `}
+                onClick={() => setCommentsVisible(false)}
+                ml="5px"
+              >
+                Hide Comments
+              </Box>
+            ) : (
+              <Box
+                className={css`
+                  &:hover {
+                    cursor: pointer;
+                  }
+                `}
+                onClick={() => setCommentsVisible(true)}
+                ml="5px"
+              >
+                Show Comments
+              </Box>
+            )}
+          </Flex>
         )}
       </Flex>
       <Flex justifyContent="center" mb="10px">
@@ -145,14 +218,58 @@ const SinglePost = props => {
           Comment
         </ButtonLike>
       </Flex>
-      <Flex>
-        <Box
-          width="100%"
-          border="1px solid black"
-          height="200px"
-          borderRadius="3px"
-        ></Box>
-      </Flex>
+      {commentsVisible && post.comments.length > 0 && (
+        <Flex fontSize="12px" mb="5px">
+          <Box width="100%">
+            <Flex flexDirection="column">
+              {post.comments.map((comment, key) => {
+                return (
+                  <Flex key={key} pl="5px" pr="5px" pb="5px">
+                    {/*TODO: MAYBE PUT IN SOME PROFILE PICTURES LATER */}
+                    <Box mr="5px" p="2px">
+                      <b>{comment.name} </b>
+                    </Box>
+                    <Box bg="#E7E7E7" px="5px" py="2px" borderRadius="10px">
+                      {comment.comment}
+                    </Box>
+                  </Flex>
+                );
+              })}
+            </Flex>
+          </Box>
+        </Flex>
+      )}
+      {makeComment && (
+        <Box position="relative">
+          <InputComment
+            placeholder="Make a comment"
+            value={comment}
+            pl="35px"
+            py="5px"
+            pr="10px"
+            onChange={e => setComment(e.target.value)}
+            onKeyDown={e => {
+              if (e.keyCode === 13) {
+                e.preventDefault();
+                submitComment(post.id);
+              }
+            }}
+          />
+          <img
+            alt="profile"
+            style={{
+              borderRadius: "50%",
+              height: "20px",
+              left: "0",
+              marginLeft: "10px",
+              marginTop: "6px",
+              width: "20px",
+              position: "absolute"
+            }}
+            src={userCtx.user.picture}
+          />
+        </Box>
+      )}
     </Card>
   );
 };

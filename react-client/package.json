@@ -11,6 +11,7 @@
     "emotion": "^10.0.14",
     "npm": "^6.11.3",
     "react": "^16.8.6",
+    "react-autosize-textarea": "^7.0.0",
     "react-dom": "^16.8.6",
     "react-media": "^1.9.2",
     "react-router": "^5.0.1",

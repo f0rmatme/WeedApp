@@ -27,7 +27,7 @@ module.exports = (app, db, jwtMW) => {
               }
             })
             .then(result => {
-              res.send("Comment has been unliked");
+              res.send("Post has been unliked");
             });
         }
       });

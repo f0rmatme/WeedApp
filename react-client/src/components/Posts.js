@@ -70,6 +70,24 @@ const Posts = props => {
     });
   };
 
+  const addComment = comment => {
+    setPosts(prevState => {
+      let tempPosts = [];
+      prevState.posts.forEach(post => {
+        if (post.id === comment.postId) {
+          let tempComments = post.comments;
+          tempComments.push(comment);
+          let tempPost = post;
+          tempPost.comments = tempComments;
+          tempPosts.push(tempPost);
+        } else {
+          tempPosts.push(post);
+        }
+      });
+      return { posts: tempPosts, loading: false };
+    });
+  };
+
   const handleOk = () => {
     console.log("Submit the post");
     console.log(tags);
@@ -122,7 +140,11 @@ const Posts = props => {
                         justifyContent="center"
                         alignItems="center"
                       >
-                        <SinglePost post={post} addLike={addLike} />
+                        <SinglePost
+                          post={post}
+                          addLike={addLike}
+                          addComment={addComment}
+                        />
                       </Flex>
                       <Flex justifyContent="center" alignItems="center">
                         <Box width="90%">
