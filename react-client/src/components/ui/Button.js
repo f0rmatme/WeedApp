@@ -122,10 +122,10 @@ export const ButtonCancel = styled("button")(
 export const ButtonLike = styled("button")(
   {
     outline: "none",
-    padding: "5px 15px 5px 15px",
+    padding: "10px",
     backgroundColor: " #0C1109",
     color: "#9DA077",
-    width: "50%",
+    width: "50px",
     border: "1px solid #D7D8D7",
     borderRadius: "3px"
   },

@@ -206,16 +206,16 @@ const SinglePost = props => {
           </Flex>
         )}
       </Flex>
-      <Flex justifyContent="center" mb="10px">
+      <Flex justifyContent="flex-start" mb="10px">
         <ButtonLike
+          mr="5px"
           bg="transparent"
-          mr="10px"
           onClick={() => handleLike(post.id)}
         >
-          Like
+          <Icon type="like" />
         </ButtonLike>
-        <ButtonLike bg="transparent" ml="10px" onClick={handleComment}>
-          Comment
+        <ButtonLike bg="transparent" onClick={handleComment}>
+          <Icon type="message" />
         </ButtonLike>
       </Flex>
       {commentsVisible && post.comments.length > 0 && (
