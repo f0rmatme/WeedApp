@@ -129,6 +129,11 @@ const NewPostForm = props => {
         onChange={handleChangeTags}
         tokenSeparators={[","]}
       ></Select>
+      {props.postError !== "" && (
+        <Flex justifyContent="center" mt="10px" color="red">
+          {props.postError}
+        </Flex>
+      )}
     </Box>
   );
 };
