@@ -1,9 +1,11 @@
 import React from "react";
+import axios from "axios";
 import { Card, Tag, Icon } from "antd";
 import { getStrainColour } from "../helpers/strainColour.js";
 import { ButtonLike } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import { UserContext } from "../context/userContext";
 
 const colours = [
   "magenta",
@@ -22,6 +24,8 @@ const colours = [
 const SinglePost = props => {
   const post = props.post;
 
+  const userCtx = React.useContext(UserContext);
+
   const getRandomColour = () => {
     //return colours[Math.floor(Math.random() * Math.floor(11))];
     return "";
@@ -31,8 +35,27 @@ const SinglePost = props => {
     return tags.split(",");
   };
 
-  const handleLike = () => {
-    console.log("Liking Post");
+  const handleLike = postId => {
+    axios
+      .post(
+        "/like",
+        {
+          postId: postId,
+          userId: userCtx.user.id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        }
+      )
+      .then(res => {
+        if (res.data === "Comment has been unliked") {
+          props.addLike(res, post.id, "remove");
+        } else {
+          props.addLike(res.data, post.id, "add");
+        }
+      });
   };
 
   const handleComment = () => {
@@ -99,13 +122,36 @@ const SinglePost = props => {
         width: "90%"
       }}
     >
-      <Flex justifyContent="center">
-        <ButtonLike bg="transparent" mr="10px" onClick={handleLike}>
+      <Flex justifyContent="flex-start" mb="10px" fontSize="12px">
+        {post.likes.length === 1 ? (
+          <Box>
+            Liked by <b>{post.likes.length} person</b>
+          </Box>
+        ) : (
+          <Box>
+            Liked by <b>{post.likes.length} people</b>
+          </Box>
+        )}
+      </Flex>
+      <Flex justifyContent="center" mb="10px">
+        <ButtonLike
+          bg="transparent"
+          mr="10px"
+          onClick={() => handleLike(post.id)}
+        >
           Like
         </ButtonLike>
         <ButtonLike bg="transparent" ml="10px" onClick={handleComment}>
           Comment
         </ButtonLike>
+      </Flex>
+      <Flex>
+        <Box
+          width="100%"
+          border="1px solid black"
+          height="200px"
+          borderRadius="3px"
+        ></Box>
       </Flex>
     </Card>
   );

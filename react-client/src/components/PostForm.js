@@ -24,7 +24,7 @@ const NewPostForm = props => {
     const fetchId = lastFetchId;
     setData({ ...data, data: [], fetching: true });
     axios
-      .get("http://localhost:3000/weed", {
+      .get("/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
         params: {
           type: selected,

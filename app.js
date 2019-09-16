@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+const path = require("path");
 var lodash = require("lodash");
 const session = require("express-session");
 
@@ -24,6 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, "build")));
+
 const jwtMW = exjwt({
   secret: "XxSmonkWeedErrday420xX"
 });
@@ -37,6 +40,10 @@ apiUser(app, db, jwtMW);
 apiLike(app, db, jwtMW);
 apiComment(app, db, jwtMW);
 authClass(app, db, jwtMW);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 db.sequelize.sync().then(() => {
   app.listen(3000, () => console.log("App listening on port 3000!"));

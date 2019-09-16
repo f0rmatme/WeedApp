@@ -8,7 +8,29 @@ module.exports = (app, db, jwtMW) => {
   );
 
   app.post("/like", jwtMW, (req, res) => {
-    db.like.create(req.body).then(result => res.json(result));
+    db.like
+      .findAll({
+        where: {
+          postId: req.body.postId,
+          userId: req.body.userId
+        }
+      })
+      .then(result => {
+        if (result.length === 0) {
+          db.like.create(req.body).then(result => res.json(result));
+        } else {
+          db.like
+            .destroy({
+              where: {
+                postId: req.body.postId,
+                userId: req.body.userId
+              }
+            })
+            .then(result => {
+              res.send("Comment has been unliked");
+            });
+        }
+      });
   });
 
   app.delete("/like/:id", jwtMW, (req, res) =>
