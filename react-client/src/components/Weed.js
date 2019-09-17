@@ -328,7 +328,7 @@ const Weeds = () => {
                     display: "flex",
                     flexWrap: "wrap",
                     flexFlow: "row wrap",
-                    justifyContent: "space-around",
+                    justifyContent: "flex-start",
                     marginTop: "15px",
                   }}
                 >
