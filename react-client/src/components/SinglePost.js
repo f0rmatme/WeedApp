@@ -57,8 +57,8 @@ const SinglePost = props => {
         }
       )
       .then(res => {
-        props.addComment(res.data);
         setComment("");
+        props.addComment(res.data);
       });
   };
 
