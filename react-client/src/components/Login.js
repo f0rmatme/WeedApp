@@ -33,7 +33,7 @@ const Login = ({ setAt }) => {
       setError("Please enter a username and password");
     } else {
       axios
-        .post("http://localhost:3000/login", { username, password })
+        .post("/login", { username, password })
         .then(res => {
           userCtx.setToken(res.data.token);
           userCtx.setUser(res.data.user);
@@ -58,7 +58,7 @@ const Login = ({ setAt }) => {
       setError("Please fill out all fields");
     } else {
       axios
-        .post("http://localhost:3000/signup", { username, password, email })
+        .post("/signup", { username, password, email })
         .then(res => {
           setSignupVisible(false);
         })

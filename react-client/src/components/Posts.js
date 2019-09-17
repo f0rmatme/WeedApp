@@ -29,7 +29,7 @@ const Posts = props => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/posts", {
+      .get("/posts", {
         headers: { Authorization: `Bearer ${props.at}` }
       })
       .then(res => {
@@ -45,13 +45,56 @@ const Posts = props => {
     setPostError("");
   };
 
+  const addLike = (like, postId, action) => {
+    setPosts(prevState => {
+      let tempPosts = [];
+      prevState.posts.forEach(post => {
+        if (post.id === postId && action === "add") {
+          post.likes.push(like);
+          tempPosts.push(post);
+        } else if (post.id === postId && action === "remove") {
+          let tempLikes = [];
+          let tempPost = post;
+          tempPost.likes.forEach(like => {
+            if (like.userId !== userCtx.user.id) {
+              tempLikes.push(like);
+            }
+          });
+          tempPost.likes = tempLikes;
+          tempPosts.push(tempPost);
+        } else {
+          tempPosts.push(post);
+        }
+      });
+      return { posts: tempPosts, loading: false };
+    });
+  };
+
+  const addComment = comment => {
+    setPosts(prevState => {
+      let tempPosts = [];
+      prevState.posts.forEach(post => {
+        if (post.id === comment.postId) {
+          let tempComments = post.comments;
+          tempComments.push(comment);
+          let tempPost = post;
+          tempPost.comments = tempComments;
+          tempPosts.push(tempPost);
+        } else {
+          tempPosts.push(post);
+        }
+      });
+      return { posts: tempPosts, loading: false };
+    });
+  };
+
   const handleOk = () => {
     console.log("Submit the post");
     console.log(tags);
-    if (!value.key && content !== "") {
+    if (value !== [] && content !== "") {
       axios
         .post(
-          "http://localhost:3000/posts",
+          "/posts",
           {
             userId: userCtx.user.id,
             weedId: parseInt(value.key),
@@ -97,11 +140,15 @@ const Posts = props => {
                         justifyContent="center"
                         alignItems="center"
                       >
-                        <SinglePost post={post} />
+                        <SinglePost
+                          post={post}
+                          addLike={addLike}
+                          addComment={addComment}
+                        />
                       </Flex>
                       <Flex justifyContent="center" alignItems="center">
                         <Box width="90%">
-                          <Divider />
+                          <Divider style={{ margin: "10px" }} />
                         </Box>
                       </Flex>
                     </Box>
@@ -131,13 +178,18 @@ const Posts = props => {
                 onCancel={handleCancel}
                 footer={[
                   <ButtonCancel
+                    key="CancelButton"
                     onClick={handleCancel}
                     bg="transparent"
                     color="#D7D8D7"
                   >
                     Cancel
                   </ButtonCancel>,
-                  <ButtonSubmit onClick={handleOk} border="1px solid #9D9F9C">
+                  <ButtonSubmit
+                    onClick={handleOk}
+                    border="1px solid #9D9F9C"
+                    key="SumbitButton"
+                  >
                     Post
                   </ButtonSubmit>
                 ]}

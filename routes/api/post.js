@@ -2,7 +2,7 @@ module.exports = (app, db, jwtMW) => {
   app.get("/posts", jwtMW, (req, res) =>
     db.post
       .findAll({
-        include: [db.user, db.weed],
+        include: [db.user, db.weed, db.like, db.comment],
         order: [["id", "DESC"]]
       })
       .then(result => res.json(result))

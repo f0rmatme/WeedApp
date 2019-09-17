@@ -8,7 +8,7 @@ import Eric from "./images/eric.png";
 import Ad_1 from "./images/ads/bowlingsim.png";
 import Ad_2 from "./images/ads/dopewatcher.png";
 import { getStrainColour } from "../helpers/strainColour.js";
-import Media from 'react-media';
+import Media from "react-media";
 import RadioGroup from "antd/lib/radio/group";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
@@ -22,7 +22,7 @@ const Weeds = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/weed", {
+      .get("/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(function(response) {
@@ -35,17 +35,16 @@ const Weeds = () => {
       });
   }, []);
 
-  const first8 = weed.slice(0,8);
+  const first8 = weed.slice(0, 8);
 
-  
   return (
     <Box
       bg="#f5f2e8"
       backgroundSize="cover"
       height={loading ? "100vh" : "100%"}
     >
-      <Media query={{ minWidth: 605}}>
-        { matches => 
+      <Media query={{ minWidth: 605 }}>
+        {matches =>
           matches ? (
             <Flex>
               <Flex
@@ -56,11 +55,9 @@ const Weeds = () => {
                   marginLeft: "10px",
                   flexWrap: "wrap",
                   justifyContent: "space-around",
-                  backgroundColor: "grey",
+                  backgroundColor: "grey"
                 }}
-              >
-                
-              </Flex>
+              ></Flex>
               {!loading ? (
                 <Box
                   style={{
@@ -68,14 +65,13 @@ const Weeds = () => {
                     display: "flex",
                     flexWrap: "wrap",
                     justifyContent: "flex-start",
-                    marginTop: "15px",
+                    marginTop: "15px"
                   }}
                 >
-                  { first8.map((weedItem, key) => {//weed.map((weedItem, key) => {
+                  {first8.map((weedItem, key) => {
+                    //weed.map((weedItem, key) => {
                     return (
-                      <Flex 
-                        key={key}
-                      >
+                      <Flex key={key}>
                         <Card
                           hoverable
                           cover={
@@ -85,7 +81,7 @@ const Weeds = () => {
                                 minHeight: "200px",
                                 minWidth: "195px",
                                 maxHeight: "200px",
-                                maxWidth: "195px",
+                                maxWidth: "195px"
                               }}
                               src={weedItem.pictureUrl}
                             />
@@ -94,7 +90,7 @@ const Weeds = () => {
                             height: "350px",
                             width: "200px",
                             margin: "10px",
-                            justifyContent: "center",
+                            justifyContent: "center"
                             //width: "100%"
                           }}
                         >
@@ -106,21 +102,21 @@ const Weeds = () => {
                             color={getStrainColour(weedItem.strain)}
                             style={{
                               marginTop: "5px",
-                              marginBottom: "5px",
+                              marginBottom: "5px"
                             }}
                           >
                             {weedItem.strain}
                           </Tag>
                           <Box
                             style={{
-                              wordWrap: "break-word",
+                              wordWrap: "break-word"
                             }}
                           >
                             <b>thc:</b> {weedItem.thc}
                           </Box>
                           <Box
                             style={{
-                              wordWrap: "break-word",
+                              wordWrap: "break-word"
                             }}
                           >
                             <b>cbd:</b> {weedItem.cbd}
@@ -141,7 +137,7 @@ const Weeds = () => {
                   marginTop: "25px",
                   marginLeft: "25px",
                   display: "column",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
               >
                 {/*  <Card
@@ -210,40 +206,37 @@ const Weeds = () => {
                     flexWrap: "wrap",
                     justifyContent: "center",
                     marginTop: "15px",
-                    flexDirection: "column",
+                    flexDirection: "column"
                   }}
                 >
-                  { first8.map((weedItem, key) => {//weed.map((weedItem, key) => {
+                  {first8.map((weedItem, key) => {
+                    //weed.map((weedItem, key) => {
                     return (
                       <Flex
                         key={key}
                         style={{
                           flexDirection: "row",
-                          margin: "10px",
+                          margin: "10px"
                         }}
                       >
                         <Flex
                           style={{
                             flex: "1",
-                            justifyContent: "flex-start",
+                            justifyContent: "flex-start"
                           }}
                         >
                           <Card hoverable>
                             <Flex
                               style={{
-                                flexDirection: "row",
+                                flexDirection: "row"
                               }}
                             >
                               <Meta
-                                avatar={
-                                  <Avatar 
-                                    src={weedItem.pictureUrl} 
-                                  />
-                                }
+                                avatar={<Avatar src={weedItem.pictureUrl} />}
                                 title={weedItem.weedName}
                                 description={weedItem.company}
                                 style={{
-                                  margin: "10px",
+                                  margin: "10px"
                                 }}
                               />
                               <Meta
@@ -252,16 +245,21 @@ const Weeds = () => {
                                     color={getStrainColour(weedItem.strain)}
                                     style={{
                                       marginTop: "5px",
-                                      marginBottom: "5px",
+                                      marginBottom: "5px"
                                     }}
                                   >
                                     {weedItem.strain}
                                   </Tag>
                                 }
-                                description={"thc: " + weedItem.thc + " cbd:  " + weedItem.cbd}
+                                description={
+                                  "thc: " +
+                                  weedItem.thc +
+                                  " cbd:  " +
+                                  weedItem.cbd
+                                }
                                 style={{
                                   marginTop: "2px",
-                                  marginLeft: "5px",
+                                  marginLeft: "5px"
                                 }}
                               />
                             </Flex>
