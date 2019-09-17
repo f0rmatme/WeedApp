@@ -8,6 +8,7 @@ import bgImage from "./images/plant.jpg";
 import { css } from "@emotion/core";
 import { UserContext } from "../context/userContext";
 import { useSpring, animated } from "react-spring";
+import Media from "react-media";
 
 const HookedComponent = props => {
   const props1 = useSpring({
@@ -32,7 +33,7 @@ const Login = ({ setAt }) => {
       setError("Please enter a username and password");
     } else {
       axios
-        .post("http://localhost:3000/login", { username, password })
+        .post("/login", { username, password })
         .then(res => {
           userCtx.setToken(res.data.token);
           userCtx.setUser(res.data.user);
@@ -57,7 +58,7 @@ const Login = ({ setAt }) => {
       setError("Please fill out all fields");
     } else {
       axios
-        .post("http://localhost:3000/signup", { username, password, email })
+        .post("/signup", { username, password, email })
         .then(res => {
           setSignupVisible(false);
         })
@@ -70,273 +71,269 @@ const Login = ({ setAt }) => {
   return (
     <Box
       height="100vh"
-      backgroundImage={`url(${bgImage})`}
+      backgroundImage={`linear-gradient(to top, rgba(63, 65, 69, 0), rgba(0, 0, 0, 0.73)),
+      url(${bgImage});`}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      {!signupVisible ? (
-        <HookedComponent>
-          <Flex justifyContent="center">
-            <img
-              alt="Toke Talk"
-              src={require("./images/TokeTalkLogo.png")}
-              style={{
-                width: "600px",
-                marginTop: "-100px",
-                marginBottom: "-140px",
-                marginLeft: "-40px"
-              }}
-            />
-          </Flex>
-
-          <Flex justifyContent="center">
-            <Box
-              width="400px"
-              height="480px"
-              backgroundColor="rgba(0,0,0,.85)"
-              borderRadius="25px"
-              padding="10px"
-              color="white"
-              boxShadow=" -10px 10px 20px #0C1109"
-            >
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                marginBottom="20px"
-              >
-                <Box>Login</Box>
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                flexDirection="row"
-                alignItems="center"
-              >
-                <Input
-                  color="white"
-                  background="transparent"
-                  fontFamily="sans serif"
-                  height="50px"
-                  width="80%"
-                  padding="5px"
-                  margin="10px"
-                  border="0"
-                  borderBottom="2px solid white"
-                  placeholder="username"
-                  value={username}
-                  onKeyDown={e => {
-                    if (e.keyCode === 13) {
-                      e.preventDefault();
-                      submitLogin();
-                    }
-                  }}
-                  onChange={e => {
-                    setUsername(e.target.value);
-                  }}
-                />
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                paddingBottom="20px"
-              >
-                <Input
-                  color="white"
-                  background="transparent"
-                  fontFamily="sans serif"
-                  height="50px"
-                  width="80%"
-                  padding="5px"
-                  margin="10px"
-                  border="0"
-                  borderBottom="2px solid white"
-                  placeholder="password"
-                  type="password"
-                  value={password}
-                  onKeyDown={e => {
-                    if (e.keyCode === 13) {
-                      e.preventDefault();
-                      submitLogin();
-                    }
-                  }}
-                  onChange={e => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </Flex>
-              <Flex justifyContent="center" mb="20px">
-                {error && <Box color="red">{error}</Box>}
-              </Flex>
-              <Flex justifyContent="center" paddingBottom="50px">
-                <Button
-                  p="10px"
-                  border="1px solid white"
-                  borderRadius="5px"
-                  background="transparent"
-                  onClick={() => submitLogin()}
-                >
-                  Submit
-                </Button>
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                css={css`
-                  $:hover {
-                    cursor: pointer;
-                  }
-                `}
-              >
-                <Button
-                  bg="transparent"
-                  border="none"
-                  borderRadius="15px"
-                  px="15px"
-                  py="5px"
-                  onClick={() => setSignupVisible(true)}
-                >
-                  Sign Up
-                </Button>
-              </Flex>
-            </Box>
-          </Flex>
-        </HookedComponent>
-      ) : (
-        <HookedComponent>
-          <Flex
-            justifyContent="center"
-            fontFamily="Permanent Marker"
-            fontSize="90px"
-            color="white"
-            paddingTop="5%"
-          >
-            TokeTalk
-          </Flex>
-
-          <Flex justifyContent="center">
-            <Box
-              width="400px"
-              height="520px"
-              backgroundColor="rgba(0,0,0,.85)"
-              borderRadius="25px"
-              padding="10px"
-              color="white"
-              boxShadow=" 5px -5px 18px #000000"
-            >
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                marginBottom="20px"
-              >
-                <Box>Signup</Box>
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-              >
-                <Input
-                  color="white"
-                  background="transparent"
-                  fontFamily="sans serif"
-                  height="50px"
-                  width="80%"
-                  padding="5px"
-                  margin="10px"
-                  border="0"
-                  borderBottom="2px solid white"
-                  placeholder="username"
-                  value={username}
-                  onChange={e => {
-                    setUsername(e.target.value);
-                  }}
-                />
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-              >
-                <Input
-                  color="white"
-                  background="transparent"
-                  fontFamily="sans serif"
-                  height="50px"
-                  width="80%"
-                  padding="5px"
-                  margin="10px"
-                  border="0"
-                  borderBottom="2px solid white"
-                  placeholder="email"
-                  value={email}
-                  onChange={e => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                paddingBottom="20px"
-              >
-                <Input
-                  color="white"
-                  background="transparent"
-                  fontFamily="sans serif"
-                  height="50px"
-                  width="80%"
-                  padding="5px"
-                  margin="10px"
-                  border="0"
-                  borderBottom="2px solid white"
-                  placeholder="password"
-                  type="password"
-                  value={password}
-                  onChange={e => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </Flex>
-              <Flex justifyContent="center" mb="20px">
-                {error && <Box color="red">{error}</Box>}
-              </Flex>
-              <Flex justifyContent="center" paddingBottom="50px">
-                <Button
-                  p="10px"
-                  border="1px solid white"
-                  borderRadius="5px"
-                  background="transparent"
-                  onClick={() => submitSignin()}
-                >
-                  Sign Up!
-                </Button>
-              </Flex>
-              <Flex
-                justifyContent="center"
-                fontSize="16px"
-                fontFamily="Permanent Marker"
-              >
-                <Button
-                  bg="transparent"
-                  border="none"
-                  borderRadius="15px"
-                  px="15px"
-                  py="5px"
-                  onClick={() => setSignupVisible(false)}
-                >
-                  Already Have An Account? - Login
-                </Button>
-              </Flex>
-            </Box>
-          </Flex>
-        </HookedComponent>
-      )}
+      <Media query={{ minHeight: 750 }}>
+        {matches => (
+          <Box>
+            <Flex justifyContent="center">
+              <img
+                alt="Toke Talk"
+                src={require("./images/TokeTalkLogo.png")}
+                style={{
+                  width: `${matches ? "600px" : "400px"}`,
+                  marginTop: `${matches ? "-100px" : "-70px"}`,
+                  marginBottom: `${matches ? "-140px" : "-100px"}`,
+                  marginLeft: `${matches ? "-40px" : "-20px"}`
+                }}
+              />
+            </Flex>
+            {!signupVisible ? (
+              <HookedComponent>
+                <Flex justifyContent="center">
+                  <Box
+                    width="400px"
+                    height="480px"
+                    backgroundColor="rgba(0,0,0,.85)"
+                    borderRadius="25px"
+                    padding="10px"
+                    color="white"
+                    boxShadow=" -10px 10px 20px #0C1109"
+                  >
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      marginBottom="20px"
+                    >
+                      <Box>Login</Box>
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      flexDirection="row"
+                      alignItems="center"
+                    >
+                      <Input
+                        color="white"
+                        background="transparent"
+                        fontFamily="sans serif"
+                        height="50px"
+                        width="80%"
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid white"
+                        placeholder="username"
+                        value={username}
+                        onKeyDown={e => {
+                          if (e.keyCode === 13) {
+                            e.preventDefault();
+                            submitLogin();
+                          }
+                        }}
+                        onChange={e => {
+                          setUsername(e.target.value);
+                        }}
+                      />
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      paddingBottom="20px"
+                    >
+                      <Input
+                        color="white"
+                        background="transparent"
+                        fontFamily="sans serif"
+                        height="50px"
+                        width="80%"
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid white"
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onKeyDown={e => {
+                          if (e.keyCode === 13) {
+                            e.preventDefault();
+                            submitLogin();
+                          }
+                        }}
+                        onChange={e => {
+                          setPassword(e.target.value);
+                        }}
+                      />
+                    </Flex>
+                    <Flex justifyContent="center" mb="20px">
+                      {error && <Box color="red">{error}</Box>}
+                    </Flex>
+                    <Flex justifyContent="center" paddingBottom="50px">
+                      <Button
+                        p="10px"
+                        border="1px solid white"
+                        borderRadius="5px"
+                        background="transparent"
+                        onClick={() => submitLogin()}
+                      >
+                        Submit
+                      </Button>
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      css={css`
+                        $:hover {
+                          cursor: pointer;
+                        }
+                      `}
+                    >
+                      <Button
+                        bg="transparent"
+                        border="none"
+                        borderRadius="15px"
+                        px="15px"
+                        py="5px"
+                        onClick={() => setSignupVisible(true)}
+                      >
+                        Sign Up
+                      </Button>
+                    </Flex>
+                  </Box>
+                </Flex>
+              </HookedComponent>
+            ) : (
+              <HookedComponent>
+                <Flex justifyContent="center">
+                  <Box
+                    width="400px"
+                    height="520px"
+                    backgroundColor="rgba(0,0,0,.85)"
+                    borderRadius="25px"
+                    padding="10px"
+                    color="white"
+                    boxShadow=" -10px 10px 20px #0C1109"
+                  >
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      marginBottom="20px"
+                    >
+                      <Box>Signup</Box>
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                    >
+                      <Input
+                        color="white"
+                        background="transparent"
+                        fontFamily="sans serif"
+                        height="50px"
+                        width="80%"
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid white"
+                        placeholder="username"
+                        value={username}
+                        onChange={e => {
+                          setUsername(e.target.value);
+                        }}
+                      />
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                    >
+                      <Input
+                        color="white"
+                        background="transparent"
+                        fontFamily="sans serif"
+                        height="50px"
+                        width="80%"
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid white"
+                        placeholder="email"
+                        value={email}
+                        onChange={e => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="25px"
+                      fontFamily="Permanent Marker"
+                      paddingBottom="20px"
+                    >
+                      <Input
+                        color="white"
+                        background="transparent"
+                        fontFamily="sans serif"
+                        height="50px"
+                        width="80%"
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid white"
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onChange={e => {
+                          setPassword(e.target.value);
+                        }}
+                      />
+                    </Flex>
+                    <Flex justifyContent="center" mb="20px">
+                      {error && <Box color="red">{error}</Box>}
+                    </Flex>
+                    <Flex justifyContent="center" paddingBottom="50px">
+                      <Button
+                        p="10px"
+                        border="1px solid white"
+                        borderRadius="5px"
+                        background="transparent"
+                        onClick={() => submitSignin()}
+                      >
+                        Sign Up!
+                      </Button>
+                    </Flex>
+                    <Flex
+                      justifyContent="center"
+                      fontSize="16px"
+                      fontFamily="Permanent Marker"
+                    >
+                      <Button
+                        bg="transparent"
+                        border="none"
+                        borderRadius="15px"
+                        px="15px"
+                        py="5px"
+                        onClick={() => setSignupVisible(false)}
+                      >
+                        Already Have An Account? - Login
+                      </Button>
+                    </Flex>
+                  </Box>
+                </Flex>
+              </HookedComponent>
+            )}
+          </Box>
+        )}
+      </Media>
     </Box>
   );
 };

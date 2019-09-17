@@ -71,6 +71,81 @@ export const ButtonPost = styled("button")(
   })
 );
 
+export const ButtonSubmit = styled("button")(
+  {
+    outline: "none",
+    padding: "5px 25px 5px 25px",
+    backgroundColor: " #0C1109",
+    color: "#9DA077",
+    border: "none",
+    borderRadius: "3px"
+  },
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position,
+  flexbox,
+  css({
+    ":hover": css({ cursor: "pointer", backgroundColor: "#242821" })
+  })
+);
+
+export const ButtonCancel = styled("button")(
+  {
+    outline: "none",
+    padding: "5px 15px 5px 15px",
+    backgroundColor: " #0C1109",
+    color: "#9DA077",
+    border: "1px solid #D7D8D7",
+    borderRadius: "3px"
+  },
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position,
+  flexbox,
+  css({
+    ":hover": css({
+      cursor: "pointer",
+      color: "#0C1109",
+      border: "1px solid #0C1109"
+    })
+  })
+);
+
+export const ButtonLike = styled("button")(
+  {
+    outline: "none",
+    padding: "10px",
+    backgroundColor: " #0C1109",
+    color: "#9DA077",
+    width: "50px",
+    border: "1px solid #D7D8D7",
+    borderRadius: "3px"
+  },
+  typography,
+  space,
+  color,
+  layout,
+  border,
+  background,
+  position,
+  flexbox,
+  css({
+    ":hover": css({
+      cursor: "pointer",
+      color: "rgb(110, 51, 95)",
+      border: "1px solid rgb(110, 51, 95)"
+    })
+  })
+);
+
 export const ButtonSelector = styled("button")(
   {
     outline: "none",

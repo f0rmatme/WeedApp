@@ -1,12 +1,13 @@
 import React from "react";
-import { Radio } from "antd";
-import Box from "./ui/Box";
+import { Radio, Select } from "antd";
 import Flex from "./ui/Flex";
 
 const radioStyle = {
   marginTop: "2px",
   wordBreak: "break-all"
 };
+
+const { Option } = Select;
 
 const Selectors = props => {
   return (
@@ -136,7 +137,13 @@ const Selectors = props => {
 
 export const SelectorSmall = props => {
   return (
-    <Box>
+    <Flex
+      style={{
+        flexDirection: "column",
+        flexWrap: "nowrap",
+        alignItems: "center"
+      }}
+    >
       <Radio.Group
         onChange={props.strainOption}
         defaultValue={props.strain}
@@ -200,77 +207,80 @@ export const SelectorSmall = props => {
           </Radio.Button>
         </Flex>
       </Radio.Group>
-      <Radio.Group
-        onChange={props.companyOption}
-        value={props.company}
-        buttonStyle={"solid"}
+      <Flex
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "5px"
+        }}
       >
-        <Flex
+        <h3
           style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            marginTop: "5px"
+            margin: "6px"
           }}
         >
-          <h3
-            style={{
-              margin: "6px"
-            }}
-          >
-            Company
-          </h3>
-          <Radio.Button style={radioStyle} value={""}>
+          Company
+        </h3>
+        <Select 
+          defaultValue={props.company}
+          showSearch
+          style={{
+            width: "200px"
+          }}
+          onSelect={props.companyOption}
+        >
+          <Option style={radioStyle} value={""}>
             All
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Aurora"}>
+          </Option>
+          <Option style={radioStyle} value={"Aurora"}>
             Aurora
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Canna Farms"}>
+          </Option>
+          <Option style={radioStyle} value={"Canna Farms"}>
             Canna Farms
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Color Cannabis"}>
+          </Option>
+          <Option style={radioStyle} value={"Color Cannabis"}>
             Color Cannabis
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Delta 9 Cannabis"}>
+          </Option>
+          <Option style={radioStyle} value={"Delta 9 Cannabis"}>
             Delta 9 Cannabis
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Doja"}>
+          </Option>
+          <Option style={radioStyle} value={"Doja"}>
             Doja
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"DNA Genetics"}>
+          </Option>
+          <Option style={radioStyle} value={"DNA Genetics"}>
             DNA Genetics
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"High Tide"}>
+          </Option>
+          <Option style={radioStyle} value={"High Tide"}>
             High Tide
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"LBS"}>
+          </Option>
+          <Option style={radioStyle} value={"LBS"}>
             LBS
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Namaste"}>
+          </Option>
+          <Option style={radioStyle} value={"Namaste"}>
             Namaste
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Royal High"}>
+          </Option>
+          <Option style={radioStyle} value={"Royal High"}>
             Royal High
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Tokyo Smoke"}>
+          </Option>
+          <Option style={radioStyle} value={"Tokyo Smoke"}>
             Tokyo Smoke
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Tweed Inc."}>
+          </Option>
+          <Option style={radioStyle} value={"Tweed Inc."}>
             Tweed
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Up Cannabis"}>
+          </Option>
+          <Option style={radioStyle} value={"Up Cannabis"}>
             Up Cannabis
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Vertical"}>
+          </Option>
+          <Option style={radioStyle} value={"Vertical"}>
             Vertical
-          </Radio.Button>
-          <Radio.Button style={radioStyle} value={"Zenabis"}>
+          </Option>
+          <Option style={radioStyle} value={"Zenabis"}>
             Zenabis
-          </Radio.Button>
-        </Flex>
-      </Radio.Group>
-    </Box>
+          </Option>
+        </Select>
+      </Flex>
+    </Flex>
   );
 };
 

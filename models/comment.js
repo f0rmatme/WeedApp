@@ -1,30 +1,29 @@
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('comment', {
+  const Comment = sequelize.define(
+    "comment",
+    {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
+      userId: DataTypes.INTEGER,
+      name: DataTypes.TEXT,
+      postId: DataTypes.INTEGER,
       comment: {
         type: DataTypes.TEXT,
         allowNull: false
-      },
+      }
     },
     {
-      freezeTableName: true,
+      freezeTableName: true
     }
   );
 
-  Comment.associate = (models) => {
-	Comment.belongsTo(models.post, {
-		foreignKey: 'postId',
-		constraints: false
-	});
-	Comment.belongsTo(models.user, {
-		foreignKey: 'userId',
-		constraints: false
-	});
+  Comment.associate = models => {
+    Comment.belongsTo(models.user);
+    Comment.belongsTo(models.post);
   };
 
   return Comment;
-}
+};

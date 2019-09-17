@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Spin, Icon, Divider, Modal } from "antd";
-import { ButtonPost } from "./ui/Button";
+import { ButtonPost, ButtonSubmit, ButtonCancel } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { UserContext } from "../context/userContext";
@@ -23,12 +23,13 @@ const Posts = props => {
   const [value, setValue] = useState([]);
   const [tags, setTags] = useState("");
   const [content, setContent] = useState("");
+  const [postError, setPostError] = useState("");
 
   const userCtx = useContext(UserContext);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/posts", {
+      .get("/posts", {
         headers: { Authorization: `Bearer ${props.at}` }
       })
       .then(res => {
@@ -41,25 +42,73 @@ const Posts = props => {
 
   const handleCancel = () => {
     setVisible(false);
+    setPostError("");
+  };
+
+  const addLike = (like, postId, action) => {
+    setPosts(prevState => {
+      let tempPosts = [];
+      prevState.posts.forEach(post => {
+        if (post.id === postId && action === "add") {
+          post.likes.push(like);
+          tempPosts.push(post);
+        } else if (post.id === postId && action === "remove") {
+          let tempLikes = [];
+          let tempPost = post;
+          tempPost.likes.forEach(like => {
+            if (like.userId !== userCtx.user.id) {
+              tempLikes.push(like);
+            }
+          });
+          tempPost.likes = tempLikes;
+          tempPosts.push(tempPost);
+        } else {
+          tempPosts.push(post);
+        }
+      });
+      return { posts: tempPosts, loading: false };
+    });
+  };
+
+  const addComment = comment => {
+    setPosts(prevState => {
+      let tempPosts = [];
+      prevState.posts.forEach(post => {
+        if (post.id === comment.postId) {
+          let tempComments = post.comments;
+          tempComments.push(comment);
+          let tempPost = post;
+          tempPost.comments = tempComments;
+          tempPosts.push(tempPost);
+        } else {
+          tempPosts.push(post);
+        }
+      });
+      return { posts: tempPosts, loading: false };
+    });
   };
 
   const handleOk = () => {
     console.log("Submit the post");
     console.log(tags);
-    axios
-      .post(
-        "http://localhost:3000/posts",
-        {
-          userId: userCtx.user.id,
-          weedId: parseInt(value.key),
-          content,
-          tags: tags.toString()
-        },
-        {
-          headers: { Authorization: `Bearer ${props.at}` }
-        }
-      )
-      .then(() => setVisible(false));
+    if (value !== [] && content !== "") {
+      axios
+        .post(
+          "/posts",
+          {
+            userId: userCtx.user.id,
+            weedId: parseInt(value.key),
+            content,
+            tags: tags.toString()
+          },
+          {
+            headers: { Authorization: `Bearer ${props.at}` }
+          }
+        )
+        .then(() => setVisible(false));
+    } else {
+      setPostError("Please Enter Values for Required Fields");
+    }
   };
 
   return (
@@ -91,11 +140,15 @@ const Posts = props => {
                         justifyContent="center"
                         alignItems="center"
                       >
-                        <SinglePost post={post} />
+                        <SinglePost
+                          post={post}
+                          addLike={addLike}
+                          addComment={addComment}
+                        />
                       </Flex>
                       <Flex justifyContent="center" alignItems="center">
                         <Box width="90%">
-                          <Divider />
+                          <Divider style={{ margin: "10px" }} />
                         </Box>
                       </Flex>
                     </Box>
@@ -123,13 +176,30 @@ const Posts = props => {
                 title="New Post"
                 visible={visible}
                 onCancel={handleCancel}
-                onOk={handleOk}
+                footer={[
+                  <ButtonCancel
+                    key="CancelButton"
+                    onClick={handleCancel}
+                    bg="transparent"
+                    color="#D7D8D7"
+                  >
+                    Cancel
+                  </ButtonCancel>,
+                  <ButtonSubmit
+                    onClick={handleOk}
+                    border="1px solid #9D9F9C"
+                    key="SumbitButton"
+                  >
+                    Post
+                  </ButtonSubmit>
+                ]}
               >
                 <PostForm
                   setValue={setValue}
                   value={value}
                   setTags={setTags}
                   setContent={setContent}
+                  postError={postError}
                 />
               </Modal>
             </Box>

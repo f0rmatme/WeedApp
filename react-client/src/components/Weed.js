@@ -7,6 +7,8 @@ import Flex from "./ui/Flex";
 import { getStrainColour } from "../helpers/strainColour.js";
 import Media from "react-media";
 import Selecters, { SelectorSmall } from "./FilterSelect";
+import THC from "../components/images/default_thc_whiteback.png";
+import CBD from "../components/images/default_cbd_whiteback.png";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -22,7 +24,7 @@ const Weeds = () => {
   const userCtx = React.useContext(UserContext);
 
   const strainOption = e => {
-    setFilter({ strain: e.target.value });
+    setFilter({ ...filter, strain: e.target.value });
   };
 
   const typeOption = e => {
@@ -31,6 +33,10 @@ const Weeds = () => {
 
   const companyOption = e => {
     setFilter({ ...filter, company: e.target.value });
+  };
+
+  const companyOptionSmall = e => {
+    setFilter({ ...filter, company: e });
   };
 
   useEffect(() => {
@@ -71,25 +77,16 @@ const Weeds = () => {
               <Flex
                 style={{
                   width: "19%",
-                  //height: "500px",
                   marginTop: "25px",
                   marginLeft: "0.5%",
                   marginRight: "0.5%",
                   flexWrap: "wrap",
-                  //justifyContent: "center",
-                  alignItems: "flex-end",
+                  alignItems: "flex-start",
                   backgroundColor: "#f5f2e8",
                   flexDirection: "column"
                 }}
               >
-                <Flex
-                  style={{
-                    justifyContent: "center",
-                    margin: "5px"
-                  }}
-                >
-                  <h2>Filters</h2>
-                </Flex>
+                <h2>Filters</h2>
                 <Selecters
                   company={filter.company}
                   companyOption={companyOption}
@@ -98,7 +95,6 @@ const Weeds = () => {
                   strain={filter.strain}
                   strainOption={strainOption}
                 />
-                }
               </Flex>
               {!loading ? (
                 <Box
@@ -107,23 +103,13 @@ const Weeds = () => {
                     display: "flex",
                     flexWrap: "wrap",
                     flexFlow: "row wrap",
-<<<<<<< HEAD
                     justifyContent: "flex-start",
                     marginTop: "15px",
-=======
-                    justifyContent: "space-around",
-                    marginTop: "15px"
->>>>>>> 8000cb087f417d591810888c2adc0b17efe7aee5
                   }}
                 >
                   {weed.map((weedItem, key) => (
                     <Flex
                       key={key}
-                      style={
-                        {
-                          //flexBasis:
-                        }
-                      }
                     >
                       <Card
                         hoverable
@@ -140,11 +126,10 @@ const Weeds = () => {
                           />
                         }
                         style={{
-                          height: "350px",
+                          height: "450px",
                           width: "200px",
                           margin: "10px",
                           justifyContent: "center"
-                          //width: "100%"
                         }}
                       >
                         <Meta
@@ -154,8 +139,8 @@ const Weeds = () => {
                         <Tag
                           color={getStrainColour(weedItem.strain)}
                           style={{
-                            marginTop: "5px",
-                            marginBottom: "5px"
+                            marginTop: "10px",
+                            marginBottom: "10px"
                           }}
                         >
                           {weedItem.strain}
@@ -165,14 +150,34 @@ const Weeds = () => {
                             wordWrap: "break-word"
                           }}
                         >
-                          <b>thc:</b> {weedItem.thc}
+                          <img 
+                            src={THC} 
+                            alt="thc" 
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              marginRight: "10px",
+                              maginBottom: "10px"
+                            }}
+                          />
+                          {weedItem.thc}
                         </Box>
                         <Box
                           style={{
-                            wordWrap: "break-word"
+                            wordWrap: "break-word",
+                            marginTop: "10px"
                           }}
                         >
-                          <b>cbd:</b> {weedItem.cbd}
+                          <img 
+                            src={CBD} 
+                            alt="cbd" 
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              marginRight: "10px"
+                            }}
+                          />
+                          {weedItem.cbd}
                         </Box>
                       </Card>
                     </Flex>
@@ -214,10 +219,10 @@ const Weeds = () => {
                       flexDirection: "column"
                     }}
                   >
-                    <h2>Filter</h2>
+                    <h2>Filters</h2>
                     <SelectorSmall
                       company={filter.company}
-                      companyOption={companyOption}
+                      companyOption={companyOptionSmall}
                       type={filter.type}
                       typeOption={typeOption}
                       strain={filter.strain}
@@ -251,7 +256,8 @@ const Weeds = () => {
                             <Card hoverable>
                               <Flex
                                 style={{
-                                  flexDirection: "row"
+                                  flexDirection: "row",
+                                  
                                 }}
                               >
                                 <Meta
@@ -262,29 +268,51 @@ const Weeds = () => {
                                     margin: "10px"
                                   }}
                                 />
-                                <Meta
-                                  title={
-                                    <Tag
-                                      color={getStrainColour(weedItem.strain)}
-                                      style={{
-                                        marginTop: "5px",
-                                        marginBottom: "5px"
-                                      }}
-                                    >
-                                      {weedItem.strain}
-                                    </Tag>
-                                  }
-                                  description={
-                                    "thc: " +
-                                    weedItem.thc +
-                                    " cbd:  " +
-                                    weedItem.cbd
-                                  }
+                                <Flex
                                   style={{
-                                    marginTop: "2px",
-                                    marginLeft: "5px"
+                                    flexDirection: "column",
+                                    alignItems: "flex-start"
                                   }}
-                                />
+                                >
+                                  <Tag
+                                    color={getStrainColour(weedItem.strain)}
+                                    style={{
+                                      marginTop: "5px",
+                                      marginBottom: "5px"
+                                    }}
+                                  >
+                                    {weedItem.strain}
+                                  </Tag>
+                                  <Flex
+                                    style={{
+                                      flexDirection: "row",
+                                      alignItems: "center",
+                                      justifyContent: "center"
+                                    }}
+                                  >
+                                    <img 
+                                      src={THC} 
+                                      alt="thc" 
+                                      style={{
+                                        width: "30px",
+                                        height: "30px",
+                                        marginRight: "5px",
+                                      }}
+                                    />
+                                    {weedItem.thc}
+                                    <img 
+                                      src={CBD} 
+                                      alt="cbd" 
+                                      style={{
+                                        width: "30px",
+                                        height: "30px",
+                                        marginRight: "5px",
+                                        marginLeft: "5px"
+                                      }}
+                                    />
+                                    {weedItem.cbd}
+                                  </Flex>
+                                </Flex>
                               </Flex>
                             </Card>
                           </Flex>
