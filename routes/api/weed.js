@@ -45,10 +45,18 @@ module.exports = (app, db, jwtMW) => {
         } else if (req.query.type === "cbd") {
           options.where.id = { in: tempWeedArrCBD };
         }
-        db.weed.findAll(options).then(result => res.json(result));
+        let size = 0;
+        db.weed.count(options).then(res => (size = res));
+        db.weed
+          .findAll(options)
+          .then(result => res.send({ data: result, size: size }));
       });
     } else {
-      db.weed.findAll(options).then(result => res.json(result));
+      let size = 0;
+      db.weed.count(options).then(res => (size = res));
+      db.weed
+        .findAll(options)
+        .then(result => res.send({ data: result, size: size }));
     }
   });
 

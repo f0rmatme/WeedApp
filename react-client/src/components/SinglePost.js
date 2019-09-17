@@ -9,20 +9,6 @@ import { InputComment } from "./ui/Input";
 import { UserContext } from "../context/userContext";
 import { css } from "emotion";
 
-const colours = [
-  "magenta",
-  "red",
-  "volcano",
-  "orange",
-  "gold",
-  "lime",
-  "green",
-  "cyan",
-  "blue",
-  "geekblue",
-  "purple"
-];
-
 const SinglePost = props => {
   const post = props.post;
   const [commentsVisible, setCommentsVisible] = useState(false);
