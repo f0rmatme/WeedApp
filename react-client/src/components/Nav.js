@@ -58,7 +58,7 @@ const Nav = props => {
           matches ? (
             <Flex
               color="white"
-              height="60px"
+              height="50px"
               bg="#0C1109"
               flexDirection="row"
               boxShadow="5px 0px 16px #0C1109"
@@ -68,8 +68,8 @@ const Nav = props => {
                   src={require("./images/TokeTalkLogo.png")}
                   alt="logo"
                   style={{
-                    width: "200px",
-                    marginTop: "-75px",
+                    width: "170px",
+                    marginTop: "-65px",
                     marginLeft: "-30%"
                   }}
                 />
@@ -85,7 +85,7 @@ const Nav = props => {
                     ? "rgb(110, 51, 95)"
                     : "#9DA077"
                 }`}
-                fontSize="18px"
+                fontSize="16px"
                 fontWeight="bold"
                 onClick={() => {
                   setActive("/posts");
@@ -105,7 +105,7 @@ const Nav = props => {
                     ? "rgb(110, 51, 95)"
                     : "#9DA077"
                 }`}
-                fontSize="18px"
+                fontSize="16px"
                 fontWeight="bold"
                 onClick={() => {
                   setActive("/weed");
