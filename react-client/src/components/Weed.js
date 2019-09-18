@@ -69,7 +69,7 @@ const Weeds = () => {
 
   return (
     <Box
-      bg="#f5f2e8"
+      bg="#F0F0F0"
       backgroundSize="cover"
       height={loading ? "100vh" : "100%"}
     >
@@ -90,7 +90,7 @@ const Weeds = () => {
                     marginRight: "0.5%",
                     flexWrap: "wrap",
                     alignItems: "flex-end",
-                    backgroundColor: "#f5f2e8",
+                    backgroundColor: "#F0F0F0",
                     flexDirection: "column"
                   }}
                 >

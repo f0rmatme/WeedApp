@@ -115,7 +115,7 @@ const Posts = props => {
     <Box>
       <Media query={{ minWidth: 900 }}>
         {matches => (
-          <Flex backgroundColor="#f5f2e8" minHeight="100vh">
+          <Flex backgroundColor="#F0F0F0" minHeight="100vh">
             <Box
               width={matches ? "45%" : "90%"}
               bg="white"
