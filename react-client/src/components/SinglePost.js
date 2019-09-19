@@ -8,6 +8,10 @@ import Flex from "./ui/Flex";
 import { InputComment } from "./ui/Input";
 import { UserContext } from "../context/userContext";
 import { css } from "emotion";
+import INDICA from "../components/images/noword_indica_transback.png";
+import HYBRID from "../components/images/noword_hybrid_transback.png";
+import SATIVA from "../components/images/noword_sativa_transback.png";
+import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const SinglePost = props => {
   const post = props.post;
@@ -108,6 +112,21 @@ const SinglePost = props => {
               alt="weed"
               src={post.weed.pictureUrl}
               style={{ width: "20%", margin: "10px" }}
+              onError={
+                (e) => {
+                  e.target.onerror = null;
+                  switch(post.weed.strain){
+                    case "Indica":
+                      e.target.src = INDICA;
+                      break;
+                    case "Sativa":
+                      e.target.src = SATIVA;
+                      break;
+                    default:
+                      e.target.src = HYBRID;
+                  }
+                }
+              }
             />
             <Box mt="25px">
               <Box fontWeight="bold" pb="15px" fontSize="16px">

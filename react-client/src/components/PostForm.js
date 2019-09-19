@@ -37,7 +37,7 @@ const NewPostForm = props => {
           return;
         }
         console.log(res);
-        setData({ ...data, data: res.data, fetching: false });
+        setData({ ...data, data: res.data.data, fetching: false });
       });
   };
 
