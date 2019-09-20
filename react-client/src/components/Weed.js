@@ -9,6 +9,9 @@ import Media from "react-media";
 import Selecters, { SelectorSmall } from "./FilterSelect";
 import THC from "../components/images/default_thc_whiteback.png";
 import CBD from "../components/images/default_cbd_whiteback.png";
+import INDICA from "../components/images/noword_indica_transback.png";
+import HYBRID from "../components/images/noword_hybrid_transback.png";
+import SATIVA from "../components/images/noword_sativa_transback.png";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -19,14 +22,15 @@ const Weeds = () => {
     size: 0
   });
   const [fromError, setError] = useState([]);
-  const { Meta } = Card;
   const [filter, setFilter] = useState({ strain: "", type: "", company: "" });
   const [pagination, setPagination] = useState({
     page: 1,
     perPage: 30
   });
+  const [avatarSRC, setAvatarSRC] = useState({src: ""});
 
   const userCtx = React.useContext(UserContext);
+  const { Meta } = Card;
 
   const strainOption = e => {
     setFilter({ ...filter, strain: e.target.value });
@@ -57,7 +61,6 @@ const Weeds = () => {
         }
       })
       .then(res => {
-        console.log(res.data);
         setWeed({ weed: res.data.data, loading: false, size: res.data.size });
         window.scrollTo(0, 0);
       })
@@ -131,6 +134,21 @@ const Weeds = () => {
                                 maxWidth: "195px"
                               }}
                               src={weedItem.pictureUrl}
+                              onError={
+                                (e) => {
+                                  e.target.onerror = null;
+                                  switch(weedItem.strain){
+                                    case "Indica":
+                                      e.target.src = INDICA;
+                                      break;
+                                    case "Sativa":
+                                      e.target.src = SATIVA;
+                                      break;
+                                    default:
+                                      e.target.src = HYBRID;
+                                  }
+                                }
+                              }
                             />
                           }
                           style={{
@@ -259,6 +277,7 @@ const Weeds = () => {
                     }}
                   >
                     {weed.map((weedItem, key) => {
+                      const x = () => {setAvatarSRC(weedItem.pictureUrl);};
                       return (
                         <Flex key={key} flexDirection="row" my="10px">
                           <Card style={{ width: "100%" }}>
@@ -268,7 +287,33 @@ const Weeds = () => {
                               }}
                             >
                               <Meta
-                                avatar={<Avatar src={weedItem.pictureUrl} />}
+                                avatar={
+                                  <img
+                                    alt="weed"
+                                    style={{
+                                      minHeight: "50px",
+                                      minWidth: "50px",
+                                      maxHeight: "50px",
+                                      maxWidth: "50px"
+                                    }}
+                                    src={weedItem.pictureUrl}
+                                    onError={
+                                      (e) => {
+                                        e.target.onerror = null;
+                                        switch(weedItem.strain){
+                                          case "Indica":
+                                            e.target.src = INDICA;
+                                            break;
+                                          case "Sativa":
+                                            e.target.src = SATIVA;
+                                            break;
+                                          default:
+                                            e.target.src = HYBRID;
+                                        }
+                                      }
+                                    }
+                                  />
+                                }
                                 title={weedItem.weedName}
                                 description={weedItem.company}
                                 style={{
