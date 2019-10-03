@@ -5,6 +5,7 @@ import { ButtonNav } from "./ui/Button";
 import { withRouter } from "react-router-dom";
 import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
+import FollowSearch from "./FollowSearch";
 
 const Nav = props => {
   const [active, setActive] = React.useState(
@@ -31,13 +32,13 @@ const Nav = props => {
   const menu = (
     <Menu onClick={handleMenuClick}>
       <Menu.Item key="1">
-        <Box>Posts</Box>
+        <Box> Posts </Box>
       </Menu.Item>
       <Menu.Item key="2">
-        <Box>Strains</Box>
+        <Box> Strains </Box>
       </Menu.Item>
       <Menu.Item key="3">
-        <Box>Logout</Box>
+        <Box> Logout </Box>
       </Menu.Item>
     </Menu>
   );
@@ -53,7 +54,11 @@ const Nav = props => {
 
   return (
     <Box position="sticky" top="0" zIndex="100">
-      <Media query={{ minWidth: 900 }}>
+      <Media
+        query={{
+          minWidth: 900
+        }}
+      >
         {matches =>
           matches ? (
             <Flex
@@ -74,6 +79,7 @@ const Nav = props => {
                   }}
                 />
               </Box>
+              <FollowSearch />
               <ButtonNav
                 height="100%"
                 bg="transparent"
@@ -127,10 +133,13 @@ const Nav = props => {
                 onClick={handleLogout}
               >
                 <Flex>
-                  <Box>Logout</Box>
+                  <Box> Logout </Box>
                   <Icon
                     type="logout"
-                    style={{ paddingTop: "4px", paddingLeft: "5px" }}
+                    style={{
+                      paddingTop: "4px",
+                      paddingLeft: "5px"
+                    }}
                   />
                 </Flex>
               </ButtonNav>
@@ -162,6 +171,7 @@ const Nav = props => {
                   }}
                 />
               </Box>
+              <FollowSearch />
               <Box ml="auto" pt="20px" pr="10px">
                 <Dropdown
                   overlay={menu}
