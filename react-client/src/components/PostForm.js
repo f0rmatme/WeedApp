@@ -27,7 +27,7 @@ const NewPostForm = props => {
       .get("/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
         params: {
-          type: selected,
+          strain: selected,
           search: value
         }
       })

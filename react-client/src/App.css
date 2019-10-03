@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
 }
@@ -34,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.ant-radio-button-wrapper {
+  background-color: white;
+}
+
+.ant-radio-button-wrapper:hover {
+  color: rgb(110, 51, 95);
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background-color: #9DA077;
+  border: #9DA077;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background-color: #B0B392;
+  border: #9DA077;
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+  opacity: 1;
+  background-color: #9DA077 !important;
+}
+
+.anticon-spin {
+  color: black;
+}
+
+

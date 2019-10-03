@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Tag, Spin, Icon, Avatar, Pagination } from "antd";
+import { css } from "emotion";
+import { Card, Tag, Spin, Icon, Pagination } from "antd";
 import { UserContext } from "../context/userContext";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
