@@ -28,7 +28,7 @@ const Weeds = () => {
     page: 1,
     perPage: 30
   });
-  const [avatarSRC, setAvatarSRC] = useState({src: ""});
+  const [avatarSRC, setAvatarSRC] = useState({ src: "" });
 
   const userCtx = React.useContext(UserContext);
   const { Meta } = Card;
@@ -129,27 +129,26 @@ const Weeds = () => {
                             <img
                               alt="weed"
                               style={{
+                                marginLeft: "2px",
                                 minHeight: "200px",
-                                minWidth: "195px",
+                                minWidth: "190px",
                                 maxHeight: "200px",
-                                maxWidth: "195px"
+                                maxWidth: "190px"
                               }}
                               src={weedItem.pictureUrl}
-                              onError={
-                                (e) => {
-                                  e.target.onerror = null;
-                                  switch(weedItem.strain){
-                                    case "Indica":
-                                      e.target.src = INDICA;
-                                      break;
-                                    case "Sativa":
-                                      e.target.src = SATIVA;
-                                      break;
-                                    default:
-                                      e.target.src = HYBRID;
-                                  }
+                              onError={e => {
+                                e.target.onerror = null;
+                                switch (weedItem.strain) {
+                                  case "Indica":
+                                    e.target.src = INDICA;
+                                    break;
+                                  case "Sativa":
+                                    e.target.src = SATIVA;
+                                    break;
+                                  default:
+                                    e.target.src = HYBRID;
                                 }
-                              }
+                              }}
                             />
                           }
                           style={{
@@ -278,7 +277,9 @@ const Weeds = () => {
                     }}
                   >
                     {weed.map((weedItem, key) => {
-                      const x = () => {setAvatarSRC(weedItem.pictureUrl);};
+                      const x = () => {
+                        setAvatarSRC(weedItem.pictureUrl);
+                      };
                       return (
                         <Flex key={key} flexDirection="row" my="10px">
                           <Card style={{ width: "100%" }}>
@@ -298,21 +299,19 @@ const Weeds = () => {
                                       maxWidth: "50px"
                                     }}
                                     src={weedItem.pictureUrl}
-                                    onError={
-                                      (e) => {
-                                        e.target.onerror = null;
-                                        switch(weedItem.strain){
-                                          case "Indica":
-                                            e.target.src = INDICA;
-                                            break;
-                                          case "Sativa":
-                                            e.target.src = SATIVA;
-                                            break;
-                                          default:
-                                            e.target.src = HYBRID;
-                                        }
+                                    onError={e => {
+                                      e.target.onerror = null;
+                                      switch (weedItem.strain) {
+                                        case "Indica":
+                                          e.target.src = INDICA;
+                                          break;
+                                        case "Sativa":
+                                          e.target.src = SATIVA;
+                                          break;
+                                        default:
+                                          e.target.src = HYBRID;
                                       }
-                                    }
+                                    }}
                                   />
                                 }
                                 title={weedItem.weedName}

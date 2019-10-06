@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 .App {
   text-align: center;
@@ -45,23 +45,27 @@
   color: rgb(110, 51, 95);
 }
 
-.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-  background-color: #9DA077;
-  border: #9DA077;
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background-color: #9da077;
+  border: #9da077;
 }
 
-.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background-color: #B0B392;
-  border: #9DA077;
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background-color: #b0b392;
+  border: #9da077;
 }
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
   opacity: 1;
-  background-color: #9DA077 !important;
+  background-color: #9da077 !important;
 }
 
 .anticon-spin {
   color: black;
 }
 
-
+.ant-card-hoverable {
+  border-radius: 7px;
+}

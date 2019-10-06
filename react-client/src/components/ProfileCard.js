@@ -23,7 +23,6 @@ const ProfileCard = () => {
         }
       })
       .then(res => {
-        console.log(res.data);
         setFriends(res.data);
       });
   };
