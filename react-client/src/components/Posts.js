@@ -36,7 +36,7 @@ const Posts = props => {
 
   useEffect(() => {
     axios
-      .get("/posts", {
+      .get(`/api/posts/allFriends/${userCtx.user.id}`, {
         headers: { Authorization: `Bearer ${props.at}` }
       })
       .then(res => {

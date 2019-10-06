@@ -12,12 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     profilepic: DataTypes.STRING
   }, {
     freezeTableName: true,
-  });
+    });
 
   //Might use Bcrypt later if we really wanna use actual passwords and not google oauth
 
   User.associate = (models) => {
     User.hasMany(models.post);
+    User.hasMany(models.friend);
   };
 
   return User;

@@ -1,4 +1,8 @@
 module.exports = (app, db, jwtMW) => {
+
+  const Op = db.sequelize.Op;
+  const friendModule = require("../../modules/friends/friend");
+
   app.get("/posts", jwtMW, (req, res) =>
     db.post
       .findAll({
@@ -32,4 +36,27 @@ module.exports = (app, db, jwtMW) => {
       })
       .then(result => res.json(result))
   );
+
+  app.get("/api/posts/allFriends/:userId", (req, res) => {
+    let userId = req.params.userId;
+    // Get the users friends, store the ids in a list, and then get a list of posts using those ids
+    friendModule.getFriends(app, db, userId).then((friends) => {
+        if (!friends || !friends.length) {
+            res.json([]);
+            return;
+        }
+        var friendIds = friends.map(function(friend) {
+            return friend.user.id;
+        });
+        db.post.findAll({
+            where: {
+                userId: {
+                    [Op.or]: [friendIds, userId]
+                }
+            },
+            include: [db.user, db.weed, db.like, db.comment],
+            order: [["id", "DESC"]]
+        }).then((result) => res.json(result));
+    });
+});
 };
