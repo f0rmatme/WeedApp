@@ -10,6 +10,7 @@ const apiWeed = require("./routes/api/weed");
 const apiUser = require("./routes/api/user");
 const apiLike = require("./routes/api/like");
 const apiComment = require("./routes/api/comment");
+const apiFriend = require("./routes/api/friend");
 const authClass = require("./routes/auth/auth");
 var bcrypt = require("bcrypt");
 const exjwt = require("express-jwt");
@@ -40,6 +41,7 @@ apiUser(app, db, jwtMW);
 apiLike(app, db, jwtMW);
 apiComment(app, db, jwtMW);
 authClass(app, db, jwtMW);
+apiFriend(app, db, jwtMW)
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
