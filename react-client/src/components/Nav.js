@@ -68,18 +68,18 @@ const Nav = props => {
               flexDirection="row"
               boxShadow="5px 0px 16px #0C1109"
             >
-              <Box p="12px" pl="25%" pr="20%" borderBottom="3px solid #0C1109">
+              <Box p="12px" pl="25%" pr="30px" borderBottom="3px solid #0C1109">
                 <img
                   src={require("./images/TokeTalkLogo.png")}
                   alt="logo"
                   style={{
                     width: "170px",
-                    marginTop: "-65px",
+                    marginTop: "-66px",
                     marginLeft: "-30%"
                   }}
                 />
               </Box>
-              <FollowSearch />
+
               <ButtonNav
                 height="100%"
                 bg="transparent"
@@ -105,6 +105,7 @@ const Nav = props => {
                 bg="transparent"
                 border="none"
                 px="20px"
+                mr="50px"
                 color="#9DA077"
                 borderBottom={`3px solid ${
                   active === "/weed" || active === "/weed/"
@@ -120,6 +121,7 @@ const Nav = props => {
               >
                 Strains
               </ButtonNav>
+              <FollowSearch />
               <ButtonNav
                 height="100%"
                 bg="transparent"
@@ -147,7 +149,7 @@ const Nav = props => {
           ) : (
             <Flex
               color="white"
-              height="60px"
+              height="50px"
               bg="#0C1109"
               flexDirection="row"
               position="sticky"
@@ -159,20 +161,21 @@ const Nav = props => {
                 fontSize="25px"
                 fontFamily="Permanent Marker"
                 p="12px"
-                pl="10%"
+                pl="12%"
+                mr="-60px"
               >
                 <img
                   src={require("./images/TokeTalkLogo.png")}
                   alt="logo"
                   style={{
                     width: "150px",
-                    marginTop: "-50px",
-                    marginLeft: "-25%"
+                    marginTop: "-58px",
+                    marginLeft: "-30%"
                   }}
                 />
               </Box>
               <FollowSearch />
-              <Box ml="auto" pt="20px" pr="10px">
+              <Box ml="auto" pt="15px" pr="10px">
                 <Dropdown
                   overlay={menu}
                   visible={visible}
