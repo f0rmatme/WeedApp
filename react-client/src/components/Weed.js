@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Tag, Spin, Icon, Avatar, Pagination } from "antd";
+import { Card, Divider, Tag, Spin, Icon, Avatar, Pagination, Modal, Button } from "antd";
 import { UserContext } from "../context/userContext";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
@@ -12,10 +12,12 @@ import CBD from "../components/images/default_cbd_whiteback.png";
 import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
+import { ButtonCancel } from "./ui/Button";
+import SinglePost from "./SinglePost";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
-const Weeds = () => {
+const Weeds = props => {
   const [{ weed, loading, size }, setWeed] = useState({
     weed: [],
     loading: true,
@@ -28,6 +30,12 @@ const Weeds = () => {
     perPage: 30
   });
   const [avatarSRC, setAvatarSRC] = useState({src: ""});
+  const [{ posts, loading2 }, setPosts] = useState({
+    posts: [],
+    loading2: true
+  });
+  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: [], selectedId: 0});
+  const [visible, setVisible] = useState(false);
 
   const userCtx = React.useContext(UserContext);
   const { Meta } = Card;
@@ -46,6 +54,15 @@ const Weeds = () => {
 
   const companyOptionSmall = e => {
     setFilter({ ...filter, company: e });
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+    setPosts({ loading2: true })
+  };
+
+  const changeRelatedWeed = weed => {
+    setSelectedWeed({ ...selectedWeed, selectedWeed: weed, selectedId: weed.id });
   };
 
   useEffect(() => {
@@ -69,6 +86,21 @@ const Weeds = () => {
         setError(error.data);
       });
   }, [filter, userCtx.token, pagination]);
+
+  useEffect(() => {
+    axios
+      .get(`/api/posts/relatedWeed/${selectedWeed.selectedId}`, {
+        headers: { Authorization: `Bearer ${userCtx.token}` }
+      })
+      .then(res => {
+        setPosts({ posts: res.data, loading2: false });
+        setVisible(true);
+      })
+      .catch(err => {
+        setPosts({ posts: [], loading2: false})
+        console.log("errrrrorrrrr");
+      });
+  }, [selectedWeed]);
 
   return (
     <Box
@@ -121,7 +153,10 @@ const Weeds = () => {
                     }}
                   >
                     {weed.map((weedItem, key) => (
-                      <Flex key={key}>
+                      <Flex 
+                        key={key} 
+                        onClick={() => changeRelatedWeed(weedItem)}
+                      >
                         <Card
                           hoverable
                           cover={
@@ -218,6 +253,65 @@ const Weeds = () => {
                         }
                         total={size}
                       />
+                    </Flex>
+                    <Flex>
+                      { !loading2? (
+                      <Modal
+                        title="More Info"
+                        visible={visible}
+                        onCancel={handleCancel}
+                        footer={[
+                          <ButtonCancel
+                            key="CancelButton"
+                            onClick={handleCancel}
+                            bg="transparent"
+                            color="#D7D8D7"
+                          >
+                            Cancel
+                          </ButtonCancel>
+                        ]}
+                      >
+                        <Flex
+                          flexDirection="column"
+                          justifyContent="center"
+                        >
+                          {console.log(posts)}
+                          { posts.length > 0 ? (
+                            posts.map((post, key) => {
+                            return (
+                              <Box key={key}>
+                                <Flex
+                                  flexDirection="row"
+                                  justifyContent="center"
+                                  alignItems="center"
+                                >
+                                  <SinglePost
+                                    post={post}
+                                    //addLike={addLike}
+                                    //addComment={addComment}
+                                  />
+                                </Flex>
+                                <Flex justifyContent="center" alignItems="center">
+                                  <Box width="90%">
+                                    <Divider style={{ margin: "10px" }} />
+                                  </Box>
+                                </Flex>
+                              </Box>
+                            );
+                          })
+                          ) : (
+                            <Flex>
+                              No posts available
+                            </Flex>
+                          )
+                          }
+                        </Flex>
+                      </Modal>
+                      ) : (
+                        <Flex>
+                          No posts yet
+                        </Flex>
+                      )}
                     </Flex>
                   </Box>
                 ) : (
