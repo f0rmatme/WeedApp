@@ -70,6 +70,21 @@ const Posts = props => {
     });
   };
 
+  const isLiked = postId => {
+    let userId = userCtx.user.id;
+    let found = false;
+    posts.forEach(post => {
+      if (post.id === postId) {
+        post.likes.forEach(like => {
+          if (like.userId === userId) {
+            found = true;
+          }
+        });
+      }
+    });
+    return found;
+  };
+
   const addComment = comment => {
     setPosts(prevState => {
       let tempPosts = [];
@@ -144,6 +159,7 @@ const Posts = props => {
                           post={post}
                           addLike={addLike}
                           addComment={addComment}
+                          isLiked={isLiked}
                         />
                       </Flex>
                       <Flex justifyContent="center" alignItems="center">

@@ -15,6 +15,7 @@ import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const SinglePost = props => {
   const post = props.post;
+  let likeColour = props.isLiked(post.id);
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [makeComment, setMakeComment] = useState(false);
   const [comment, setComment] = useState("");
@@ -53,6 +54,17 @@ const SinglePost = props => {
   };
 
   const handleLike = postId => {
+    if (!likeColour) {
+      props.addLike(
+        {
+          id: -1,
+          userId: userCtx.user.id,
+          postId: postId
+        },
+        postId,
+        "add"
+      );
+    }
     axios
       .post(
         "/like",
@@ -69,14 +81,22 @@ const SinglePost = props => {
       .then(res => {
         if (res.data === "Post has been unliked") {
           props.addLike(res, post.id, "remove");
-        } else {
-          props.addLike(res.data, post.id, "add");
         }
+      })
+      .catch(() => {
+        props.addLike(
+          {
+            id: -1,
+            userId: userCtx.user.id,
+            postId: postId
+          },
+          postId,
+          "remove"
+        );
       });
   };
 
   const handleComment = () => {
-    console.log("Commenting on Post");
     if (makeComment) {
       setCommentsVisible(false);
       setMakeComment(false);
@@ -101,7 +121,9 @@ const SinglePost = props => {
                 width: "25px",
                 margin: "5px"
               }}
-              src={post.user.profilepic}
+              src={
+                post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
+              }
             />
             <Box m="5px" fontWeight="bold" fontSize="16px">
               {post.user.username}
@@ -112,21 +134,19 @@ const SinglePost = props => {
               alt="weed"
               src={post.weed.pictureUrl}
               style={{ width: "20%", margin: "10px" }}
-              onError={
-                (e) => {
-                  e.target.onerror = null;
-                  switch(post.weed.strain){
-                    case "Indica":
-                      e.target.src = INDICA;
-                      break;
-                    case "Sativa":
-                      e.target.src = SATIVA;
-                      break;
-                    default:
-                      e.target.src = HYBRID;
-                  }
+              onError={e => {
+                e.target.onerror = null;
+                switch (post.weed.strain) {
+                  case "Indica":
+                    e.target.src = INDICA;
+                    break;
+                  case "Sativa":
+                    e.target.src = SATIVA;
+                    break;
+                  default:
+                    e.target.src = HYBRID;
                 }
-              }
+              }}
             />
             <Box mt="25px">
               <Box fontWeight="bold" pb="15px" fontSize="16px">
@@ -164,11 +184,11 @@ const SinglePost = props => {
       <Flex justifyContent="flex-start" mb="10px" fontSize="12px">
         {post.likes.length === 1 ? (
           <Box mr="5px">
-            Liked by <b>{post.likes.length} person</b>
+            Toked by <b>{post.likes.length} person</b>
           </Box>
         ) : (
           <Box mr="5px">
-            Liked by <b>{post.likes.length} people</b>
+            Toked by <b>{post.likes.length} people</b>
           </Box>
         )}
         {post.comments.length > 0 && (
@@ -215,6 +235,9 @@ const SinglePost = props => {
         <ButtonLike
           mr="5px"
           bg="transparent"
+          color={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+          borderColor={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+          backgroundColor={likeColour ? "#fff2fc" : "transparent"}
           onClick={() => handleLike(post.id)}
         >
           <Icon type="like" />
