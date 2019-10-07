@@ -90,7 +90,7 @@ const SinglePost = props => {
             userId: userCtx.user.id,
             postId: postId
           },
-          -1,
+          postId,
           "remove"
         );
       });
