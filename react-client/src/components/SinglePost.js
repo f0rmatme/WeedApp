@@ -86,6 +86,8 @@ const SinglePost = props => {
     }
   };
 
+  let likeColour = props.isLiked(props.post.id);
+
   return (
     <Card
       bordered={false}
@@ -112,21 +114,19 @@ const SinglePost = props => {
               alt="weed"
               src={post.weed.pictureUrl}
               style={{ width: "20%", margin: "10px" }}
-              onError={
-                (e) => {
-                  e.target.onerror = null;
-                  switch(post.weed.strain){
-                    case "Indica":
-                      e.target.src = INDICA;
-                      break;
-                    case "Sativa":
-                      e.target.src = SATIVA;
-                      break;
-                    default:
-                      e.target.src = HYBRID;
-                  }
+              onError={e => {
+                e.target.onerror = null;
+                switch (post.weed.strain) {
+                  case "Indica":
+                    e.target.src = INDICA;
+                    break;
+                  case "Sativa":
+                    e.target.src = SATIVA;
+                    break;
+                  default:
+                    e.target.src = HYBRID;
                 }
-              }
+              }}
             />
             <Box mt="25px">
               <Box fontWeight="bold" pb="15px" fontSize="16px">
@@ -215,6 +215,9 @@ const SinglePost = props => {
         <ButtonLike
           mr="5px"
           bg="transparent"
+          color={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+          borderColor={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+          backgroundColor={likeColour ? "#fff2fc" : "transparent"}
           onClick={() => handleLike(post.id)}
         >
           <Icon type="like" />
