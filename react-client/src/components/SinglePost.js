@@ -15,6 +15,7 @@ import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const SinglePost = props => {
   const post = props.post;
+  let likeColour = props.isLiked(post.id);
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [makeComment, setMakeComment] = useState(false);
   const [comment, setComment] = useState("");
@@ -76,7 +77,6 @@ const SinglePost = props => {
   };
 
   const handleComment = () => {
-    console.log("Commenting on Post");
     if (makeComment) {
       setCommentsVisible(false);
       setMakeComment(false);
@@ -85,8 +85,6 @@ const SinglePost = props => {
       setMakeComment(true);
     }
   };
-
-  let likeColour = props.isLiked(props.post.id);
 
   return (
     <Card
@@ -103,7 +101,9 @@ const SinglePost = props => {
                 width: "25px",
                 margin: "5px"
               }}
-              src={post.user.profilepic}
+              src={
+                post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
+              }
             />
             <Box m="5px" fontWeight="bold" fontSize="16px">
               {post.user.username}
@@ -164,11 +164,11 @@ const SinglePost = props => {
       <Flex justifyContent="flex-start" mb="10px" fontSize="12px">
         {post.likes.length === 1 ? (
           <Box mr="5px">
-            Liked by <b>{post.likes.length} person</b>
+            Toked by <b>{post.likes.length} person</b>
           </Box>
         ) : (
           <Box mr="5px">
-            Liked by <b>{post.likes.length} people</b>
+            Toked by <b>{post.likes.length} people</b>
           </Box>
         )}
         {post.comments.length > 0 && (
