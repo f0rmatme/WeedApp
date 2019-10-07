@@ -44,9 +44,11 @@ module.exports = (app, db, jwtMW) => {
         res.json([]);
         return;
       }
+
       var friendIds = friends.map(function(friend) {
         return friend.user.id;
       });
+
       db.post
         .findAll({
           where: {
