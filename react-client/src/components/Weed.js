@@ -34,7 +34,7 @@ const Weeds = props => {
     posts: [],
     loading2: true
   });
-  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: [], selectedId: 0});
+  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: [], selectedId: -1});
   const [visible, setVisible] = useState(false);
 
   const userCtx = React.useContext(UserContext);
@@ -94,7 +94,9 @@ const Weeds = props => {
       })
       .then(res => {
         setPosts({ posts: res.data, loading2: false });
-        setVisible(true);
+        if(selectedWeed.selectedId != -1){
+          setVisible(true);
+        }
       })
       .catch(err => {
         setPosts({ posts: [], loading2: false})
