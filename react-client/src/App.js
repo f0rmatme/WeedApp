@@ -9,6 +9,7 @@ import { UserContext } from "./context/userContext";
 import Login from "./components/Login";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
+import Profile from "./components/Profile";
 
 const App = props => {
   const [at, setAt] = React.useState(null);
@@ -60,6 +61,7 @@ const App = props => {
               component={() => <Posts at={userCtx.token} />}
             />
             <Route exact path="/weed" component={Weed} />
+            <Route path="/profile/:username" component={Profile} />
           </Switch>
         </Box>
       )}

@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 import { Card, Tag, Icon } from "antd";
 import { getStrainColour } from "../helpers/strainColour.js";
 import { ButtonLike } from "./ui/Button";
@@ -29,6 +30,10 @@ const SinglePost = props => {
 
   const processTags = tags => {
     return tags.split(",");
+  };
+
+  const handleProfile = () => {
+    props.history.push(`/profile/${post.user.username}`);
   };
 
   const submitComment = postId => {
@@ -125,7 +130,12 @@ const SinglePost = props => {
                 post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
               }
             />
-            <Box m="5px" fontWeight="bold" fontSize="16px">
+            <Box
+              m="5px"
+              fontWeight="bold"
+              fontSize="16px"
+              onClick={() => handleProfile()}
+            >
               {post.user.username}
             </Box>
           </Flex>
@@ -302,4 +312,4 @@ const SinglePost = props => {
   );
 };
 
-export default SinglePost;
+export default withRouter(SinglePost);

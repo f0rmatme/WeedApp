@@ -13,6 +13,16 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
+  app.get("/username/:username", jwtMW, (req, res) =>
+    db.user
+      .findOne({
+        where: {
+          username: req.params.username
+        }
+      })
+      .then(result => res.json(result))
+  );
+
   app.get("/user/current", jwtMW, (req, res) => {
     console.log(res);
   });
