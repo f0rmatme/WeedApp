@@ -46,7 +46,13 @@ const ProfileCard = () => {
       <Flex px="15px" pb="5px" pr="5px">
         <Icon type="book" style={{ paddingTop: "4px" }} />
         <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
-          {userCtx.user.bio}
+          {userCtx.user.bio === null ? (
+            <Box fontWeight="normal" color="#d7d7d7">
+              No Bio Found
+            </Box>
+          ) : (
+            <Box>{userCtx.user.bio}</Box>
+          )}
         </Box>
       </Flex>
     </Box>
