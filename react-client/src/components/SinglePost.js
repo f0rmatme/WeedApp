@@ -54,6 +54,17 @@ const SinglePost = props => {
   };
 
   const handleLike = postId => {
+    if (!likeColour) {
+      props.addLike(
+        {
+          id: -1,
+          userId: userCtx.user.id,
+          postId: postId
+        },
+        postId,
+        "add"
+      );
+    }
     axios
       .post(
         "/like",
@@ -70,9 +81,18 @@ const SinglePost = props => {
       .then(res => {
         if (res.data === "Post has been unliked") {
           props.addLike(res, post.id, "remove");
-        } else {
-          props.addLike(res.data, post.id, "add");
         }
+      })
+      .catch(() => {
+        props.addLike(
+          {
+            id: -1,
+            userId: userCtx.user.id,
+            postId: postId
+          },
+          -1,
+          "remove"
+        );
       });
   };
 
