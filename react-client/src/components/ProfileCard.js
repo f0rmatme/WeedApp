@@ -2,6 +2,7 @@ import React from "react";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { Divider, Icon } from "antd";
+import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 import { UserContext } from "../context/userContext";
 
@@ -31,7 +32,7 @@ const ProfileCard = () => {
             marginTop: "0px",
             marginBottom: "0px"
           }}
-          src={userCtx.user.picture}
+          src={userCtx.user.picture ? userCtx.user.picture : DEFAULT_PROFILE}
         />
         <Box m="5px" mt="15px" mb="0px" fontWeight="bold" fontSize="18px">
           {userCtx.user.username}
