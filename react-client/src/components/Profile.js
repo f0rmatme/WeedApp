@@ -86,8 +86,34 @@ const Profile = props => {
                     <Box pt="7px" ml="10px">
                       {user.user.email}
                     </Box>
-                    <Box>
-                      <Icon type="book" style={{ paddingTop: "10px" }} />
+                  </Flex>
+                  <Flex>
+                    <Icon
+                      type="book"
+                      style={{
+                        paddingTop: "10px",
+                        marginLeft: "20px",
+                        fontSize: "16px"
+                      }}
+                    />
+                    <Box pt="7px" ml="10px" mr="20px">
+                      {user.user.bio
+                        ? user.user.bio
+                        : "No Bio Found | Update Profile to Add a Bio"}
+                    </Box>
+                  </Flex>
+                  {/*STATS FOR ACCOUNT*/}
+                  <Flex m="20px" mt="20px">
+                    <Box
+                      py="5px"
+                      px="10px"
+                      border="1px solid #9DA077"
+                      backgroundColor="#ebece4"
+                      borderRadius="12px"
+                      fontWeight="bold"
+                      mr="10px"
+                    >
+                      Posts
                     </Box>
                   </Flex>
                 </Box>
