@@ -22,9 +22,21 @@ module.exports = (app, db, jwtMW) => {
       })
       .then(result => res.json(result))
   );
-
-  app.get("/user/current", jwtMW, (req, res) => {
-    console.log(res);
+    
+  app.get("/api/user/find/", (req, res) => {
+    if (req.query.search === "") {
+      res.send([]);
+    } else {
+      db.user
+        .findAll({
+          where: {
+            username: { like: "%" + req.query.search + "%" }
+          }
+        })
+        .then(result => {
+          res.json(result);
+        });
+    }
   });
 
   //Unused Route, don't have favourites as of yet
