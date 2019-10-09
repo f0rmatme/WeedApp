@@ -3,8 +3,9 @@ import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import Media from "react-media";
-import { Spin, Icon, Divider } from "antd";
+import { Spin, Icon, Divider, Button, Modal } from "antd";
 import { UserContext } from "../context/userContext";
+import EditProfile from "./EditProfileModal";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
@@ -14,7 +15,8 @@ const Profile = props => {
   const username = props.match.params.username;
 
   const [user, setUser] = useState({ user: {}, loading: true });
-  const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
+  const [friends, setFriends] = useState({ following: 0, followers: 0 });
+  const [editOpen, setEditOpen] = useState(true);
 
   useEffect(() => {
     axios
@@ -24,10 +26,11 @@ const Profile = props => {
       .then(res => {
         setUser({ user: res.data, loading: false });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (user.length != {}) {
+    if (user.length !== {}) {
       axios
         .get(`/api/friends/count/${user.user.id}`, {
           headers: {
@@ -38,7 +41,16 @@ const Profile = props => {
           setFriends(res.data);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
+
+  const handleOk = () => {
+    console.log("Submitted");
+  };
+
+  const handleCancel = () => {
+    setEditOpen(false);
+  };
 
   return (
     <Box>
@@ -60,7 +72,7 @@ const Profile = props => {
                 <Box>
                   <Flex>
                     <img
-                      alt="profile picture"
+                      alt="profile"
                       src={
                         user.user.profilepic
                           ? user.user.profilepic
@@ -79,10 +91,20 @@ const Profile = props => {
                       }}
                     />
                     <Flex>
-                      <Box fontSize="24px" my="48px">
+                      <Box fontSize="24px" my="50px" mx="30px">
                         {user.user.username}
                       </Box>
                     </Flex>
+                    {user.user.id === userCtx.user.id && (
+                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="20px">
+                        <Button
+                          icon="edit"
+                          ghost
+                          style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                          onClick={() => setEditOpen(true)}
+                        />
+                      </Box>
+                    )}
                   </Flex>
                   <Flex justifyContent="center" alignItems="center">
                     <Box width="90%">
@@ -153,6 +175,14 @@ const Profile = props => {
                       <Divider style={{ marginTop: "10px" }} />
                     </Box>
                   </Flex>
+                  <Modal
+                    title="Edit Profile Information"
+                    visible={editOpen}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                  >
+                    <EditProfile />
+                  </Modal>
                 </Box>
               )}
             </Box>
