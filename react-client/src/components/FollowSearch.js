@@ -4,6 +4,7 @@ import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { css } from "emotion";
 import { Icon, Select, Spin } from "antd";
+import Media from "react-media";
 import debounce from "lodash/debounce";
 
 const { Option } = Select;
@@ -48,46 +49,54 @@ const FollowSearch = props => {
   let fetchUsers1 = debounce(handleChange, 200);
 
   return (
-    <Box
-      color="#9DA077"
-      style={{
-        fontSize: "25px"
+    <Media
+      query={{
+        minWidth: 900
       }}
     >
-      <Flex
-        className={css`
-          &:hover {
-            cursor: pointer;
-          }
-        `}
-      >
-        <Box m="8px">
-          <Icon type="search" style={{ paddingLeft: "10px" }} />
-        </Box>
+      {matches => (
         <Box
-          mt="10px"
-          mr="15px"
-          width="150px"
-          fontSize="14px"
-          borderRadius="20px"
+          color="#9DA077"
+          style={{
+            fontSize: "25px"
+          }}
         >
-          <Select
-            showSearch
-            labelInValue
-            value={props.value}
-            placeholder="Search Users"
-            notFoundContent={data.fetching ? <Spin size="small" /> : null}
-            filterOption={false}
-            onSearch={fetchUsers1}
-            style={{ width: "100%" }}
+          <Flex
+            className={css`
+              &:hover {
+                cursor: pointer;
+              }
+            `}
           >
-            {data.data.map(d => (
-              <Option key={d.id}>{d.username}</Option>
-            ))}
-          </Select>
+            <Box m="8px">
+              <Icon type="search" style={{ paddingLeft: "10px" }} />
+            </Box>
+            <Box
+              mt="10px"
+              mr="15px"
+              width={matches ? "200px" : "120px"}
+              fontSize="14px"
+              borderRadius="20px"
+            >
+              <Select
+                showSearch
+                labelInValue
+                value={props.value}
+                placeholder="Search Users"
+                notFoundContent={data.fetching ? <Spin size="small" /> : null}
+                filterOption={false}
+                onSearch={fetchUsers1}
+                style={{ width: "100%" }}
+              >
+                {data.data.map(d => (
+                  <Option key={d.id}>{d.username}</Option>
+                ))}
+              </Select>
+            </Box>
+          </Flex>
         </Box>
-      </Flex>
-    </Box>
+      )}
+    </Media>
   );
 };
 
