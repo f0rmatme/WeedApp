@@ -13,7 +13,8 @@ const Profile = props => {
   const userCtx = useContext(UserContext);
   const username = props.match.params.username;
 
-  const [user, setUser] = useState({ user: [], loading: true });
+  const [user, setUser] = useState({ user: {}, loading: true });
+  const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
 
   useEffect(() => {
     axios
@@ -25,6 +26,20 @@ const Profile = props => {
       });
   }, []);
 
+  useEffect(() => {
+    if (user.length != {}) {
+      axios
+        .get(`/api/friends/count/${user.user.id}`, {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        })
+        .then(res => {
+          setFriends(res.data);
+        });
+    }
+  }, [user]);
+
   return (
     <Box>
       <Media query={{ minWidth: 900 }}>
@@ -34,7 +49,7 @@ const Profile = props => {
               width={matches ? "40%" : "90%"}
               bg="white"
               mt="20px"
-              borderRadius="3px"
+              borderRadius="7px"
               ml={matches ? "28%" : "5%"}
             >
               {user.loading ? (
@@ -111,9 +126,31 @@ const Profile = props => {
                       backgroundColor="#ebece4"
                       borderRadius="12px"
                       fontWeight="bold"
-                      mr="10px"
+                      mr="5px"
                     >
-                      Posts
+                      {friends.followers}
+                    </Box>
+                    <Box py="5px" mr="20px">
+                      Followers
+                    </Box>
+                    <Box
+                      py="5px"
+                      px="10px"
+                      border="1px solid #9DA077"
+                      backgroundColor="#ebece4"
+                      borderRadius="12px"
+                      fontWeight="bold"
+                      mr="5px"
+                    >
+                      {friends.following}
+                    </Box>
+                    <Box py="5px" mr="20px">
+                      Following
+                    </Box>
+                  </Flex>
+                  <Flex justifyContent="center" alignItems="center">
+                    <Box width="90%">
+                      <Divider style={{ marginTop: "10px" }} />
                     </Box>
                   </Flex>
                 </Box>

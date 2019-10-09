@@ -64,7 +64,13 @@ const FollowSearch = props => {
         <Box m="8px">
           <Icon type="search" style={{ paddingLeft: "10px" }} />
         </Box>
-        <Box mt="10px" mr="15px" width="150px" fontSize="14px">
+        <Box
+          mt="10px"
+          mr="15px"
+          width="150px"
+          fontSize="14px"
+          borderRadius="20px"
+        >
           <Select
             showSearch
             labelInValue
