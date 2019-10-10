@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { Divider, Icon } from "antd";
@@ -8,8 +9,27 @@ import { UserContext } from "../context/userContext";
 
 const ProfileCard = () => {
   const userCtx = React.useContext(UserContext);
+
+  const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
+
+  React.useEffect(() => {
+    getFollowing();
+  }, []);
+
+  const getFollowing = () => {
+    axios
+      .get(`/api/friends/count/${userCtx.user.id}`, {
+        headers: {
+          Authorization: `Bearer ${userCtx.token}`
+        }
+      })
+      .then(res => {
+        setFriends(res.data);
+      });
+  };
+
   return (
-    <Box width="60%" height="300px" backgroundColor="white" borderRadius="3px">
+    <Box width="60%" height="300px" backgroundColor="white" borderRadius="7px">
       <Flex px="15px" pb="5px" pt="10px" pr="5px">
         <Icon type="profile" style={{ paddingTop: "4px" }} />
         <Box pl="10px" pb="5px" pr="5px" fontWeight="bold">
@@ -54,6 +74,24 @@ const ProfileCard = () => {
           ) : (
             <Box>{userCtx.user.bio}</Box>
           )}
+        </Box>
+      </Flex>
+      <Flex px="15px" pb="5px" pr="5px">
+        <Box fontWeight="bold" pr="15px">
+          Following
+        </Box>
+        <Icon type="arrow-right" style={{ paddingTop: "4px" }} />
+        <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
+          {friends.following}
+        </Box>
+      </Flex>
+      <Flex px="15px" pb="5px" pr="5px">
+        <Box fontWeight="bold" pr="15px">
+          Followers
+        </Box>
+        <Icon type="arrow-left" style={{ paddingTop: "4px" }} />
+        <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
+          {friends.followers}
         </Box>
       </Flex>
     </Box>
