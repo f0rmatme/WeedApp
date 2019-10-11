@@ -16,7 +16,11 @@ const Profile = props => {
 
   const [user, setUser] = useState({ user: {}, loading: true });
   const [friends, setFriends] = useState({ following: 0, followers: 0 });
-  const [editOpen, setEditOpen] = useState(true);
+  const [editOpen, setEditOpen] = useState(false);
+
+  const [bio, setBio] = useState("");
+  const [newusername, setUsername] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     axios
@@ -45,11 +49,23 @@ const Profile = props => {
   }, [user]);
 
   const handleOk = () => {
-    console.log("Submitted");
+    userCtx.updateProfile(newusername, email, bio);
   };
 
   const handleCancel = () => {
     setEditOpen(false);
+  };
+
+  const handleBio = e => {
+    setBio(e.target.value);
+  };
+
+  const handleEmail = e => {
+    setEmail(e.target.value);
+  };
+
+  const handleUsername = e => {
+    setUsername(e.target.value);
   };
 
   return (
@@ -178,10 +194,16 @@ const Profile = props => {
                   <Modal
                     title="Edit Profile Information"
                     visible={editOpen}
-                    onOk={handleOk}
                     onCancel={handleCancel}
                   >
-                    <EditProfile />
+                    <EditProfile
+                      username={newusername}
+                      handleUsername={handleUsername}
+                      bio={bio}
+                      handleBio={handleBio}
+                      email={email}
+                      handleEmail={handleEmail}
+                    />
                   </Modal>
                 </Box>
               )}

@@ -69,3 +69,11 @@
 .ant-card-hoverable {
   border-radius: 7px;
 }
+
+.ant-input:hover {
+  border-color: #9da077;
+}
+
+.ant-select-selection:hover {
+  border-color: #9da077;
+}

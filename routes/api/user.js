@@ -22,7 +22,7 @@ module.exports = (app, db, jwtMW) => {
       })
       .then(result => res.json(result))
   );
-    
+
   app.get("/api/user/find/", (req, res) => {
     if (req.query.search === "") {
       res.send([]);
@@ -66,48 +66,22 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.put("/user/username/:id", jwtMW, (req, res) =>
+  app.put("/api/user", jwtMW, (req, res) => {
     db.user
       .update(
         {
-          username: req.body.username
+          username: req.body.username,
+          email: req.body.email,
+          bio: req.body.bio
         },
         {
           where: {
-            id: req.params.id
+            id: req.body.id
           }
         }
       )
-      .then(result => res.json(result))
-  );
-
-  app.put("/user/password/:id", jwtMW, (req, res) =>
-    db.user
-      .update(
-        {
-          password: req.body.password
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(result => res.json(result))
-  );
-
-  app.put("/user/email/:id", jwtMW, (req, res) =>
-    db.user
-      .update(
-        {
-          email: req.body.email
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(result => res.json(result))
-  );
+      .then(result => {
+        res.json(result);
+      });
+  });
 };
