@@ -22,6 +22,17 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
+  app.get("/post/user/:id", jwtMW, (req, res) =>
+  db.post
+    .findAll({
+      where: {
+        userId: req.params.id
+      },
+      include: [db.user, db.weed, db.like, db.comment]
+    })
+    .then(result => res.json(result))
+  );
+
   app.post("/posts", jwtMW, (req, res) => {
     db.post.create(req.body).then(result => res.json(result));
   });

@@ -7,6 +7,7 @@ import { Spin, Icon, Divider, Button, Modal } from "antd";
 import { UserContext } from "../context/userContext";
 import EditProfile from "./EditProfileModal";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import UserPosts from "./UserPosts";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -175,6 +176,7 @@ const Profile = props => {
                       <Divider style={{ marginTop: "10px" }} />
                     </Box>
                   </Flex>
+                  <UserPosts/>
                   <Modal
                     title="Edit Profile Information"
                     visible={editOpen}
