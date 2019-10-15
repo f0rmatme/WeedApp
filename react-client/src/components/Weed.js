@@ -94,7 +94,7 @@ const Weeds = props => {
       })
       .then(res => {
         setPosts({ posts: res.data, loading2: false });
-        if(selectedWeed.selectedId != -1){
+        if(selectedWeed.selectedId !== -1){
           setVisible(true);
         }
       })
@@ -277,41 +277,50 @@ const Weeds = props => {
                           flexDirection="column"
                           justifyContent="center"
                         >
-                          {console.log(posts)}
-                          { posts.length > 0 ? (
-                            posts.map((post, key) => {
-                            return (
-                              <Box key={key}>
-                                <Flex
-                                  flexDirection="row"
-                                  justifyContent="center"
-                                  alignItems="center"
-                                >
-                                  <SinglePost
-                                    post={post}
-                                    //addLike={addLike}
-                                    //addComment={addComment}
-                                  />
-                                </Flex>
-                                <Flex justifyContent="center" alignItems="center">
-                                  <Box width="90%">
-                                    <Divider style={{ margin: "10px" }} />
-                                  </Box>
-                                </Flex>
-                              </Box>
-                            );
-                          })
-                          ) : (
-                            <Flex>
-                              No posts available
-                            </Flex>
-                          )
-                          }
+                          <Flex>
+                          Weed info
+                          </Flex>
+
+                          <Flex
+                            flexDirection="column"
+                            justifyContent="center"
+                          >
+                            {console.log(posts)}
+                            { posts.length > 0 ? (
+                              posts.map((post, key) => {
+                              return (
+                                <Box key={key}>
+                                  <Flex
+                                    flexDirection="row"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                  >
+                                    <SinglePost
+                                      post={post}
+                                      //addLike={addLike}
+                                      //addComment={addComment}
+                                    />
+                                  </Flex>
+                                  <Flex justifyContent="center" alignItems="center">
+                                    <Box width="90%">
+                                      <Divider style={{ margin: "10px" }} />
+                                    </Box>
+                                  </Flex>
+                                </Box>
+                              );
+                            })
+                            ) : (
+                              <Flex>
+                                No posts available
+                              </Flex>
+                            )
+                            }
+                          </Flex>
                         </Flex>
                       </Modal>
                       ) : (
-                        <Flex>
-                          No posts yet
+                        <Flex width="60%" justifyContent="center" mt="20%">
+                          <Spin indicator={antIcon} size="large" />
                         </Flex>
                       )}
                     </Flex>
