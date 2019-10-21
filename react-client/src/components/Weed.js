@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Tag, Spin, Icon, Avatar, Pagination } from "antd";
+import { Spin, Icon, Pagination} from "antd";
 import { UserContext } from "../context/userContext";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
-import { getStrainColour } from "../helpers/strainColour.js";
 import Media from "react-media";
 import Selecters, { SelectorSmall } from "./FilterSelect";
-import THC from "../components/images/default_thc_whiteback.png";
-import CBD from "../components/images/default_cbd_whiteback.png";
-import INDICA from "../components/images/noword_indica_transback.png";
-import HYBRID from "../components/images/noword_hybrid_transback.png";
-import SATIVA from "../components/images/noword_sativa_transback.png";
+import RelatedWeedPosts from "../components/RelatedWeedPosts.js";
+import SingleWeed, { SingleWeedSmall } from "../components/SingleWeed.js";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
-const Weeds = () => {
+const Weeds = props => {
   const [{ weed, loading, size }, setWeed] = useState({
     weed: [],
     loading: true,
@@ -27,10 +23,14 @@ const Weeds = () => {
     page: 1,
     perPage: 30
   });
-  const [avatarSRC, setAvatarSRC] = useState({src: ""});
+  const [{ posts, loading2 }, setPosts] = useState({
+    posts: [],
+    loading2: true
+  });
+  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: -1});
+  const [visible, setVisible] = useState(false);
 
   const userCtx = React.useContext(UserContext);
-  const { Meta } = Card;
 
   const strainOption = e => {
     setFilter({ ...filter, strain: e.target.value });
@@ -46,6 +46,11 @@ const Weeds = () => {
 
   const companyOptionSmall = e => {
     setFilter({ ...filter, company: e });
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+    setPosts({ loading2: true })
   };
 
   useEffect(() => {
@@ -69,6 +74,25 @@ const Weeds = () => {
         setError(error.data);
       });
   }, [filter, userCtx.token, pagination]);
+
+  useEffect(() => {
+    axios
+      .get(`/api/posts/relatedWeed/${selectedWeed.selectedWeed}`, {
+        headers: { Authorization: `Bearer ${userCtx.token}` }
+      })
+      .then(res => {
+        setPosts({ posts: res.data, loading2: false });
+        if(selectedWeed.selectedWeed !== -1){
+          setVisible(true);
+        };
+        console.log(selectedWeed);
+      })
+      .catch(err => {
+        setPosts({ posts: [], loading2: false});
+        setError(err);
+        console.log(fromError.data);
+      });
+  }, [selectedWeed]);
 
   return (
     <Box
@@ -121,91 +145,13 @@ const Weeds = () => {
                     }}
                   >
                     {weed.map((weedItem, key) => (
-                      <Flex key={key}>
-                        <Card
-                          hoverable
-                          cover={
-                            <img
-                              alt="weed"
-                              style={{
-                                minHeight: "200px",
-                                minWidth: "195px",
-                                maxHeight: "200px",
-                                maxWidth: "195px"
-                              }}
-                              src={weedItem.pictureUrl}
-                              onError={
-                                (e) => {
-                                  e.target.onerror = null;
-                                  switch(weedItem.strain){
-                                    case "Indica":
-                                      e.target.src = INDICA;
-                                      break;
-                                    case "Sativa":
-                                      e.target.src = SATIVA;
-                                      break;
-                                    default:
-                                      e.target.src = HYBRID;
-                                  }
-                                }
-                              }
-                            />
-                          }
-                          style={{
-                            height: "450px",
-                            width: "200px",
-                            margin: "10px",
-                            justifyContent: "center"
-                          }}
-                        >
-                          <Meta
-                            title={weedItem.weedName}
-                            description={weedItem.company}
-                          />
-                          <Tag
-                            color={getStrainColour(weedItem.strain)}
-                            style={{
-                              marginTop: "10px",
-                              marginBottom: "10px"
-                            }}
-                          >
-                            {weedItem.strain}
-                          </Tag>
-                          <Box
-                            style={{
-                              wordWrap: "break-word"
-                            }}
-                          >
-                            <img
-                              src={THC}
-                              alt="thc"
-                              style={{
-                                width: "50px",
-                                height: "50px",
-                                marginRight: "10px",
-                                maginBottom: "10px"
-                              }}
-                            />
-                            {weedItem.thc}
-                          </Box>
-                          <Box
-                            style={{
-                              wordWrap: "break-word",
-                              marginTop: "10px"
-                            }}
-                          >
-                            <img
-                              src={CBD}
-                              alt="cbd"
-                              style={{
-                                width: "50px",
-                                height: "50px",
-                                marginRight: "10px"
-                              }}
-                            />
-                            {weedItem.cbd}
-                          </Box>
-                        </Card>
+                      <Flex 
+                        key={key} 
+                        onClick={() => setSelectedWeed({ ...selectedWeed, selectedWeed: weedItem.id })}
+                      >
+                        <SingleWeed
+                          weedItem={weedItem}
+                        />
                       </Flex>
                     ))}
                     <Flex justifyContent="center" width="100%" my="20px">
@@ -218,6 +164,20 @@ const Weeds = () => {
                         }
                         total={size}
                       />
+                    </Flex>
+                    <Flex>
+                      { !loading2? (
+                        <RelatedWeedPosts
+                          selectedWeed={selectedWeed}
+                          posts={posts}
+                          visible={visible}
+                          handleCancel={handleCancel}
+                        />
+                      ) : (
+                        <Flex width="60%" justifyContent="center" mt="20%">
+                          <Spin indicator={antIcon} size="large" />
+                        </Flex>
+                      )}
                     </Flex>
                   </Box>
                 ) : (
@@ -277,99 +237,25 @@ const Weeds = () => {
                     }}
                   >
                     {weed.map((weedItem, key) => {
-                      const x = () => {setAvatarSRC(weedItem.pictureUrl);};
                       return (
-                        <Flex key={key} flexDirection="row" my="10px">
-                          <Card style={{ width: "100%" }}>
-                            <Flex
-                              style={{
-                                flexDirection: "row"
-                              }}
-                            >
-                              <Meta
-                                avatar={
-                                  <img
-                                    alt="weed"
-                                    style={{
-                                      minHeight: "50px",
-                                      minWidth: "50px",
-                                      maxHeight: "50px",
-                                      maxWidth: "50px"
-                                    }}
-                                    src={weedItem.pictureUrl}
-                                    onError={
-                                      (e) => {
-                                        e.target.onerror = null;
-                                        switch(weedItem.strain){
-                                          case "Indica":
-                                            e.target.src = INDICA;
-                                            break;
-                                          case "Sativa":
-                                            e.target.src = SATIVA;
-                                            break;
-                                          default:
-                                            e.target.src = HYBRID;
-                                        }
-                                      }
-                                    }
-                                  />
-                                }
-                                title={weedItem.weedName}
-                                description={weedItem.company}
-                                style={{
-                                  margin: "10px"
-                                }}
-                              />
-                              <Flex
-                                style={{
-                                  flexDirection: "column",
-                                  alignItems: "flex-start"
-                                }}
-                              >
-                                <Tag
-                                  color={getStrainColour(weedItem.strain)}
-                                  style={{
-                                    marginTop: "5px",
-                                    marginBottom: "5px"
-                                  }}
-                                >
-                                  {weedItem.strain}
-                                </Tag>
-                                <Flex
-                                  style={{
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    justifyContent: "center"
-                                  }}
-                                >
-                                  <img
-                                    src={THC}
-                                    alt="thc"
-                                    style={{
-                                      width: "20px",
-                                      height: "20px",
-                                      marginRight: "5px"
-                                    }}
-                                  />
-                                  {weedItem.thc}
-                                  <img
-                                    src={CBD}
-                                    alt="cbd"
-                                    style={{
-                                      width: "20px",
-                                      height: "20px",
-                                      marginRight: "5px",
-                                      marginLeft: "5px"
-                                    }}
-                                  />
-                                  {weedItem.cbd}
-                                </Flex>
-                              </Flex>
-                            </Flex>
-                          </Card>
+                        <Flex 
+                          key={key} 
+                          flexDirection="row" 
+                          my="10px"
+                          onClick={() => setSelectedWeed({ ...selectedWeed, selectedWeed: weedItem.id })}
+                        >
+                          <SingleWeedSmall
+                            weedItem={weedItem}
+                          />
                         </Flex>
                       );
                     })}
+                    <RelatedWeedPosts
+                      selectedWeed={selectedWeed}
+                      posts={posts}
+                      visible={visible}
+                      handleCancel={handleCancel}
+                    />
                   </Flex>
                   <Flex justifyContent="center" width="100%" my="20px">
                     <Pagination

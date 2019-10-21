@@ -58,5 +58,15 @@ module.exports = (app, db, jwtMW) => {
             order: [["id", "DESC"]]
         }).then((result) => res.json(result));
     });
-});
+  });
+
+  app.get("/api/posts/relatedWeed/:weedId", jwtMW, (req, res) => {
+    db.post.findAll({
+      where: {
+        weedId: req.params.weedId
+      },
+      include: [db.user, db.weed, db.like, db.comment],
+      order: [["id", "DESC"]]
+    }).then((result) => res.json(result));
+  });
 };
