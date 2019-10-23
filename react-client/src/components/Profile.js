@@ -6,6 +6,7 @@ import Media from "react-media";
 import { Spin, Icon, Divider, Button, Modal } from "antd";
 import { UserContext } from "../context/userContext";
 import EditProfile from "./EditProfileModal";
+import { ButtonCancel, ButtonSubmit } from "./ui/Button";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
@@ -31,7 +32,7 @@ const Profile = props => {
         setUser({ user: res.data, loading: false });
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userCtx.user]);
 
   useEffect(() => {
     if (user.length !== {}) {
@@ -50,6 +51,8 @@ const Profile = props => {
 
   const handleOk = () => {
     userCtx.updateProfile(newusername, email, bio);
+    userCtx.reloadUserInfo(userCtx.user);
+    setEditOpen(false);
   };
 
   const handleCancel = () => {
@@ -195,6 +198,23 @@ const Profile = props => {
                     title="Edit Profile Information"
                     visible={editOpen}
                     onCancel={handleCancel}
+                    footer={[
+                      <ButtonCancel
+                        key="CancelButton"
+                        onClick={handleCancel}
+                        bg="transparent"
+                        color="#D7D8D7"
+                      >
+                        Cancel
+                      </ButtonCancel>,
+                      <ButtonSubmit
+                        onClick={handleOk}
+                        border="1px solid #9D9F9C"
+                        key="SumbitButton"
+                      >
+                        Post
+                      </ButtonSubmit>
+                    ]}
                   >
                     <EditProfile
                       username={newusername}

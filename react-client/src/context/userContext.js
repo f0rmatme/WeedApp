@@ -13,14 +13,22 @@ const UserProvider = props => {
   const [token, setToken] = useState(window.localStorage.accessToken);
   const [user, setUser] = useState({});
 
+  const reloadUserInfo = userInfo => {
+    axios
+      .get(`/me/${userInfo.id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(res => {
+        console.log(res.data);
+        setUser(res.data);
+      });
+  };
+
   const updateProfile = (username, email, bio) => {
     if (validateInput(username) && validateInput(bio)) {
-      let sendUsername = username === "" ? user.username : username;
-      let sendEmail = email === "" ? user.email : email;
-      let sendBio = bio === "" ? user.bio : bio;
       axios.put(
         "/api/user",
-        { username: sendUsername, email: sendEmail, bio: sendBio },
+        { username: username, email: email, bio: bio, id: user.id },
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -35,7 +43,8 @@ const UserProvider = props => {
         user,
         setToken,
         setUser,
-        updateProfile
+        updateProfile,
+        reloadUserInfo
       }}
     >
       {props.children}

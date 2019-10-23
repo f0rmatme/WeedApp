@@ -31,13 +31,7 @@ const App = props => {
   useEffect(() => {
     if (window.localStorage.user) {
       let user = JSON.parse(window.localStorage.user);
-      axios
-        .get(`http://localhost:3000/me/${user.id}`, {
-          headers: { Authorization: `Bearer ${userCtx.token}` }
-        })
-        .then(res => {
-          userCtx.setUser(user);
-        });
+      userCtx.reloadUserInfo(user);
     }
   }, [window.localStorage.user]);
 

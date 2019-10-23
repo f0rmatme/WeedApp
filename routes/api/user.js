@@ -10,7 +10,15 @@ module.exports = (app, db, jwtMW) => {
           id: req.params.id
         }
       })
-      .then(result => res.json(result))
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
   );
 
   app.get("/username/:username", jwtMW, (req, res) =>
@@ -20,7 +28,15 @@ module.exports = (app, db, jwtMW) => {
           username: req.params.username
         }
       })
-      .then(result => res.json(result))
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
   );
 
   app.get("/api/user/find/", (req, res) => {
@@ -67,19 +83,24 @@ module.exports = (app, db, jwtMW) => {
   );
 
   app.put("/api/user", jwtMW, (req, res) => {
+    let body = {};
+
+    if (req.body.username !== "") {
+      body.username = req.body.username;
+    }
+    if (req.body.email !== "") {
+      body.email = req.body.email;
+    }
+    if (req.body.bio !== "") {
+      body.bio = req.body.bio;
+    }
+
     db.user
-      .update(
-        {
-          username: req.body.username,
-          email: req.body.email,
-          bio: req.body.bio
-        },
-        {
-          where: {
-            id: req.body.id
-          }
+      .update(body, {
+        where: {
+          id: req.body.id
         }
-      )
+      })
       .then(result => {
         res.json(result);
       });

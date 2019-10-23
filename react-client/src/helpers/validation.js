@@ -71,7 +71,6 @@ const regexValues = [
 ];
 
 export const validateInput = input => {
-  console.log("HERE");
   let valid = true;
   regexValues.forEach(str => {
     let regex = new RegExp(str);

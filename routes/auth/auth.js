@@ -66,6 +66,14 @@ module.exports = (app, db, jwtMW) => {
           id: req.params.id
         }
       })
-      .then(result => res.json(result))
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
   );
 };
