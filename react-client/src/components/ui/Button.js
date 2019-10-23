@@ -10,7 +10,7 @@ import {
   position,
   flexbox
 } from "styled-system";
-import { animated } from 'react-spring'
+import { animated } from "react-spring";
 
 const Button = styled("button")(
   {
@@ -124,7 +124,7 @@ export const ButtonCancel = styled("button")(
 export const ButtonLike = styled("button")(
   {
     outline: "none",
-    padding: "10px",
+    padding: "6px",
     backgroundColor: " #0C1109",
     color: "#9DA077",
     width: "50px",
