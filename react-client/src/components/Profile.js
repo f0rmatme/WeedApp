@@ -15,7 +15,8 @@ const Profile = props => {
   const userCtx = useContext(UserContext);
   const username = props.match.params.username;
 
-  const [user, setUser] = useState({ user: {}, loading: true });
+  const [user, setUser] = useState({ user: {} });
+  const [loading, setLoading] = useState(true);
   const [friends, setFriends] = useState({ following: 0, followers: 0 });
   const [editOpen, setEditOpen] = useState(false);
 
@@ -29,7 +30,7 @@ const Profile = props => {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(res => {
-        setUser({ user: res.data, loading: false });
+        setUser({ user: res.data });
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userCtx.user]);
@@ -44,6 +45,7 @@ const Profile = props => {
         })
         .then(res => {
           setFriends(res.data);
+          setLoading(false);
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,7 +85,7 @@ const Profile = props => {
               borderRadius="7px"
               ml={matches ? "28%" : "5%"}
             >
-              {user.loading ? (
+              {loading ? (
                 <Flex width="100%" justifyContent="center" mt="20%">
                   <Spin indicator={antIcon} size="large" />
                 </Flex>

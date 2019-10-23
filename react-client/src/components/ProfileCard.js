@@ -52,7 +52,9 @@ const ProfileCard = () => {
             marginTop: "0px",
             marginBottom: "0px"
           }}
-          src={userCtx.user.picture ? userCtx.user.picture : DEFAULT_PROFILE}
+          src={
+            userCtx.user.profilepic ? userCtx.user.profilepic : DEFAULT_PROFILE
+          }
         />
         <Box m="5px" mt="15px" mb="0px" fontWeight="bold" fontSize="18px">
           {userCtx.user.username}

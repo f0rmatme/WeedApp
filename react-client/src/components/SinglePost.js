@@ -135,6 +135,11 @@ const SinglePost = props => {
               fontWeight="bold"
               fontSize="16px"
               onClick={() => handleProfile()}
+              className={css`
+                &:hover {
+                  cursor: pointer;
+                }
+              `}
             >
               {post.user.username}
             </Box>
