@@ -33,7 +33,7 @@ const Profile = props => {
         setUser({ user: res.data });
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userCtx.user]);
+  }, [userCtx.user, username]);
 
   useEffect(() => {
     if (user.length !== {}) {
@@ -116,14 +116,18 @@ const Profile = props => {
                         {user.user.username}
                       </Box>
                     </Flex>
-                    {user.user.id === userCtx.user.id && (
-                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="20px">
+                    {user.user.id === userCtx.user.id ? (
+                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
                         <Button
                           icon="edit"
                           ghost
                           style={{ color: "#9DA077", borderColor: "#9DA077" }}
                           onClick={() => setEditOpen(true)}
                         />
+                      </Box>
+                    ) : (
+                      <Box alignSelf="flex-end" ml="auto" mr="30px">
+                        ADD USER?????
                       </Box>
                     )}
                   </Flex>

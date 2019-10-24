@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import { UserContext } from "./context/userContext";
+import { FriendContext } from "./context/friendContext";
 import Login from "./components/Login";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
@@ -27,6 +28,7 @@ const App = props => {
   };
 
   const userCtx = useContext(UserContext);
+  const friendCtx = useContext(FriendContext);
 
   useEffect(() => {
     if (window.localStorage.user) {
@@ -34,6 +36,10 @@ const App = props => {
       userCtx.reloadUserInfo(user);
     }
   }, [window.localStorage.user]);
+
+  useEffect(() => {
+    friendCtx.getFriends();
+  }, [userCtx.user]);
 
   return (
     <Box fontFamily="Oxygen">
