@@ -132,19 +132,23 @@ const Profile = props => {
                       <Divider style={{ marginTop: "10px" }} />
                     </Box>
                   </Flex>
-                  <Flex>
-                    <Icon
-                      type="mail"
-                      style={{
-                        paddingTop: "10px",
-                        marginLeft: "20px",
-                        fontSize: "16px"
-                      }}
-                    />
-                    <Box pt="7px" ml="10px">
-                      {user.user.email}
-                    </Box>
-                  </Flex>
+
+                  {user.user.id === userCtx.user.id && (
+                    <Flex>
+                      <Icon
+                        type="mail"
+                        style={{
+                          paddingTop: "10px",
+                          marginLeft: "20px",
+                          fontSize: "16px"
+                        }}
+                      />
+                      <Box pt="7px" ml="10px">
+                        {user.user.email}
+                      </Box>
+                    </Flex>
+                  )}
+
                   <Flex>
                     <Icon
                       type="book"

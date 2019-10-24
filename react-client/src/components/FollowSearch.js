@@ -89,7 +89,19 @@ const FollowSearch = props => {
                 style={{ width: "100%" }}
               >
                 {data.data.map(d => (
-                  <Option key={d.id}>{d.username}</Option>
+                  <Option key={d.id}>
+                    <Flex>
+                      <img
+                        src={d.profilepic}
+                        style={{
+                          width: "20px",
+                          borderRadius: "50%",
+                          marginRight: "10px"
+                        }}
+                      />
+                      <Box>{d.username}</Box>
+                    </Flex>
+                  </Option>
                 ))}
               </Select>
             </Box>

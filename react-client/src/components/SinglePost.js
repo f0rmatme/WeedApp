@@ -309,7 +309,7 @@ const SinglePost = props => {
               width: "20px",
               position: "absolute"
             }}
-            src={userCtx.user.picture}
+            src={userCtx.user.profilepic}
           />
         </Box>
       )}
