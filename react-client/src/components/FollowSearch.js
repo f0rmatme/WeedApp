@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
@@ -29,6 +30,7 @@ const FollowSearch = props => {
         if (fetchId !== lastFetchId) {
           return;
         }
+        console.log(res.data);
         setData({ ...data, data: res.data, fetching: false });
       });
   };
@@ -44,6 +46,11 @@ const FollowSearch = props => {
     promise.then(value => {
       fetchUsers(value);
     });
+  };
+
+  const handleOptionClick = user => {
+    console.log(user);
+    props.history.push(`/profile/${user.username}`);
   };
 
   let fetchUsers1 = debounce(handleChange, 200);
@@ -80,6 +87,7 @@ const FollowSearch = props => {
             >
               <Select
                 showSearch
+                showArrow={false}
                 labelInValue
                 value={props.value}
                 placeholder="Search Users"
@@ -89,7 +97,7 @@ const FollowSearch = props => {
                 style={{ width: "100%" }}
               >
                 {data.data.map(d => (
-                  <Option key={d.id}>
+                  <Option key={d.id} onClick={() => handleOptionClick(d)}>
                     <Flex>
                       <img
                         src={d.profilepic}
@@ -112,4 +120,4 @@ const FollowSearch = props => {
   );
 };
 
-export default FollowSearch;
+export default withRouter(FollowSearch);
