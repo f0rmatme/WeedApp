@@ -100,6 +100,7 @@ const FollowSearch = props => {
                   <Option key={d.id} onClick={() => handleOptionClick(d)}>
                     <Flex>
                       <img
+                        alt="profile"
                         src={d.profilepic}
                         style={{
                           width: "20px",

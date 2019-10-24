@@ -19,7 +19,6 @@ const UserProvider = props => {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
-        console.log(res.data);
         setUser(res.data);
       });
   };

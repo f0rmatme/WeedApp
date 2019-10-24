@@ -30,23 +30,25 @@ const EditProfile = props => {
         value={props.email}
         onChange={props.handleEmail}
       />
-      <Box py="5px">Username</Box>
-      <Input
-        border="1px solid #d9d9d9"
-        py="5px"
-        px="10px"
-        borderRadius="10px"
-        className={css`
-          width: 60%;
-          &:hover {
-            border-color: #9da077;
-            transition: border 0.5s;
-          }
-        `}
-        placeholder={userCtx.user.username}
-        value={props.username}
-        onChange={props.handleUsername}
-      />
+      {/*
+        <Box py="5px">Username</Box>
+        <Input
+          border="1px solid #d9d9d9"
+          py="5px"
+          px="10px"
+          borderRadius="10px"
+          className={css`
+            width: 60%;
+            &:hover {
+              border-color: #9da077;
+              transition: border 0.5s;
+            }
+          `}
+          placeholder={userCtx.user.username}
+          value={props.username}
+          onChange={props.handleUsername}
+        />
+        */}
       <Box py="5px">Bio</Box>
       <TextArea
         placeholder={userCtx.user.bio || "Write Biography"}

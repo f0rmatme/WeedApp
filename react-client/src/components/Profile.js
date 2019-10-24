@@ -5,6 +5,7 @@ import Flex from "./ui/Flex";
 import Media from "react-media";
 import { Spin, Icon, Divider, Button, Modal } from "antd";
 import { UserContext } from "../context/userContext";
+import { FriendContext } from "../context/friendContext";
 import EditProfile from "./EditProfileModal";
 import { ButtonCancel, ButtonSubmit } from "./ui/Button";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
@@ -13,11 +14,16 @@ const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
 const Profile = props => {
   const userCtx = useContext(UserContext);
+  const friendCtx = useContext(FriendContext);
   const username = props.match.params.username;
 
   const [user, setUser] = useState({ user: {} });
   const [loading, setLoading] = useState(true);
-  const [friends, setFriends] = useState({ following: 0, followers: 0 });
+  const [friends, setFriends] = useState({
+    following: 0,
+    followers: 0,
+    isFriend: false
+  });
   const [editOpen, setEditOpen] = useState(false);
 
   const [bio, setBio] = useState("");
@@ -36,7 +42,9 @@ const Profile = props => {
   }, [userCtx.user, username]);
 
   useEffect(() => {
-    if (user.length !== {}) {
+    console.log(user);
+    console.log(friendCtx.friends);
+    if (friendCtx.friends.length > 0) {
       axios
         .get(`/api/friends/count/${user.user.id}`, {
           headers: {
@@ -44,12 +52,21 @@ const Profile = props => {
           }
         })
         .then(res => {
-          setFriends(res.data);
+          setFriends({
+            following: res.data.following,
+            followers: res.data.followers,
+            isFriend: friendCtx.isFriend(user.user.id)
+          });
           setLoading(false);
         });
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
+
+  const addFriend = () => {
+    console.log("Added");
+  };
 
   const handleOk = () => {
     userCtx.updateProfile(newusername, email, bio);
@@ -126,8 +143,15 @@ const Profile = props => {
                         />
                       </Box>
                     ) : (
-                      <Box alignSelf="flex-end" ml="auto" mr="30px">
-                        ADD USER?????
+                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
+                        {friends.isFriend && (
+                          <Button
+                            icon="plus"
+                            ghost
+                            style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                            onClick={addFriend}
+                          />
+                        )}
                       </Box>
                     )}
                   </Flex>

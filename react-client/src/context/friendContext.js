@@ -6,7 +6,9 @@ import { UserContext } from "./userContext";
 export const FriendContext = React.createContext({});
 
 const FriendProvider = props => {
-  const [friends, setFriends] = useState([]);
+  const [friends, setFriends] = useState(
+    JSON.parse(window.localStorage.friends) || []
+  );
 
   const userCtx = useContext(UserContext);
 
@@ -16,16 +18,26 @@ const FriendProvider = props => {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(res => {
+        window.localStorage.friends = JSON.stringify(res.data);
         setFriends(res.data);
       });
   };
 
-  const isFriend = () => {
-    console.log("I don't know");
+  const isFriend = usersId => {
+    let result = false;
+    let i;
+    for (i = 0; i < friends.length; i++) {
+      if (friends[i].friendId === usersId) {
+        result = true;
+      }
+    }
+    return result;
   };
 
   return (
-    <FriendContext.Provider value={{ friends, setFriends, getFriends }}>
+    <FriendContext.Provider
+      value={{ friends, setFriends, getFriends, isFriend }}
+    >
       {props.children}
     </FriendContext.Provider>
   );
