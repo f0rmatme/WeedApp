@@ -64,7 +64,11 @@ const Profile = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  const addFriend = () => {
+  const followFriend = () => {
+    console.log("Added");
+  };
+
+  const unfollowFriend = () => {
     console.log("Added");
   };
 
@@ -144,12 +148,19 @@ const Profile = props => {
                       </Box>
                     ) : (
                       <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
-                        {friends.isFriend && (
+                        {!friends.isFriend ? (
                           <Button
                             icon="plus"
                             ghost
                             style={{ color: "#9DA077", borderColor: "#9DA077" }}
-                            onClick={addFriend}
+                            onClick={followFriend}
+                          />
+                        ) : (
+                          <Button
+                            icon="minus"
+                            ghost
+                            style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                            onClick={unfollowFriend}
                           />
                         )}
                       </Box>
