@@ -39,7 +39,7 @@ const Posts = props => {
   useEffect(() => {
     axios
       .get(`/api/posts/allFriends/${userCtx.user.id}`, {
-        headers: { Authorization: `Bearer ${props.at}` }
+        headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(res => {
         setPosts({ posts: res.data, loading: false });
@@ -47,7 +47,7 @@ const Posts = props => {
       .catch(err => {
         console.log("YOU GOT AN ERROR NEIGHBOUR");
       });
-  }, []);
+  }, [userCtx.token, userCtx.user]);
 
   const handleCancel = () => {
     setVisible(false);
@@ -126,7 +126,7 @@ const Posts = props => {
             tags: tags.toString()
           },
           {
-            headers: { Authorization: `Bearer ${props.at}` }
+            headers: { Authorization: `Bearer ${userCtx.token}` }
           }
         )
         .then(() => setVisible(false));

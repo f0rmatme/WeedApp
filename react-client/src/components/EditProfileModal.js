@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import Box from "./ui/Box";
 import { css } from "emotion";
 import Input from "./ui/Input";

@@ -42,8 +42,6 @@ const Profile = props => {
   }, [userCtx.user, username]);
 
   useEffect(() => {
-    console.log(user);
-    console.log(friendCtx.friends);
     if (friendCtx.friends.length > 0) {
       axios
         .get(`/api/friends/count/${user.user.id}`, {

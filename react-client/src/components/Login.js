@@ -44,9 +44,9 @@ const Login = ({ setAt }) => {
             username: res.data.user.username,
             email: res.data.user.email,
             bio: res.data.user.bio,
-            picture: res.data.user.profilepic
+            profilepic: res.data.user.profilepic
           });
-          setAt(res.data.token);
+          //setAt(res.data.token);
         })
         .catch(error => {
           setError("There was an error logging in");

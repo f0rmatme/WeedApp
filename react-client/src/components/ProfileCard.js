@@ -13,10 +13,6 @@ const ProfileCard = () => {
   const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
 
   React.useEffect(() => {
-    getFollowing();
-  }, []);
-
-  const getFollowing = () => {
     axios
       .get(`/api/friends/count/${userCtx.user.id}`, {
         headers: {
@@ -26,7 +22,7 @@ const ProfileCard = () => {
       .then(res => {
         setFriends(res.data);
       });
-  };
+  }, [userCtx.token, userCtx.user]);
 
   return (
     <Box width="60%" height="300px" backgroundColor="white" borderRadius="7px">

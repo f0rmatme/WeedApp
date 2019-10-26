@@ -1,14 +1,11 @@
 import React from "react";
 import { Radio, Select } from "antd";
 import Flex from "./ui/Flex";
-import { css } from "emotion";
-
 
 const radioStyle = {
   marginTop: "2px",
   wordBreak: "break-all"
 };
-
 
 const { Option } = Select;
 
@@ -225,7 +222,7 @@ export const SelectorSmall = props => {
         >
           Company
         </h3>
-        <Select 
+        <Select
           defaultValue={props.company}
           showSearch
           style={{

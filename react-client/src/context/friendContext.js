@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { validateInput } from "../helpers/validation";
 import { UserContext } from "./userContext";
 
 export const FriendContext = React.createContext({});
 
 const FriendProvider = props => {
   const [friends, setFriends] = useState(
-    JSON.parse(window.localStorage.friends) || []
+    //JSON.parse(window.localStorage.friends)
+    []
   );
 
   const userCtx = useContext(UserContext);

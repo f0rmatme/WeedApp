@@ -13,7 +13,6 @@ const { Option } = Select;
 const FollowSearch = props => {
   let lastFetchId = 0;
 
-  const [selected, setSelected] = useState("");
   const [data, setData] = useState({ data: [], fetching: false });
 
   const fetchUsers = value => {
