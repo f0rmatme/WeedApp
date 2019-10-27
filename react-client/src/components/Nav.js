@@ -49,7 +49,6 @@ const Nav = props => {
 
   const handleLogout = () => {
     localStorage.clear();
-    props.setAt("");
   };
 
   return (

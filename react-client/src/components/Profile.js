@@ -58,16 +58,72 @@ const Profile = props => {
           setLoading(false);
         });
     }
+    // eslint-disable-next-line
+  }, [user, user.user, friendCtx.friends]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  const changeFollowStatus = followStatus => {
+    let data = {
+      friendId: user.user.id,
+      userId: userCtx.user.id
+    };
+    //followStatus: true == follow | false == unfollow
+    if (followStatus) {
+      setFriends(oldFriends => {
+        return {
+          following: friends.following,
+          followers: friends.followers + 1,
+          isFriend: true
+        };
+      });
 
-  const followFriend = () => {
-    console.log("Added");
-  };
-
-  const unfollowFriend = () => {
-    console.log("Added");
+      axios
+        .post(`/api/friend/create`, data, {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        })
+        .then(() => {
+          friendCtx.getFriends();
+        })
+        .catch(() => {
+          setFriends(oldFriends => {
+            return {
+              following: friends.following,
+              followers: friends.followers - 1,
+              isFriend: false
+            };
+          });
+          console.log("Error while adding as friend");
+        });
+    } else {
+      console.log(userCtx.token);
+      setFriends(oldFriends => {
+        return {
+          following: oldFriends.following,
+          followers: oldFriends.followers - 1,
+          isFriend: false
+        };
+      });
+      axios
+        .delete(`/api/friend`, {
+          data: data,
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        })
+        .then(() => {
+          friendCtx.getFriends();
+        })
+        .catch(() => {
+          setFriends(oldFriends => {
+            return {
+              following: oldFriends.following,
+              followers: oldFriends.followers + 1,
+              isFriend: true
+            };
+          });
+        });
+    }
   };
 
   const handleOk = () => {
@@ -151,14 +207,14 @@ const Profile = props => {
                             icon="plus"
                             ghost
                             style={{ color: "#9DA077", borderColor: "#9DA077" }}
-                            onClick={followFriend}
+                            onClick={() => changeFollowStatus(true)}
                           />
                         ) : (
                           <Button
                             icon="minus"
                             ghost
                             style={{ color: "#9DA077", borderColor: "#9DA077" }}
-                            onClick={unfollowFriend}
+                            onClick={() => changeFollowStatus(false)}
                           />
                         )}
                       </Box>

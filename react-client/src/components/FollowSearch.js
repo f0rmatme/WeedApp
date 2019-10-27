@@ -29,7 +29,6 @@ const FollowSearch = props => {
         if (fetchId !== lastFetchId) {
           return;
         }
-        console.log(res.data);
         setData({ ...data, data: res.data, fetching: false });
       });
   };
@@ -48,7 +47,6 @@ const FollowSearch = props => {
   };
 
   const handleOptionClick = user => {
-    console.log(user);
     props.history.push(`/profile/${user.username}`);
   };
 

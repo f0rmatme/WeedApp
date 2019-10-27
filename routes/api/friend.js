@@ -20,8 +20,7 @@ module.exports = (app, db, jwtMW) => {
 
   app.post("/api/friend/create", jwtMW, (req, res) => {
     if (!req.body.userId || !req.body.friendId) {
-      res.send({ message: "Missing userId or friendId" });
-      return;
+      return res.status(400).json({ message: "Missing userId or friendId" });
     }
     db.friend
       .create({
@@ -31,7 +30,7 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result));
   });
 
-  app.post("/api/friend/delete", jwtMW, (req, res) => {
+  app.delete("/api/friend", jwtMW, (req, res) => {
     if (!req.body.userId || !req.body.friendId) {
       return res.status(400).json({ message: "Missing userId or friendId" });
     }
