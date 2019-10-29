@@ -10,11 +10,49 @@ module.exports = (app, db, jwtMW) => {
           id: req.params.id
         }
       })
-      .then(result => res.json(result))
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
   );
 
-  app.get("/user/current", jwtMW, (req, res) => {
-    console.log(res);
+  app.get("/username/:username", jwtMW, (req, res) =>
+    db.user
+      .findOne({
+        where: {
+          username: req.params.username
+        }
+      })
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
+  );
+
+  app.get("/api/user/find/", (req, res) => {
+    if (req.query.search === "") {
+      res.send([]);
+    } else {
+      db.user
+        .findAll({
+          where: {
+            username: { like: "%" + req.query.search + "%" }
+          }
+        })
+        .then(result => {
+          res.json(result);
+        });
+    }
   });
 
   //Unused Route, don't have favourites as of yet
@@ -44,48 +82,27 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.put("/user/username/:id", jwtMW, (req, res) =>
-    db.user
-      .update(
-        {
-          username: req.body.username
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(result => res.json(result))
-  );
+  app.put("/api/user", jwtMW, (req, res) => {
+    let body = {};
 
-  app.put("/user/password/:id", jwtMW, (req, res) =>
-    db.user
-      .update(
-        {
-          password: req.body.password
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(result => res.json(result))
-  );
+    if (req.body.username !== "") {
+      body.username = req.body.username;
+    }
+    if (req.body.email !== "") {
+      body.email = req.body.email;
+    }
+    if (req.body.bio !== "") {
+      body.bio = req.body.bio;
+    }
 
-  app.put("/user/email/:id", jwtMW, (req, res) =>
     db.user
-      .update(
-        {
-          email: req.body.email
-        },
-        {
-          where: {
-            id: req.params.id
-          }
+      .update(body, {
+        where: {
+          id: req.body.id
         }
-      )
-      .then(result => res.json(result))
-  );
+      })
+      .then(result => {
+        res.json(result);
+      });
+  });
 };

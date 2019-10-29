@@ -8,6 +8,7 @@ import bgImage from "./images/plant.jpg";
 import { css } from "@emotion/core";
 import { UserContext } from "../context/userContext";
 import { useSpring, animated } from "react-spring";
+import { validateInput } from "../helpers/validation.js";
 import Media from "react-media";
 
 const HookedComponent = props => {
@@ -43,9 +44,9 @@ const Login = ({ setAt }) => {
             username: res.data.user.username,
             email: res.data.user.email,
             bio: res.data.user.bio,
-            picture: res.data.user.profilepic
+            profilepic: res.data.user.profilepic
           });
-          setAt(res.data.token);
+          //setAt(res.data.token);
         })
         .catch(error => {
           setError("There was an error logging in");
@@ -57,14 +58,18 @@ const Login = ({ setAt }) => {
     if (username === "" || password === "" || email === "") {
       setError("Please fill out all fields");
     } else {
-      axios
-        .post("/signup", { username, password, email })
-        .then(res => {
-          setSignupVisible(false);
-        })
-        .catch(error => {
-          setError("There was an error with your registration");
-        });
+      if (!validateInput(username)) {
+        setError("Hey don't say horny");
+      } else {
+        axios
+          .post("/signup", { username, password, email })
+          .then(res => {
+            setSignupVisible(false);
+          })
+          .catch(error => {
+            setError("There was an error with your registration");
+          });
+      }
     }
   };
 
@@ -201,7 +206,12 @@ const Login = ({ setAt }) => {
                         borderRadius="15px"
                         px="15px"
                         py="5px"
-                        onClick={() => setSignupVisible(true)}
+                        onClick={() => {
+                          setSignupVisible(true);
+                          setUsername("");
+                          setEmail("");
+                          setPassword("");
+                        }}
                       >
                         Sign Up
                       </Button>

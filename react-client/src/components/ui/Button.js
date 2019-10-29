@@ -10,6 +10,7 @@ import {
   position,
   flexbox
 } from "styled-system";
+import { animated } from "react-spring";
 
 const Button = styled("button")(
   {
@@ -45,15 +46,16 @@ export const ButtonNav = styled("button")(
   })
 );
 
-export const ButtonPost = styled("button")(
+export const ButtonPost = styled(animated.button)(
   {
     position: "fixed",
+    outline: "none",
     bottom: "0",
     right: "0",
     margin: "25px",
     padding: "10px 15px 10px 15px",
-    backgroundColor: " #0C1109",
-    color: "#9DA077",
+    backgroundColor: " #9DA077",
+    color: "white",
     border: "none",
     borderRadius: "3px",
     fontWeight: "bold"
@@ -67,7 +69,7 @@ export const ButtonPost = styled("button")(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", color: "rgb(110, 51, 95)" })
+    ":hover": css({ cursor: "pointer", backgroundColor: "#B0B392" })
   })
 );
 
@@ -75,8 +77,8 @@ export const ButtonSubmit = styled("button")(
   {
     outline: "none",
     padding: "5px 25px 5px 25px",
-    backgroundColor: " #0C1109",
-    color: "#9DA077",
+    backgroundColor: " #9DA077",
+    color: "white",
     border: "none",
     borderRadius: "3px"
   },
@@ -89,7 +91,7 @@ export const ButtonSubmit = styled("button")(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", backgroundColor: "#242821" })
+    ":hover": css({ cursor: "pointer", backgroundColor: "#B0B392" })
   })
 );
 
@@ -122,7 +124,7 @@ export const ButtonCancel = styled("button")(
 export const ButtonLike = styled("button")(
   {
     outline: "none",
-    padding: "10px",
+    padding: "6px",
     backgroundColor: " #0C1109",
     color: "#9DA077",
     width: "50px",

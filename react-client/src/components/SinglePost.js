@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 import { Card, Tag, Icon } from "antd";
 import { getStrainColour } from "../helpers/strainColour.js";
 import { ButtonLike } from "./ui/Button";
@@ -29,6 +30,10 @@ const SinglePost = props => {
 
   const processTags = tags => {
     return tags.split(",");
+  };
+
+  const handleProfile = () => {
+    props.history.push(`/profile/${post.user.username}`);
   };
 
   const submitComment = postId => {
@@ -125,7 +130,17 @@ const SinglePost = props => {
                 post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
               }
             />
-            <Box m="5px" fontWeight="bold" fontSize="16px">
+            <Box
+              m="5px"
+              fontWeight="bold"
+              fontSize="16px"
+              onClick={() => handleProfile()}
+              className={css`
+                &:hover {
+                  cursor: pointer;
+                }
+              `}
+            >
               {post.user.username}
             </Box>
           </Flex>
@@ -133,7 +148,7 @@ const SinglePost = props => {
             <img
               alt="weed"
               src={post.weed.pictureUrl}
-              style={{ width: "20%", margin: "10px" }}
+              style={{ width: "140px", height: "150px", margin: "10px" }}
               onError={e => {
                 e.target.onerror = null;
                 switch (post.weed.strain) {
@@ -294,7 +309,11 @@ const SinglePost = props => {
               width: "20px",
               position: "absolute"
             }}
-            src={userCtx.user.picture}
+            src={
+              userCtx.user.profilepic
+                ? userCtx.user.profilepic
+                : DEFAULT_PROFILE
+            }
           />
         </Box>
       )}
@@ -302,4 +321,4 @@ const SinglePost = props => {
   );
 };
 
-export default SinglePost;
+export default withRouter(SinglePost);

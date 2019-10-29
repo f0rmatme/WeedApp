@@ -4,13 +4,15 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import "antd/dist/antd.css";
 import UserProvider from "./context/userContext";
+import FriendProvider from "./context/friendContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <App />
+      <FriendProvider>
+        <App />
+      </FriendProvider>
     </UserProvider>
   </BrowserRouter>,
   document.getElementById("root")

@@ -1,18 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router";
-import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import { UserContext } from "./context/userContext";
+import { FriendContext } from "./context/friendContext";
 import Login from "./components/Login";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
+import Profile from "./components/Profile";
 
 const App = props => {
-  const [at, setAt] = React.useState(null);
-
   const handleHome = () => {
     props.history.push("/");
   };
@@ -26,29 +25,31 @@ const App = props => {
   };
 
   const userCtx = useContext(UserContext);
+  const friendCtx = useContext(FriendContext);
 
   useEffect(() => {
     if (window.localStorage.user) {
       let user = JSON.parse(window.localStorage.user);
-      axios
-        .get(`http://localhost:3000/me/${user.id}`, {
-          headers: { Authorization: `Bearer ${userCtx.token}` }
-        })
-        .then(res => {
-          userCtx.setUser(user);
-        });
+      userCtx.reloadUserInfo(user);
     }
-  }, [window.localStorage.user]);
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (window.localStorage.user) {
+      friendCtx.getFriends();
+    }
+    // eslint-disable-next-line
+  }, [userCtx.user]);
 
   return (
     <Box fontFamily="Oxygen">
       {!window.localStorage.accessToken ? (
-        <Login setAt={setAt} />
+        <Login />
       ) : (
         <Box>
           <Nav
             location={props.match}
-            setAt={setAt}
             home={handleHome}
             posts={handlePosts}
             weed={handleWeed}
@@ -60,6 +61,7 @@ const App = props => {
               component={() => <Posts at={userCtx.token} />}
             />
             <Route exact path="/weed" component={Weed} />
+            <Route path="/profile/:username" component={Profile} />
           </Switch>
         </Box>
       )}

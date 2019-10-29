@@ -222,7 +222,7 @@ export const SelectorSmall = props => {
         >
           Company
         </h3>
-        <Select 
+        <Select
           defaultValue={props.company}
           showSearch
           style={{
