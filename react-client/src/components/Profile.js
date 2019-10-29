@@ -42,24 +42,20 @@ const Profile = props => {
   }, [userCtx.user, username]);
 
   useEffect(() => {
-    if (friendCtx.friends.length > 0) {
-      axios
-        .get(`/api/friends/count/${user.user.id}`, {
-          headers: {
-            Authorization: `Bearer ${userCtx.token}`
-          }
-        })
-        .then(res => {
-          setFriends({
-            following: res.data.following,
-            followers: res.data.followers,
-            isFriend: friendCtx.isFriend(user.user.id)
-          });
-          setLoading(false);
+    axios
+      .get(`/api/friends/count/${user.user.id}`, {
+        headers: {
+          Authorization: `Bearer ${userCtx.token}`
+        }
+      })
+      .then(res => {
+        setFriends({
+          following: res.data.following,
+          followers: res.data.followers,
+          isFriend: friendCtx.isFriend(user.user.id)
         });
-    } else {
-      setLoading(false);
-    }
+        setLoading(false);
+      });
     // eslint-disable-next-line
   }, [user, user.user, friendCtx.friends]);
 
