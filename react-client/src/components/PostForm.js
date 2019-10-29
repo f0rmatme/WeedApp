@@ -19,7 +19,6 @@ const NewPostForm = props => {
   const [data, setData] = useState({ data: [], fetching: false });
 
   const fetchWeed1 = value => {
-    console.log("fetching weed", data.value);
     lastFetchId += 1;
     const fetchId = lastFetchId;
     setData({ ...data, data: [], fetching: true });
@@ -27,7 +26,7 @@ const NewPostForm = props => {
       .get("/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
         params: {
-          type: selected,
+          strain: selected,
           search: value
         }
       })
@@ -36,7 +35,6 @@ const NewPostForm = props => {
           // for fetch callback order
           return;
         }
-        console.log(res);
         setData({ ...data, data: res.data.data, fetching: false });
       });
   };
@@ -46,11 +44,17 @@ const NewPostForm = props => {
   };
 
   const handleChange = value => {
-    setData({
-      data: [],
-      fetching: false
+    let promise = new Promise((resolve, error) => {
+      setData({
+        data: [],
+        fetching: true
+      });
+      resolve(1);
     });
-    props.setValue(value);
+
+    promise.then(() => {
+      props.setValue(value);
+    });
   };
 
   const handleContentChange = value => {
@@ -66,7 +70,10 @@ const NewPostForm = props => {
           color="#faad14"
           borderColor="#ffe58f"
           bg={selected === "sativa" ? "#E5E1CF" : "#fffbe6"}
-          onClick={() => setSelected("sativa")}
+          onClick={() => {
+            setSelected("sativa");
+            handleChange();
+          }}
         >
           Sativa
         </ButtonSelector>
@@ -74,7 +81,10 @@ const NewPostForm = props => {
           color="#52c41a"
           borderColor="#b7eb8f"
           bg={selected === "hybrid" ? "#DDE5D5" : "#f6ffed"}
-          onClick={() => setSelected("hybrid")}
+          onClick={() => {
+            setSelected("hybrid");
+            handleChange();
+          }}
         >
           Hybrid
         </ButtonSelector>
@@ -82,7 +92,10 @@ const NewPostForm = props => {
           color="#722ed1"
           borderColor="#d3adf7"
           bg={selected === "indica" ? "#E0D8E5" : "#f9f0ff"}
-          onClick={() => setSelected("indica")}
+          onClick={() => {
+            setSelected("indica");
+            handleChange();
+          }}
         >
           Indica
         </ButtonSelector>
@@ -90,7 +103,10 @@ const NewPostForm = props => {
           color="#f5222d"
           borderColor="#ffa39e"
           bg={selected === "terpenes" ? "#E5D8D8" : "#fff1f0"}
-          onClick={() => setSelected("terpenes")}
+          onClick={() => {
+            setSelected("terpenes");
+            handleChange();
+          }}
         >
           Terpenes
         </ButtonSelector>

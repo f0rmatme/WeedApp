@@ -94,7 +94,6 @@ const Profile = props => {
           console.log("Error while adding as friend");
         });
     } else {
-      console.log(userCtx.token);
       setFriends(oldFriends => {
         return {
           following: oldFriends.following,
