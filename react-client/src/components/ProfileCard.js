@@ -13,15 +13,17 @@ const ProfileCard = () => {
   const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
 
   React.useEffect(() => {
-    axios
-      .get(`/api/friends/count/${userCtx.user.id}`, {
-        headers: {
-          Authorization: `Bearer ${userCtx.token}`
-        }
-      })
-      .then(res => {
-        setFriends(res.data);
-      });
+    if (userCtx.user) {
+      axios
+        .get(`/api/friends/count/${userCtx.user.id}`, {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        })
+        .then(res => {
+          setFriends(res.data);
+        });
+    }
   }, [userCtx.token, userCtx.user]);
 
   return (
