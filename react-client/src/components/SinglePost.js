@@ -148,7 +148,7 @@ const SinglePost = props => {
             <img
               alt="weed"
               src={post.weed.pictureUrl}
-              style={{ width: "25%", margin: "10px" }}
+              style={{ width: "140px", height: "150px", margin: "10px" }}
               onError={e => {
                 e.target.onerror = null;
                 switch (post.weed.strain) {
