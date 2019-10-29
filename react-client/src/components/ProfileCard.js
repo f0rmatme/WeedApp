@@ -27,7 +27,13 @@ const ProfileCard = () => {
   }, [userCtx.token, userCtx.user]);
 
   return (
-    <Box width="60%" height="300px" backgroundColor="white" borderRadius="7px">
+    <Box
+      position="fixed"
+      width="350px"
+      height="300px"
+      backgroundColor="white"
+      borderRadius="7px"
+    >
       <Flex px="15px" pb="5px" pt="10px" pr="5px">
         <Icon type="profile" style={{ paddingTop: "4px" }} />
         <Box pl="10px" pb="5px" pr="5px" fontWeight="bold">
