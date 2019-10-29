@@ -6,12 +6,15 @@ import { withRouter } from "react-router-dom";
 import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
 import FollowSearch from "./FollowSearch";
+import { UserContext } from "../context/userContext";
 
 const Nav = props => {
   const [active, setActive] = React.useState(
     props.history.location.pathname || "/posts/"
   );
   const [visible, setVisible] = React.useState(false);
+
+  const userCtx = React.useContext(UserContext);
 
   const handleMenuClick = e => {
     if (e.key === "1") {
@@ -49,6 +52,7 @@ const Nav = props => {
 
   const handleLogout = () => {
     localStorage.clear();
+    userCtx.setUser({});
   };
 
   return (
