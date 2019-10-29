@@ -1,6 +1,8 @@
-import React from "react";
-import { Radio, Select } from "antd";
+import React, { useState } from "react";
+import { Radio, Select, Icon } from "antd";
 import Flex from "./ui/Flex";
+import TypeModal from "../components/TypeModal.js";
+import StrainModal from "../components/StrainModal.js";
 
 const radioStyle = {
   marginTop: "2px",
@@ -10,6 +12,17 @@ const radioStyle = {
 const { Option } = Select;
 
 const Selectors = props => {
+  const [visibleType,setVisibleType] = useState(false);
+  const [visibleStrain,setVisibleStrain] = useState(false);
+
+  const handleOkType = () => {
+    setVisibleType(false);
+  };
+
+  const handleOkStrain = () => {
+    setVisibleStrain(false);
+  };
+  
   return (
     <Flex
       style={{
@@ -29,7 +42,18 @@ const Selectors = props => {
             marginTop: "5px"
           }}
         >
-          <h3>Strain</h3>
+          <Flex
+            flexDirection="row"
+            justifyContent="space-between"
+          >
+              <h3>Strain</h3>
+              <Icon type="question-circle" style={{ marginTop: "5px" }} onClick={() => setVisibleStrain(true)}/>
+              <StrainModal 
+                visible={visibleStrain}
+                handleOk={handleOkStrain}
+                handleCancel={handleOkStrain}
+              />
+          </Flex>
           <Radio.Button style={radioStyle} value={""}>
             All
           </Radio.Button>
@@ -56,7 +80,18 @@ const Selectors = props => {
             marginTop: "5px"
           }}
         >
-          <h3>Type</h3>
+          <Flex
+            flexDirection="row"
+            justifyContent="space-between"
+          >
+              <h3>Type</h3>
+              <Icon type="question-circle" style={{ marginTop: "5px" }} onClick={() => setVisibleType(true)}/>
+              <TypeModal 
+                visible={visibleType}
+                handleOk={handleOkType}
+                handleCancel={handleOkType}
+              />
+          </Flex>
           <Radio.Button style={radioStyle} value={""}>
             All
           </Radio.Button>
@@ -136,6 +171,17 @@ const Selectors = props => {
 };
 
 export const SelectorSmall = props => {
+  const [visibleType,setVisibleType] = useState(false);
+  const [visibleStrain,setVisibleStrain] = useState(false);
+
+  const handleOkType = () => {
+    setVisibleType(false);
+  };
+
+  const handleOkStrain = () => {
+    setVisibleStrain(false);
+  };
+
   return (
     <Flex
       style={{
@@ -175,6 +221,12 @@ export const SelectorSmall = props => {
           <Radio.Button style={radioStyle} value={"hybrid"}>
             Hybrid
           </Radio.Button>
+          <Icon type="question-circle" style={{ margin: "10px" }} onClick={() => setVisibleStrain(true)}/>
+          <StrainModal
+            visible={visibleStrain}
+            handleOk={handleOkStrain}
+            handleCancel={handleOkStrain}
+          />
         </Flex>
       </Radio.Group>
       <Radio.Group
@@ -205,6 +257,12 @@ export const SelectorSmall = props => {
           <Radio.Button style={radioStyle} value={"thc"}>
             THC Dominant
           </Radio.Button>
+          <Icon type="question-circle" style={{ margin: "10px" }} onClick={() => setVisibleType(true)}/>
+          <TypeModal
+            visible={visibleType}
+            handleOk={handleOkType}
+            handleCancel={handleOkType}
+          />
         </Flex>
       </Radio.Group>
       <Flex
