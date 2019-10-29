@@ -10,6 +10,7 @@ import Media from "react-media";
 import SinglePost from "./SinglePost";
 import PostForm from "./PostForm";
 import { useSpring } from "react-spring";
+import { Helmet } from 'react-helmet';
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -137,6 +138,13 @@ const Posts = props => {
 
   return (
     <Box>
+      <Helmet>
+        <title> Posts </title>
+        <meta
+          name="description"
+          content="Create a new post about your experience or view what others have done!"
+        />
+      </Helmet>
       <Media query={{ minWidth: 900 }}>
         {matches => (
           <Flex backgroundColor="#F0F0F0" minHeight="100vh">
@@ -169,6 +177,7 @@ const Posts = props => {
                           addLike={addLike}
                           addComment={addComment}
                           isLiked={isLiked}
+                          hide={false}
                         />
                       </Flex>
                       <Flex justifyContent="center" alignItems="center">

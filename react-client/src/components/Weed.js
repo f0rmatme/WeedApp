@@ -8,6 +8,7 @@ import Media from "react-media";
 import Selecters, { SelectorSmall } from "./FilterSelect";
 import RelatedWeedPosts from "../components/RelatedWeedPosts.js";
 import SingleWeed, { SingleWeedSmall } from "../components/SingleWeed.js";
+import { Helmet } from 'react-helmet';
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -100,6 +101,13 @@ const Weeds = props => {
       backgroundSize="cover"
       height={loading ? "100vh" : "100%"}
     >
+      <Helmet>
+        <title> Strains </title>
+        <meta
+          name="description"
+          content="Search through hundreds of strains and find your favorite! See what others are saying about strains."
+        />
+      </Helmet>
       <Media query={{ minWidth: 800 }}>
         {matches =>
           matches ? (

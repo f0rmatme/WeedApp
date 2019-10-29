@@ -10,6 +10,7 @@ import { UserContext } from "../context/userContext";
 import { useSpring, animated } from "react-spring";
 import { validateInput } from "../helpers/validation.js";
 import Media from "react-media";
+import { Helmet } from 'react-helmet';
 
 const HookedComponent = props => {
   const props1 = useSpring({
@@ -81,6 +82,13 @@ const Login = ({ setAt }) => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
+      <Helmet>
+        <title> Login or Sign up </title>
+        <meta
+          name="description"
+          content="Login to your TokeTalk Account! Don't have one? Sign up! Start sharing your marijuana experiences with others!"
+        />
+      </Helmet>
       <Media query={{ minHeight: 750 }}>
         {matches => (
           <Box>

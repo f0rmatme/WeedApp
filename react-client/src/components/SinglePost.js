@@ -16,7 +16,12 @@ import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const SinglePost = props => {
   const post = props.post;
-  let likeColour = props.isLiked(post.id);
+  let likeColour = true;
+  if(props.hide){
+    likeColour = false;
+  } else {
+    likeColour = props.isLiked(post.id);
+  }
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [makeComment, setMakeComment] = useState(false);
   const [comment, setComment] = useState("");
@@ -206,7 +211,7 @@ const SinglePost = props => {
             Toked by <b>{post.likes.length} people</b>
           </Box>
         )}
-        {post.comments.length > 0 && (
+        {post.comments.length > 0 && !props.hide && (
           <Flex>
             <span
               style={{
@@ -246,21 +251,23 @@ const SinglePost = props => {
           </Flex>
         )}
       </Flex>
-      <Flex justifyContent="flex-start" mb="10px">
-        <ButtonLike
-          mr="5px"
-          bg="transparent"
-          color={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
-          borderColor={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
-          backgroundColor={likeColour ? "#fff2fc" : "transparent"}
-          onClick={() => handleLike(post.id)}
-        >
-          <Icon type="like" />
-        </ButtonLike>
-        <ButtonLike bg="transparent" onClick={handleComment}>
-          <Icon type="message" />
-        </ButtonLike>
-      </Flex>
+      { !props.hide ? (
+        <Flex justifyContent="flex-start" mb="10px">
+          <ButtonLike
+            mr="5px"
+            bg="transparent"
+            color={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+            borderColor={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
+            backgroundColor={likeColour ? "#fff2fc" : "transparent"}
+            onClick={() => handleLike(post.id)}
+          >
+            <Icon type="like" />
+          </ButtonLike>
+          <ButtonLike bg="transparent" onClick={handleComment}>
+            <Icon type="message" />
+          </ButtonLike>
+        </Flex>) : (<Flex/>
+      )}
       {commentsVisible && post.comments.length > 0 && (
         <Flex fontSize="12px" mb="5px">
           <Box width="100%">
