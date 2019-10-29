@@ -57,6 +57,8 @@ const Profile = props => {
           });
           setLoading(false);
         });
+    } else {
+      setLoading(false);
     }
     // eslint-disable-next-line
   }, [user, user.user, friendCtx.friends]);
