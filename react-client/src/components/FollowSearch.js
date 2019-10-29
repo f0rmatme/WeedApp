@@ -7,6 +7,7 @@ import { css } from "emotion";
 import { Icon, Select, Spin } from "antd";
 import Media from "react-media";
 import debounce from "lodash/debounce";
+import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 
 const { Option } = Select;
 
@@ -98,7 +99,9 @@ const FollowSearch = props => {
                     <Flex>
                       <img
                         alt="profile"
-                        src={d.profilepic}
+                        src={
+                          d.profilepic ? d.profilepic : DEFAULT_PROFILE
+                        }
                         style={{
                           width: "20px",
                           borderRadius: "50%",
