@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 import Profile from "./components/Profile";
+import { Helmet } from 'react-helmet';
 
 const App = props => {
   const handleHome = () => {
@@ -44,6 +45,20 @@ const App = props => {
 
   return (
     <Box fontFamily="Oxygen">
+      <Helmet titleTemplate=" %s | Toke Talk">
+        <meta
+          name="description"
+          content="Create an account today! TokeTalk is a growing community of marijuana connoisseurs. Discuss, learn, and share your opinion about marijuana strains. Follow others to see what they think about strains! Find a store near you!"
+        />
+        <meta
+          name="keywords"
+          content="toke,talk,toketalk,weed,marijuana,canada,legalized,smoke,420,thc,cbd,rating,post,comment,create,account,toek,teok,teko,talk,takl,tlak,tlka,toektalk,toketakl,toektakl,toktalk,toktakl,tooketalk,0tooktalk,toketock"
+        />
+        <meta
+          name="robots"
+          content="index,follow"
+        />
+      </Helmet>
       {!window.localStorage.accessToken ? (
         <Login />
       ) : (

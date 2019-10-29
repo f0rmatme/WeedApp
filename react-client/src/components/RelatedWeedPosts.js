@@ -40,8 +40,7 @@ const RelatedWeedPosts = props => {
                         >
                         <SinglePost
                           post={post}
-                          //addLike={addLike}
-                          //addComment={addComment}
+                          hide={true}
                         />
                         </Flex>
                         <Flex 

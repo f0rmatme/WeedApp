@@ -9,6 +9,7 @@ import { FriendContext } from "../context/friendContext";
 import EditProfile from "./EditProfileModal";
 import { ButtonCancel, ButtonSubmit } from "./ui/Button";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import { Helmet } from 'react-helmet';
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -147,6 +148,13 @@ const Profile = props => {
 
   return (
     <Box>
+      <Helmet>
+        <title> Profile </title>
+        <meta
+          name="description"
+          content="View your profile. Edit your profile. View other peoples profiles and follow them!"
+        />
+      </Helmet>
       <Media query={{ minWidth: 900 }}>
         {matches => (
           <Flex backgroundColor="#F0F0F0" minHeight="100vh">
