@@ -23,7 +23,7 @@ const NewPostForm = props => {
     const fetchId = lastFetchId;
     setData({ ...data, data: [], fetching: true });
     axios
-      .get("/weed", {
+      .get("/api/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
         params: {
           strain: selected,

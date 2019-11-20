@@ -5,13 +5,6 @@ var lodash = require("lodash");
 const session = require("express-session");
 
 const db = require("./models");
-const apiPost = require("./routes/api/post");
-const apiWeed = require("./routes/api/weed");
-const apiUser = require("./routes/api/user");
-const apiLike = require("./routes/api/like");
-const apiComment = require("./routes/api/comment");
-const apiFriend = require("./routes/api/friend");
-const authClass = require("./routes/auth/auth");
 const exjwt = require("express-jwt");
 
 const cors = require("cors");
@@ -25,11 +18,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, "react-client/build")));
-
 const jwtMW = exjwt({
   secret: "XxSmonkWeedErrday420xX"
 });
+
+const apiPost = require("./routes/api/post");
+const apiWeed = require("./routes/api/weed");
+const apiUser = require("./routes/api/user");
+const apiLike = require("./routes/api/like");
+const apiComment = require("./routes/api/comment");
+const apiFriend = require("./routes/api/friend");
+const authClass = require("./routes/auth/auth");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,10 +39,13 @@ apiUser(app, db, jwtMW);
 apiLike(app, db, jwtMW);
 apiComment(app, db, jwtMW);
 authClass(app, db, jwtMW);
-apiFriend(app, db, jwtMW)
+apiFriend(app, db, jwtMW);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+app.use(express.static(path.join(__dirname, 'react-client/build')));
+
+// Handle React routing, return all requests to React app
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'react-client/build', 'index.html'));
 });
 
 db.sequelize.sync().then(() => {

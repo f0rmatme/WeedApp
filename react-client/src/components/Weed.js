@@ -56,7 +56,7 @@ const Weeds = props => {
 
   useEffect(() => {
     axios
-      .get("/weed", {
+      .get("/api/weed", {
         headers: { Authorization: `Bearer ${userCtx.token}` },
         params: {
           strain: filter.strain,
@@ -93,7 +93,7 @@ const Weeds = props => {
         setError(err);
         console.log(fromError.data);
       });
-  }, [selectedWeed]);
+  }, [fromError.data, selectedWeed, userCtx.token]);
 
   return (
     <Box

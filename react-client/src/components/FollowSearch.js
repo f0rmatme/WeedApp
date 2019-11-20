@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Box from "./ui/Box";
@@ -8,6 +8,7 @@ import { Icon, Select, Spin } from "antd";
 import Media from "react-media";
 import debounce from "lodash/debounce";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import { UserContext } from "../context/userContext";
 
 const { Option } = Select;
 
@@ -15,6 +16,8 @@ const FollowSearch = props => {
   let lastFetchId = 0;
 
   const [data, setData] = useState({ data: [], fetching: false });
+
+  const userCtx = useContext(UserContext);
 
   const fetchUsers = value => {
     lastFetchId += 1;
@@ -24,6 +27,9 @@ const FollowSearch = props => {
       .get(`/api/user/find`, {
         params: {
           search: value
+        },
+        headers: {
+          Authorization: `Bearer ${userCtx.token}`
         }
       })
       .then(res => {

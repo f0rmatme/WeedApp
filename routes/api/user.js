@@ -1,27 +1,28 @@
 module.exports = (app, db, jwtMW) => {
-  app.get("/user", jwtMW, (req, res) =>
+
+  app.get("/api/user", jwtMW, (req, res) =>
     db.user.findAll().then(result => res.json(result))
   );
 
-  app.get("/user/:id", jwtMW, (req, res) =>
-    db.user
-      .findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(result =>
-        res.json({
-          id: result.id,
-          username: result.username,
-          email: result.email,
-          bio: result.bio,
-          profilepic: result.profilepic
-        })
-      )
-  );
+  // app.get("/api/user/:id", jwtMW, (req, res) =>
+  //   db.user
+  //     .findOne({
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     })
+  //     .then(result =>
+  //       res.json({
+  //         id: result.id,
+  //         username: result.username,
+  //         email: result.email,
+  //         bio: result.bio,
+  //         profilepic: result.profilepic
+  //       })
+  //     )
+  // );
 
-  app.get("/username/:username", jwtMW, (req, res) =>
+  app.get("/api/username/:username", jwtMW, (req, res) =>
     db.user
       .findOne({
         where: {
@@ -39,7 +40,7 @@ module.exports = (app, db, jwtMW) => {
       )
   );
 
-  app.get("/api/user/find/", (req, res) => {
+  app.get("/api/user/find", jwtMW, (req, res) => {
     if (req.query.search === "") {
       res.send([]);
     } else {
@@ -56,7 +57,7 @@ module.exports = (app, db, jwtMW) => {
   });
 
   //Unused Route, don't have favourites as of yet
-  app.get("/user/fav/:weedId", jwtMW, (req, res) =>
+  app.get("/api/user/fav/:weedId", jwtMW, (req, res) =>
     db.user
       .findAll({
         where: {
@@ -67,7 +68,7 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.post("/user/create", jwtMW, (req, res) =>
+  app.post("/api/user/create", jwtMW, (req, res) =>
     db.user
       .create({
         username: req.body.username,

@@ -38,13 +38,13 @@ const SinglePost = props => {
   };
 
   const handleProfile = () => {
-    props.history.push(`/profile/${post.user.username}`);
+    props.history.push(`/api/profile/${post.user.username}`);
   };
 
   const submitComment = postId => {
     axios
       .post(
-        "/comment",
+        "/api/comment",
         {
           postId: postId,
           userId: userCtx.user.id,
@@ -77,7 +77,7 @@ const SinglePost = props => {
     }
     axios
       .post(
-        "/like",
+        "/api/like",
         {
           postId: postId,
           userId: userCtx.user.id

@@ -1,5 +1,5 @@
 module.exports = (app, db, jwtMW) => {
-  app.get("/like/:id", jwtMW, (req, res) =>
+  app.get("/api/like/:id", jwtMW, (req, res) =>
     db.like
       .findAll({
         where: { postId: req.params.id }
@@ -7,7 +7,7 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.post("/like", jwtMW, (req, res) => {
+  app.post("/api/like", jwtMW, (req, res) => {
     db.like
       .findAll({
         where: {
@@ -33,7 +33,7 @@ module.exports = (app, db, jwtMW) => {
       });
   });
 
-  app.delete("/like/:id", jwtMW, (req, res) =>
+  app.delete("/api/like/:id", jwtMW, (req, res) =>
     db.like
       .destroy({
         where: {

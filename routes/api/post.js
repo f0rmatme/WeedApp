@@ -2,7 +2,7 @@ module.exports = (app, db, jwtMW) => {
   const Op = db.sequelize.Op;
   const friendModule = require("../../modules/friends/friend");
 
-  app.get("/posts", jwtMW, (req, res) =>
+  app.get("/api/posts", jwtMW, (req, res) =>
     db.post
       .findAll({
         include: [db.user, db.weed, db.like, db.comment],
@@ -11,7 +11,7 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.get("/post/:id", jwtMW, (req, res) =>
+  app.get("/api/post/:id", jwtMW, (req, res) =>
     db.post
       .findOne({
         where: {
@@ -22,11 +22,11 @@ module.exports = (app, db, jwtMW) => {
       .then(result => res.json(result))
   );
 
-  app.post("/posts", jwtMW, (req, res) => {
+  app.post("/api/posts", jwtMW, (req, res) => {
     db.post.create(req.body).then(result => res.json(result));
   });
 
-  app.delete("/posts/:id", (req, res) =>
+  app.delete("/api/posts/:id", (req, res) =>
     db.post
       .destroy({
         where: {

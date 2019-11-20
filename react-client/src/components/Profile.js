@@ -33,7 +33,7 @@ const Profile = props => {
 
   useEffect(() => {
     axios
-      .get(`/username/${username}`, {
+      .get(`/api/username/${username}`, {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
       .then(res => {
