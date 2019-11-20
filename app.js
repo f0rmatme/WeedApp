@@ -12,7 +12,7 @@ const apiLike = require("./routes/api/like");
 const apiComment = require("./routes/api/comment");
 const apiFriend = require("./routes/api/friend");
 const authClass = require("./routes/auth/auth");
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 const exjwt = require("express-jwt");
 
 const cors = require("cors");
