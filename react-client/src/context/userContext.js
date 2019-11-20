@@ -15,7 +15,7 @@ const UserProvider = props => {
 
   const reloadUserInfo = userInfo => {
     axios
-      .get(`/api/find/${userInfo.id}`, {
+      .get(`/api/user/${userInfo.id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
