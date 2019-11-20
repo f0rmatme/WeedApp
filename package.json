@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/EricKulchycki/WeedApp#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt-nodejs": "^3.0.6",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
