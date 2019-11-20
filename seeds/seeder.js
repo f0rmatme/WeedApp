@@ -6,7 +6,7 @@ let obj = csv();
 
 const parseDelta9 = () => {
   db.weed.destroy({ truncate: true, cascade: false });
-  obj.from.path("./seeds/delta9.csv").to.array(function(data) {
+  obj.from.path("./delta9.csv").to.array(function(data) {
     for (var index = 1; index < data.length; index++) {
       //Image For Weed
       let imgTag = data[index][0];
@@ -41,7 +41,7 @@ const parseDelta9 = () => {
 };
 
 const parseWikileaf = () => {
-  obj.from.path("./seeds/wikileaf.csv").to.array(function(data) {
+  obj.from.path("./wikileaf.csv").to.array(function(data) {
     for (var index = 1; index < data.length; index++) {
       //Start getting data
       db.weed.create({

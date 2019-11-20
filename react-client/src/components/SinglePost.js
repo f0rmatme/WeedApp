@@ -38,7 +38,7 @@ const SinglePost = props => {
   };
 
   const handleProfile = () => {
-    props.history.push(`/api/profile/${post.user.username}`);
+    props.history.push(`/profile/${post.user.username}`);
   };
 
   const submitComment = postId => {

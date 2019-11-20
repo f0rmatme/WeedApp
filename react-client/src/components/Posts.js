@@ -119,7 +119,7 @@ const Posts = props => {
     if (value !== [] && content !== "") {
       axios
         .post(
-          "/posts",
+          "/api/posts",
           {
             userId: userCtx.user.id,
             weedId: parseInt(value.key),

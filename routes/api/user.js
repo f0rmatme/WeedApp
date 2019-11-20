@@ -4,23 +4,23 @@ module.exports = (app, db, jwtMW) => {
     db.user.findAll().then(result => res.json(result))
   );
 
-  // app.get("/api/user/:id", jwtMW, (req, res) =>
-  //   db.user
-  //     .findOne({
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //     })
-  //     .then(result =>
-  //       res.json({
-  //         id: result.id,
-  //         username: result.username,
-  //         email: result.email,
-  //         bio: result.bio,
-  //         profilepic: result.profilepic
-  //       })
-  //     )
-  // );
+  app.get("/api/user/:id", jwtMW, (req, res) =>
+    db.user
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(result =>
+        res.json({
+          id: result.id,
+          username: result.username,
+          email: result.email,
+          bio: result.bio,
+          profilepic: result.profilepic
+        })
+      )
+  );
 
   app.get("/api/username/:username", jwtMW, (req, res) =>
     db.user
