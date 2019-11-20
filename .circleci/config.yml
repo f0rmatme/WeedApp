@@ -33,4 +33,4 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: ssh -o "StrictHostKeyChecking=no" root@159.89.139.235; cd Project/WeedApp; git pull https://github.com/EricKulchycki/WeedApp.git; npm install; node app.js;
+      - run: ssh -o "StrictHostKeyChecking=no" root@159.89.139.235 "cd Project/WeedApp; git pull https://github.com/EricKulchycki/WeedApp.git; npm install; node app.js;"
