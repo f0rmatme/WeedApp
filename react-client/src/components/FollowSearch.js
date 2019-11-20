@@ -24,10 +24,7 @@ const FollowSearch = props => {
     const fetchId = lastFetchId;
     setData({ ...data, data: [], fetching: true });
     axios
-      .get(`/api/user/find`, {
-        params: {
-          search: value
-        },
+      .get(`/api/user/search/${value}`, {
         headers: {
           Authorization: `Bearer ${userCtx.token}`
         }

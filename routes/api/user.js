@@ -40,14 +40,14 @@ module.exports = (app, db, jwtMW) => {
       )
   );
 
-  app.get("/api/user/find", jwtMW, (req, res) => {
-    if (req.query.search === "") {
+  app.get("/api/user/search/:search", jwtMW, (req, res) => {
+    if (req.params.search === "") {
       res.send([]);
     } else {
       db.user
         .findAll({
           where: {
-            username: { like: "%" + req.query.search + "%" }
+            username: { like: "%" + req.params.search + "%" }
           }
         })
         .then(result => {
