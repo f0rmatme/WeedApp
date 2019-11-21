@@ -28,11 +28,6 @@ const SinglePost = props => {
 
   const userCtx = useContext(UserContext);
 
-  const getRandomColour = () => {
-    //return colours[Math.floor(Math.random() * Math.floor(11))];
-    return "";
-  };
-
   const processTags = tags => {
     return tags.split(",");
   };
@@ -203,7 +198,7 @@ const SinglePost = props => {
                 <Icon type="tags" style={{ padding: "4px" }} />
                 {processTags(post.tags).map((tag, key) => {
                   return (
-                    <Tag key={key} color={getRandomColour()}>
+                    <Tag key={key}>
                       {tag}
                     </Tag>
                   );
