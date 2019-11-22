@@ -4,7 +4,6 @@ import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { Divider, Icon } from "antd";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
-
 import { UserContext } from "../context/userContext";
 
 const ProfileCard = () => {
