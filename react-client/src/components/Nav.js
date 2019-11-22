@@ -71,7 +71,15 @@ const Nav = props => {
               flexDirection="row"
               boxShadow="5px 0px 16px #0C1109"
             >
-              <Box p="12px" pl="25%" pr="30px" borderBottom="3px solid #0C1109">
+              <ButtonNav p="12px" pl="22%" pr="50px" 
+                borderBottom="3px solid #0C1109" 
+                bg="transparent" 
+                border="none" 
+                onClick={() => {
+                  setActive("/posts");
+                  props.posts();
+                }}
+              >
                 <img
                   src={require("./images/TokeTalkLogo.png")}
                   alt="logo"
@@ -81,7 +89,7 @@ const Nav = props => {
                     marginLeft: "-30%"
                   }}
                 />
-              </Box>
+              </ButtonNav>
 
               <ButtonNav
                 height="100%"

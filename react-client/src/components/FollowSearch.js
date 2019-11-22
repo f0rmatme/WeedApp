@@ -4,7 +4,7 @@ import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { css } from "emotion";
-import { Icon, Select, Spin } from "antd";
+import { Icon, Select } from "antd";
 import Media from "react-media";
 import debounce from "lodash/debounce";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
@@ -20,10 +20,11 @@ const FollowSearch = props => {
   const userCtx = useContext(UserContext);
 
   const fetchUsers = value => {
-    lastFetchId += 1;
-    const fetchId = lastFetchId;
-    setData({ ...data, data: [], fetching: true });
-    axios
+    if(value !== "") {
+      lastFetchId += 1;
+      const fetchId = lastFetchId;
+      setData({data: [], fetching: true });
+      axios
       .get(`/api/user/search/${value}`, {
         headers: {
           Authorization: `Bearer ${userCtx.token}`
@@ -33,8 +34,9 @@ const FollowSearch = props => {
         if (fetchId !== lastFetchId) {
           return;
         }
-        setData({ ...data, data: res.data, fetching: false });
+        setData({data: res.data, fetching: false });
       });
+    }
   };
 
   const handleChange = value => {
@@ -88,14 +90,16 @@ const FollowSearch = props => {
             >
               <Select
                 showSearch
+                loading={data.fetching}
                 showArrow={false}
                 labelInValue
                 value={props.value}
                 placeholder="Search Users"
-                notFoundContent={data.fetching ? <Spin size="small" /> : null}
+                notFoundContent={data.fetching ? null : "No Users Found"}
                 filterOption={false}
                 onSearch={fetchUsers1}
                 style={{ width: "100%" }}
+                onBlur={() => setData({data: [], fetching: false})}
               >
                 {data.data.map(d => (
                   <Option key={d.id} onClick={() => handleOptionClick(d)}>
