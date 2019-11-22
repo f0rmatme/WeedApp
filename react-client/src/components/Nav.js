@@ -35,13 +35,13 @@ const Nav = props => {
   const menu = (
     <Menu onClick={handleMenuClick}>
       <Menu.Item key="1">
-        <Box> Posts </Box>
+        <Box px="15px"> Posts </Box>
       </Menu.Item>
       <Menu.Item key="2">
-        <Box> Strains </Box>
+        <Box px="15px"> Strains </Box>
       </Menu.Item>
       <Menu.Item key="3">
-        <Box> Logout </Box>
+        <Box px="15px"> Logout </Box>
       </Menu.Item>
     </Menu>
   );
@@ -99,8 +99,8 @@ const Nav = props => {
                 color="#9DA077"
                 borderBottom={`3px solid ${
                   active === "/posts" || active === "/posts/"
-                    ? "rgb(110, 51, 95)"
-                    : "#9DA077"
+                    ? "#9DA077"
+                    : "#0C1109"
                 }`}
                 fontSize="16px"
                 fontWeight="bold"
@@ -120,8 +120,8 @@ const Nav = props => {
                 color="#9DA077"
                 borderBottom={`3px solid ${
                   active === "/weed" || active === "/weed/"
-                    ? "rgb(110, 51, 95)"
-                    : "#9DA077"
+                    ? "#9DA077"
+                    : "#0C1109"
                 }`}
                 fontSize="16px"
                 fontWeight="bold"
@@ -186,13 +186,14 @@ const Nav = props => {
                 />
               </Box>
               <FollowSearch />
-              <Box ml="auto" pt="15px" pr="10px">
+              <Box ml="auto" pt="13px" pr="10px">
                 <Dropdown
                   overlay={menu}
                   visible={visible}
                   onVisibleChange={handleVisibleChange}
+                  placement="bottomLeft"
                 >
-                  <Icon type="menu" />
+                  <Icon type="menu" style={{ fontSize:"24px" }} />
                 </Dropdown>
               </Box>
             </Flex>

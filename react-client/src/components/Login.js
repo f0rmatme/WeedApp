@@ -89,15 +89,15 @@ const Login = ({ setAt }) => {
           content="Login to your TokeTalk Account! Don't have one? Sign up! Start sharing your marijuana experiences with others!"
         />
       </Helmet>
-      <Media query={{ minHeight: 750 }}>
+      <Media query={{ minWidth: 750 }}>
         {matches => (
           <Box>
-            <Flex justifyContent="center">
+            <Flex justifyContent="center" mb="25px">
               <img
                 alt="Toke Talk"
                 src={require("./images/TokeTalkLogo.png")}
                 style={{
-                  width: `${matches ? "600px" : "400px"}`,
+                  width: `${matches ? "600px" : "80%"}`,
                   marginTop: `${matches ? "-100px" : "-70px"}`,
                   marginBottom: `${matches ? "-140px" : "-100px"}`,
                   marginLeft: `${matches ? "-40px" : "-20px"}`
