@@ -141,7 +141,7 @@ const Signup = (props) => {
             <Flex justifyContent="center" mb="20px">
                 {error && <Box color="red">{error}</Box>}
             </Flex>
-            <Flex justifyContent="center" paddingBottom="50px">
+            <Flex justifyContent="center" paddingBottom={props.matches ? "50px" : "35px"}>
                 <Button
                     p="10px"
                     width={props.matches ? "50%" : "90%"}
