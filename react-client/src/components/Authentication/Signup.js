@@ -57,12 +57,12 @@ const Signup = (props) => {
             </Flex>
             <Flex
                 justifyContent="center"
-                fontSize="25px"
+                fontSize="22px"
             >
                 <Input
                 background="transparent"
                 height="50px"
-                width="80%"
+                width={props.matches ? "50%" : "90%"}
                 padding="5px"
                 margin="10px"
                 border="0"
@@ -72,16 +72,24 @@ const Signup = (props) => {
                 onChange={e => {
                     setUsername(e.target.value);
                 }}
+                onKeyDown={e => {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        if(username !== "" && password !== "" && email !== "") {
+                            submitSignin();
+                        }
+                    }
+                }}
                 />
             </Flex>
             <Flex
                 justifyContent="center"
-                fontSize="25px"
+                fontSize="22px"
             >
                 <Input
                 background="transparent"
                 height="50px"
-                width="80%"
+                width={props.matches ? "50%" : "90%"}
                 padding="5px"
                 margin="10px"
                 border="0"
@@ -91,17 +99,25 @@ const Signup = (props) => {
                 onChange={e => {
                     setEmail(e.target.value);
                 }}
+                onKeyDown={e => {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        if(username !== "" && password !== "" && email !== "") {
+                            submitSignin();
+                        }
+                    }
+                }}
                 />
             </Flex>
             <Flex
                 justifyContent="center"
-                fontSize="25px"
+                fontSize="22px"
                 paddingBottom="20px"
             >
                 <Input
                 background="transparent"
                 height="50px"
-                width="80%"
+                width={props.matches ? "50%" : "90%"}
                 padding="5px"
                 margin="10px"
                 border="0"
@@ -112,6 +128,14 @@ const Signup = (props) => {
                 onChange={e => {
                     setPassword(e.target.value);
                 }}
+                onKeyDown={e => {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        if(username !== "" && password !== "" && email !== "") {
+                            submitSignin();
+                        }
+                    }
+                }}
                 />
             </Flex>
             <Flex justifyContent="center" mb="20px">
@@ -120,7 +144,7 @@ const Signup = (props) => {
             <Flex justifyContent="center" paddingBottom="50px">
                 <Button
                     p="10px"
-                    width={props.matches ? "30%" : "90%"}
+                    width={props.matches ? "50%" : "90%"}
                     border="none"
                     fontSize="14px"
                     background={username !== "" && password !== "" && email !== "" ? "#313131" : "#E6E6E6"}

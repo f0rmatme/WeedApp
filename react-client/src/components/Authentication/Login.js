@@ -99,8 +99,10 @@ const Login = (props) => {
                     value={username}
                     onKeyDown={e => {
                         if (e.keyCode === 13) {
-                        e.preventDefault();
-                        submitLogin();
+                            e.preventDefault();
+                            if(username !== "" && password !== "") {
+                                submitLogin();
+                            }
                         }
                     }}
                     onChange={e => {
@@ -126,8 +128,10 @@ const Login = (props) => {
                     value={password}
                     onKeyDown={e => {
                         if (e.keyCode === 13) {
-                        e.preventDefault();
-                        submitLogin();
+                            e.preventDefault();
+                            if(username !== "" && password !== "") {
+                                submitLogin();
+                            }
                         }
                     }}
                     onChange={e => {
