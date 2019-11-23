@@ -22,16 +22,18 @@ const Login = (props) => {
             axios
             .post("/login", { username, password })
             .then(res => {
-                userCtx.setToken(res.data.token);
-                userCtx.setUser(res.data.user);
-                window.localStorage.accessToken = res.data.token;
-                window.localStorage.user = JSON.stringify({
-                id: res.data.user.id,
-                username: res.data.user.username,
-                email: res.data.user.email,
-                bio: res.data.user.bio,
-                profilepic: res.data.user.profilepic
-                });
+                if(res.data !== false) {
+                    userCtx.setToken(res.data.token);
+                    userCtx.setUser(res.data.user);
+                    window.localStorage.accessToken = res.data.token;
+                    window.localStorage.user = JSON.stringify({
+                        id: res.data.user.id,
+                        username: res.data.user.username,
+                        email: res.data.user.email,
+                        bio: res.data.user.bio,
+                        profilepic: res.data.user.profilepic
+                    });
+                }
             })
             .catch(error => {
                 setError("There was an error logging in: " + error);
