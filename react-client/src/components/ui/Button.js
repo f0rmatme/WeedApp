@@ -25,7 +25,7 @@ const Button = styled("button")(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", backgroundColor: "rgba(0,180,0,0.1)" })
+    ":hover": css({ cursor: "pointer", backgroundColor: "#181818" })
   })
 );
 

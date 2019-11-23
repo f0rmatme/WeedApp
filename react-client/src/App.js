@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import { UserContext } from "./context/userContext";
 import { FriendContext } from "./context/friendContext";
-import Login from "./components/Login";
+import LandingPage from "./components/Authentication/LandingPage";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 import Profile from "./components/Profile";
@@ -60,7 +60,7 @@ const App = props => {
         />
       </Helmet>
       {!window.localStorage.accessToken ? (
-        <Login />
+        <LandingPage />
       ) : (
         <Box>
           <Nav

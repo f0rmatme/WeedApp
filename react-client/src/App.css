@@ -1,6 +1,7 @@
 @import "~antd/dist/antd.css";
 
 .App {
+  font-family: "Quicksand";
   text-align: center;
 }
 ::-webkit-scrollbar {
