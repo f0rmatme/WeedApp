@@ -11,4 +11,8 @@ With the legalization of cannabis in Canada, and the ability to have full knowle
 we thought it would be good to be able to share your opinions about different products with your friends.
 
 Previously, when purchasing cannabis products you may not have been 100% sure about what you were getting,
-but now legal purchasing allows for easy identification and discovery of new product. 
+but now legal purchasing allows for easy identification and discovery of new product.
+
+## Current Version
+
+toketalk.ca
