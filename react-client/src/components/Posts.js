@@ -17,6 +17,7 @@ const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
+
 const Posts = props => {
   const [{ posts, loading }, setPosts] = useState({
     posts: [],
@@ -38,7 +39,8 @@ const Posts = props => {
   const userCtx = useContext(UserContext);
 
   useEffect(() => {
-    axios
+    if(userCtx.user) {
+      axios
       .get(`/api/posts/allFriends/${userCtx.user.id}`, {
         headers: { Authorization: `Bearer ${userCtx.token}` }
       })
@@ -46,8 +48,9 @@ const Posts = props => {
         setPosts({ posts: res.data, loading: false });
       })
       .catch(err => {
-        console.log("YOU GOT AN ERROR NEIGHBOUR");
+        console.log(err);
       });
+    }
   }, [userCtx.token, userCtx.user]);
 
   const handleCancel = () => {
