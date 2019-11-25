@@ -177,6 +177,10 @@ const Nav = props => {
                 p="12px"
                 pl="12%"
                 mr="-60px"
+                onClick={() => {
+                  setActive("/posts");
+                  props.posts();
+                }}
               >
                 <img
                   src={require("./images/TokeTalkLogo.png")}
@@ -189,14 +193,14 @@ const Nav = props => {
                 />
               </Box>
               <FollowSearch />
-              <Box ml="auto" pt="13px" pr="15px">
+              <Box ml="auto" pt="11px" pr="15px">
                 <Dropdown
                   overlay={menu}
                   visible={visible}
                   onVisibleChange={handleVisibleChange}
                   placement="bottomLeft"
                 >
-                  <Icon type="menu" style={{ fontSize: "24px" }} />
+                  <Icon type="menu" style={{ fontSize: "28px" }} />
                 </Dropdown>
               </Box>
             </Flex>
