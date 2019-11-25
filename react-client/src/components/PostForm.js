@@ -74,6 +74,7 @@ const NewPostForm = props => {
             setSelected("sativa");
             handleChange();
           }}
+          width="25%"
         >
           Sativa
         </ButtonSelector>
@@ -85,6 +86,7 @@ const NewPostForm = props => {
             setSelected("hybrid");
             handleChange();
           }}
+          width="25%"
         >
           Hybrid
         </ButtonSelector>
@@ -96,19 +98,9 @@ const NewPostForm = props => {
             setSelected("indica");
             handleChange();
           }}
+          width="25%"
         >
           Indica
-        </ButtonSelector>
-        <ButtonSelector
-          color="#f5222d"
-          borderColor="#ffa39e"
-          bg={selected === "terpenes" ? "#E5D8D8" : "#fff1f0"}
-          onClick={() => {
-            setSelected("terpenes");
-            handleChange();
-          }}
-        >
-          Terpenes
         </ButtonSelector>
       </Flex>
       <Box mb="2px">Select Strain Name</Box>
@@ -133,7 +125,7 @@ const NewPostForm = props => {
       </Box>
       <TextArea
         placeholder="Review"
-        autosize={{ minRows: 2, maxRows: 6 }}
+        autoSize={{ minRows: 2, maxRows: 6 }}
         onChange={handleContentChange}
       />
       <Box mt="10px" mb="2px">
