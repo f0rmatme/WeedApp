@@ -10,13 +10,12 @@ import Media from "react-media";
 import SinglePost from "./SinglePost";
 import PostForm from "./PostForm";
 import { useSpring } from "react-spring";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
 
 const Posts = props => {
   const [{ posts, loading }, setPosts] = useState({
@@ -39,17 +38,17 @@ const Posts = props => {
   const userCtx = useContext(UserContext);
 
   useEffect(() => {
-    if(userCtx.user) {
+    if (userCtx.user) {
       axios
-      .get(`/api/posts/allFriends/${userCtx.user.id}`, {
-        headers: { Authorization: `Bearer ${userCtx.token}` }
-      })
-      .then(res => {
-        setPosts({ posts: res.data, loading: false });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        .get(`/api/posts/allFriends/${userCtx.user.id}`, {
+          headers: { Authorization: `Bearer ${userCtx.token}` }
+        })
+        .then(res => {
+          setPosts({ posts: res.data, loading: false });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }, [userCtx.token, userCtx.user]);
 
@@ -201,6 +200,7 @@ const Posts = props => {
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: xysprops.xys.interpolate(trans) }}
                 onClick={() => setVisible(true)}
+                mr={!matches && "30px"}
               >
                 <Flex>
                   <Icon
