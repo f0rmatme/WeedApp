@@ -43,14 +43,15 @@
     url("./components/images/plant.jpg");
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
+  overflow: scroll;
 }
 
 .ant-radio-button-wrapper {

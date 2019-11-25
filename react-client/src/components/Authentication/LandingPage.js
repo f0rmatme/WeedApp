@@ -18,17 +18,17 @@ const LandingPage = () => {
           content="Login to your TokeTalk Account! Don't have one? Sign up! Start sharing your marijuana experiences with others!"
         />
       </Helmet>
-      <Media query={{ minWidth: 850 }}>
+      <Media queries={{ width: { minWidth: 850 }, height: { minHeight: 500 } }}>
         {matches => (
           <Box fontFamily="Quicksand" className="LandingPage">
             <Flex justifyContent={matches ? "flex-start" : "center"} mb="25px">
-              {matches && (
+              {matches.width && (
                 <img
                   alt="Toke Talk"
                   src={require("../images/TokeTalkLogo.png")}
                   style={{
-                    width: `${matches ? "250px" : "80%"}`,
-                    marginTop: `${matches && "-70px"}`
+                    width: `${matches.width ? "250px" : "80%"}`,
+                    marginTop: `${matches.width && "-70px"}`
                   }}
                 />
               )}

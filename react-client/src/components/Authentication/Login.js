@@ -32,6 +32,8 @@ const Login = props => {
               bio: res.data.user.bio,
               profilepic: res.data.user.profilepic
             });
+          } else {
+            setError("Invalid Username or Password");
           }
         })
         .catch(error => {
@@ -43,15 +45,15 @@ const Login = props => {
   return (
     <Flex justifyContent="center">
       <Box
-        width={props.matches ? "50%" : "95%"}
-        height="70vh"
+        width={props.matches.width ? "50%" : "95%"}
+        height={props.matches.height ? "70vh" : "100%"}
         backgroundColor="rgba(255,255,255,.70)"
-        borderRadius="4px 4px 0 0"
+        borderRadius={props.matches.height ? "4px 4px 0 0" : "4px"}
         padding="10px"
         pt="45px"
         color="#555F61"
         position="absolute"
-        bottom="0"
+        bottom={props.matches.height && "0"}
       >
         <Flex
           justifyContent="center"
@@ -87,7 +89,7 @@ const Login = props => {
           <Input
             background="transparent"
             height="50px"
-            width={props.matches ? "40%" : "90%"}
+            width={props.matches.width ? "40%" : "90%"}
             padding="5px"
             margin="10px"
             border="0"
@@ -111,7 +113,7 @@ const Login = props => {
           <Input
             background="transparent"
             height="50px"
-            width={props.matches ? "40%" : "90%"}
+            width={props.matches.width ? "40%" : "90%"}
             padding="5px"
             margin="10px"
             border="0"
@@ -138,7 +140,7 @@ const Login = props => {
         <Flex justifyContent="center" paddingBottom="50px">
           <Button
             p="10px"
-            width={props.matches ? "40%" : "90%"}
+            width={props.matches.width ? "40%" : "90%"}
             border="none"
             fontSize="14px"
             background={

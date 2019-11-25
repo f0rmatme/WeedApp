@@ -189,7 +189,7 @@ const Nav = props => {
                 />
               </Box>
               <FollowSearch />
-              <Box ml="auto" pt="13px" pr="10px">
+              <Box ml="auto" pt="13px" pr="10px" pl="30px">
                 <Dropdown
                   overlay={menu}
                   visible={visible}

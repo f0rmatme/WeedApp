@@ -37,16 +37,15 @@ const Signup = props => {
   return (
     <Flex justifyContent="center">
       <Box
-        width={props.matches ? "50%" : "95%"}
-        height="70vh"
+        width={props.matches.width ? "50%" : "95%"}
+        height={props.matches.height ? "70vh" : "100%"}
         backgroundColor="rgba(255,255,255,.70)"
-        borderRadius="4px 4px 0 0"
+        borderRadius={props.matches.height ? "4px 4px 0 0" : "4px"}
         padding="10px"
         pt="45px"
         color="#555F61"
-        bottom="0"
+        bottom={props.matches.height && "0"}
         position="absolute"
-        zIndex="10"
       >
         <Flex justifyContent="center" fontSize="24px" marginBottom="20px">
           <Box>Signup</Box>
@@ -55,7 +54,7 @@ const Signup = props => {
           <Input
             background="transparent"
             height="50px"
-            width={props.matches ? "50%" : "90%"}
+            width={props.matches.width ? "50%" : "90%"}
             padding="5px"
             margin="10px"
             border="0"
@@ -79,7 +78,7 @@ const Signup = props => {
           <Input
             background="transparent"
             height="50px"
-            width={props.matches ? "50%" : "90%"}
+            width={props.matches.width ? "50%" : "90%"}
             padding="5px"
             margin="10px"
             border="0"
@@ -103,7 +102,7 @@ const Signup = props => {
           <Input
             background="transparent"
             height="50px"
-            width={props.matches ? "50%" : "90%"}
+            width={props.matches.width ? "50%" : "90%"}
             padding="5px"
             margin="10px"
             border="0"
@@ -129,11 +128,11 @@ const Signup = props => {
         </Flex>
         <Flex
           justifyContent="center"
-          paddingBottom={props.matches ? "50px" : "35px"}
+          paddingBottom={props.matches.width ? "50px" : "35px"}
         >
           <Button
             p="10px"
-            width={props.matches ? "50%" : "90%"}
+            width={props.matches.width ? "40%" : "90%"}
             border="none"
             fontSize="14px"
             background={
@@ -169,6 +168,7 @@ const Signup = props => {
           <Box
             px="15px"
             py="5px"
+            color={props.matches.height ? "inherit" : "white"}
             className={css`
               text-decoration: underline;
               &:hover {
