@@ -20,24 +20,24 @@ const Login = (props) => {
             setError("Please enter a username and password");
         } else {
             axios
-            .post("/login", { username, password })
-            .then(res => {
-                if(res.data !== false) {
-                    userCtx.setToken(res.data.token);
-                    userCtx.setUser(res.data.user);
-                    window.localStorage.accessToken = res.data.token;
-                    window.localStorage.user = JSON.stringify({
-                        id: res.data.user.id,
-                        username: res.data.user.username,
-                        email: res.data.user.email,
-                        bio: res.data.user.bio,
-                        profilepic: res.data.user.profilepic
-                    });
-                }
-            })
-            .catch(error => {
-                setError("There was an error logging in: " + error);
-            });
+                .post("/login", { username, password })
+                .then(res => {
+                    if (res.data !== false) {
+                        userCtx.setToken(res.data.token);
+                        userCtx.setUser(res.data.user);
+                        window.localStorage.accessToken = res.data.token;
+                        window.localStorage.user = JSON.stringify({
+                            id: res.data.user.id,
+                            username: res.data.user.username,
+                            email: res.data.user.email,
+                            bio: res.data.user.bio,
+                            profilepic: res.data.user.profilepic
+                        });
+                    }
+                })
+                .catch(error => {
+                    setError("There was an error logging in: " + error);
+                });
         }
     };
 
@@ -51,8 +51,9 @@ const Login = (props) => {
                 padding="10px"
                 pt="45px"
                 color="#555F61"
+                position="fixed"
                 bottom="0"
-                position="absolute"
+                overflow={props.matches && "hidden"}
             >
                 <Flex
                     justifyContent="center"
@@ -68,8 +69,8 @@ const Login = (props) => {
                     marginBottom="60px"
                 >
                     <Flex>
-                        <Box pr="7px">Or</Box> 
-                        <Box 
+                        <Box pr="7px">Or</Box>
+                        <Box
                             className={css`
                                 text-decoration: underline;
                                 &:hover {
@@ -90,26 +91,26 @@ const Login = (props) => {
                     alignItems="center"
                 >
                     <Input
-                    background="transparent"
-                    height="50px"
-                    width={props.matches ? "40%" : "90%"}
-                    padding="5px"
-                    margin="10px"
-                    border="0"
-                    borderBottom="2px solid #555F61"
-                    placeholder="username"
-                    value={username}
-                    onKeyDown={e => {
-                        if (e.keyCode === 13) {
-                            e.preventDefault();
-                            if(username !== "" && password !== "") {
-                                submitLogin();
+                        background="transparent"
+                        height="50px"
+                        width={props.matches ? "40%" : "90%"}
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid #555F61"
+                        placeholder="username"
+                        value={username}
+                        onKeyDown={e => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                if (username !== "" && password !== "") {
+                                    submitLogin();
+                                }
                             }
-                        }
-                    }}
-                    onChange={e => {
-                        setUsername(e.target.value);
-                    }}
+                        }}
+                        onChange={e => {
+                            setUsername(e.target.value);
+                        }}
                     />
                 </Flex>
                 <Flex
@@ -118,27 +119,27 @@ const Login = (props) => {
                     paddingBottom="20px"
                 >
                     <Input
-                    background="transparent"
-                    height="50px"
-                    width={props.matches ? "40%" : "90%"}
-                    padding="5px"
-                    margin="10px"
-                    border="0"
-                    borderBottom="2px solid #555F61"
-                    placeholder="password"
-                    type="password"
-                    value={password}
-                    onKeyDown={e => {
-                        if (e.keyCode === 13) {
-                            e.preventDefault();
-                            if(username !== "" && password !== "") {
-                                submitLogin();
+                        background="transparent"
+                        height="50px"
+                        width={props.matches ? "40%" : "90%"}
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid #555F61"
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onKeyDown={e => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                if (username !== "" && password !== "") {
+                                    submitLogin();
+                                }
                             }
-                        }
-                    }}
-                    onChange={e => {
-                        setPassword(e.target.value);
-                    }}
+                        }}
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
                     />
                 </Flex>
                 <Flex justifyContent="center" mb="20px">
@@ -160,7 +161,7 @@ const Login = (props) => {
                         `}
                         borderRadius="4px"
                         onClick={() => {
-                            if(username !== "" && password !== "") {
+                            if (username !== "" && password !== "") {
                                 submitLogin();
                             }
                         }}

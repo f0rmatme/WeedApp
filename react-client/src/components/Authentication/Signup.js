@@ -16,24 +16,24 @@ const Signup = (props) => {
 
     const submitSignin = () => {
         if (username === "" || password === "" || email === "") {
-          setError("Please fill out all fields");
+            setError("Please fill out all fields");
         } else {
-          if (!validateInput(username)) {
-            setError("Please watch the language!");
-          } else if(!validateEmail(email)) {
-            setError("Please enter a valid email");
-          } else {
-            axios
-              .post("/signup", { username, password, email })
-              .then(res => {
-                props.setSignupVisible(false);
-              })
-              .catch(error => {
-                setError("There was an error with your registration");
-              });
-          }
+            if (!validateInput(username)) {
+                setError("Please watch the language!");
+            } else if (!validateEmail(email)) {
+                setError("Please enter a valid email");
+            } else {
+                axios
+                    .post("/signup", { username, password, email })
+                    .then(res => {
+                        props.setSignupVisible(false);
+                    })
+                    .catch(error => {
+                        setError("There was an error with your registration");
+                    });
+            }
         }
-      };
+    };
 
     return (
         <Flex justifyContent="center">
@@ -47,143 +47,144 @@ const Signup = (props) => {
                 color="#555F61"
                 bottom="0"
                 position="absolute"
+                zIndex="10"
             >
-            <Flex
-                justifyContent="center"
-                fontSize="24px"
-                marginBottom="20px"
-            >
-                <Box>Signup</Box>
-            </Flex>
-            <Flex
-                justifyContent="center"
-                fontSize="22px"
-            >
-                <Input
-                background="transparent"
-                height="50px"
-                width={props.matches ? "50%" : "90%"}
-                padding="5px"
-                margin="10px"
-                border="0"
-                borderBottom="2px solid #555F61"
-                placeholder="username"
-                value={username}
-                onChange={e => {
-                    setUsername(e.target.value);
-                }}
-                onKeyDown={e => {
-                    if (e.keyCode === 13) {
-                        e.preventDefault();
-                        if(username !== "" && password !== "" && email !== "") {
-                            submitSignin();
-                        }
-                    }
-                }}
-                />
-            </Flex>
-            <Flex
-                justifyContent="center"
-                fontSize="22px"
-            >
-                <Input
-                background="transparent"
-                height="50px"
-                width={props.matches ? "50%" : "90%"}
-                padding="5px"
-                margin="10px"
-                border="0"
-                borderBottom="2px solid #555F61"
-                placeholder="email"
-                value={email}
-                onChange={e => {
-                    setEmail(e.target.value);
-                }}
-                onKeyDown={e => {
-                    if (e.keyCode === 13) {
-                        e.preventDefault();
-                        if(username !== "" && password !== "" && email !== "") {
-                            submitSignin();
-                        }
-                    }
-                }}
-                />
-            </Flex>
-            <Flex
-                justifyContent="center"
-                fontSize="22px"
-                paddingBottom="20px"
-            >
-                <Input
-                background="transparent"
-                height="50px"
-                width={props.matches ? "50%" : "90%"}
-                padding="5px"
-                margin="10px"
-                border="0"
-                borderBottom="2px solid #555F61"
-                placeholder="password"
-                type="password"
-                value={password}
-                onChange={e => {
-                    setPassword(e.target.value);
-                }}
-                onKeyDown={e => {
-                    if (e.keyCode === 13) {
-                        e.preventDefault();
-                        if(username !== "" && password !== "" && email !== "") {
-                            submitSignin();
-                        }
-                    }
-                }}
-                />
-            </Flex>
-            <Flex justifyContent="center" mb="20px">
-                {error && <Box color="red">{error}</Box>}
-            </Flex>
-            <Flex justifyContent="center" paddingBottom={props.matches ? "50px" : "35px"}>
-                <Button
-                    p="10px"
-                    width={props.matches ? "50%" : "90%"}
-                    border="none"
-                    fontSize="14px"
-                    background={username !== "" && password !== "" && email !== "" ? "#313131" : "#E6E6E6"}
-                    color={username !== "" && password !== "" && email !== "" ? "white" : "#A1A1A1"}
-                    className={(username === "" || password === "" || email === "") && css`
+                <Flex
+                    justifyContent="center"
+                    fontSize="24px"
+                    marginBottom="20px"
+                >
+                    <Box>Signup</Box>
+                </Flex>
+                <Flex
+                    justifyContent="center"
+                    fontSize="22px"
+                >
+                    <Input
+                        background="transparent"
+                        height="50px"
+                        width={props.matches ? "50%" : "90%"}
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid #555F61"
+                        placeholder="username"
+                        value={username}
+                        onChange={e => {
+                            setUsername(e.target.value);
+                        }}
+                        onKeyDown={e => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                if (username !== "" && password !== "" && email !== "") {
+                                    submitSignin();
+                                }
+                            }
+                        }}
+                    />
+                </Flex>
+                <Flex
+                    justifyContent="center"
+                    fontSize="22px"
+                >
+                    <Input
+                        background="transparent"
+                        height="50px"
+                        width={props.matches ? "50%" : "90%"}
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid #555F61"
+                        placeholder="email"
+                        value={email}
+                        onChange={e => {
+                            setEmail(e.target.value);
+                        }}
+                        onKeyDown={e => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                if (username !== "" && password !== "" && email !== "") {
+                                    submitSignin();
+                                }
+                            }
+                        }}
+                    />
+                </Flex>
+                <Flex
+                    justifyContent="center"
+                    fontSize="22px"
+                    paddingBottom="20px"
+                >
+                    <Input
+                        background="transparent"
+                        height="50px"
+                        width={props.matches ? "50%" : "90%"}
+                        padding="5px"
+                        margin="10px"
+                        border="0"
+                        borderBottom="2px solid #555F61"
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                        onKeyDown={e => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                if (username !== "" && password !== "" && email !== "") {
+                                    submitSignin();
+                                }
+                            }
+                        }}
+                    />
+                </Flex>
+                <Flex justifyContent="center" mb="20px">
+                    {error && <Box color="red">{error}</Box>}
+                </Flex>
+                <Flex justifyContent="center" paddingBottom={props.matches ? "50px" : "35px"}>
+                    <Button
+                        p="10px"
+                        width={props.matches ? "50%" : "90%"}
+                        border="none"
+                        fontSize="14px"
+                        background={username !== "" && password !== "" && email !== "" ? "#313131" : "#E6E6E6"}
+                        color={username !== "" && password !== "" && email !== "" ? "white" : "#A1A1A1"}
+                        className={(username === "" || password === "" || email === "") && css`
                         &:hover {
                             cursor: default;
                             background-color: #E6E6E6;
                         }
                     `}
-                    borderRadius="4px"
-                onClick={() => {
-                    if(username !== "" && password !== "" && email !== "") {
-                        submitSignin();
-                    }
-                }}
-                >
-                Sign Up!
+                        borderRadius="4px"
+                        onClick={() => {
+                            if (username !== "" && password !== "" && email !== "") {
+                                submitSignin();
+                            }
+                        }}
+                    >
+                        Sign Up!
                 </Button>
-            </Flex>
-            <Flex
-                justifyContent="center"
-                fontSize="16px"
-            >
-                <Box
-                px="15px"
-                py="5px"
-                className={css`
+                </Flex>
+                <Flex
+                    justifyContent="center"
+                    fontSize="16px"
+                >
+                    <Box
+                        px="15px"
+                        py="5px"
+                        className={css`
                     text-decoration: underline;
                     &:hover {
                         cursor: pointer;
                         color: #373D3F
                     }
                 `}
-                onClick={() => props.setSignupVisible(false)}
-                >
-                Already Have An Account? - Log In
+                        onClick={() => props.setSignupVisible(false)}
+                    >
+                        Already Have An Account? - Log In
                 </Box>
-            </Flex>
+                </Flex>
             </Box>
         </Flex>
     );
