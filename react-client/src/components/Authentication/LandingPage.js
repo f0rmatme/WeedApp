@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "../ui/Box";
 import Flex from "../ui/Flex";
 import Media from "react-media";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import Login from "./Login";
 import Signup from "./Signup";
 
@@ -18,11 +18,11 @@ const LandingPage = () => {
           content="Login to your TokeTalk Account! Don't have one? Sign up! Start sharing your marijuana experiences with others!"
         />
       </Helmet>
-      <Media query={{ minWidth: 790 }}>
+      <Media query={{ minWidth: 850 }}>
         {matches => (
           <Box fontFamily="Quicksand" className="LandingPage">
             <Flex justifyContent={matches ? "flex-start" : "center"} mb="25px">
-              {matches &&
+              {matches && (
                 <img
                   alt="Toke Talk"
                   src={require("../images/TokeTalkLogo.png")}
@@ -31,13 +31,13 @@ const LandingPage = () => {
                     marginTop: `${matches && "-70px"}`
                   }}
                 />
-              }
+              )}
             </Flex>
             {!signupVisible ? (
               <Login setSignupVisible={setSignupVisible} matches={matches} />
             ) : (
-                <Signup setSignupVisible={setSignupVisible} matches={matches} />
-              )}
+              <Signup setSignupVisible={setSignupVisible} matches={matches} />
+            )}
           </Box>
         )}
       </Media>

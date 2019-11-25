@@ -20,22 +20,22 @@ const FollowSearch = props => {
   const userCtx = useContext(UserContext);
 
   const fetchUsers = value => {
-    if(value !== "") {
+    if (value !== "") {
       lastFetchId += 1;
       const fetchId = lastFetchId;
-      setData({data: [], fetching: true });
+      setData({ data: [], fetching: true });
       axios
-      .get(`/api/user/search/${value}`, {
-        headers: {
-          Authorization: `Bearer ${userCtx.token}`
-        }
-      })
-      .then(res => {
-        if (fetchId !== lastFetchId) {
-          return;
-        }
-        setData({data: res.data, fetching: false });
-      });
+        .get(`/api/user/search/${value}`, {
+          headers: {
+            Authorization: `Bearer ${userCtx.token}`
+          }
+        })
+        .then(res => {
+          if (fetchId !== lastFetchId) {
+            return;
+          }
+          setData({ data: res.data, fetching: false });
+        });
     }
   };
 
@@ -99,18 +99,17 @@ const FollowSearch = props => {
                 filterOption={false}
                 onSearch={fetchUsers1}
                 style={{ width: "100%" }}
-                onBlur={() => setData({data: [], fetching: false})}
+                onBlur={() => setData({ data: [], fetching: false })}
               >
                 {data.data.map(d => (
                   <Option key={d.id} onClick={() => handleOptionClick(d)}>
                     <Flex>
                       <img
                         alt="profile"
-                        src={
-                          d.profilepic ? d.profilepic : DEFAULT_PROFILE
-                        }
+                        src={d.profilepic ? d.profilepic : DEFAULT_PROFILE}
                         style={{
                           width: "20px",
+                          height: "20px",
                           borderRadius: "50%",
                           marginRight: "10px"
                         }}

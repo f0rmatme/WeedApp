@@ -71,10 +71,13 @@ const Nav = props => {
               flexDirection="row"
               boxShadow="5px 0px 16px #0C1109"
             >
-              <ButtonNav p="12px" pl="22%" pr="50px" 
-                borderBottom="3px solid #0C1109" 
-                bg="transparent" 
-                border="none" 
+              <ButtonNav
+                p="12px"
+                pl="22%"
+                pr="50px"
+                borderBottom="3px solid #0C1109"
+                bg="transparent"
+                border="none"
                 onClick={() => {
                   setActive("/posts");
                   props.posts();
@@ -193,7 +196,7 @@ const Nav = props => {
                   onVisibleChange={handleVisibleChange}
                   placement="bottomLeft"
                 >
-                  <Icon type="menu" style={{ fontSize:"24px" }} />
+                  <Icon type="menu" style={{ fontSize: "24px" }} />
                 </Dropdown>
               </Box>
             </Flex>
