@@ -28,11 +28,6 @@ const SinglePost = props => {
 
   const userCtx = useContext(UserContext);
 
-  const getRandomColour = () => {
-    //return colours[Math.floor(Math.random() * Math.floor(11))];
-    return "";
-  };
-
   const processTags = tags => {
     return tags.split(",");
   };
@@ -131,18 +126,35 @@ const SinglePost = props => {
                 width: "25px",
                 margin: "5px"
               }}
+              onClick={() => handleProfile()}
+              className={
+                css`
+                &:hover {
+                  cursor: pointer;
+                  -webkit-filter: brightness(70%);
+                  -webkit-transition: all .3s ease;
+                  -moz-transition: all .3s ease;
+                  -o-transition: all .3s ease;
+                  -ms-transition: all .3s ease;
+                  transition: all .3s ease;
+                }
+                `
+              }
               src={
                 post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
               }
             />
             <Box
-              m="5px"
+              p="5px"
               fontWeight="bold"
               fontSize="16px"
               onClick={() => handleProfile()}
               className={css`
+              border-bottom: 1px solid transparent;
+              transition: border-color 0.3s ease-in;
                 &:hover {
                   cursor: pointer;
+                  border-bottom: 1px solid;
                 }
               `}
             >
@@ -186,7 +198,7 @@ const SinglePost = props => {
                 <Icon type="tags" style={{ padding: "4px" }} />
                 {processTags(post.tags).map((tag, key) => {
                   return (
-                    <Tag key={key} color={getRandomColour()}>
+                    <Tag key={key}>
                       {tag}
                     </Tag>
                   );
@@ -226,8 +238,11 @@ const SinglePost = props => {
             {commentsVisible ? (
               <Box
                 className={css`
+                border-bottom: 1px solid transparent;
+                transition: border-color 0.3s ease-in;
                   &:hover {
                     cursor: pointer;
+                    border-bottom: 1px solid;
                   }
                 `}
                 onClick={() => setCommentsVisible(false)}
@@ -238,8 +253,11 @@ const SinglePost = props => {
             ) : (
               <Box
                 className={css`
+                border-bottom: 1px solid transparent;
+                transition: border-color 0.3s ease-in;
                   &:hover {
                     cursor: pointer;
+                    border-bottom: 1px solid;
                   }
                 `}
                 onClick={() => setCommentsVisible(true)}

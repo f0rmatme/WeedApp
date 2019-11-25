@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
+import { css } from "emotion";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import { withRouter } from "react-router-dom";
 import { Divider, Icon } from "antd";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 import { UserContext } from "../context/userContext";
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
   const userCtx = React.useContext(UserContext);
 
   const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
@@ -24,6 +26,10 @@ const ProfileCard = () => {
         });
     }
   }, [userCtx.token, userCtx.user]);
+
+  const handleUsernameClick = () => {
+    props.history.push(`/profile/${userCtx.user.username}`);
+  }
 
   return (
     <Box
@@ -55,11 +61,33 @@ const ProfileCard = () => {
             marginTop: "0px",
             marginBottom: "0px"
           }}
+          className={
+            css`
+            &:hover {
+              cursor: pointer;
+              -webkit-filter: brightness(70%);
+              -webkit-transition: all .3s ease;
+              -moz-transition: all .3s ease;
+              -o-transition: all .3s ease;
+              -ms-transition: all .3s ease;
+              transition: all .3s ease;
+            }
+            `
+          }
+          onClick={() => handleUsernameClick()}
           src={
             userCtx.user.profilepic ? userCtx.user.profilepic : DEFAULT_PROFILE
           }
         />
-        <Box m="5px" mt="15px" mb="0px" fontWeight="bold" fontSize="18px">
+        <Box  pl="3px" pr="7px" pt="10px" fontWeight="bold" fontSize="22px" onClick={() => handleUsernameClick()}
+        className={css`
+          border-bottom: 1px solid transparent;
+          transition: border-color 0.3s ease-in;
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid;
+          }
+        `}>
           {userCtx.user.username}
         </Box>
       </Flex>
@@ -103,4 +131,4 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard;
+export default withRouter(ProfileCard);
