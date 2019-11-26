@@ -31,7 +31,8 @@ const Button = styled("button")(
 
 export const ButtonNav = styled("button")(
   {
-    outline: "none"
+    outline: "none",
+    padding: "10px"
   },
   typography,
   space,

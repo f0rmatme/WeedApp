@@ -10,7 +10,7 @@ import LandingPage from "./components/Authentication/LandingPage";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
 import Profile from "./components/Profile";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
 const App = props => {
   const handleHome = () => {
@@ -44,7 +44,7 @@ const App = props => {
   }, [userCtx.user]);
 
   return (
-    <Box fontFamily="Oxygen">
+    <Box fontFamily="Varela Round">
       <Helmet titleTemplate=" %s | Toke Talk">
         <meta
           name="description"
@@ -54,10 +54,7 @@ const App = props => {
           name="keywords"
           content="toke,talk,toketalk,weed,marijuana,canada,legalized,smoke,420,thc,cbd,rating,post,comment,create,account,toek,teok,teko,talk,takl,tlak,tlka,toektalk,toketakl,toektakl,toktalk,toktakl,tooketalk,0tooktalk,toketock"
         />
-        <meta
-          name="robots"
-          content="index,follow"
-        />
+        <meta name="robots" content="index,follow" />
       </Helmet>
       {!window.localStorage.accessToken ? (
         <LandingPage />

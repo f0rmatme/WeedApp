@@ -73,7 +73,7 @@ const Nav = props => {
             >
               <ButtonNav
                 p="12px"
-                pl="22%"
+                //pl="22%"
                 pr="50px"
                 borderBottom="3px solid #0C1109"
                 bg="transparent"
@@ -88,77 +88,72 @@ const Nav = props => {
                   alt="logo"
                   style={{
                     width: "170px",
-                    marginTop: "-66px",
-                    marginLeft: "-30%"
+                    marginTop: "-66px"
                   }}
                 />
               </ButtonNav>
+              <Box alignSelf="center">
+                <FollowSearch />
+              </Box>
 
-              <ButtonNav
-                height="100%"
-                bg="transparent"
-                border="none"
-                px="20px"
-                color="#9DA077"
-                borderBottom={`3px solid ${
-                  active === "/posts" || active === "/posts/"
-                    ? "#9DA077"
-                    : "#0C1109"
-                }`}
-                fontSize="16px"
-                fontWeight="bold"
-                onClick={() => {
-                  setActive("/posts");
-                  props.posts();
-                }}
-              >
-                Posts
-              </ButtonNav>
-              <ButtonNav
-                height="100%"
-                bg="transparent"
-                border="none"
-                px="20px"
-                mr="50px"
-                color="#9DA077"
-                borderBottom={`3px solid ${
-                  active === "/weed" || active === "/weed/"
-                    ? "#9DA077"
-                    : "#0C1109"
-                }`}
-                fontSize="16px"
-                fontWeight="bold"
-                onClick={() => {
-                  setActive("/weed");
-                  props.weed();
-                }}
-              >
-                Strains
-              </ButtonNav>
-              <FollowSearch />
-              <ButtonNav
-                height="100%"
-                bg="transparent"
-                border="none"
-                alignSelf="flex-end"
-                pr="20px"
-                ml="auto"
-                color="#9DA077"
-                fontSize="16px"
-                fontWeight="bold"
-                onClick={handleLogout}
-              >
-                <Flex>
-                  <Box> Logout </Box>
-                  <Icon
-                    type="logout"
-                    style={{
-                      paddingTop: "4px",
-                      paddingLeft: "5px"
-                    }}
-                  />
-                </Flex>
-              </ButtonNav>
+              <Box ml="auto">
+                <ButtonNav
+                  height="100%"
+                  bg="transparent"
+                  border="none"
+                  color="#9DA077"
+                  borderBottom={`${
+                    active === "/posts" || active === "/posts/"
+                      ? "2px solid #9DA077"
+                      : "0px solid #0C1109"
+                  }`}
+                  fontSize="16px"
+                  onClick={() => {
+                    setActive("/posts");
+                    props.posts();
+                  }}
+                >
+                  Posts
+                </ButtonNav>
+                <ButtonNav
+                  height="100%"
+                  bg="transparent"
+                  border="none"
+                  color="#9DA077"
+                  borderBottom={`${
+                    active === "/weed" || active === "/weed/"
+                      ? "2px solid #9DA077"
+                      : "0px solid #0C1109"
+                  }`}
+                  fontSize="16px"
+                  onClick={() => {
+                    setActive("/weed");
+                    props.weed();
+                  }}
+                >
+                  Strains
+                </ButtonNav>
+                <ButtonNav
+                  height="100%"
+                  bg="transparent"
+                  border="none"
+                  pr="20px"
+                  color="#9DA077"
+                  fontSize="16px"
+                  onClick={handleLogout}
+                >
+                  <Flex>
+                    <Box> Logout </Box>
+                    <Icon
+                      type="logout"
+                      style={{
+                        paddingTop: "4px",
+                        paddingLeft: "5px"
+                      }}
+                    />
+                  </Flex>
+                </ButtonNav>
+              </Box>
             </Flex>
           ) : (
             <Flex
