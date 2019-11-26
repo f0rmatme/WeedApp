@@ -155,7 +155,7 @@ const Posts = props => {
               bg="white"
               mt="20px"
               borderRadius="7px"
-              ml={matches ? "22%" : "5%"}
+              ml={matches ? "19%" : "5%"}
             >
               <Box fontWeight="bold" fontSize="14px" p="5%" pt="20px" pb="0px">
                 Newest Posts

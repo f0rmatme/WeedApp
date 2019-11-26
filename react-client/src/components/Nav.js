@@ -71,89 +71,88 @@ const Nav = props => {
               flexDirection="row"
               boxShadow="5px 0px 16px #0C1109"
             >
-              <ButtonNav
-                p="12px"
-                //pl="22%"
-                pr="50px"
-                borderBottom="3px solid #0C1109"
-                bg="transparent"
-                border="none"
-                onClick={() => {
-                  setActive("/posts");
-                  props.posts();
-                }}
-              >
-                <img
-                  src={require("./images/TokeTalkLogo.png")}
-                  alt="logo"
-                  style={{
-                    width: "170px",
-                    marginTop: "-66px"
-                  }}
-                />
-              </ButtonNav>
-              <Box alignSelf="center">
-                <FollowSearch />
-              </Box>
-
-              <Box ml="auto">
+              <Flex ml="18%" width="47%">
                 <ButtonNav
-                  height="100%"
+                  pr="12px"
                   bg="transparent"
                   border="none"
-                  color="#9DA077"
-                  borderBottom={`${
-                    active === "/posts" || active === "/posts/"
-                      ? "2px solid #9DA077"
-                      : "0px solid #0C1109"
-                  }`}
-                  fontSize="16px"
                   onClick={() => {
                     setActive("/posts");
                     props.posts();
                   }}
                 >
-                  Posts
+                  <img
+                    src={require("./images/badge.png")}
+                    alt="logo"
+                    style={{
+                      width: "50px",
+                      marginTop: "-10px"
+                    }}
+                  />
                 </ButtonNav>
-                <ButtonNav
-                  height="100%"
-                  bg="transparent"
-                  border="none"
-                  color="#9DA077"
-                  borderBottom={`${
-                    active === "/weed" || active === "/weed/"
-                      ? "2px solid #9DA077"
-                      : "0px solid #0C1109"
-                  }`}
-                  fontSize="16px"
-                  onClick={() => {
-                    setActive("/weed");
-                    props.weed();
-                  }}
-                >
-                  Strains
-                </ButtonNav>
-                <ButtonNav
-                  height="100%"
-                  bg="transparent"
-                  border="none"
-                  pr="20px"
-                  color="#9DA077"
-                  fontSize="16px"
-                  onClick={handleLogout}
-                >
-                  <Flex>
-                    <Box> Logout </Box>
-                    <Icon
-                      type="logout"
-                      style={{
-                        paddingTop: "4px",
-                        paddingLeft: "5px"
-                      }}
-                    />
-                  </Flex>
-                </ButtonNav>
-              </Box>
+                <Box>
+                  <FollowSearch />
+                </Box>
+              </Flex>
+              <Flex width="350px">
+                <Box>
+                  <ButtonNav
+                    height="100%"
+                    bg="transparent"
+                    border="none"
+                    color="#9DA077"
+                    borderBottom={`${
+                      active === "/posts" || active === "/posts/"
+                        ? "2px solid #9DA077"
+                        : "0px solid #0C1109"
+                    }`}
+                    fontSize="16px"
+                    onClick={() => {
+                      setActive("/posts");
+                      props.posts();
+                    }}
+                  >
+                    Posts
+                  </ButtonNav>
+                  <ButtonNav
+                    height="100%"
+                    bg="transparent"
+                    border="none"
+                    color="#9DA077"
+                    borderBottom={`${
+                      active === "/weed" || active === "/weed/"
+                        ? "2px solid #9DA077"
+                        : "0px solid #0C1109"
+                    }`}
+                    fontSize="16px"
+                    onClick={() => {
+                      setActive("/weed");
+                      props.weed();
+                    }}
+                  >
+                    Strains
+                  </ButtonNav>
+                  <ButtonNav
+                    height="100%"
+                    bg="transparent"
+                    border="none"
+                    color="#9DA077"
+                    fontSize="16px"
+                    onClick={handleLogout}
+                  >
+                    <Flex>
+                      <Box> Logout </Box>
+                      <Icon
+                        type="logout"
+                        style={{
+                          paddingTop: "4px",
+                          paddingLeft: "5px"
+                        }}
+                      />
+                    </Flex>
+                  </ButtonNav>
+                </Box>
+              </Flex>
             </Flex>
           ) : (
             <Flex

@@ -78,13 +78,10 @@ const FollowSearch = props => {
               }
             `}
           >
-            <Box m="8px">
-              <Icon type="search" style={{ paddingLeft: "10px" }} />
-            </Box>
             <Box
               mt="10px"
               mr="15px"
-              width={matches ? "200px" : "120px"}
+              width={matches ? "280px" : "120px"}
               fontSize="14px"
               borderRadius="20px"
             >
