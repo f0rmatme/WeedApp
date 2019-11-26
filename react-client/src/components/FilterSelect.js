@@ -12,8 +12,8 @@ const radioStyle = {
 const { Option } = Select;
 
 const Selectors = props => {
-  const [visibleType,setVisibleType] = useState(false);
-  const [visibleStrain,setVisibleStrain] = useState(false);
+  const [visibleType, setVisibleType] = useState(false);
+  const [visibleStrain, setVisibleStrain] = useState(false);
 
   const handleOkType = () => {
     setVisibleType(false);
@@ -22,7 +22,7 @@ const Selectors = props => {
   const handleOkStrain = () => {
     setVisibleStrain(false);
   };
-  
+
   return (
     <Flex
       style={{
@@ -42,17 +42,18 @@ const Selectors = props => {
             marginTop: "5px"
           }}
         >
-          <Flex
-            flexDirection="row"
-            justifyContent="space-between"
-          >
-              <h3>Strain</h3>
-              <Icon type="question-circle" style={{ marginTop: "5px" }} onClick={() => setVisibleStrain(true)}/>
-              <StrainModal 
-                visible={visibleStrain}
-                handleOk={handleOkStrain}
-                handleCancel={handleOkStrain}
-              />
+          <Flex flexDirection="row" justifyContent="space-between">
+            <h3>Strain</h3>
+            <Icon
+              type="question-circle"
+              style={{ marginTop: "5px" }}
+              onClick={() => setVisibleStrain(true)}
+            />
+            <StrainModal
+              visible={visibleStrain}
+              handleOk={handleOkStrain}
+              handleCancel={handleOkStrain}
+            />
           </Flex>
           <Radio.Button style={radioStyle} value={""}>
             All
@@ -80,17 +81,18 @@ const Selectors = props => {
             marginTop: "5px"
           }}
         >
-          <Flex
-            flexDirection="row"
-            justifyContent="space-between"
-          >
-              <h3>Type</h3>
-              <Icon type="question-circle" style={{ marginTop: "5px" }} onClick={() => setVisibleType(true)}/>
-              <TypeModal 
-                visible={visibleType}
-                handleOk={handleOkType}
-                handleCancel={handleOkType}
-              />
+          <Flex flexDirection="row" justifyContent="space-between">
+            <h3>Type</h3>
+            <Icon
+              type="question-circle"
+              style={{ marginTop: "5px" }}
+              onClick={() => setVisibleType(true)}
+            />
+            <TypeModal
+              visible={visibleType}
+              handleOk={handleOkType}
+              handleCancel={handleOkType}
+            />
           </Flex>
           <Radio.Button style={radioStyle} value={""}>
             All
@@ -171,8 +173,8 @@ const Selectors = props => {
 };
 
 export const SelectorSmall = props => {
-  const [visibleType,setVisibleType] = useState(false);
-  const [visibleStrain,setVisibleStrain] = useState(false);
+  const [visibleType, setVisibleType] = useState(false);
+  const [visibleStrain, setVisibleStrain] = useState(false);
 
   const handleOkType = () => {
     setVisibleType(false);
@@ -221,7 +223,11 @@ export const SelectorSmall = props => {
           <Radio.Button style={radioStyle} value={"hybrid"}>
             Hybrid
           </Radio.Button>
-          <Icon type="question-circle" style={{ margin: "10px" }} onClick={() => setVisibleStrain(true)}/>
+          <Icon
+            type="question-circle"
+            style={{ margin: "10px" }}
+            onClick={() => setVisibleStrain(true)}
+          />
           <StrainModal
             visible={visibleStrain}
             handleOk={handleOkStrain}
@@ -257,7 +263,11 @@ export const SelectorSmall = props => {
           <Radio.Button style={radioStyle} value={"thc"}>
             THC Dominant
           </Radio.Button>
-          <Icon type="question-circle" style={{ margin: "10px" }} onClick={() => setVisibleType(true)}/>
+          <Icon
+            type="question-circle"
+            style={{ margin: "10px" }}
+            onClick={() => setVisibleType(true)}
+          />
           <TypeModal
             visible={visibleType}
             handleOk={handleOkType}

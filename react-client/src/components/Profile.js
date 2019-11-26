@@ -9,7 +9,7 @@ import { FriendContext } from "../context/friendContext";
 import EditProfile from "./EditProfileModal";
 import { ButtonCancel, ButtonSubmit } from "./ui/Button";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
