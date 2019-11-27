@@ -52,7 +52,7 @@ const Login = props => {
         padding="10px"
         pt="45px"
         color="#555F61"
-        position="absolute"
+        position={props.matches.height && "absolute"}
         bottom={props.matches.height && "0"}
       >
         <Flex

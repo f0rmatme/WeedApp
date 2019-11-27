@@ -45,7 +45,7 @@ const Signup = props => {
         pt="45px"
         color="#555F61"
         bottom={props.matches.height && "0"}
-        position="absolute"
+        position={props.matches.height && "absolute"}
       >
         <Flex justifyContent="center" fontSize="24px" marginBottom="20px">
           <Box>Signup</Box>
@@ -168,7 +168,6 @@ const Signup = props => {
           <Box
             px="15px"
             py="5px"
-            color={props.matches.height ? "inherit" : "white"}
             className={css`
               text-decoration: underline;
               &:hover {

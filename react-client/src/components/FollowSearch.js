@@ -4,7 +4,7 @@ import axios from "axios";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { css } from "emotion";
-import { Icon, Select } from "antd";
+import { Select } from "antd";
 import Media from "react-media";
 import debounce from "lodash/debounce";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
