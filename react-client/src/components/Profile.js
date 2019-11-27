@@ -65,7 +65,6 @@ const Profile = props => {
       friendId: user.user.id,
       userId: userCtx.user.id
     };
-    //followStatus: true == follow | false == unfollow
     if (followStatus) {
       setFriends(oldFriends => {
         return {
@@ -159,11 +158,11 @@ const Profile = props => {
         {matches => (
           <Flex backgroundColor="#F0F0F0" minHeight="100vh">
             <Box
-              width={matches ? "40%" : "90%"}
+              width={matches ? "45%" : "90%"}
               bg="white"
               mt="20px"
               borderRadius="7px"
-              ml={matches ? "28%" : "5%"}
+              ml={matches ? "19%" : "5%"}
             >
               {loading ? (
                 <Flex width="100%" justifyContent="center" mt="20%">
@@ -259,7 +258,9 @@ const Profile = props => {
                     <Box pt="7px" ml="10px" mr="20px">
                       {user.user.bio
                         ? user.user.bio
-                        : "No Bio Found | Update Profile to Add a Bio"}
+                        : user.user.id === userCtx.user.id
+                        ? "No Bio Found | Update Profile to Add a Bio"
+                        : "No Bio Found"}
                     </Box>
                   </Flex>
                   {/*STATS FOR ACCOUNT*/}
