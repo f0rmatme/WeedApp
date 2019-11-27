@@ -17,7 +17,7 @@ import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 const SinglePost = props => {
   const post = props.post;
   let likeColour = true;
-  if(props.hide){
+  if (props.hide) {
     likeColour = false;
   } else {
     likeColour = props.isLiked(post.id);
@@ -127,19 +127,17 @@ const SinglePost = props => {
                 margin: "5px"
               }}
               onClick={() => handleProfile()}
-              className={
-                css`
+              className={css`
                 &:hover {
                   cursor: pointer;
                   -webkit-filter: brightness(70%);
-                  -webkit-transition: all .3s ease;
-                  -moz-transition: all .3s ease;
-                  -o-transition: all .3s ease;
-                  -ms-transition: all .3s ease;
-                  transition: all .3s ease;
+                  -webkit-transition: all 0.3s ease;
+                  -moz-transition: all 0.3s ease;
+                  -o-transition: all 0.3s ease;
+                  -ms-transition: all 0.3s ease;
+                  transition: all 0.3s ease;
                 }
-                `
-              }
+              `}
               src={
                 post.user.profilepic ? post.user.profilepic : DEFAULT_PROFILE
               }
@@ -150,8 +148,8 @@ const SinglePost = props => {
               fontSize="16px"
               onClick={() => handleProfile()}
               className={css`
-              border-bottom: 1px solid transparent;
-              transition: border-color 0.3s ease-in;
+                border-bottom: 1px solid transparent;
+                transition: border-color 0.3s ease-in;
                 &:hover {
                   cursor: pointer;
                   border-bottom: 1px solid;
@@ -197,14 +195,12 @@ const SinglePost = props => {
               <Flex flexWrap="wrap" mb="20px">
                 <Icon type="tags" style={{ padding: "4px" }} />
                 {processTags(post.tags).map((tag, key) => {
-                  return (
-                    <Tag key={key}>
-                      {tag}
-                    </Tag>
-                  );
+                  return <Tag key={key}>{tag}</Tag>;
                 })}
               </Flex>
-              <Box mb="20px">{post.content}</Box>
+              <Box mb="20px" className="wrap">
+                {post.content}
+              </Box>
             </Box>
           </Flex>
         </Box>
@@ -238,8 +234,8 @@ const SinglePost = props => {
             {commentsVisible ? (
               <Box
                 className={css`
-                border-bottom: 1px solid transparent;
-                transition: border-color 0.3s ease-in;
+                  border-bottom: 1px solid transparent;
+                  transition: border-color 0.3s ease-in;
                   &:hover {
                     cursor: pointer;
                     border-bottom: 1px solid;
@@ -253,8 +249,8 @@ const SinglePost = props => {
             ) : (
               <Box
                 className={css`
-                border-bottom: 1px solid transparent;
-                transition: border-color 0.3s ease-in;
+                  border-bottom: 1px solid transparent;
+                  transition: border-color 0.3s ease-in;
                   &:hover {
                     cursor: pointer;
                     border-bottom: 1px solid;
@@ -269,7 +265,7 @@ const SinglePost = props => {
           </Flex>
         )}
       </Flex>
-      { !props.hide ? (
+      {!props.hide ? (
         <Flex justifyContent="flex-start" mb="10px">
           <ButtonLike
             mr="5px"
@@ -284,7 +280,9 @@ const SinglePost = props => {
           <ButtonLike bg="transparent" onClick={handleComment}>
             <Icon type="message" />
           </ButtonLike>
-        </Flex>) : (<Flex/>
+        </Flex>
+      ) : (
+        <Flex />
       )}
       {commentsVisible && post.comments.length > 0 && (
         <Flex fontSize="12px" mb="5px">

@@ -166,27 +166,23 @@ const Nav = props => {
               boxShadow="5px 0px 16px #0C1109"
             >
               <Box
-                fontSize="25px"
-                fontFamily="Permanent Marker"
-                p="12px"
-                pl="12%"
-                mr="-60px"
+                mr="20px"
                 onClick={() => {
                   setActive("/posts");
                   props.posts();
                 }}
               >
                 <img
-                  src={require("./images/TokeTalkLogo.png")}
+                  src={require("./images/badge.png")}
                   alt="logo"
                   style={{
-                    width: "150px",
-                    marginTop: "-58px",
-                    marginLeft: "-30%"
+                    height: "50px"
                   }}
                 />
               </Box>
-              <FollowSearch />
+              <Box ml="auto">
+                <FollowSearch />
+              </Box>
               <Box ml="auto" pt="11px" pr="15px">
                 <Dropdown
                   overlay={menu}

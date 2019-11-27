@@ -81,7 +81,7 @@ const FollowSearch = props => {
             <Box
               mt="10px"
               mr="15px"
-              width={matches ? "280px" : "120px"}
+              width={matches ? "280px" : "200px"}
               fontSize="14px"
               borderRadius="20px"
             >
