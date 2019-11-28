@@ -39,7 +39,7 @@ const Signup = props => {
       <Box
         width={props.matches.width ? "50%" : "95%"}
         height={props.matches.height ? "70vh" : "100%"}
-        backgroundColor="rgba(255,255,255,.70)"
+        backgroundColor="rgba(255,255,255,.85)"
         borderRadius={props.matches.height ? "4px 4px 0 0" : "4px"}
         padding="10px"
         pt="45px"
@@ -138,7 +138,7 @@ const Signup = props => {
             background={
               username !== "" && password !== "" && email !== ""
                 ? "#313131"
-                : "#E6E6E6"
+                : "#CFCFCF"
             }
             color={
               username !== "" && password !== "" && email !== ""
@@ -150,7 +150,7 @@ const Signup = props => {
               css`
                 &:hover {
                   cursor: default;
-                  background-color: #e6e6e6;
+                  background-color: #cfcfcf;
                 }
               `
             }
