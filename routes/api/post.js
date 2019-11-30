@@ -72,4 +72,14 @@ module.exports = (app, db, jwtMW) => {
       order: [["id", "DESC"]]
     }).then((result) => res.json(result));
   });
+
+  app.get("/api/posts/user/:userId", jwtMW, (req, res) => {
+    db.post.findAll({
+      where: {
+        userId: req.params.userId
+      },
+      include: [db.user, db.weed, db.like, db.comment],
+      order: [["id", "DESC"]]
+    }).then((result) => res.json(result));
+  });
 };

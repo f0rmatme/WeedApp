@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import Box from "./ui/Box";
-import Flex from "./ui/Flex";
+import Box from "../ui/Box";
+import Flex from "../ui/Flex";
 import Media from "react-media";
-import { Spin, Icon, Divider, Button, Modal } from "antd";
-import { UserContext } from "../context/userContext";
-import { FriendContext } from "../context/friendContext";
+import { Spin, Icon, Divider, Button } from "antd";
+import { UserContext } from "../../context/userContext";
+import { FriendContext } from "../../context/friendContext";
+import DEFAULT_PROFILE from "../images/toketalk_3d_badge.PNG";
 import EditProfile from "./EditProfileModal";
-import { ButtonCancel, ButtonSubmit } from "./ui/Button";
-import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import UserPosts from "./UserPosts";
 import { Helmet } from "react-helmet";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
@@ -26,10 +26,6 @@ const Profile = props => {
     isFriend: false
   });
   const [editOpen, setEditOpen] = useState(false);
-
-  const [bio, setBio] = useState("");
-  const [newusername, setUsername] = useState("");
-  const [email, setEmail] = useState("");
 
   useEffect(() => {
     axios
@@ -123,28 +119,6 @@ const Profile = props => {
     }
   };
 
-  const handleOk = () => {
-    userCtx.updateProfile(newusername, email, bio);
-    userCtx.reloadUserInfo(userCtx.user);
-    setEditOpen(false);
-  };
-
-  const handleCancel = () => {
-    setEditOpen(false);
-  };
-
-  const handleBio = e => {
-    setBio(e.target.value);
-  };
-
-  const handleEmail = e => {
-    setEmail(e.target.value);
-  };
-
-  const handleUsername = e => {
-    setUsername(e.target.value);
-  };
-
   return (
     <Box>
       <Helmet>
@@ -236,7 +210,7 @@ const Profile = props => {
                         type="mail"
                         style={{
                           paddingTop: "10px",
-                          marginLeft: "20px",
+                          marginLeft: "50px",
                           fontSize: "16px"
                         }}
                       />
@@ -251,7 +225,7 @@ const Profile = props => {
                       type="book"
                       style={{
                         paddingTop: "10px",
-                        marginLeft: "20px",
+                        marginLeft: "50px",
                         fontSize: "16px"
                       }}
                     />
@@ -264,7 +238,7 @@ const Profile = props => {
                     </Box>
                   </Flex>
                   {/*STATS FOR ACCOUNT*/}
-                  <Flex m="20px" mt="20px">
+                  <Flex m="20px" mt="20px" ml="50px">
                     <Box
                       py="5px"
                       px="10px"
@@ -299,40 +273,11 @@ const Profile = props => {
                       <Divider style={{ marginTop: "10px" }} />
                     </Box>
                   </Flex>
-                  <Modal
-                    title="Edit Profile Information"
-                    visible={editOpen}
-                    onCancel={handleCancel}
-                    footer={[
-                      <ButtonCancel
-                        key="CancelButton"
-                        onClick={handleCancel}
-                        bg="transparent"
-                        color="#D7D8D7"
-                      >
-                        Cancel
-                      </ButtonCancel>,
-                      <ButtonSubmit
-                        onClick={handleOk}
-                        border="1px solid #9D9F9C"
-                        key="SumbitButton"
-                      >
-                        Post
-                      </ButtonSubmit>
-                    ]}
-                  >
-                    <EditProfile
-                      username={newusername}
-                      handleUsername={handleUsername}
-                      bio={bio}
-                      handleBio={handleBio}
-                      email={email}
-                      handleEmail={handleEmail}
-                    />
-                  </Modal>
+                  <UserPosts userId={user.user.id} />
                 </Box>
               )}
             </Box>
+            <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
           </Flex>
         )}
       </Media>

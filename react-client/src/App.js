@@ -9,7 +9,7 @@ import { FriendContext } from "./context/friendContext";
 import LandingPage from "./components/Authentication/LandingPage";
 import Box from "./components/ui/Box";
 import Weed from "./components/Weed";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import { Helmet } from "react-helmet";
 
 const App = props => {
