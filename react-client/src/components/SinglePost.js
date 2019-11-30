@@ -194,9 +194,15 @@ const SinglePost = props => {
               </Box>
               <Flex flexWrap="wrap" mb="20px">
                 <Icon type="tags" style={{ padding: "4px" }} />
-                {processTags(post.tags).map((tag, key) => {
-                  return <Tag key={key}>{tag}</Tag>;
-                })}
+                {post.tags !== "" ? (
+                  processTags(post.tags).map((tag, key) => {
+                    return <Tag key={key}>{tag}</Tag>;
+                  })
+                ) : (
+                  <Box fontSize="11px" pt="3px">
+                    No Tags!
+                  </Box>
+                )}
               </Flex>
               <Box mb="20px" className="wrap">
                 {post.content}
