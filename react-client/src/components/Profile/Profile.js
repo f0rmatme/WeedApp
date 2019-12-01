@@ -6,9 +6,10 @@ import Media from "react-media";
 import { Spin, Icon, Divider, Button } from "antd";
 import { UserContext } from "../../context/userContext";
 import { FriendContext } from "../../context/friendContext";
-import DEFAULT_PROFILE from "../images/toketalk_3d_badge.PNG";
+import DEFAULT_PROFILE from "../images/badge.png";
 import EditProfile from "./EditProfileModal";
 import UserPosts from "./UserPosts";
+import FollowList from "./FollowList";
 import { Helmet } from "react-helmet";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
@@ -144,7 +145,7 @@ const Profile = props => {
                 </Flex>
               ) : (
                 <Box>
-                  <Flex>
+                  <Flex className="BackgroundWeedImage">
                     <img
                       alt="profile"
                       src={
@@ -153,7 +154,8 @@ const Profile = props => {
                           : DEFAULT_PROFILE
                       }
                       style={{
-                        margin: "20px",
+                        marginTop: "20px",
+                        marginLeft: "20px",
                         display: "inline-block",
                         height: "100px",
                         width: "100px",
@@ -164,17 +166,25 @@ const Profile = props => {
                         verticalAlign: "middle"
                       }}
                     />
-                    <Flex>
-                      <Box fontSize="24px" my="50px" mx="30px">
+                    <Flex justifyContent="center">
+                      <Box
+                        fontSize="26px"
+                        my="51px"
+                        mx="30px"
+                        fontWeight="bold"
+                        color="#F0F0F0"
+                      >
                         {user.user.username}
                       </Box>
                     </Flex>
                     {user.user.id === userCtx.user.id ? (
-                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
+                      <Box my="49px" alignSelf="flex-end" ml="auto" mr="30px">
                         <Button
                           icon="edit"
-                          ghost
-                          style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                          style={{
+                            color: "rgb(0,0,0,.65)",
+                            backgroundColor: "#F0F0F0"
+                          }}
                           onClick={() => setEditOpen(true)}
                         />
                       </Box>
@@ -183,29 +193,33 @@ const Profile = props => {
                         {!friends.isFriend ? (
                           <Button
                             icon="plus"
-                            ghost
-                            style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                            style={{
+                              color: "rgb(0,0,0,.65)",
+                              backgroundColor: "#F0F0F0"
+                            }}
                             onClick={() => changeFollowStatus(true)}
                           />
                         ) : (
                           <Button
                             icon="minus"
-                            ghost
-                            style={{ color: "#9DA077", borderColor: "#9DA077" }}
+                            style={{
+                              color: "rgb(0,0,0,.65)",
+                              backgroundColor: "#F0F0F0"
+                            }}
                             onClick={() => changeFollowStatus(false)}
                           />
                         )}
                       </Box>
                     )}
                   </Flex>
-                  <Flex justifyContent="center" alignItems="center">
+                  {/* <Flex justifyContent="center" alignItems="center">
                     <Box width="90%">
                       <Divider style={{ marginTop: "10px" }} />
                     </Box>
-                  </Flex>
+                  </Flex> */}
 
                   {user.user.id === userCtx.user.id && (
-                    <Flex>
+                    <Flex pt="20px">
                       <Icon
                         type="mail"
                         style={{
@@ -220,7 +234,7 @@ const Profile = props => {
                     </Flex>
                   )}
 
-                  <Flex>
+                  <Flex pt={user.user.id !== userCtx.user.id ? "20px" : "0"}>
                     <Icon
                       type="book"
                       style={{
@@ -277,6 +291,13 @@ const Profile = props => {
                 </Box>
               )}
             </Box>
+            {matches && (
+              <Box width="33%" padding="20px">
+                <Flex justifyContent="flex-start" position="relative">
+                  <FollowList />
+                </Flex>
+              </Box>
+            )}
             <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
           </Flex>
         )}

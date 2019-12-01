@@ -36,7 +36,7 @@ const ProfileCard = props => {
       position="fixed"
       width="350px"
       height="300px"
-      backgroundColor="white"
+      bg="white"
       borderRadius="7px"
     >
       <Flex px="15px" pb="5px" pt="10px" pr="5px">
