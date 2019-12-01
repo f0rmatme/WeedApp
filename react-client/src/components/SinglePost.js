@@ -12,7 +12,7 @@ import { css } from "emotion";
 import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
-import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import DEFAULT_PROFILE from "../components/images/badge.png";
 
 const SinglePost = props => {
   const post = props.post;
