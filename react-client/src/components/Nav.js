@@ -23,6 +23,9 @@ const Nav = props => {
     } else if (e.key === "2") {
       setActive("/weed");
       props.weed();
+    } else if (e.key === "4") {
+      setActive(`/profile`);
+      props.history.push(`/profile/${userCtx.user.username}`);
     } else if (e.key === "3") {
       handleLogout();
     }
@@ -39,6 +42,9 @@ const Nav = props => {
       </Menu.Item>
       <Menu.Item key="2">
         <Box px="15px"> Strains </Box>
+      </Menu.Item>
+      <Menu.Item key="4">
+        <Box px="15px"> Profile </Box>
       </Menu.Item>
       <Menu.Item key="3">
         <Box px="15px"> Logout </Box>
@@ -131,6 +137,25 @@ const Nav = props => {
                     }}
                   >
                     Strains
+                  </ButtonNav>
+                  <ButtonNav
+                    height="100%"
+                    bg="transparent"
+                    border="none"
+                    color="#9DA077"
+                    borderBottom={`${
+                      active === "/profile" ||
+                      active === `/profile/${userCtx.user.username}`
+                        ? "2px solid #9DA077"
+                        : "0px solid #0C1109"
+                    }`}
+                    fontSize="16px"
+                    onClick={() => {
+                      setActive(`/profile/${userCtx.user.username}`);
+                      props.history.push(`/profile/${userCtx.user.username}`);
+                    }}
+                  >
+                    Profile
                   </ButtonNav>
                   <ButtonNav
                     height="100%"
