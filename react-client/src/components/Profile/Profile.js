@@ -40,27 +40,16 @@ const Profile = props => {
   }, [userCtx.user, username]);
 
   useEffect(() => {
-    axios
-      .get(`/api/friends/count/${user.user.id}`, {
-        headers: {
-          Authorization: `Bearer ${userCtx.token}`
-        }
-      })
-      .then(res => {
-        setFriends({
-          following: res.data.following,
-          followers: res.data.followers,
-          isFriend: friendCtx.isFriend(user.user.id)
-        });
-        setLoading(false);
-      });
+    friendCtx.getFollowList();
+    console.log(friendCtx.followList);
+    setLoading(false);
     // eslint-disable-next-line
-  }, [user, user.user, friendCtx.friends]);
+  }, [userCtx]);
 
   const changeFollowStatus = followStatus => {
     let data = {
-      friendId: user.user.id,
-      userId: userCtx.user.id
+      userId: userCtx.user.id,
+      friendId: user.user.id
     };
     if (followStatus) {
       setFriends(oldFriends => {
@@ -239,7 +228,7 @@ const Profile = props => {
                       type="book"
                       style={{
                         paddingTop: "10px",
-                        marginLeft: "50px",
+                        marginLeft: "49px",
                         fontSize: "16px"
                       }}
                     />
@@ -251,40 +240,9 @@ const Profile = props => {
                         : "No Bio Found"}
                     </Box>
                   </Flex>
-                  {/*STATS FOR ACCOUNT*/}
-                  <Flex m="20px" mt="20px" ml="50px">
-                    <Box
-                      py="5px"
-                      px="10px"
-                      border="1px solid #9DA077"
-                      backgroundColor="#ebece4"
-                      borderRadius="12px"
-                      fontWeight="bold"
-                      mr="5px"
-                    >
-                      {friends.followers}
-                    </Box>
-                    <Box py="5px" mr="20px">
-                      Followers
-                    </Box>
-                    <Box
-                      py="5px"
-                      px="10px"
-                      border="1px solid #9DA077"
-                      backgroundColor="#ebece4"
-                      borderRadius="12px"
-                      fontWeight="bold"
-                      mr="5px"
-                    >
-                      {friends.following}
-                    </Box>
-                    <Box py="5px" mr="20px">
-                      Following
-                    </Box>
-                  </Flex>
                   <Flex justifyContent="center" alignItems="center">
                     <Box width="90%">
-                      <Divider style={{ marginTop: "10px" }} />
+                      <Divider style={{ marginTop: "20px" }} />
                     </Box>
                   </Flex>
                   <UserPosts userId={user.user.id} />

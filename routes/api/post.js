@@ -46,7 +46,7 @@ module.exports = (app, db, jwtMW) => {
       }
 
       var friendIds = friends.map(function(friend) {
-        return friend.user.id;
+        return friend.following.id;
       });
 
       db.post

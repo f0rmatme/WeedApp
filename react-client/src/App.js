@@ -43,6 +43,11 @@ const App = props => {
     // eslint-disable-next-line
   }, [userCtx.user]);
 
+  useEffect(() => {
+    friendCtx.getFollowList();
+    // eslint-disable-next-line
+  }, [userCtx]);
+
   return (
     <Box fontFamily="Varela Round">
       <Helmet titleTemplate=" %s | Toke Talk">

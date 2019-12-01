@@ -5,10 +5,11 @@ import { UserContext } from "./userContext";
 export const FriendContext = React.createContext({});
 
 const FriendProvider = props => {
-  const [friends, setFriends] = useState(
-    //JSON.parse(window.localStorage.friends)
-    []
-  );
+  const [friends, setFriends] = useState([]); //Friends are people that you follow\
+  const [followList, setFollowList] = useState({
+    followers: [],
+    following: []
+  });
 
   const userCtx = useContext(UserContext);
 
@@ -20,6 +21,16 @@ const FriendProvider = props => {
       .then(res => {
         window.localStorage.friends = JSON.stringify(res.data);
         setFriends(res.data);
+      });
+  };
+
+  const getFollowList = () => {
+    axios
+      .get(`/api/friends/list/${userCtx.user.id}`, {
+        headers: { Authorization: `Bearer ${userCtx.token}` }
+      })
+      .then(res => {
+        setFollowList(res.data);
       });
   };
 
@@ -36,7 +47,14 @@ const FriendProvider = props => {
 
   return (
     <FriendContext.Provider
-      value={{ friends, setFriends, getFriends, isFriend }}
+      value={{
+        friends,
+        followList,
+        setFriends,
+        getFriends,
+        isFriend,
+        getFollowList
+      }}
     >
       {props.children}
     </FriendContext.Provider>
