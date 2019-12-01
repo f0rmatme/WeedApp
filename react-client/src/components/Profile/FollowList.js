@@ -12,7 +12,7 @@ const FollowList = () => {
 
   return (
     <Box width="350px" bg="white" height="100%" borderRadius="7px">
-      <Tabs defaultActiveKey="1">
+      <Tabs defaultActiveKey="1" tabBarStyle={{ width: "100%" }}>
         <TabPane
           tab={
             <Flex>
@@ -32,8 +32,8 @@ const FollowList = () => {
           }
           key="1"
         >
-          {friendCtx.followList.followers.map(user => (
-            <Flex my="5px" mx="10px">
+          {friendCtx.followList.followers.map((user, key) => (
+            <Flex my="5px" mx="10px" key={key}>
               <Box>
                 <img
                   alt="profile"
@@ -67,8 +67,8 @@ const FollowList = () => {
           key="2"
         >
           <Box p="10px">
-            {friendCtx.followList.following.map(user => (
-              <Flex my="5px" mx="10px">
+            {friendCtx.followList.following.map((user, key) => (
+              <Flex my="5px" mx="10px" key={key}>
                 <Box>
                   <img
                     alt="profile"

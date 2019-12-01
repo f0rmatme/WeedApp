@@ -12,7 +12,6 @@ var self = (module.exports = {
         }
       })
       .then(foundFriends => {
-        console.log(foundFriends.user);
         return foundFriends;
       });
   },
@@ -30,7 +29,6 @@ var self = (module.exports = {
         }
       })
       .then(foundFriends => {
-        console.log(foundFriends.user);
         return foundFriends;
       });
   }
