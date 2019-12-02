@@ -18,6 +18,16 @@ module.exports = (app, db, jwtMW) => {
     });
   });
 
+  app.get("/api/friends/list/:userId", jwtMW, (req, res) => {
+    let following = [];
+    friendModule.getFriends(app, db, req.params.userId).then(result => {
+      following = result;
+      friendModule.getFollowers(app, db, req.params.userId).then(result => {
+        res.send({following: following, followers: result});
+      });
+    });
+  });
+
   app.post("/api/friend/create", jwtMW, (req, res) => {
     if (!req.body.userId || !req.body.friendId) {
       return res.status(400).json({ message: "Missing userId or friendId" });

@@ -12,7 +12,7 @@ import { css } from "emotion";
 import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
-import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
+import DEFAULT_PROFILE from "../components/images/badge.png";
 
 const SinglePost = props => {
   const post = props.post;
@@ -130,7 +130,7 @@ const SinglePost = props => {
               className={css`
                 &:hover {
                   cursor: pointer;
-                  -webkit-filter: brightness(70%);
+                  -webkit-filter: brightness(85%);
                   -webkit-transition: all 0.3s ease;
                   -moz-transition: all 0.3s ease;
                   -o-transition: all 0.3s ease;
@@ -194,9 +194,15 @@ const SinglePost = props => {
               </Box>
               <Flex flexWrap="wrap" mb="20px">
                 <Icon type="tags" style={{ padding: "4px" }} />
-                {processTags(post.tags).map((tag, key) => {
-                  return <Tag key={key}>{tag}</Tag>;
-                })}
+                {post.tags !== "" ? (
+                  processTags(post.tags).map((tag, key) => {
+                    return <Tag key={key}>{tag}</Tag>;
+                  })
+                ) : (
+                  <Box fontSize="11px" pt="3px">
+                    No Tags!
+                  </Box>
+                )}
               </Flex>
               <Box mb="20px" className="wrap">
                 {post.content}

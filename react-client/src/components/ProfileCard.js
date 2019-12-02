@@ -1,5 +1,4 @@
-import React from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import { css } from "emotion";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
@@ -7,25 +6,11 @@ import { withRouter } from "react-router-dom";
 import { Divider, Icon } from "antd";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
 import { UserContext } from "../context/userContext";
+import { FriendContext } from "../context/friendContext";
 
 const ProfileCard = props => {
-  const userCtx = React.useContext(UserContext);
-
-  const [friends, setFriends] = React.useState({ following: 0, followers: 0 });
-
-  React.useEffect(() => {
-    if (userCtx.user) {
-      axios
-        .get(`/api/friends/count/${userCtx.user.id}`, {
-          headers: {
-            Authorization: `Bearer ${userCtx.token}`
-          }
-        })
-        .then(res => {
-          setFriends(res.data);
-        });
-    }
-  }, [userCtx.token, userCtx.user]);
+  const userCtx = useContext(UserContext);
+  const friendCtx = useContext(FriendContext);
 
   const handleUsernameClick = () => {
     props.history.push(`/profile/${userCtx.user.username}`);
@@ -36,7 +21,7 @@ const ProfileCard = props => {
       position="fixed"
       width="350px"
       height="300px"
-      backgroundColor="white"
+      bg="white"
       borderRadius="7px"
     >
       <Flex px="15px" pb="5px" pt="10px" pr="5px">
@@ -120,7 +105,7 @@ const ProfileCard = props => {
         </Box>
         <Icon type="arrow-right" style={{ paddingTop: "4px" }} />
         <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
-          {friends.following}
+          {friendCtx.followList.following.length}
         </Box>
       </Flex>
       <Flex px="15px" pb="5px" pr="5px">
@@ -129,7 +114,7 @@ const ProfileCard = props => {
         </Box>
         <Icon type="arrow-left" style={{ paddingTop: "4px" }} />
         <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
-          {friends.followers}
+          {friendCtx.followList.followers.length}
         </Box>
       </Flex>
     </Box>

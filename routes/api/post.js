@@ -46,7 +46,7 @@ module.exports = (app, db, jwtMW) => {
       }
 
       var friendIds = friends.map(function(friend) {
-        return friend.user.id;
+        return friend.following.id;
       });
 
       db.post
@@ -67,6 +67,16 @@ module.exports = (app, db, jwtMW) => {
     db.post.findAll({
       where: {
         weedId: req.params.weedId
+      },
+      include: [db.user, db.weed, db.like, db.comment],
+      order: [["id", "DESC"]]
+    }).then((result) => res.json(result));
+  });
+
+  app.get("/api/posts/user/:userId", jwtMW, (req, res) => {
+    db.post.findAll({
+      where: {
+        userId: req.params.userId
       },
       include: [db.user, db.weed, db.like, db.comment],
       order: [["id", "DESC"]]

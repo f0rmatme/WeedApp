@@ -20,7 +20,13 @@ module.exports = (sequelize, DataTypes) => {
 
     Friend.associate = (models) => {
         Friend.belongsTo(models.user, {
+            as: 'following',
             foreignKey: 'friendId',
+            constraints: false
+        });
+        Friend.belongsTo(models.user, {
+            as: 'follower',
+            foreignKey: 'userId',
             constraints: false
         });
     };

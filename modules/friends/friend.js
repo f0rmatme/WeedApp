@@ -6,10 +6,12 @@ var self = (module.exports = {
         where: {
           userId: usersId
         },
-        include: [db.user]
+        include: {
+          model: db.user,
+          as: 'following',
+        }
       })
       .then(foundFriends => {
-        console.log(foundFriends.user);
         return foundFriends;
       });
   },
@@ -21,10 +23,12 @@ var self = (module.exports = {
         where: {
           friendId: usersId
         },
-        include: [db.user]
+        include: {
+          model: db.user,
+          as: 'follower',
+        }
       })
       .then(foundFriends => {
-        console.log(foundFriends.user);
         return foundFriends;
       });
   }
