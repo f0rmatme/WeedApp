@@ -51,7 +51,7 @@ const Weeds = props => {
 
   const handleCancel = () => {
     setVisible(false);
-    setPosts({ loading2: true })
+    setPosts({ loading2: false })
   };
 
   useEffect(() => {
