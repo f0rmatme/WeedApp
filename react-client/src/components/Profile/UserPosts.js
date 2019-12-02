@@ -25,30 +25,44 @@ const UserPosts = props => {
 
   return (
     <Flex flexDirection="column" justifyContent="center">
-      {!loading ? (
-        posts.map((post, key) => {
-          return (
-            <Box key={key}>
-              <Flex
-                flexDirection="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <SinglePost post={post} hide={true} />
+      <Box>
+        {!loading ? (
+          <Box>
+            {posts.length > 0 ? (
+              posts.map((post, key) => {
+                return (
+                  <Box key={key}>
+                    <Flex
+                      flexDirection="row"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <SinglePost post={post} hide={true} />
+                    </Flex>
+                    <Flex justifyContent="center" alignItems="center">
+                      <Box width="90%">
+                        <Divider style={{ margin: "10px" }} />
+                      </Box>
+                    </Flex>
+                  </Box>
+                );
+              })
+            ) : (
+              <Flex justifyContent="center">
+                <Box>This user has not made any posts!</Box>
+                <Icon
+                  type="frown"
+                  style={{ paddingTop: "3px", paddingLeft: "5px" }}
+                />
               </Flex>
-              <Flex justifyContent="center" alignItems="center">
-                <Box width="90%">
-                  <Divider style={{ margin: "10px" }} />
-                </Box>
-              </Flex>
-            </Box>
-          );
-        })
-      ) : (
-        <Flex width="100%" justifyContent="center" mt="20%">
-          <Spin indicator={antIcon} size="large" />
-        </Flex>
-      )}
+            )}
+          </Box>
+        ) : (
+          <Flex width="100%" justifyContent="center" mt="20%">
+            <Spin indicator={antIcon} size="large" />
+          </Flex>
+        )}
+      </Box>
     </Flex>
   );
 };
