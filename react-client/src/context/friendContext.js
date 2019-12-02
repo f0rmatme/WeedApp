@@ -5,13 +5,11 @@ import { UserContext } from "./userContext";
 export const FriendContext = React.createContext({
   followList: JSON.parse(localStorage.getItem("followList")),
   setFollowList: () => {},
-  getFriends: () => {},
   getFollowList: () => {},
   isFollowing: () => {}
 });
 
 const FriendProvider = props => {
-  const [friends, setFriends] = useState([]); //Friends are people that you follow\
   const [followList, setFollowList] = useState(
     JSON.parse(localStorage.getItem("followList")) || {
       following: [],
@@ -20,18 +18,6 @@ const FriendProvider = props => {
   );
 
   const userCtx = useContext(UserContext);
-
-  const getFriends = () => {
-    axios
-      .get(`/api/friend/${userCtx.user.id}`, {
-        headers: { Authorization: `Bearer ${userCtx.token}` }
-      })
-      .then(res => {
-        window.localStorage.friends = JSON.stringify(res.data);
-        setFriends(res.data);
-      });
-  };
-
   const getFollowList = () => {
     axios
       .get(`/api/friends/list/${userCtx.user.id}`, {
@@ -57,10 +43,7 @@ const FriendProvider = props => {
   return (
     <FriendContext.Provider
       value={{
-        friends,
         followList,
-        setFriends,
-        getFriends,
         isFollowing,
         getFollowList
       }}

@@ -3,7 +3,7 @@ import axios from "axios";
 import Box from "../ui/Box";
 import Flex from "../ui/Flex";
 import Media from "react-media";
-import { Spin, Icon, Divider, Button } from "antd";
+import { Icon, Divider, Button } from "antd";
 import { UserContext } from "../../context/userContext";
 import { FriendContext } from "../../context/friendContext";
 import DEFAULT_PROFILE from "../images/badge.png";
@@ -12,7 +12,7 @@ import UserPosts from "./UserPosts";
 import FollowList from "./FollowList";
 import { Helmet } from "react-helmet";
 
-const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
+//const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
 const Profile = props => {
   const userCtx = useContext(UserContext);
@@ -33,20 +33,17 @@ const Profile = props => {
       })
       .then(res => {
         setUser({ user: res.data });
+      })
+      .then(() => {
+        if (userCtx.user.id !== user.user.id) {
+          let is_friend = friendCtx.isFollowing(user.user.id);
+          setIsFriend({
+            isFriend: is_friend,
+            loading: false
+          });
+        }
       });
-  }, [userCtx.token, userCtx.user, username]);
-
-  useEffect(() => {
-    if (userCtx.user.id !== user.user.id) {
-      let is_friend = friendCtx.isFollowing(user.user.id);
-      console.log(friendCtx.followList);
-      setIsFriend({
-        isFriend: is_friend,
-        loading: false
-      });
-    }
-    //eslint-disable-next-line
-  }, [user, friendCtx.followList]);
+  }, [friendCtx, user.user.id, userCtx.token, userCtx.user, username]);
 
   const changeFollowStatus = followStatus => {
     let data = {
