@@ -3,7 +3,7 @@ import axios from "axios";
 import Box from "../ui/Box";
 import Flex from "../ui/Flex";
 import Media from "react-media";
-import { Icon, Divider, Button } from "antd";
+import { Spin, Icon, Divider, Button } from "antd";
 import { UserContext } from "../../context/userContext";
 import { FriendContext } from "../../context/friendContext";
 import DEFAULT_PROFILE from "../images/badge.png";
@@ -12,7 +12,7 @@ import UserPosts from "./UserPosts";
 import FollowList from "./FollowList";
 import { Helmet } from "react-helmet";
 
-//const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
+const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
 const Profile = props => {
   const userCtx = useContext(UserContext);
@@ -43,7 +43,8 @@ const Profile = props => {
           });
         }
       });
-  }, [friendCtx, user.user.id, userCtx.token, userCtx.user, username]);
+    //eslint-disable-next-line
+  }, [userCtx, username]);
 
   const changeFollowStatus = followStatus => {
     let data = {
@@ -100,15 +101,15 @@ const Profile = props => {
       <Media query={{ minWidth: 900 }}>
         {matches => (
           <Box>
-            {!isFriend.loading && (
-              <Flex backgroundColor="#F0F0F0" minHeight="100vh">
-                <Box
-                  width={matches ? "45%" : "90%"}
-                  bg="white"
-                  mt="20px"
-                  borderRadius="7px"
-                  ml={matches ? "19%" : "5%"}
-                >
+            <Flex backgroundColor="#F0F0F0" minHeight="100vh">
+              <Box
+                width={matches ? "45%" : "90%"}
+                bg="white"
+                mt="20px"
+                borderRadius="7px"
+                ml={matches ? "19%" : "5%"}
+              >
+                {!isFriend.loading ? (
                   <Box>
                     <Flex className="BackgroundWeedImage">
                       <img
@@ -216,19 +217,24 @@ const Profile = props => {
                         <Divider style={{ marginTop: "20px" }} />
                       </Box>
                     </Flex>
+
                     <UserPosts userId={user.user.id} />
                   </Box>
-                </Box>
-                {matches && (
-                  <Box width="33%" padding="20px">
-                    <Flex justifyContent="flex-start" position="relative">
-                      <FollowList user={user} />
-                    </Flex>
-                  </Box>
+                ) : (
+                  <Flex width="100%" justifyContent="center" mt="20%">
+                    <Spin indicator={antIcon} size="large" />
+                  </Flex>
                 )}
-                <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
-              </Flex>
-            )}
+              </Box>
+              {matches && (
+                <Box width="33%" padding="20px">
+                  <Flex justifyContent="flex-start" position="relative">
+                    <FollowList user={user} />
+                  </Flex>
+                </Box>
+              )}
+              <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
+            </Flex>
           </Box>
         )}
       </Media>
