@@ -35,13 +35,8 @@ const FollowList = props => {
           });
         });
     }
-  }, [
-    props.user,
-    user.id,
-    userCtx.token,
-    userCtx.user.id,
-    friendCtx.followList
-  ]);
+    //eslint-disable-next-line
+  }, [props.user, userCtx.token]);
 
   return (
     <Box width="350px" bg="white" height="100%" borderRadius="7px">
