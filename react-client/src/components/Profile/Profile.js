@@ -20,11 +20,9 @@ const Profile = props => {
   const username = props.match.params.username;
 
   const [user, setUser] = useState({ user: {} });
-  const [loading, setLoading] = useState(true);
-  const [friends, setFriends] = useState({
-    following: 0,
-    followers: 0,
-    isFriend: false
+  const [isFriend, setIsFriend] = useState({
+    isFriend: false,
+    loading: true
   });
   const [editOpen, setEditOpen] = useState(false);
 
@@ -36,15 +34,19 @@ const Profile = props => {
       .then(res => {
         setUser({ user: res.data });
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userCtx.user, username]);
+  }, [userCtx.token, userCtx.user, username]);
 
   useEffect(() => {
-    friendCtx.getFollowList();
-    console.log(friendCtx.followList);
-    setLoading(false);
-    // eslint-disable-next-line
-  }, [userCtx]);
+    if (userCtx.user.id !== user.user.id) {
+      let is_friend = friendCtx.isFollowing(user.user.id);
+      console.log(friendCtx.followList);
+      setIsFriend({
+        isFriend: is_friend,
+        loading: false
+      });
+    }
+    //eslint-disable-next-line
+  }, [user, friendCtx.followList]);
 
   const changeFollowStatus = followStatus => {
     let data = {
@@ -52,14 +54,10 @@ const Profile = props => {
       friendId: user.user.id
     };
     if (followStatus) {
-      setFriends(oldFriends => {
-        return {
-          following: friends.following,
-          followers: friends.followers + 1,
-          isFriend: true
-        };
+      setIsFriend({
+        isFriend: true,
+        loading: false
       });
-
       axios
         .post(`/api/friend/create`, data, {
           headers: {
@@ -67,25 +65,15 @@ const Profile = props => {
           }
         })
         .then(() => {
-          friendCtx.getFriends();
+          friendCtx.getFollowList();
         })
         .catch(() => {
-          setFriends(oldFriends => {
-            return {
-              following: friends.following,
-              followers: friends.followers - 1,
-              isFriend: false
-            };
-          });
-          console.log("Error while adding as friend");
+          console.log("Error while following");
         });
     } else {
-      setFriends(oldFriends => {
-        return {
-          following: oldFriends.following,
-          followers: oldFriends.followers - 1,
-          isFriend: false
-        };
+      setIsFriend({
+        isFriend: false,
+        loading: false
       });
       axios
         .delete(`/api/friend`, {
@@ -95,16 +83,10 @@ const Profile = props => {
           }
         })
         .then(() => {
-          friendCtx.getFriends();
+          friendCtx.getFollowList();
         })
         .catch(() => {
-          setFriends(oldFriends => {
-            return {
-              following: oldFriends.following,
-              followers: oldFriends.followers + 1,
-              isFriend: true
-            };
-          });
+          console.log("Error while unfollowing");
         });
     }
   };
@@ -120,144 +102,137 @@ const Profile = props => {
       </Helmet>
       <Media query={{ minWidth: 900 }}>
         {matches => (
-          <Flex backgroundColor="#F0F0F0" minHeight="100vh">
-            <Box
-              width={matches ? "45%" : "90%"}
-              bg="white"
-              mt="20px"
-              borderRadius="7px"
-              ml={matches ? "19%" : "5%"}
-            >
-              {loading ? (
-                <Flex width="100%" justifyContent="center" mt="20%">
-                  <Spin indicator={antIcon} size="large" />
-                </Flex>
-              ) : (
-                <Box>
-                  <Flex className="BackgroundWeedImage">
-                    <img
-                      alt="profile"
-                      src={
-                        user.user.profilepic
-                          ? user.user.profilepic
-                          : DEFAULT_PROFILE
-                      }
-                      style={{
-                        marginTop: "20px",
-                        marginLeft: "20px",
-                        display: "inline-block",
-                        height: "100px",
-                        width: "100px",
-                        borderRadius: "50%",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center center",
-                        backgroundSize: "cover",
-                        verticalAlign: "middle"
-                      }}
-                    />
-                    <Flex justifyContent="center">
-                      <Box
-                        fontSize="26px"
-                        my="51px"
-                        mx="30px"
-                        fontWeight="bold"
-                        color="#F0F0F0"
-                      >
-                        {user.user.username}
-                      </Box>
+          <Box>
+            {!isFriend.loading && (
+              <Flex backgroundColor="#F0F0F0" minHeight="100vh">
+                <Box
+                  width={matches ? "45%" : "90%"}
+                  bg="white"
+                  mt="20px"
+                  borderRadius="7px"
+                  ml={matches ? "19%" : "5%"}
+                >
+                  <Box>
+                    <Flex className="BackgroundWeedImage">
+                      <img
+                        alt="profile"
+                        src={
+                          user.user.profilepic
+                            ? user.user.profilepic
+                            : DEFAULT_PROFILE
+                        }
+                        style={{
+                          marginTop: "20px",
+                          marginLeft: "20px",
+                          display: "inline-block",
+                          height: "100px",
+                          width: "100px",
+                          borderRadius: "50%",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center center",
+                          backgroundSize: "cover",
+                          verticalAlign: "middle"
+                        }}
+                      />
+                      <Flex justifyContent="center">
+                        <Box
+                          fontSize="26px"
+                          my="51px"
+                          mx="30px"
+                          fontWeight="bold"
+                          color="#F0F0F0"
+                        >
+                          {user.user.username}
+                        </Box>
+                      </Flex>
+                      {user.user.id === userCtx.user.id ? (
+                        <Box my="49px" alignSelf="flex-end" ml="auto" mr="30px">
+                          <Button
+                            icon="edit"
+                            style={{
+                              color: "rgb(0,0,0,.65)",
+                              backgroundColor: "#F0F0F0"
+                            }}
+                            onClick={() => setEditOpen(true)}
+                          />
+                        </Box>
+                      ) : (
+                        <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
+                          {!isFriend.isFriend ? (
+                            <Button
+                              icon="plus"
+                              style={{
+                                color: "rgb(0,0,0,.65)",
+                                backgroundColor: "#F0F0F0"
+                              }}
+                              onClick={() => changeFollowStatus(true)}
+                            />
+                          ) : (
+                            <Button
+                              icon="minus"
+                              style={{
+                                color: "rgb(0,0,0,.65)",
+                                backgroundColor: "#F0F0F0"
+                              }}
+                              onClick={() => changeFollowStatus(false)}
+                            />
+                          )}
+                        </Box>
+                      )}
                     </Flex>
-                    {user.user.id === userCtx.user.id ? (
-                      <Box my="49px" alignSelf="flex-end" ml="auto" mr="30px">
-                        <Button
-                          icon="edit"
-                          style={{
-                            color: "rgb(0,0,0,.65)",
-                            backgroundColor: "#F0F0F0"
-                          }}
-                          onClick={() => setEditOpen(true)}
-                        />
-                      </Box>
-                    ) : (
-                      <Box my="50px" alignSelf="flex-end" ml="auto" mr="30px">
-                        {!friends.isFriend ? (
-                          <Button
-                            icon="plus"
-                            style={{
-                              color: "rgb(0,0,0,.65)",
-                              backgroundColor: "#F0F0F0"
-                            }}
-                            onClick={() => changeFollowStatus(true)}
-                          />
-                        ) : (
-                          <Button
-                            icon="minus"
-                            style={{
-                              color: "rgb(0,0,0,.65)",
-                              backgroundColor: "#F0F0F0"
-                            }}
-                            onClick={() => changeFollowStatus(false)}
-                          />
-                        )}
-                      </Box>
-                    )}
-                  </Flex>
-                  {/* <Flex justifyContent="center" alignItems="center">
-                    <Box width="90%">
-                      <Divider style={{ marginTop: "10px" }} />
-                    </Box>
-                  </Flex> */}
 
-                  {user.user.id === userCtx.user.id && (
-                    <Flex pt="20px">
+                    {user.user.id === userCtx.user.id && (
+                      <Flex pt="20px">
+                        <Icon
+                          type="mail"
+                          style={{
+                            paddingTop: "10px",
+                            marginLeft: "50px",
+                            fontSize: "16px"
+                          }}
+                        />
+                        <Box pt="7px" ml="10px">
+                          {user.user.email}
+                        </Box>
+                      </Flex>
+                    )}
+
+                    <Flex pt={user.user.id !== userCtx.user.id ? "20px" : "0"}>
                       <Icon
-                        type="mail"
+                        type="book"
                         style={{
                           paddingTop: "10px",
-                          marginLeft: "50px",
+                          marginLeft: "49px",
                           fontSize: "16px"
                         }}
                       />
-                      <Box pt="7px" ml="10px">
-                        {user.user.email}
+                      <Box pt="7px" ml="10px" mr="20px">
+                        {user.user.bio
+                          ? user.user.bio
+                          : user.user.id === userCtx.user.id
+                          ? "No Bio Found | Update Profile to Add a Bio"
+                          : "No Bio Found"}
                       </Box>
                     </Flex>
-                  )}
-
-                  <Flex pt={user.user.id !== userCtx.user.id ? "20px" : "0"}>
-                    <Icon
-                      type="book"
-                      style={{
-                        paddingTop: "10px",
-                        marginLeft: "49px",
-                        fontSize: "16px"
-                      }}
-                    />
-                    <Box pt="7px" ml="10px" mr="20px">
-                      {user.user.bio
-                        ? user.user.bio
-                        : user.user.id === userCtx.user.id
-                        ? "No Bio Found | Update Profile to Add a Bio"
-                        : "No Bio Found"}
-                    </Box>
-                  </Flex>
-                  <Flex justifyContent="center" alignItems="center">
-                    <Box width="90%">
-                      <Divider style={{ marginTop: "20px" }} />
-                    </Box>
-                  </Flex>
-                  <UserPosts userId={user.user.id} />
+                    <Flex justifyContent="center" alignItems="center">
+                      <Box width="90%">
+                        <Divider style={{ marginTop: "20px" }} />
+                      </Box>
+                    </Flex>
+                    <UserPosts userId={user.user.id} />
+                  </Box>
                 </Box>
-              )}
-            </Box>
-            {matches && (
-              <Box width="33%" padding="20px">
-                <Flex justifyContent="flex-start" position="relative">
-                  <FollowList />
-                </Flex>
-              </Box>
+                {matches && (
+                  <Box width="33%" padding="20px">
+                    <Flex justifyContent="flex-start" position="relative">
+                      <FollowList user={user} />
+                    </Flex>
+                  </Box>
+                )}
+                <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
+              </Flex>
             )}
-            <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
-          </Flex>
+          </Box>
         )}
       </Media>
     </Box>

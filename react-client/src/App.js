@@ -39,14 +39,10 @@ const App = props => {
   useEffect(() => {
     if (window.localStorage.user) {
       friendCtx.getFriends();
+      friendCtx.getFollowList();
     }
     // eslint-disable-next-line
   }, [userCtx.user]);
-
-  useEffect(() => {
-    friendCtx.getFollowList();
-    // eslint-disable-next-line
-  }, [userCtx]);
 
   return (
     <Box fontFamily="Varela Round">
