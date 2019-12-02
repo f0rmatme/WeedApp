@@ -17,7 +17,8 @@ const FollowList = props => {
 
   const [usersFollowList, setUsersFollowList] = useState({
     following: [],
-    followers: []
+    followers: [],
+    loading: true
   });
 
   useEffect(() => {
@@ -27,7 +28,11 @@ const FollowList = props => {
           headers: { Authorization: `Bearer ${userCtx.token}` }
         })
         .then(res => {
-          setUsersFollowList(res.data);
+          setUsersFollowList({
+            following: res.data.following,
+            followers: res.data.followers,
+            loading: false
+          });
         });
     }
   }, [
@@ -40,130 +45,132 @@ const FollowList = props => {
 
   return (
     <Box width="350px" bg="white" height="100%" borderRadius="7px">
-      <Tabs defaultActiveKey="1" tabBarStyle={{ width: "100%" }}>
-        <TabPane
-          tab={
-            <Flex>
-              <Box
-                py="5px"
-                px="10px"
-                border="1px solid #9DA077"
-                backgroundColor="#ebece4"
-                borderRadius="12px"
-                fontWeight="bold"
-                mr="5px"
-              >
-                {userCtx.user.id !== user.id ? (
-                  <Box>{usersFollowList.followers.length}</Box>
-                ) : (
-                  <Box>{friendCtx.followList.followers.length}</Box>
-                )}
-              </Box>
-              <Box p="5px">Followers</Box>
-            </Flex>
-          }
-          key="1"
-        >
-          <Box>
-            {userCtx.user.id !== user.id ? (
-              <Box>
-                {usersFollowList.followers.map((user, key) => (
-                  <Flex my="5px" mx="10px" key={key}>
-                    <Box>
-                      <img
-                        alt="profile"
-                        src={DEFAULT_PROFILE}
-                        style={{ height: "25px", width: "25px" }}
-                      />
-                    </Box>
-                    <Box pt="2px" px="5px">
-                      {user.follower.username}
-                    </Box>
-                  </Flex>
-                ))}
-              </Box>
-            ) : (
-              <Box>
-                {friendCtx.followList.followers.map((user, key) => (
-                  <Flex my="5px" mx="10px" key={key}>
-                    <Box>
-                      <img
-                        alt="profile"
-                        src={DEFAULT_PROFILE}
-                        style={{ height: "25px", width: "25px" }}
-                      />
-                    </Box>
-                    <Box pt="2px" px="5px">
-                      {user.follower.username}
-                    </Box>
-                  </Flex>
-                ))}
-              </Box>
-            )}
-          </Box>
-        </TabPane>
-        <TabPane
-          tab={
-            <Flex>
-              <Box
-                py="5px"
-                px="10px"
-                border="1px solid #9DA077"
-                backgroundColor="#ebece4"
-                borderRadius="12px"
-                fontWeight="bold"
-                mr="5px"
-              >
-                {userCtx.user.id !== user.id ? (
-                  <Box>{usersFollowList.following.length}</Box>
-                ) : (
-                  <Box>{friendCtx.followList.following.length}</Box>
-                )}
-              </Box>
-              <Box p="5px">Following</Box>
-            </Flex>
-          }
-          key="2"
-        >
-          <Box>
-            {userCtx.user.id !== user.id ? (
-              <Box>
-                {usersFollowList.following.map((user, key) => (
-                  <Flex my="5px" mx="10px" key={key}>
-                    <Box>
-                      <img
-                        alt="profile"
-                        src={DEFAULT_PROFILE}
-                        style={{ height: "25px", width: "25px" }}
-                      />
-                    </Box>
-                    <Box pt="2px" px="5px">
-                      {user.following.username}
-                    </Box>
-                  </Flex>
-                ))}
-              </Box>
-            ) : (
-              <Box>
-                {friendCtx.followList.following.map((user, key) => (
-                  <Flex my="5px" mx="10px" key={key}>
-                    <Box>
-                      <img
-                        alt="profile"
-                        src={DEFAULT_PROFILE}
-                        style={{ height: "25px", width: "25px" }}
-                      />
-                    </Box>
-                    <Box pt="2px" px="5px">
-                      {user.following.username}
-                    </Box>
-                  </Flex>
-                ))}
-              </Box>
-            )}
-          </Box>
-        </TabPane>
-      </Tabs>
+      {!usersFollowList.loading && (
+        <Tabs defaultActiveKey="1" tabBarStyle={{ width: "100%" }}>
+          <TabPane
+            tab={
+              <Flex>
+                <Box
+                  py="5px"
+                  px="10px"
+                  border="1px solid #9DA077"
+                  backgroundColor="#ebece4"
+                  borderRadius="12px"
+                  fontWeight="bold"
+                  mr="5px"
+                >
+                  {userCtx.user.id !== user.id ? (
+                    <Box>{usersFollowList.followers.length}</Box>
+                  ) : (
+                    <Box>{friendCtx.followList.followers.length}</Box>
+                  )}
+                </Box>
+                <Box p="5px">Followers</Box>
+              </Flex>
+            }
+            key="1"
+          >
+            <Box>
+              {userCtx.user.id !== user.id ? (
+                <Box>
+                  {usersFollowList.followers.map((user, key) => (
+                    <Flex my="5px" mx="10px" key={key}>
+                      <Box>
+                        <img
+                          alt="profile"
+                          src={DEFAULT_PROFILE}
+                          style={{ height: "25px", width: "25px" }}
+                        />
+                      </Box>
+                      <Box pt="2px" px="5px">
+                        {user.follower.username}
+                      </Box>
+                    </Flex>
+                  ))}
+                </Box>
+              ) : (
+                <Box>
+                  {friendCtx.followList.followers.map((user, key) => (
+                    <Flex my="5px" mx="10px" key={key}>
+                      <Box>
+                        <img
+                          alt="profile"
+                          src={DEFAULT_PROFILE}
+                          style={{ height: "25px", width: "25px" }}
+                        />
+                      </Box>
+                      <Box pt="2px" px="5px">
+                        {user.follower.username}
+                      </Box>
+                    </Flex>
+                  ))}
+                </Box>
+              )}
+            </Box>
+          </TabPane>
+          <TabPane
+            tab={
+              <Flex>
+                <Box
+                  py="5px"
+                  px="10px"
+                  border="1px solid #9DA077"
+                  backgroundColor="#ebece4"
+                  borderRadius="12px"
+                  fontWeight="bold"
+                  mr="5px"
+                >
+                  {userCtx.user.id !== user.id ? (
+                    <Box>{usersFollowList.following.length}</Box>
+                  ) : (
+                    <Box>{friendCtx.followList.following.length}</Box>
+                  )}
+                </Box>
+                <Box p="5px">Following</Box>
+              </Flex>
+            }
+            key="2"
+          >
+            <Box>
+              {userCtx.user.id !== user.id ? (
+                <Box>
+                  {usersFollowList.following.map((user, key) => (
+                    <Flex my="5px" mx="10px" key={key}>
+                      <Box>
+                        <img
+                          alt="profile"
+                          src={DEFAULT_PROFILE}
+                          style={{ height: "25px", width: "25px" }}
+                        />
+                      </Box>
+                      <Box pt="2px" px="5px">
+                        {user.following.username}
+                      </Box>
+                    </Flex>
+                  ))}
+                </Box>
+              ) : (
+                <Box>
+                  {friendCtx.followList.following.map((user, key) => (
+                    <Flex my="5px" mx="10px" key={key}>
+                      <Box>
+                        <img
+                          alt="profile"
+                          src={DEFAULT_PROFILE}
+                          style={{ height: "25px", width: "25px" }}
+                        />
+                      </Box>
+                      <Box pt="2px" px="5px">
+                        {user.following.username}
+                      </Box>
+                    </Flex>
+                  ))}
+                </Box>
+              )}
+            </Box>
+          </TabPane>
+        </Tabs>
+      )}
     </Box>
   );
 };
