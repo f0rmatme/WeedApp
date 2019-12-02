@@ -47,14 +47,17 @@ module.exports = (app, db, jwtMW) => {
     const saltRounds = 10;
     bcrypt.hash(password, saltRounds, function(err, hash) {
       db.user
-        .create({
-          username: username,
+        .findOrCreate({where: {username: username}, defaults: {
           password: hash,
           email: email
-        })
+        }})
         .then(result => {
-          console.log("User created: ", result);
-          res.json("user created!");
+          if(result[1]) {
+            console.log("User created: ", result);
+            res.json("user created!");
+          } else {
+            res.json({error: "Username taken"});
+          }
         });
     });
   });

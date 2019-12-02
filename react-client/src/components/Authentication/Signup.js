@@ -25,7 +25,11 @@ const Signup = props => {
         axios
           .post("/signup", { username, password, email })
           .then(res => {
-            props.setSignupVisible(false);
+            if (res.data.error) {
+              setError(res.data.error);
+            } else {
+              props.setSignupVisible(false);
+            }
           })
           .catch(error => {
             setError("There was an error with your registration");
