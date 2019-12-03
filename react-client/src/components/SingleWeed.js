@@ -20,10 +20,11 @@ const SingleWeed = props => {
             <img
                 alt="weed"
                 style={{
-                minHeight: "200px",
-                minWidth: "195px",
-                maxHeight: "200px",
-                maxWidth: "195px"
+                    minWidth: "190px",
+                    minHeight: "190px",
+                    maxWidth: "190px",
+                    maxHeight: "190px",
+                    margin: "auto"
                 }}
                 src={weedItem.pictureUrl}
                 onError={
