@@ -35,7 +35,6 @@ const Profile = props => {
         return res;
       })
       .then(res => {
-        console.log(res.data);
         if (userCtx.user.id !== res.data.id) {
           let is_friend = friendCtx.isFollowing(res.data.id);
           setIsFriend({

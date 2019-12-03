@@ -83,6 +83,9 @@ const EditProfile = props => {
           value={bio}
         />
       </Box>
+      <Box pt="5px" pb="10px">
+        Upload New Profile Picture
+      </Box>
       <UploadProfilePicture setProfilePicture={setProfilePicture} />
     </Modal>
   );
