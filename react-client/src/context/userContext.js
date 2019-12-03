@@ -13,9 +13,9 @@ const UserProvider = props => {
   const [token, setToken] = useState(window.localStorage.accessToken);
   const [user, setUser] = useState({});
 
-  const reloadUserInfo = userInfo => {
+  const reloadUserInfo = user => {
     axios
-      .get(`/api/user/${userInfo.id}`, {
+      .get(`/api/user/${user.id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {

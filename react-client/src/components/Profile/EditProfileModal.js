@@ -76,7 +76,7 @@ const EditProfile = props => {
         <Box py="5px">Bio</Box>
         <TextArea
           placeholder={userCtx.user.bio || "Write Biography"}
-          autosize={{ minRows: 2, maxRows: 6 }}
+          autoSize={{ minRows: 2, maxRows: 6 }}
           onChange={handleBio}
           value={bio}
         />

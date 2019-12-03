@@ -33,20 +33,18 @@ const Profile = props => {
       })
       .then(res => {
         setUser({ user: res.data });
+      })
+      .then(() => {
+        if (userCtx.user.id !== user.user.id) {
+          let is_friend = friendCtx.isFollowing(user.user.id);
+          setIsFriend({
+            isFriend: is_friend,
+            loading: false
+          });
+        }
       });
-  }, [userCtx.token, userCtx.user, username]);
-
-  useEffect(() => {
-    if (userCtx.user.id !== user.user.id) {
-      let is_friend = friendCtx.isFollowing(user.user.id);
-      console.log(friendCtx.followList);
-      setIsFriend({
-        isFriend: is_friend,
-        loading: false
-      });
-    }
     //eslint-disable-next-line
-  }, [user, friendCtx.followList]);
+  }, [userCtx, username]);
 
   const changeFollowStatus = followStatus => {
     let data = {
@@ -103,15 +101,15 @@ const Profile = props => {
       <Media query={{ minWidth: 900 }}>
         {matches => (
           <Box>
-            {!isFriend.loading && (
-              <Flex backgroundColor="#F0F0F0" minHeight="100vh">
-                <Box
-                  width={matches ? "45%" : "90%"}
-                  bg="white"
-                  mt="20px"
-                  borderRadius="7px"
-                  ml={matches ? "19%" : "5%"}
-                >
+            <Flex backgroundColor="#F0F0F0" minHeight="100vh">
+              <Box
+                width={matches ? "45%" : "90%"}
+                bg="white"
+                mt="20px"
+                borderRadius="7px"
+                ml={matches ? "19%" : "5%"}
+              >
+                {!isFriend.loading ? (
                   <Box>
                     <Flex className="BackgroundWeedImage">
                       <img
@@ -219,19 +217,24 @@ const Profile = props => {
                         <Divider style={{ marginTop: "20px" }} />
                       </Box>
                     </Flex>
+
                     <UserPosts userId={user.user.id} />
                   </Box>
-                </Box>
-                {matches && (
-                  <Box width="33%" padding="20px">
-                    <Flex justifyContent="flex-start" position="relative">
-                      <FollowList user={user} />
-                    </Flex>
-                  </Box>
+                ) : (
+                  <Flex width="100%" justifyContent="center" mt="20%">
+                    <Spin indicator={antIcon} size="large" />
+                  </Flex>
                 )}
-                <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
-              </Flex>
-            )}
+              </Box>
+              {matches && (
+                <Box width="33%" padding="20px">
+                  <Flex justifyContent="flex-start" position="relative">
+                    <FollowList user={user} />
+                  </Flex>
+                </Box>
+              )}
+              <EditProfile editOpen={editOpen} setEditOpen={setEditOpen} />
+            </Flex>
           </Box>
         )}
       </Media>
