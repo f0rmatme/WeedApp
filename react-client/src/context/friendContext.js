@@ -3,7 +3,7 @@ import axios from "axios";
 import { UserContext } from "./userContext";
 
 export const FriendContext = React.createContext({
-  followList: JSON.parse(localStorage.getItem("followList")),
+  followList: JSON.parse(localStorage.followList),
   setFollowList: () => {},
   getFollowList: () => {},
   isFollowing: () => {}
@@ -11,7 +11,7 @@ export const FriendContext = React.createContext({
 
 const FriendProvider = props => {
   const [followList, setFollowList] = useState(
-    JSON.parse(localStorage.getItem("followList")) || {
+    JSON.parse(localStorage.followList) || {
       following: [],
       followers: []
     }
@@ -35,6 +35,7 @@ const FriendProvider = props => {
     for (i = 0; i < followList.following.length; i++) {
       if (followList.following[i].friendId === usersId) {
         result = true;
+        break;
       }
     }
     return result;

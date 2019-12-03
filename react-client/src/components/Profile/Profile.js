@@ -18,7 +18,6 @@ const Profile = props => {
   const userCtx = useContext(UserContext);
   const friendCtx = useContext(FriendContext);
   const username = props.match.params.username;
-
   const [user, setUser] = useState({ user: {} });
   const [isFriend, setIsFriend] = useState({
     isFriend: false,
@@ -33,10 +32,12 @@ const Profile = props => {
       })
       .then(res => {
         setUser({ user: res.data });
+        return res;
       })
-      .then(() => {
-        if (userCtx.user.id !== user.user.id) {
-          let is_friend = friendCtx.isFollowing(user.user.id);
+      .then(res => {
+        console.log(res.data);
+        if (userCtx.user.id !== res.data.id) {
+          let is_friend = friendCtx.isFollowing(res.data.id);
           setIsFriend({
             isFriend: is_friend,
             loading: false
@@ -49,7 +50,7 @@ const Profile = props => {
         }
       });
     //eslint-disable-next-line
-  }, [userCtx, username, friendCtx]);
+  }, [userCtx, username]);
 
   const changeFollowStatus = followStatus => {
     let data = {

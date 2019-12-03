@@ -107,7 +107,7 @@ const FollowList = props => {
                         />
                       </Box>
                       <Box pt="2px" px="5px">
-                        {user.followers.username}
+                        {user.follower.username}
                       </Box>
                     </Flex>
                   ))}
