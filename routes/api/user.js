@@ -95,6 +95,9 @@ module.exports = (app, db, jwtMW) => {
     if (req.body.bio !== "") {
       body.bio = req.body.bio;
     }
+    if (req.body.profilepic !== "") {
+      body.profilepic = req.body.profilepic;
+    }
 
     db.user
       .update(body, {

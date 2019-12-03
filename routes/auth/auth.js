@@ -23,7 +23,6 @@ module.exports = (app, db, jwtMW) => {
               "XxSmonkWeedErrday420xX",
               { expiresIn: 129600 }
             ); // Signing the token
-            console.log(user);
             res.json({
               sucess: true,
               err: null,

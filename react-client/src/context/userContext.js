@@ -23,11 +23,17 @@ const UserProvider = props => {
       });
   };
 
-  const updateProfile = (username, email, bio) => {
+  const updateProfile = (username, email, bio, profilepic) => {
     if (validateInput(username) && validateInput(bio)) {
       axios.put(
         "/api/user",
-        { username: username, email: email, bio: bio, id: user.id },
+        {
+          username: username,
+          email: email,
+          bio: bio,
+          id: user.id,
+          profilepic: profilepic
+        },
         {
           headers: { Authorization: `Bearer ${token}` }
         }

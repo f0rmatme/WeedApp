@@ -29,6 +29,7 @@ const apiLike = require("./routes/api/like");
 const apiComment = require("./routes/api/comment");
 const apiFriend = require("./routes/api/friend");
 const authClass = require("./routes/auth/auth");
+const imageClass = require("./routes/images/images");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,6 +41,7 @@ apiLike(app, db, jwtMW);
 apiComment(app, db, jwtMW);
 authClass(app, db, jwtMW);
 apiFriend(app, db, jwtMW);
+imageClass(app);
 
 app.use(express.static(path.join(__dirname, 'react-client/build')));
 

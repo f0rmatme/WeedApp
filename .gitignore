@@ -3,3 +3,4 @@ vendor
 config
 package-lock.json
 .vs
+.env
