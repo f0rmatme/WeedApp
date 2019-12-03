@@ -41,10 +41,15 @@ const Profile = props => {
             isFriend: is_friend,
             loading: false
           });
+        } else {
+          setIsFriend({
+            isFriend: false,
+            loading: false
+          });
         }
       });
     //eslint-disable-next-line
-  }, [userCtx, username]);
+  }, [userCtx, username, friendCtx]);
 
   const changeFollowStatus = followStatus => {
     let data = {
@@ -120,12 +125,12 @@ const Profile = props => {
                             : DEFAULT_PROFILE
                         }
                         style={{
-                          marginTop: "20px",
+                          marginTop: "25px",
                           marginLeft: "20px",
                           display: "inline-block",
-                          height: "100px",
+                          height: "90px",
                           width: "100px",
-                          borderRadius: "50%",
+                          borderRadius: "45%",
                           backgroundRepeat: "no-repeat",
                           backgroundPosition: "center center",
                           backgroundSize: "cover",

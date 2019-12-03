@@ -36,7 +36,7 @@ const FollowList = props => {
         });
     }
     //eslint-disable-next-line
-  }, [props.user, userCtx.token]);
+  }, [props.user, userCtx.token, userCtx.user]);
 
   return (
     <Box width="350px" bg="white" height="100%" borderRadius="7px">
@@ -73,8 +73,16 @@ const FollowList = props => {
                       <Box>
                         <img
                           alt="profile"
-                          src={DEFAULT_PROFILE}
-                          style={{ height: "25px", width: "25px" }}
+                          src={
+                            user.follower.profilepic
+                              ? user.follower.profilepic
+                              : DEFAULT_PROFILE
+                          }
+                          style={{
+                            height: "25px",
+                            width: "25px",
+                            borderRadius: "50%"
+                          }}
                         />
                       </Box>
                       <Box pt="2px" px="5px">
@@ -90,12 +98,16 @@ const FollowList = props => {
                       <Box>
                         <img
                           alt="profile"
-                          src={DEFAULT_PROFILE}
+                          src={
+                            user.follower.profilepic
+                              ? user.followers.profilepic
+                              : DEFAULT_PROFILE
+                          }
                           style={{ height: "25px", width: "25px" }}
                         />
                       </Box>
                       <Box pt="2px" px="5px">
-                        {user.follower.username}
+                        {user.followers.username}
                       </Box>
                     </Flex>
                   ))}
@@ -134,8 +146,16 @@ const FollowList = props => {
                       <Box>
                         <img
                           alt="profile"
-                          src={DEFAULT_PROFILE}
-                          style={{ height: "25px", width: "25px" }}
+                          src={
+                            user.following.profilepic
+                              ? user.following.profilepic
+                              : DEFAULT_PROFILE
+                          }
+                          style={{
+                            height: "25px",
+                            width: "25px",
+                            borderRadius: "50%"
+                          }}
                         />
                       </Box>
                       <Box pt="2px" px="5px">
@@ -151,7 +171,11 @@ const FollowList = props => {
                       <Box>
                         <img
                           alt="profile"
-                          src={DEFAULT_PROFILE}
+                          src={
+                            user.following.profilepic
+                              ? user.following.profilepic
+                              : DEFAULT_PROFILE
+                          }
                           style={{ height: "25px", width: "25px" }}
                         />
                       </Box>

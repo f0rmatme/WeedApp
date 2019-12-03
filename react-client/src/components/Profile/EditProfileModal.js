@@ -53,7 +53,7 @@ const EditProfile = props => {
           border="1px solid #9D9F9C"
           key="SumbitButton"
         >
-          Post
+          Submit
         </ButtonSubmit>
       ]}
     >

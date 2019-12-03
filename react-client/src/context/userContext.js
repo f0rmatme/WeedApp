@@ -24,7 +24,10 @@ const UserProvider = props => {
   };
 
   const updateProfile = (username, email, bio, profilepic) => {
-    if (validateInput(username) && validateInput(bio)) {
+    if (
+      (validateInput(username) && validateInput(bio)) ||
+      (email === "" && bio === "")
+    ) {
       axios.put(
         "/api/user",
         {
