@@ -3,18 +3,16 @@ import axios from "axios";
 import { UserContext } from "./userContext";
 
 export const FriendContext = React.createContext({
-  followList: JSON.parse(localStorage.followList),
+  followList: {},
   setFollowList: () => {},
   getFollowList: () => {},
   isFollowing: () => {}
 });
 
 const FriendProvider = props => {
+  console.log(window.localStorage.followList);
   const [followList, setFollowList] = useState(
-    JSON.parse(localStorage.followList) || {
-      following: [],
-      followers: []
-    }
+    window.localStorage.followList ? JSON.parse(localStorage.followList) : {}
   );
 
   const userCtx = useContext(UserContext);
