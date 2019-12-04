@@ -5,6 +5,7 @@ import Input from "../ui/Input";
 import { Input as AntInput, Modal } from "antd";
 import { UserContext } from "../../context/userContext";
 import { ButtonCancel, ButtonSubmit } from "../ui/Button";
+import UploadProfilePicture from "./UploadProfilePicture";
 
 const { TextArea } = AntInput;
 
@@ -13,9 +14,10 @@ const EditProfile = props => {
 
   const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
 
   const handleOk = () => {
-    userCtx.updateProfile("", email, bio);
+    userCtx.updateProfile("", email, bio, profilePicture);
     userCtx.reloadUserInfo(userCtx.user);
     props.setEditOpen(false);
   };
@@ -51,7 +53,7 @@ const EditProfile = props => {
           border="1px solid #9D9F9C"
           key="SumbitButton"
         >
-          Post
+          Submit
         </ButtonSubmit>
       ]}
     >
@@ -81,6 +83,10 @@ const EditProfile = props => {
           value={bio}
         />
       </Box>
+      <Box pt="5px" pb="10px">
+        Upload New Profile Picture
+      </Box>
+      <UploadProfilePicture setProfilePicture={setProfilePicture} />
     </Modal>
   );
 };

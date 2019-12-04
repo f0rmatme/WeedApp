@@ -18,7 +18,6 @@ const Profile = props => {
   const userCtx = useContext(UserContext);
   const friendCtx = useContext(FriendContext);
   const username = props.match.params.username;
-
   const [user, setUser] = useState({ user: {} });
   const [isFriend, setIsFriend] = useState({
     isFriend: false,
@@ -33,12 +32,18 @@ const Profile = props => {
       })
       .then(res => {
         setUser({ user: res.data });
+        return res;
       })
-      .then(() => {
-        if (userCtx.user.id !== user.user.id) {
-          let is_friend = friendCtx.isFollowing(user.user.id);
+      .then(res => {
+        if (userCtx.user.id !== res.data.id) {
+          let is_friend = friendCtx.isFollowing(res.data.id);
           setIsFriend({
             isFriend: is_friend,
+            loading: false
+          });
+        } else {
+          setIsFriend({
+            isFriend: false,
             loading: false
           });
         }
@@ -120,12 +125,12 @@ const Profile = props => {
                             : DEFAULT_PROFILE
                         }
                         style={{
-                          marginTop: "20px",
+                          marginTop: "25px",
                           marginLeft: "20px",
                           display: "inline-block",
-                          height: "100px",
+                          height: "90px",
                           width: "100px",
-                          borderRadius: "50%",
+                          borderRadius: "45%",
                           backgroundRepeat: "no-repeat",
                           backgroundPosition: "center center",
                           backgroundSize: "cover",
