@@ -100,7 +100,7 @@ const FollowList = props => {
                           alt="profile"
                           src={
                             user.follower.profilepic
-                              ? user.followers.profilepic
+                              ? user.follower.profilepic
                               : DEFAULT_PROFILE
                           }
                           style={{ height: "25px", width: "25px" }}
