@@ -13,6 +13,7 @@ import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
 import DEFAULT_PROFILE from "../components/images/badge.png";
+import {validateInput} from "../helpers/validation.js";
 
 const SinglePost = props => {
   const post = props.post;
@@ -25,6 +26,7 @@ const SinglePost = props => {
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [makeComment, setMakeComment] = useState(false);
   const [comment, setComment] = useState("");
+  const [error, setError] = useState("");
 
   const userCtx = useContext(UserContext);
 
@@ -37,7 +39,8 @@ const SinglePost = props => {
   };
 
   const submitComment = postId => {
-    axios
+    if(validateInput(comment) && comment !== ""){
+      axios
       .post(
         "/api/comment",
         {
@@ -54,8 +57,16 @@ const SinglePost = props => {
       )
       .then(res => {
         setComment("");
+        setError("");
         props.addComment(res.data);
       });
+    }
+    else{
+      if(comment != ""){
+        setError("Please refrain from profanity.");
+      }
+      setComment("");
+    }
   };
 
   const handleLike = postId => {
@@ -344,6 +355,9 @@ const SinglePost = props => {
                 : DEFAULT_PROFILE
             }
           />
+          <Box>
+            {error !== "" ? <Box color="red" >{error}</Box>:<Box/>}
+          </Box>
         </Box>
       )}
     </Card>
