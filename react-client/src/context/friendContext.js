@@ -10,7 +10,6 @@ export const FriendContext = React.createContext({
 });
 
 const FriendProvider = props => {
-  console.log(window.localStorage.followList);
   const [followList, setFollowList] = useState(
     window.localStorage.followList ? JSON.parse(localStorage.followList) : {}
   );
