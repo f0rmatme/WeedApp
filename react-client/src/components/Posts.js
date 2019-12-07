@@ -11,6 +11,7 @@ import SinglePost from "./SinglePost";
 import PostForm from "./PostForm";
 import { useSpring } from "react-spring";
 import { Helmet } from "react-helmet";
+import { validateInput } from "../helpers/validation.js"
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -116,9 +117,7 @@ const Posts = props => {
   };
 
   const handleOk = () => {
-    console.log("Submit the post");
-    console.log(tags);
-    if (value !== [] && content !== "") {
+    if (value !== [] && content !== "" && validateInput(content) && validateInput(tags.toString())) {
       axios
         .post(
           "/api/posts",
@@ -134,7 +133,12 @@ const Posts = props => {
         )
         .then(() => setVisible(false));
     } else {
-      setPostError("Please Enter Values for Required Fields");
+      if(value === [] && content === ""){
+        setPostError("Please Enter Values for Required Fields");
+      }
+      else{
+        setPostError("Please refrain from profanity");
+      }
     }
   };
 

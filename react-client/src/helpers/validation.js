@@ -74,7 +74,7 @@ export const validateInput = input => {
   let valid = true;
   regexValues.forEach(str => {
     let regex = new RegExp(str);
-    if (regex.test(input)) {
+    if(regex.test(input)) {
       valid = false;
     }
   });
