@@ -79,6 +79,7 @@ export const validateInput = input => {
       valid = false;
     }
   });
+  console.log(valid);
   return valid;
 };
 
