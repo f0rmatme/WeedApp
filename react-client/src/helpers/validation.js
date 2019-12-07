@@ -72,14 +72,12 @@ const regexValues = [
 
 export const validateInput = input => {
   let valid = true;
-  console.log(input);
   regexValues.forEach(str => {
     let regex = new RegExp(str);
     if(regex.test(input)) {
       valid = false;
     }
   });
-  console.log(valid);
   return valid;
 };
 

@@ -62,7 +62,7 @@ const SinglePost = props => {
       });
     }
     else{
-      if(comment != ""){
+      if(comment !== ""){
         setError("Please refrain from profanity.");
       }
       setComment("");

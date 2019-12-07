@@ -11,7 +11,7 @@ import SinglePost from "./SinglePost";
 import PostForm from "./PostForm";
 import { useSpring } from "react-spring";
 import { Helmet } from "react-helmet";
-import {validateInput} from "../helpers/validation.js"
+import { validateInput } from "../helpers/validation.js"
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
