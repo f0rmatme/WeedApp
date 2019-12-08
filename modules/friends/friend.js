@@ -8,7 +8,10 @@ var self = (module.exports = {
         },
         include: {
           model: db.user,
-          as: 'following',
+          as: "following",
+          attributes: {
+            exclude: ["password"]
+          }
         }
       })
       .then(foundFriends => {
@@ -25,7 +28,10 @@ var self = (module.exports = {
         },
         include: {
           model: db.user,
-          as: 'follower',
+          as: "follower",
+          attributes: {
+            exclude: ["password"]
+          }
         }
       })
       .then(foundFriends => {

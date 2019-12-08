@@ -15,14 +15,12 @@ module.exports = (app, db, jwtMW) => {
         }
         bcrypt.compare(password, user.password, function(err, result) {
           if (result === true) {
-            console.log("Valid!");
             let token = jwt.sign(
               { username: user.username },
               "XxSmonkWeedErrday420xX",
               { expiresIn: 129600 }
             ); // Signing the token
             delete user.dataValues["password"];
-            console.log(user);
             res.json({
               sucess: true,
               err: null,

@@ -5,7 +5,15 @@ module.exports = (app, db, jwtMW) => {
         where: {
           postId: req.params.postId
         },
-        include: [db.post, db.user]
+        include: [
+          db.post,
+          {
+            model: db.user,
+            attributes: {
+              exclude: ["password"]
+            }
+          }
+        ]
       })
       .then(result => res.json(result))
   );

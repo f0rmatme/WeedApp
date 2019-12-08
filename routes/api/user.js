@@ -1,5 +1,4 @@
 module.exports = (app, db, jwtMW) => {
-
   app.get("/api/user", jwtMW, (req, res) =>
     db.user.findAll().then(result => res.json(result))
   );
@@ -9,17 +8,12 @@ module.exports = (app, db, jwtMW) => {
       .findOne({
         where: {
           id: req.params.id
+        },
+        attributes: {
+          exclude: ["password"]
         }
       })
-      .then(result =>
-        res.json({
-          id: result.id,
-          username: result.username,
-          email: result.email,
-          bio: result.bio,
-          profilepic: result.profilepic
-        })
-      )
+      .then(result => res.json(result))
   );
 
   app.get("/api/username/:username", jwtMW, (req, res) =>
@@ -27,17 +21,12 @@ module.exports = (app, db, jwtMW) => {
       .findOne({
         where: {
           username: req.params.username
+        },
+        attributes: {
+          exclude: ["password"]
         }
       })
-      .then(result =>
-        res.json({
-          id: result.id,
-          username: result.username,
-          email: result.email,
-          bio: result.bio,
-          profilepic: result.profilepic
-        })
-      )
+      .then(result => res.json(result))
   );
 
   app.get("/api/user/search/:search", jwtMW, (req, res) => {
@@ -48,11 +37,12 @@ module.exports = (app, db, jwtMW) => {
         .findAll({
           where: {
             username: { like: "%" + req.params.search + "%" }
+          },
+          attributes: {
+            exclude: ["password"]
           }
         })
-        .then(result => {
-          res.json(result);
-        });
+        .then(result => res.json(result));
     }
   });
 
@@ -64,21 +54,6 @@ module.exports = (app, db, jwtMW) => {
           weedId: req.params.weedId
         },
         include: [db.weed]
-      })
-      .then(result => res.json(result))
-  );
-
-  app.post("/api/user/create", jwtMW, (req, res) =>
-    db.user
-      .create({
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        createdAt: "2012-04-23T18:25:43.511Z",
-        updatedAt: "2012-04-23T18:25:43.511Z",
-        weedId: req.body.weedId,
-        bio: req.body.bio,
-        profilepic: req.body.profilepic
       })
       .then(result => res.json(result))
   );
@@ -106,6 +81,7 @@ module.exports = (app, db, jwtMW) => {
         }
       })
       .then(result => {
+        delete result.dataValues["password"];
         res.json(result);
       });
   });

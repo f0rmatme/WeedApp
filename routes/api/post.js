@@ -56,30 +56,66 @@ module.exports = (app, db, jwtMW) => {
               [Op.or]: [friendIds, userId]
             }
           },
-          include: [db.user, db.weed, db.like, db.comment],
+          include: [
+            {
+              model: db.user,
+              attributes: {
+                exclude: ["password"]
+              }
+            },
+            db.weed,
+            db.like,
+            db.comment
+          ],
           order: [["id", "DESC"]]
         })
-        .then(result => res.json(result));
+        .then(result => {
+          res.json(result);
+        });
     });
   });
 
   app.get("/api/posts/relatedWeed/:weedId", jwtMW, (req, res) => {
-    db.post.findAll({
-      where: {
-        weedId: req.params.weedId
-      },
-      include: [db.user, db.weed, db.like, db.comment],
-      order: [["id", "DESC"]]
-    }).then((result) => res.json(result));
+    db.post
+      .findAll({
+        where: {
+          weedId: req.params.weedId
+        },
+        include: [
+          {
+            model: db.user,
+            attributes: {
+              exclude: ["password"]
+            }
+          },
+          db.weed,
+          db.like,
+          db.comment
+        ],
+        order: [["id", "DESC"]]
+      })
+      .then(result => res.json(result));
   });
 
   app.get("/api/posts/user/:userId", jwtMW, (req, res) => {
-    db.post.findAll({
-      where: {
-        userId: req.params.userId
-      },
-      include: [db.user, db.weed, db.like, db.comment],
-      order: [["id", "DESC"]]
-    }).then((result) => res.json(result));
+    db.post
+      .findAll({
+        where: {
+          userId: req.params.userId
+        },
+        include: [
+          {
+            model: db.user,
+            attributes: {
+              exclude: ["password"]
+            }
+          },
+          db.weed,
+          db.like,
+          db.comment
+        ],
+        order: [["id", "DESC"]]
+      })
+      .then(result => res.json(result));
   });
 };
