@@ -6,7 +6,7 @@ import { Input as AntInput, Modal } from "antd";
 import { UserContext } from "../../context/userContext";
 import { ButtonCancel, ButtonSubmit } from "../ui/Button";
 import UploadProfilePicture from "./UploadProfilePicture";
-
+import { validateInput} from "../../helpers/validation.js";
 const { TextArea } = AntInput;
 
 const EditProfile = props => {
@@ -15,11 +15,18 @@ const EditProfile = props => {
   const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
+  const [error, setError] = useState("");
 
   const handleOk = () => {
-    userCtx.updateProfile("", email, bio, profilePicture);
-    userCtx.reloadUserInfo(userCtx.user);
-    props.setEditOpen(false);
+    if(validateInput(bio)){
+      userCtx.updateProfile("", email, bio, profilePicture);
+      userCtx.reloadUserInfo(userCtx.user);
+      props.setEditOpen(false);
+    }
+    else{
+      setError("Please refrain from profanity");
+      setBio("");
+    }
   };
 
   const handleCancel = () => {
@@ -82,6 +89,9 @@ const EditProfile = props => {
           onChange={handleBio}
           value={bio}
         />
+        <Box>
+          {error !== "" ? <Box color="red" >{error}</Box>:<Box/>}
+        </Box>
       </Box>
       <Box pt="5px" pb="10px">
         Upload New Profile Picture

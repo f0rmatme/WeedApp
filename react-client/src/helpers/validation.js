@@ -70,11 +70,18 @@ const regexValues = [
   "[t+]w[a@][t+][s$]?"
 ];
 
+const validFiles = [
+  "png",
+  "jpg",
+  "jpeg",
+  "gif"
+];
+
 export const validateInput = input => {
   let valid = true;
   regexValues.forEach(str => {
     let regex = new RegExp(str);
-    if(regex.test(input)) {
+    if(regex.test(input.toLowerCase())) {
       valid = false;
     }
   });
@@ -84,4 +91,14 @@ export const validateInput = input => {
 export const validateEmail = input => {
   let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   return regex.test(input);
+}
+
+export const validateFile = input => {
+  let valid = false;
+  validFiles.forEach(str => {
+    if(input == str){
+      valid = true;
+    }
+  });
+  return valid;
 }
