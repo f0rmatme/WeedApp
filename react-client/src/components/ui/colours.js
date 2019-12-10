@@ -8,7 +8,8 @@ const colours = {
   success: "#5a9a56",
   textPrimary: "white",
   textSecondary: "#F2EEEB",
-  cardDark: "#626260"
+  cardDark: "#626260",
+  btnDefault: "#999999"
 };
 
 export default colours;
