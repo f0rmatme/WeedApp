@@ -62,11 +62,12 @@ export const ButtonPost = styled(animated.button)(
     right: "0",
     margin: "25px",
     padding: "10px 15px 10px 15px",
-    backgroundColor: " #9DA077",
+    backgroundColor: colours.btnDefault,
     color: "white",
     border: "none",
     borderRadius: "3px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    letterSpacing: ".05em"
   },
   typography,
   space,
