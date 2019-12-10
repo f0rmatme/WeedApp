@@ -11,6 +11,7 @@ import {
   flexbox
 } from "styled-system";
 import { animated } from "react-spring";
+import colours from "./colours";
 
 const Button = styled("button")(
   {
@@ -32,7 +33,10 @@ const Button = styled("button")(
 export const ButtonNav = styled("button")(
   {
     outline: "none",
-    padding: "10px"
+    padding: "10px",
+    backgroundColor: colours.nav,
+    borderRadius: "3px",
+    marginRight: "5px"
   },
   typography,
   space,
@@ -43,7 +47,10 @@ export const ButtonNav = styled("button")(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", color: "rgb(110, 51, 95)" })
+    ":hover": css({
+      cursor: "pointer",
+      backgroundColor: colours.navSel
+    })
   })
 );
 
