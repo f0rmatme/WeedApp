@@ -4,6 +4,7 @@ import { Spin, Icon, Divider, Modal } from "antd";
 import { ButtonPost, ButtonSubmit, ButtonCancel } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import colours from "./ui/colours";
 import { UserContext } from "../context/userContext";
 import ProfileCard from "./ProfileCard";
 import Media from "react-media";
@@ -11,7 +12,7 @@ import SinglePost from "./SinglePost";
 import PostForm from "./PostForm";
 import { useSpring } from "react-spring";
 import { Helmet } from "react-helmet";
-import { validateInput } from "../helpers/validation.js"
+import { validateInput } from "../helpers/validation.js";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -117,7 +118,12 @@ const Posts = props => {
   };
 
   const handleOk = () => {
-    if (value !== [] && content !== "" && validateInput(content) && validateInput(tags.toString())) {
+    if (
+      value !== [] &&
+      content !== "" &&
+      validateInput(content) &&
+      validateInput(tags.toString())
+    ) {
       axios
         .post(
           "/api/posts",
@@ -133,10 +139,9 @@ const Posts = props => {
         )
         .then(() => setVisible(false));
     } else {
-      if(value === [] && content === ""){
+      if (value === [] && content === "") {
         setPostError("Please Enter Values for Required Fields");
-      }
-      else{
+      } else {
         setPostError("Please refrain from profanity");
       }
     }
@@ -153,7 +158,7 @@ const Posts = props => {
       </Helmet>
       <Media query={{ minWidth: 900 }}>
         {matches => (
-          <Flex backgroundColor="#F0F0F0" minHeight="100vh">
+          <Flex bg={colours.background} minHeight="100vh">
             <Box
               width={matches ? "45%" : "90%"}
               bg="white"

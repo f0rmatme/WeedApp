@@ -2,6 +2,7 @@ import React from "react";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { ButtonNav } from "./ui/Button";
+import colours from "./ui/colours";
 import { withRouter } from "react-router-dom";
 import Media from "react-media";
 import { Menu, Dropdown, Icon } from "antd";
@@ -72,15 +73,14 @@ const Nav = props => {
           matches ? (
             <Flex
               color="white"
-              height="50px"
-              bg="#0C1109"
+              height="65px"
+              bg={colours.nav}
               flexDirection="row"
-              boxShadow="5px 0px 16px #0C1109"
+              boxShadow={`5px 0px 16px ${colours.nav}`}
             >
               <Flex ml="18%" width="47%">
                 <ButtonNav
-                  pr="12px"
-                  bg="transparent"
+                  pr="20px"
                   border="none"
                   onClick={() => {
                     setActive("/posts");
@@ -92,7 +92,7 @@ const Nav = props => {
                     alt="logo"
                     style={{
                       width: "50px",
-                      marginTop: "-10px"
+                      marginTop: "-5px"
                     }}
                   />
                 </ButtonNav>
@@ -100,17 +100,16 @@ const Nav = props => {
                   <FollowSearch />
                 </Box>
               </Flex>
-              <Flex width="350px">
-                <Box>
+              <Flex width="350px" position="relative">
+                <Box position="absolute" mt="10px">
                   <ButtonNav
-                    height="100%"
-                    bg="transparent"
+                    height="70%"
                     border="none"
-                    color="#9DA077"
-                    borderBottom={`${
+                    color={colours.textPrimary}
+                    bg={`${
                       active === "/posts" || active === "/posts/"
-                        ? "2px solid #9DA077"
-                        : "0px solid #0C1109"
+                        ? colours.navSel
+                        : colours.nav
                     }`}
                     fontSize="16px"
                     onClick={() => {
@@ -121,14 +120,13 @@ const Nav = props => {
                     Posts
                   </ButtonNav>
                   <ButtonNav
-                    height="100%"
-                    bg="transparent"
+                    height="70%"
                     border="none"
-                    color="#9DA077"
-                    borderBottom={`${
+                    color={colours.textPrimary}
+                    bg={`${
                       active === "/weed" || active === "/weed/"
-                        ? "2px solid #9DA077"
-                        : "0px solid #0C1109"
+                        ? colours.navSel
+                        : colours.nav
                     }`}
                     fontSize="16px"
                     onClick={() => {
@@ -139,15 +137,14 @@ const Nav = props => {
                     Strains
                   </ButtonNav>
                   <ButtonNav
-                    height="100%"
-                    bg="transparent"
+                    height="70%"
                     border="none"
-                    color="#9DA077"
-                    borderBottom={`${
+                    color={colours.textPrimary}
+                    bg={`${
                       active === "/profile" ||
                       active === `/profile/${userCtx.user.username}`
-                        ? "2px solid #9DA077"
-                        : "0px solid #0C1109"
+                        ? colours.navSel
+                        : colours.nav
                     }`}
                     fontSize="16px"
                     onClick={() => {
@@ -158,10 +155,9 @@ const Nav = props => {
                     Profile
                   </ButtonNav>
                   <ButtonNav
-                    height="100%"
-                    bg="transparent"
+                    height="70%"
                     border="none"
-                    color="#9DA077"
+                    color={colours.textPrimary}
                     fontSize="16px"
                     onClick={handleLogout}
                   >
