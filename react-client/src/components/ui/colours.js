@@ -6,7 +6,9 @@ const colours = {
   error: "#f44336",
   warning: "#d88a1e",
   success: "#5a9a56",
-  textPrimary: "white"
+  textPrimary: "white",
+  textSecondary: "#F2EEEB",
+  cardDark: "#626260"
 };
 
 export default colours;
