@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { css } from "emotion";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import colours from "./ui/colours";
 import { withRouter } from "react-router-dom";
 import { Divider, Icon } from "antd";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
@@ -66,7 +67,6 @@ const ProfileCard = props => {
           pl="3px"
           pr="7px"
           pt="10px"
-          fontWeight="bold"
           fontSize="22px"
           onClick={() => handleUsernameClick()}
           className={css`
@@ -83,13 +83,13 @@ const ProfileCard = props => {
       </Flex>
       <Flex px="15px" pb="5px" pr="5px">
         <Icon type="mail" style={{ paddingTop: "4px" }} />
-        <Box px="15px" pb="5px" pr="5px" fontWeight="bold">
+        <Box px="15px" pb="5px" pr="5px">
           {userCtx.user.email}
         </Box>
       </Flex>
       <Flex px="15px" pb="5px" pr="5px">
         <Icon type="book" style={{ paddingTop: "4px" }} />
-        <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
+        <Box px="15px" pb="5px" pr="5px" width="80%">
           {userCtx.user.bio === null ? (
             <Box fontWeight="normal" color="#d7d7d7">
               No Bio Found
@@ -100,20 +100,16 @@ const ProfileCard = props => {
         </Box>
       </Flex>
       <Flex px="15px" pb="5px" pr="5px">
-        <Box fontWeight="bold" pr="15px">
-          Following
-        </Box>
+        <Box pr="15px">Following</Box>
         <Icon type="arrow-right" style={{ paddingTop: "4px" }} />
-        <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
+        <Box px="15px" pb="5px" pr="5px" width="80%">
           {friendCtx.followList.following.length}
         </Box>
       </Flex>
       <Flex px="15px" pb="5px" pr="5px">
-        <Box fontWeight="bold" pr="15px">
-          Followers
-        </Box>
+        <Box pr="15px">Followers</Box>
         <Icon type="arrow-left" style={{ paddingTop: "4px" }} />
-        <Box px="15px" pb="5px" pr="5px" fontWeight="bold" width="80%">
+        <Box px="15px" pb="5px" pr="5px" width="80%">
           {friendCtx.followList.followers.length}
         </Box>
       </Flex>
