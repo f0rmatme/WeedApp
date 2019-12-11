@@ -77,7 +77,7 @@ const Nav = props => {
               height="65px"
               bg={colours.nav}
               flexDirection="row"
-              boxShadow={`5px 0px 16px ${colours.nav}`}
+              //boxShadow={`5px 0px 16px ${colours.nav}`}
             >
               <Flex ml="18%" width="47%">
                 <ButtonNav
@@ -97,8 +97,8 @@ const Nav = props => {
                     src={require("./images/badge.png")}
                     alt="logo"
                     style={{
-                      width: "50px",
-                      marginTop: "-5px"
+                      width: "55px",
+                      marginTop: "-7px"
                     }}
                   />
                 </ButtonNav>
@@ -185,7 +185,7 @@ const Nav = props => {
             <Flex
               color="white"
               height="50px"
-              bg="#0C1109"
+              bg={colours.nav}
               flexDirection="row"
               position="sticky"
               top="0"

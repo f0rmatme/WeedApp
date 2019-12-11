@@ -80,7 +80,7 @@
 }
 
 .ant-radio-button-wrapper:hover {
-  color: rgb(110, 51, 95);
+  color: #384A42;
 }
 
 .ant-radio-group-solid
@@ -91,12 +91,13 @@
 
 .ant-radio-group-solid
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background-color: #b0b392;
+  background-color: #384A42;
   border: #999999;
 }
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
   opacity: 1;
+  border: none;
   background-color: #999999 !important;
 }
 
