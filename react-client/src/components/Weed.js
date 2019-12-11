@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Spin, Icon, Pagination} from "antd";
+import { Spin, Icon, Pagination } from "antd";
 import { UserContext } from "../context/userContext";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
@@ -8,7 +8,7 @@ import Media from "react-media";
 import Selecters, { SelectorSmall } from "./FilterSelect";
 import RelatedWeedPosts from "../components/RelatedWeedPosts.js";
 import SingleWeed, { SingleWeedSmall } from "../components/SingleWeed.js";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 
@@ -28,7 +28,7 @@ const Weeds = props => {
     posts: [],
     loading2: true
   });
-  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: -1});
+  const [selectedWeed, setSelectedWeed] = useState({ selectedWeed: -1 });
   const [visible, setVisible] = useState(false);
 
   const userCtx = React.useContext(UserContext);
@@ -51,7 +51,7 @@ const Weeds = props => {
 
   const handleCancel = () => {
     setVisible(false);
-    setPosts({ loading2: false })
+    setPosts({ loading2: false });
   };
 
   useEffect(() => {
@@ -83,17 +83,17 @@ const Weeds = props => {
       })
       .then(res => {
         setPosts({ posts: res.data, loading2: false });
-        if(selectedWeed.selectedWeed !== -1){
+        if (selectedWeed.selectedWeed !== -1) {
           setVisible(true);
-        };
+        }
         console.log(selectedWeed);
       })
       .catch(err => {
-        setPosts({ posts: [], loading2: false});
+        setPosts({ posts: [], loading2: false });
         setError(err);
-        console.log(fromError.data);
       });
-  }, [fromError.data, selectedWeed, userCtx.token]);
+    //eslint-disable-next-line
+  }, [selectedWeed, userCtx.token]);
 
   return (
     <Box
@@ -153,13 +153,16 @@ const Weeds = props => {
                     }}
                   >
                     {weed.map((weedItem, key) => (
-                      <Flex 
-                        key={key} 
-                        onClick={() => setSelectedWeed({ ...selectedWeed, selectedWeed: weedItem.id })}
+                      <Flex
+                        key={key}
+                        onClick={() =>
+                          setSelectedWeed({
+                            ...selectedWeed,
+                            selectedWeed: weedItem.id
+                          })
+                        }
                       >
-                        <SingleWeed
-                          weedItem={weedItem}
-                        />
+                        <SingleWeed weedItem={weedItem} />
                       </Flex>
                     ))}
                     <Flex justifyContent="center" width="100%" my="20px">
@@ -174,7 +177,7 @@ const Weeds = props => {
                       />
                     </Flex>
                     <Flex>
-                      { !loading2? (
+                      {!loading2 ? (
                         <RelatedWeedPosts
                           selectedWeed={selectedWeed}
                           posts={posts}
@@ -246,15 +249,18 @@ const Weeds = props => {
                   >
                     {weed.map((weedItem, key) => {
                       return (
-                        <Flex 
-                          key={key} 
-                          flexDirection="row" 
+                        <Flex
+                          key={key}
+                          flexDirection="row"
                           my="10px"
-                          onClick={() => setSelectedWeed({ ...selectedWeed, selectedWeed: weedItem.id })}
+                          onClick={() =>
+                            setSelectedWeed({
+                              ...selectedWeed,
+                              selectedWeed: weedItem.id
+                            })
+                          }
                         >
-                          <SingleWeedSmall
-                            weedItem={weedItem}
-                          />
+                          <SingleWeedSmall weedItem={weedItem} />
                         </Flex>
                       );
                     })}

@@ -11,17 +11,15 @@ module.exports = (app, db, jwtMW) => {
         where: { username: username }
       })
       .then(user => {
-        console.log("User Found: ", user);
         if (user === null) {
           res.json(false);
         }
         bcrypt.compare(password, user.password, function(err, result) {
           if (result === true) {
-            console.log("Valid!");
             let token = jwt.sign(
               { username: user.username },
-              "XxSmonkWeedErrday420xX",
-              { expiresIn: 129600 }
+              process.env.JWT_SECRET,
+              { expiresIn: 18000 }
             ); // Signing the token
             res.json({
               sucess: true,
@@ -58,6 +56,18 @@ module.exports = (app, db, jwtMW) => {
             res.json({error: "Username taken"});
           }
         });
+    });
+  });
+
+  app.post("/verify", (req, res) => {
+    jwt.verify(req.body.token, process.env.JWT_SECRET, (err, decoded) => {
+      if(err) {
+        res.json({
+          error: "Token Expired"
+        });
+      } else {
+        res.json(decoded);
+      }
     });
   });
 
