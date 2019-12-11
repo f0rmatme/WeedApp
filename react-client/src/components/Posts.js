@@ -226,7 +226,6 @@ const Posts = props => {
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: xysprops.xys.interpolate(trans) }}
                 onClick={() => setVisible(true)}
-                mr="30px"
               >
                 <Flex>
                   <Icon

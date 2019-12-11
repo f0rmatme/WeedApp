@@ -2,6 +2,7 @@ import React from "react";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
 import { ButtonNav } from "./ui/Button";
+import { css } from "emotion";
 import colours from "./ui/colours";
 import { withRouter } from "react-router-dom";
 import Media from "react-media";
@@ -82,6 +83,11 @@ const Nav = props => {
                 <ButtonNav
                   pr="20px"
                   border="none"
+                  className={css`
+                    &:hover {
+                      background-color: transparent;
+                    }
+                  `}
                   onClick={() => {
                     setActive("/posts");
                     props.posts();

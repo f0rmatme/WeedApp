@@ -6,6 +6,7 @@ import { getStrainColour } from "../helpers/strainColour.js";
 import { ButtonLike } from "./ui/Button";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
+import colours from "./ui/colours";
 import { InputComment } from "./ui/Input";
 import { UserContext } from "../context/userContext";
 import { css } from "emotion";
@@ -13,7 +14,7 @@ import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
 import DEFAULT_PROFILE from "../components/images/badge.png";
-import {validateInput} from "../helpers/validation.js";
+import { validateInput } from "../helpers/validation.js";
 
 const SinglePost = props => {
   const post = props.post;
@@ -39,30 +40,29 @@ const SinglePost = props => {
   };
 
   const submitComment = postId => {
-    if(validateInput(comment) && comment !== ""){
+    if (validateInput(comment) && comment !== "") {
       axios
-      .post(
-        "/api/comment",
-        {
-          postId: postId,
-          userId: userCtx.user.id,
-          name: userCtx.user.username,
-          comment: comment
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${userCtx.token}`
+        .post(
+          "/api/comment",
+          {
+            postId: postId,
+            userId: userCtx.user.id,
+            name: userCtx.user.username,
+            comment: comment
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${userCtx.token}`
+            }
           }
-        }
-      )
-      .then(res => {
-        setComment("");
-        setError("");
-        props.addComment(res.data);
-      });
-    }
-    else{
-      if(comment !== ""){
+        )
+        .then(res => {
+          setComment("");
+          setError("");
+          props.addComment(res.data);
+        });
+    } else {
+      if (comment !== "") {
         setError("Please refrain from profanity.");
       }
       setComment("");
@@ -133,8 +133,8 @@ const SinglePost = props => {
               alt="profile"
               style={{
                 borderRadius: "50%",
-                height: "25px",
-                width: "25px",
+                height: "35px",
+                width: "35px",
                 margin: "5px"
               }}
               onClick={() => handleProfile()}
@@ -155,8 +155,9 @@ const SinglePost = props => {
             />
             <Box
               p="5px"
+              pt="8px"
               fontWeight="bold"
-              fontSize="16px"
+              fontSize="20px"
               onClick={() => handleProfile()}
               className={css`
                 border-bottom: 1px solid transparent;
@@ -287,9 +288,9 @@ const SinglePost = props => {
           <ButtonLike
             mr="5px"
             bg="transparent"
-            color={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
-            borderColor={likeColour ? "rgb(110, 51, 95)" : "#9DA077"}
-            backgroundColor={likeColour ? "#fff2fc" : "transparent"}
+            color={likeColour ? colours.react : colours.lightGrey}
+            borderColor={likeColour ? colours.react : colours.lightGrey}
+            backgroundColor={likeColour ? colours.reactLight : "transparent"}
             onClick={() => handleLike(post.id)}
           >
             <Icon type="like" />
@@ -355,9 +356,7 @@ const SinglePost = props => {
                 : DEFAULT_PROFILE
             }
           />
-          <Box>
-            {error !== "" ? <Box color="red" >{error}</Box>:<Box/>}
-          </Box>
+          <Box>{error !== "" ? <Box color="red">{error}</Box> : <Box />}</Box>
         </Box>
       )}
     </Card>

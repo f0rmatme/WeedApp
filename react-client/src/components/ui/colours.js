@@ -1,5 +1,6 @@
 const colours = {
   background: "#F2EEEB",
+  backgroundDark: "#384A42",
   nav: "#7C6963",
   navSel: "#96837D",
   btnPrimary: "#7c6963",
@@ -10,7 +11,10 @@ const colours = {
   textSecondary: "#F2EEEB",
   cardDark: "#626260",
   btnDefault: "#999999",
-  cardPost: "#384A42"
+  cardPost: "#384A42",
+  react: "#384A42",
+  reactLight: "#d7dbd9",
+  lightGrey: "#9DA077"
 };
 
 export default colours;
