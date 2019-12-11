@@ -85,19 +85,19 @@
 
 .ant-radio-group-solid
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-  background-color: #9da077;
-  border: #9da077;
+  background-color: #999999;
+  border: #999999;
 }
 
 .ant-radio-group-solid
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
   background-color: #b0b392;
-  border: #9da077;
+  border: #999999;
 }
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
   opacity: 1;
-  background-color: #9da077 !important;
+  background-color: #999999 !important;
 }
 
 .anticon-spin {
@@ -109,26 +109,26 @@
 }
 
 .ant-input:hover {
-  border-color: #9da077;
+  border-color: #999999;
 }
 
 .ant-select-selection:hover {
-  border-color: #9da077;
+  border-color: #999999;
 }
 
 .ant-tabs-nav .ant-tabs-tab-active {
-  color: #7e805f;
+  color: #384A42;
 }
 
 .ant-tabs-nav .ant-tabs-tab:hover {
-  color: rgb(110, 51, 95);
+  color: #384A42;
 }
 
 .ant-tabs-ink-bar {
-  background-color: #9da077;
+  background-color: #999999;
 }
 
 .ant-btn:hover, .ant-btn:focus {
-  border-color: #9da077;
-  color: #9da077;
+  border-color: #999999;
+  color: #999999;
 }

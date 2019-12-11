@@ -66,8 +66,7 @@ export const ButtonPost = styled(animated.button)(
     color: "white",
     border: "none",
     borderRadius: "3px",
-    fontWeight: "bold",
-    letterSpacing: ".05em"
+    letterSpacing: ".04em"
   },
   typography,
   space,
@@ -78,7 +77,7 @@ export const ButtonPost = styled(animated.button)(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", backgroundColor: "#B0B392" })
+    ":hover": css({ cursor: "pointer", backgroundColor: colours.react })
   })
 );
 
@@ -151,8 +150,8 @@ export const ButtonLike = styled("button")(
   css({
     ":hover": css({
       cursor: "pointer",
-      color: "rgb(110, 51, 95)",
-      border: "1px solid rgb(110, 51, 95)"
+      color: colours.react,
+      border: `1px solid ${colours.react}`
     })
   })
 );
