@@ -14,7 +14,8 @@ const colours = {
   cardPost: "#384A42",
   react: "#384A42",
   reactLight: "#d7dbd9",
-  lightGrey: "#9DA077"
+  lightGrey: "#9DA077",
+  commentBackground: "#F2EEEB"
 };
 
 export default colours;

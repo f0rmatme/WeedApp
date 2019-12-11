@@ -313,7 +313,12 @@ const SinglePost = props => {
                     <Box mr="5px" p="2px">
                       <b>{comment.name} </b>
                     </Box>
-                    <Box bg="#E7E7E7" px="5px" py="2px" borderRadius="10px">
+                    <Box
+                      bg={colours.commentBackground}
+                      px="5px"
+                      py="2px"
+                      borderRadius="10px"
+                    >
                       {comment.comment}
                     </Box>
                   </Flex>
