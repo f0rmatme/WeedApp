@@ -62,7 +62,7 @@ export const ButtonPost = styled(animated.button)(
     right: "0",
     margin: "25px",
     padding: "10px 15px 10px 15px",
-    backgroundColor: colours.btnDefault,
+    backgroundColor: colours.btnPrimary,
     color: "white",
     border: "none",
     borderRadius: "3px",
@@ -77,7 +77,7 @@ export const ButtonPost = styled(animated.button)(
   position,
   flexbox,
   css({
-    ":hover": css({ cursor: "pointer", backgroundColor: colours.react })
+    ":hover": css({ cursor: "pointer", backgroundColor: colours.navSel })
   })
 );
 
