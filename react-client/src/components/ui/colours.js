@@ -9,7 +9,8 @@ const colours = {
   textPrimary: "white",
   textSecondary: "#F2EEEB",
   cardDark: "#626260",
-  btnDefault: "#999999"
+  btnDefault: "#999999",
+  cardPost: "#384A42"
 };
 
 export default colours;
