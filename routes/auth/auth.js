@@ -4,25 +4,23 @@ const jwt = require("jsonwebtoken");
 module.exports = (app, db, jwtMW) => {
   app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    console.log("User submitted: ", username, password);
 
     db.user
       .findOne({
         where: { username: username }
       })
       .then(user => {
-        console.log("User Found: ", user);
         if (user === null) {
           res.json(false);
         }
         bcrypt.compare(password, user.password, function(err, result) {
           if (result === true) {
-            console.log("Valid!");
             let token = jwt.sign(
               { username: user.username },
               "XxSmonkWeedErrday420xX",
               { expiresIn: 129600 }
             ); // Signing the token
+            delete user.dataValues["password"];
             res.json({
               sucess: true,
               err: null,
@@ -46,16 +44,19 @@ module.exports = (app, db, jwtMW) => {
     const saltRounds = 10;
     bcrypt.hash(password, saltRounds, function(err, hash) {
       db.user
-        .findOrCreate({where: {username: username}, defaults: {
-          password: hash,
-          email: email
-        }})
+        .findOrCreate({
+          where: { username: username },
+          defaults: {
+            password: hash,
+            email: email
+          }
+        })
         .then(result => {
-          if(result[1]) {
+          if (result[1]) {
             console.log("User created: ", result);
             res.json("user created!");
           } else {
-            res.json({error: "Username taken"});
+            res.json({ error: "Username taken" });
           }
         });
     });
