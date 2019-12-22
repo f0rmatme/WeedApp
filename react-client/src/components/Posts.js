@@ -193,7 +193,7 @@ const Posts = () => {
               </Flex>
               <Flex justifyContent="center" alignItems="center">
                 <Box width="100%">
-                  <Divider />
+                  <Divider style={{height: "6px"}} />
                 </Box>
               </Flex>
               {!loading ? (
@@ -217,7 +217,7 @@ const Posts = () => {
                           </Flex>
                           <Flex justifyContent="center" alignItems="center">
                             <Box width="100%">
-                              <Divider style={{ marginTop: "10px" }} />
+                              <Divider style={{ marginTop: "10px", height: "6px" }} />
                             </Box>
                           </Flex>
                         </Box>

@@ -93,7 +93,7 @@ const Nav = props => {
                   }}
                 >
                   <img
-                    src={require("./images/badgeVersionGreen.png")}
+                    src={require("./images/badge.png")}
                     alt="logo"
                     style={{
                       width: "55px",
