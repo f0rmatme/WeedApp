@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { css } from "emotion";
 import Box from "./ui/Box";
 import Flex from "./ui/Flex";
-import colours from "./ui/colours";
 import { withRouter } from "react-router-dom";
 import { Divider, Icon } from "antd";
 import DEFAULT_PROFILE from "../components/images/toketalk_3d_badge.PNG";
@@ -27,13 +26,13 @@ const ProfileCard = props => {
     >
       <Flex px="15px" pb="5px" pt="10px" pr="5px">
         <Icon type="profile" style={{ paddingTop: "4px" }} />
-        <Box pl="10px" pb="5px" pr="5px" fontWeight="bold">
+        <Box pl="5px" pt="1px" pb="5px" pr="5px" fontWeight="bold">
           Profile
         </Box>
       </Flex>
       <Flex justifyContent="center" alignItems="center">
-        <Box width="90%">
-          <Divider style={{ margin: "12px", marginTop: "5px" }} />
+        <Box width="100%">
+          <Divider style={{marginTop: "5px" }} />
         </Box>
       </Flex>
       <Flex mb="20px">

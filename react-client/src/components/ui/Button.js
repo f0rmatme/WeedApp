@@ -50,7 +50,7 @@ export const ButtonNav = styled("button")(
     ":hover": css({
       cursor: "pointer",
       backgroundColor: colours.navSel,
-      transition: "background .5s"
+      transition: "background .3s"
     })
   })
 );

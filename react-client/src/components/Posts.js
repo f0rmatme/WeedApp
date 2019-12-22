@@ -216,8 +216,8 @@ const Posts = props => {
                             />
                           </Flex>
                           <Flex justifyContent="center" alignItems="center">
-                            <Box width="90%">
-                              <Divider style={{ margin: "10px" }} />
+                            <Box width="100%">
+                              <Divider style={{ marginTop: "10px" }} />
                             </Box>
                           </Flex>
                         </Box>
