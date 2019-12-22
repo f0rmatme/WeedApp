@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 const path = require("path");
 var lodash = require("lodash");
 const session = require("express-session");
+require('dotenv').config();
 
 const db = require("./models");
 const exjwt = require("express-jwt");
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 const jwtMW = exjwt({
-  secret: "XxSmonkWeedErrday420xX"
+  secret: process.env.JWT_SECRET
 });
 
 const apiPost = require("./routes/api/post");

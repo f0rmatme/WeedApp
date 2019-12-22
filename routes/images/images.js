@@ -1,6 +1,6 @@
 module.exports = (app) => {
     var aws = require('aws-sdk'); 
-    require('dotenv').config(); // Configure dotenv to load in the .env file
+    //require('dotenv').config(); // Configure dotenv to load in the .env file
     // Configure aws with your accessKeyId and your secretAccessKey
     aws.config.update({
         region: 'ca-central-1', // Put your aws region here

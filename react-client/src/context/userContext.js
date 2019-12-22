@@ -15,11 +15,23 @@ const UserProvider = props => {
 
   const reloadUserInfo = user => {
     axios
-      .get(`/api/user/${user.id}`, {
-        headers: { Authorization: `Bearer ${token}` }
+      .post("/verify", {
+        token: token
       })
       .then(res => {
-        setUser(res.data);
+        if (!res.data.error) {
+          axios
+            .get(`/api/user/${user.id}`, {
+              headers: { Authorization: `Bearer ${token}` }
+            })
+            .then(res => {
+              setUser(res.data);
+            });
+        } else {
+          localStorage.clear();
+          setToken("");
+          setUser({});
+        }
       });
   };
 

@@ -17,8 +17,8 @@ module.exports = (app, db, jwtMW) => {
           if (result === true) {
             let token = jwt.sign(
               { username: user.username },
-              "XxSmonkWeedErrday420xX",
-              { expiresIn: 129600 }
+              process.env.JWT_SECRET,
+              { expiresIn: 18000 }
             ); // Signing the token
             delete user.dataValues["password"];
             res.json({
@@ -59,6 +59,18 @@ module.exports = (app, db, jwtMW) => {
             res.json({ error: "Username taken" });
           }
         });
+    });
+  });
+
+  app.post("/verify", (req, res) => {
+    jwt.verify(req.body.token, process.env.JWT_SECRET, (err, decoded) => {
+      if(err) {
+        res.json({
+          error: "Token Expired"
+        });
+      } else {
+        res.json(decoded);
+      }
     });
   });
 
