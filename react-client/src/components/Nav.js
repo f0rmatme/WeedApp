@@ -106,7 +106,7 @@ const Nav = props => {
                   <FollowSearch />
                 </Box>
               </Flex>
-              <Flex width="350px" position="relative">
+              <Flex width="400px" position="relative">
                 <Box position="absolute" mt="10px">
                   <ButtonNav
                     height="70%"
@@ -123,7 +123,7 @@ const Nav = props => {
                       props.posts();
                     }}
                   >
-                    Posts
+                    <Flex pt="3px"><Icon type="container" /><Box pl="5px" mt="-3px">Posts</Box></Flex>
                   </ButtonNav>
                   <ButtonNav
                     height="70%"
@@ -140,7 +140,7 @@ const Nav = props => {
                       props.weed();
                     }}
                   >
-                    Strains
+                    <Flex pt="3px"><Icon type="funnel-plot" /><Box pl="5px" mt="-3px">Strains</Box></Flex>
                   </ButtonNav>
                   <ButtonNav
                     height="70%"
@@ -158,7 +158,7 @@ const Nav = props => {
                       props.history.push(`/profile/${userCtx.user.username}`);
                     }}
                   >
-                    Profile
+                    <Flex pt="3px"><Icon type="user"/><Box pl="5px" mt="-3px">Profile</Box></Flex>
                   </ButtonNav>
                   <ButtonNav
                     height="70%"
@@ -167,15 +167,11 @@ const Nav = props => {
                     fontSize="16px"
                     onClick={handleLogout}
                   >
-                    <Flex>
-                      <Box> Logout </Box>
+                    <Flex pt="3px">
                       <Icon
                         type="logout"
-                        style={{
-                          paddingTop: "4px",
-                          paddingLeft: "5px"
-                        }}
                       />
+                      <Box pl="5px" mt="-3px"> Logout </Box>
                     </Flex>
                   </ButtonNav>
                 </Box>

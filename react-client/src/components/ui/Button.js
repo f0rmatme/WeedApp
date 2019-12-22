@@ -49,24 +49,24 @@ export const ButtonNav = styled("button")(
   css({
     ":hover": css({
       cursor: "pointer",
-      backgroundColor: colours.navSel
+      backgroundColor: colours.navSel,
+      transition: "background .5s"
     })
   })
 );
 
 export const ButtonPost = styled(animated.button)(
   {
-    position: "fixed",
     outline: "none",
-    bottom: "0",
-    right: "0",
-    margin: "25px",
-    padding: "10px 15px 10px 15px",
+    padding: "10px",
+    marginRight: "15px",
+    marginTop: "20px",
     backgroundColor: colours.btnPrimary,
     color: "white",
     border: "none",
     borderRadius: "3px",
-    letterSpacing: ".04em"
+    letterSpacing: ".02em",
+    fontSize: "14px"
   },
   typography,
   space,

@@ -166,11 +166,33 @@ const Posts = props => {
               borderRadius="7px"
               ml={matches ? "19%" : "5%"}
             >
-              <Box fontWeight="bold" fontSize="16px" p="5%" pt="20px" pb="0px">
-                Newest Posts
-              </Box>
+              <Flex justifyContent="space-between" width="100%">
+                <Box fontWeight="bold" fontSize="20px" mt="30px" ml="15px"> 
+                  Newest Posts
+                </Box>
+                <Box alignSelf="flex-end">
+                  <ButtonPost
+                    onMouseMove={() => set({ xys: [0, 0, 1.05] })}
+                    onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                    style={{ transform: xysprops.xys.interpolate(trans) }}
+                    onClick={() => setVisible(true)}
+                  >
+                    <Flex>
+                      <Icon
+                        type="form"
+                        style={
+                          matches
+                            ? { paddingTop: "2px", paddingRight: "5px" }
+                            : { paddingTop: "0px" }
+                        }
+                      />
+                      {matches && <Box>New Post</Box>}
+                    </Flex>
+                  </ButtonPost>
+                </Box>
+              </Flex>
               <Flex justifyContent="center" alignItems="center">
-                <Box width="90%">
+                <Box width="100%">
                   <Divider />
                 </Box>
               </Flex>
@@ -221,24 +243,6 @@ const Posts = props => {
                   <Spin indicator={antIcon} size="large" />
                 </Flex>
               )}
-              <ButtonPost
-                onMouseMove={() => set({ xys: [0, 0, 1.1] })}
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                style={{ transform: xysprops.xys.interpolate(trans) }}
-                onClick={() => setVisible(true)}
-              >
-                <Flex>
-                  <Icon
-                    type="form"
-                    style={
-                      matches
-                        ? { paddingTop: "4px", paddingRight: "5px" }
-                        : { paddingTop: "0px" }
-                    }
-                  />
-                  {matches && <Box>New Post</Box>}
-                </Flex>
-              </ButtonPost>
               <Modal
                 title="New Post"
                 visible={visible}

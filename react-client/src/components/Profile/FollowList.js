@@ -103,7 +103,7 @@ const FollowList = props => {
                               ? user.follower.profilepic
                               : DEFAULT_PROFILE
                           }
-                          style={{ height: "25px", width: "25px" }}
+                          style={{ height: "25px", width: "25px", borderRadius: "50%" }}
                         />
                       </Box>
                       <Box pt="2px" px="5px">
@@ -176,7 +176,7 @@ const FollowList = props => {
                               ? user.following.profilepic
                               : DEFAULT_PROFILE
                           }
-                          style={{ height: "25px", width: "25px" }}
+                          style={{ height: "25px", width: "25px", borderRadius: "50%" }}
                         />
                       </Box>
                       <Box pt="2px" px="5px">

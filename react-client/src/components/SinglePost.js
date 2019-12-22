@@ -141,7 +141,7 @@ const SinglePost = props => {
               className={css`
                 &:hover {
                   cursor: pointer;
-                  -webkit-filter: brightness(85%);
+                  -webkit-filter: brightness(75%);
                   -webkit-transition: all 0.3s ease;
                   -moz-transition: all 0.3s ease;
                   -o-transition: all 0.3s ease;
