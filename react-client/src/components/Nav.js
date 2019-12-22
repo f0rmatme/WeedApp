@@ -77,9 +77,8 @@ const Nav = props => {
               height="65px"
               bg={colours.nav}
               flexDirection="row"
-              //boxShadow={`5px 0px 16px ${colours.nav}`}
             >
-              <Flex ml="18%" width="47%">
+              <Flex ml="17%" width="47%">
                 <ButtonNav
                   pr="20px"
                   border="none"
@@ -94,7 +93,7 @@ const Nav = props => {
                   }}
                 >
                   <img
-                    src={require("./images/badge.png")}
+                    src={require("./images/badgeVersionGreen.png")}
                     alt="logo"
                     style={{
                       width: "55px",
@@ -196,14 +195,14 @@ const Nav = props => {
                 }}
               >
                 <img
-                  src={require("./images/badge.png")}
+                  src={require("./images/badgeVersionGreen.png")}
                   alt="logo"
                   style={{
                     height: "50px"
                   }}
                 />
               </Box>
-              <Box ml="auto">
+              <Box ml="auto" pt="10px">
                 <FollowSearch />
               </Box>
               <Box ml="auto" pt="11px" pr="15px">

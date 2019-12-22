@@ -96,7 +96,7 @@ export const validateEmail = input => {
 export const validateFile = input => {
   let valid = false;
   validFiles.forEach(str => {
-    if(input == str){
+    if(input === str){
       valid = true;
     }
   });

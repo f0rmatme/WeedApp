@@ -218,7 +218,7 @@ const Profile = props => {
                       </Box>
                     </Flex>
                     <Flex justifyContent="center" alignItems="center">
-                      <Box width="90%">
+                      <Box width="100%">
                         <Divider style={{ marginTop: "20px" }} />
                       </Box>
                     </Flex>
