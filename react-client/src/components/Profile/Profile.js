@@ -6,7 +6,7 @@ import Media from "react-media";
 import { Spin, Icon, Divider, Button } from "antd";
 import { UserContext } from "../../context/userContext";
 import { FriendContext } from "../../context/friendContext";
-import DEFAULT_PROFILE from "../images/badge.png";
+import DEFAULT_PROFILE from "../images/badgeVersionGreen.png";
 import EditProfile from "./EditProfileModal";
 import UserPosts from "./UserPosts";
 import FollowList from "./FollowList";

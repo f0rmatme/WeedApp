@@ -1,9 +1,9 @@
 const colours = {
-  background: "#F2EEEB",
+  background: "#e6e8e6",
   backgroundDark: "#384A42",
-  nav: "#7C6963",
-  navSel: "#96837D",
-  btnPrimary: "#7c6963",
+  nav: "#6A7062",
+  navSel: "#797e72",
+  btnPrimary: "#6A7062",
   error: "#f44336",
   warning: "#d88a1e",
   success: "#5a9a56",

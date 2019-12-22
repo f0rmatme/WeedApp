@@ -4,7 +4,7 @@ import Box from "../ui/Box";
 import Flex from "../ui/Flex";
 import { Tabs } from "antd";
 import { FriendContext } from "../../context/friendContext";
-import DEFAULT_PROFILE from "../images/badge.png";
+import DEFAULT_PROFILE from "../images/badgeVersionGreen.png";
 import { UserContext } from "../../context/userContext";
 
 const { TabPane } = Tabs;

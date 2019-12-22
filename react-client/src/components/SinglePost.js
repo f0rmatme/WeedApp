@@ -13,7 +13,7 @@ import { css } from "emotion";
 import INDICA from "../components/images/noword_indica_transback.png";
 import HYBRID from "../components/images/noword_hybrid_transback.png";
 import SATIVA from "../components/images/noword_sativa_transback.png";
-import DEFAULT_PROFILE from "../components/images/badge.png";
+import DEFAULT_PROFILE from "../components/images/badgeVersionGreen.png";
 import { validateInput } from "../helpers/validation.js";
 
 const SinglePost = props => {
@@ -206,15 +206,15 @@ const SinglePost = props => {
               </Box>
               <Flex flexWrap="wrap" mb="20px">
                 <Icon type="tags" style={{ padding: "4px" }} />
-                {post.tags !== "" ? (
-                  processTags(post.tags).map((tag, key) => {
-                    return <Tag key={key}>{tag}</Tag>;
-                  })
-                ) : (
-                  <Box fontSize="11px" pt="3px">
-                    No Tags!
-                  </Box>
-                )}
+                  {post.tags !== "" ? (
+                    processTags(post.tags).map((tag, key) => {
+                      return <Tag key={key} style={{marginBottom: "5px"}}>{tag}</Tag>;
+                    })
+                  ) : (
+                    <Box fontSize="11px" pt="3px">
+                      No Tags!
+                    </Box>
+                  )}
               </Flex>
               <Box mb="20px" className="wrap">
                 {post.content}

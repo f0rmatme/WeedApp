@@ -19,7 +19,7 @@ const antIcon = <Icon type="loading" style={{ fontSize: 70 }} spin />;
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-const Posts = props => {
+const Posts = () => {
   const [{ posts, loading }, setPosts] = useState({
     posts: [],
     loading: true
